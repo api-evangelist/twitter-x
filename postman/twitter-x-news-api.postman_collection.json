@@ -1,0 +1,423 @@
+{
+  "info": {
+    "_postman_id": "576bba1f-c468-44e3-924d-ae94182bf02a",
+    "name": "X API v2 Account Activity News API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:33.000Z",
+    "updatedAt": "2026-07-28T03:21:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-576bba1f-c468-44e3-924d-ae94182bf02a"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "news",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search News",
+                  "id": "9c757065-a8f5-4166-a50e-5d1a41796718",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/news/search?query=<string>&max_results=10&max_age_hours=168&news.fields=summary",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "news",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to return.",
+                          "key": "max_results",
+                          "value": "10"
+                        },
+                        {
+                          "description": "The maximum age of the News story to search for.",
+                          "key": "max_age_hours",
+                          "value": "168"
+                        },
+                        {
+                          "description": "A comma separated list of News fields to display.",
+                          "key": "news.fields",
+                          "value": "summary"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a list of News stories matching the specified search query."
+                  },
+                  "response": [
+                    {
+                      "id": "1ffeb201-331d-4897-8694-97f1fe8c56eb",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/news/search?query=<string>&max_results=10&max_age_hours=168&news.fields=summary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "news",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The maximum age of the News story to search for.",
+                              "key": "max_age_hours",
+                              "value": "168"
+                            },
+                            {
+                              "description": "A comma separated list of News fields to display.",
+                              "key": "news.fields",
+                              "value": "summary"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"rest_id\": \"21725906859\",\n      \"category\": \"<string>\",\n      \"cluster_posts_results\": [\n        {\n          \"post_id\": \"752019521\"\n        },\n        {\n          \"post_id\": \"937\"\n        }\n      ],\n      \"contexts\": {\n        \"entities\": {\n          \"events\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"people\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"places\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"products\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"finance\": {\n          \"tickers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"sports\": {\n          \"teams\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"topics\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"disclaimer\": \"<string>\",\n      \"hook\": \"<string>\",\n      \"keywords\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"last_updated_at_ms\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"summary\": \"<string>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"result_count\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:33.000Z",
+                      "updatedAt": "2026-07-28T03:21:33.000Z",
+                      "uid": "35240-1ffeb201-331d-4897-8694-97f1fe8c56eb"
+                    },
+                    {
+                      "id": "cb8c458a-603d-4592-8b99-a0a4ef99ce00",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/news/search?query=<string>&max_results=10&max_age_hours=168&news.fields=summary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "news",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The maximum age of the News story to search for.",
+                              "key": "max_age_hours",
+                              "value": "168"
+                            },
+                            {
+                              "description": "A comma separated list of News fields to display.",
+                              "key": "news.fields",
+                              "value": "summary"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:33.000Z",
+                      "updatedAt": "2026-07-28T03:21:33.000Z",
+                      "uid": "35240-cb8c458a-603d-4592-8b99-a0a4ef99ce00"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:33.000Z",
+                  "updatedAt": "2026-07-28T03:21:33.000Z",
+                  "uid": "35240-9c757065-a8f5-4166-a50e-5d1a41796718"
+                }
+              ],
+              "id": "f7d777d4-ebe8-47c1-94c6-7b075ba38041",
+              "createdAt": "2026-07-28T03:21:33.000Z",
+              "updatedAt": "2026-07-28T03:21:33.000Z",
+              "uid": "35240-f7d777d4-ebe8-47c1-94c6-7b075ba38041"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get news stories by ID",
+                  "id": "96fd9539-1af5-4b1c-8e66-3c3fd5549351",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/news/:id?news.fields=summary",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "news",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "A comma separated list of News fields to display.",
+                          "key": "news.fields",
+                          "value": "summary"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0cfd237e-48a3-46c6-9b2f-8bc8b57785d0",
+                          "key": "id",
+                          "value": "8104",
+                          "description": "(Required) The ID of the news story."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves news story by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "ab82fcd6-e8f6-4b9c-8804-faa36d0aabb5",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/news/:id?news.fields=summary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "news",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of News fields to display.",
+                              "key": "news.fields",
+                              "value": "summary"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"rest_id\": \"94449\",\n    \"category\": \"<string>\",\n    \"cluster_posts_results\": [\n      {\n        \"post_id\": \"734950\"\n      },\n      {\n        \"post_id\": \"037286308371\"\n      }\n    ],\n    \"contexts\": {\n      \"entities\": {\n        \"events\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"organizations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"people\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"places\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"products\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"finance\": {\n        \"tickers\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"sports\": {\n        \"teams\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"topics\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"disclaimer\": \"<string>\",\n    \"hook\": \"<string>\",\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"last_updated_at_ms\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"summary\": \"<string>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:33.000Z",
+                      "updatedAt": "2026-07-28T03:21:33.000Z",
+                      "uid": "35240-ab82fcd6-e8f6-4b9c-8804-faa36d0aabb5"
+                    },
+                    {
+                      "id": "7400d35e-8899-40ca-9b47-9bbe3b35611e",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/news/:id?news.fields=summary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "news",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of News fields to display.",
+                              "key": "news.fields",
+                              "value": "summary"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:33.000Z",
+                      "updatedAt": "2026-07-28T03:21:33.000Z",
+                      "uid": "35240-7400d35e-8899-40ca-9b47-9bbe3b35611e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:33.000Z",
+                  "updatedAt": "2026-07-28T03:21:33.000Z",
+                  "uid": "35240-96fd9539-1af5-4b1c-8e66-3c3fd5549351"
+                }
+              ],
+              "id": "41492ab5-3fd3-44b0-a5f0-81b615db5ad4",
+              "createdAt": "2026-07-28T03:21:33.000Z",
+              "updatedAt": "2026-07-28T03:21:33.000Z",
+              "uid": "35240-41492ab5-3fd3-44b0-a5f0-81b615db5ad4"
+            }
+          ],
+          "id": "fff7719a-8044-47ba-9c5b-6cf4aa1e6115",
+          "createdAt": "2026-07-28T03:21:33.000Z",
+          "updatedAt": "2026-07-28T03:21:33.000Z",
+          "uid": "35240-fff7719a-8044-47ba-9c5b-6cf4aa1e6115"
+        }
+      ],
+      "id": "8e46f736-bcb2-41e4-ac70-da1e2fcff816",
+      "createdAt": "2026-07-28T03:21:33.000Z",
+      "updatedAt": "2026-07-28T03:21:33.000Z",
+      "uid": "35240-8e46f736-bcb2-41e4-ac70-da1e2fcff816"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

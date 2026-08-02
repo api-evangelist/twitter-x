@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/xdevplatform/playground
+docs: https://docs.x.com/changelog (entry 2025-12-23)
+description: >-
+  X does not operate a hosted sandbox or publish magic test credentials.
+  Its published test surface is the X API Playground — a first-party,
+  self-hosted local server that emulates X API v2 endpoints so developers can
+  build and test without spending real API credits or hitting production rate
+  limits. Captured as published; no test values are invented.
+kind: local-mock-server
+sandbox:
+  name: X API Playground
+  install: go install github.com/xdevplatform/playground/cmd/playground@latest
+  source_code: https://github.com/xdevplatform/playground
+  features:
+    - Emulates X API v2 endpoints locally (no real API calls, no credits consumed)
+    - Realistic mock data with state persistence
+    - OpenAPI validation of requests/responses
+    - Rate-limit simulation (test 429 handling without tripping production limits)
+    - Web UI for inspecting state
+test_vs_live:
+  separation: >-
+    No test-mode API keys or test-key prefixes exist; production credentials
+    from the Developer Console (console.x.com) are the only hosted
+    credentials. Local Playground vs production api.x.com is the test/live
+    boundary.
+free_evaluation:
+  - Recently active Legacy Free tier users received a one-time $10 Pay-Per-Use voucher (2026-02-06 launch).
+  - Public Utility Apps receive free scaled access.

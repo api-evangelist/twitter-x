@@ -1,0 +1,624 @@
+{
+  "info": {
+    "_postman_id": "0559aacf-7404-4d54-9b82-90c1efda7675",
+    "name": "X API v2 Account Activity Likes API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:27.000Z",
+    "updatedAt": "2026-07-28T03:21:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0559aacf-7404-4d54-9b82-90c1efda7675"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "likes",
+          "item": [
+            {
+              "name": "firehose",
+              "item": [
+                {
+                  "name": "stream",
+                  "item": [
+                    {
+                      "name": "Stream all Likes",
+                      "id": "91002cd4-ec6a-4e92-b880-3287449b2d9b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/likes/firehose/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "likes",
+                            "firehose",
+                            "stream"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of minutes of backfill requested.",
+                              "key": "backfill_minutes",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The partition number.",
+                              "key": "partition",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                              "key": "like_with_tweet_author.fields",
+                              "value": "created_at"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "attachments.media_keys"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "duration_ms"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "public_metrics"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "edit_controls"
+                            }
+                          ]
+                        },
+                        "description": "Streams all public Likes in real-time."
+                      },
+                      "response": [
+                        {
+                          "id": "f0b6fd20-9dcd-4771-b451-67a7aecf1e75",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/likes/firehose/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "likes",
+                                "firehose",
+                                "stream"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of minutes of backfill requested.",
+                                  "key": "backfill_minutes",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The partition number.",
+                                  "key": "partition",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                                  "key": "like_with_tweet_author.fields",
+                                  "value": "created_at"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "attachments.media_keys"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "public_metrics"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "edit_controls"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"id\": \"KPwxI_G9ctt7J\",\n    \"liked_tweet_id\": \"63\",\n    \"timestamp_ms\": \"<integer>\",\n    \"tweet_author_id\": \"5714714699\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"933764_54\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"AI\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"unknown\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"4322982\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"070532153_15735\"\n          ],\n          \"media_source_tweet_id\": [\n            \"53\"\n          ],\n          \"poll_ids\": [\n            \"0\"\n          ]\n        },\n        \"author_id\": \"764762576294745\",\n        \"community_id\": \"0958\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"655\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"818975\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"5355\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"5480186490\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"EmnOrgsbSZo\",\n              \"id\": \"503640691551224221\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"1127483_6777905393\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"971706244021972117\",\n        \"in_reply_to_user_id\": \"8\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"33\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"22662_777\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"K\",\n                \"id\": \"68\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"0_4537085634\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"37326376547728507\"\n          }\n        ],\n        \"reply_settings\": \"subscribers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"05_7\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"1_13266763610\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"gbM\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"VT\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"1413062295\",\n        \"name\": \"<string>\",\n        \"username\": \"oz\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"7034077\"\n          ]\n        },\n        \"connection_status\": [\n          \"muting\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"k6x1dDUjYqv\",\n                \"id\": \"1206853245\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"93_417949301\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"69217_379\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"371\",\n        \"pinned_tweet_id\": \"38\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Basic\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"business\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"FN\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:28.000Z",
+                          "updatedAt": "2026-07-28T03:21:28.000Z",
+                          "uid": "35240-f0b6fd20-9dcd-4771-b451-67a7aecf1e75"
+                        },
+                        {
+                          "id": "bfa912fd-75b2-4737-bd82-f2f0c024fd3d",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/likes/firehose/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "likes",
+                                "firehose",
+                                "stream"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of minutes of backfill requested.",
+                                  "key": "backfill_minutes",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The partition number.",
+                                  "key": "partition",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                                  "key": "like_with_tweet_author.fields",
+                                  "value": "created_at"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "attachments.media_keys"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "public_metrics"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "edit_controls"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:28.000Z",
+                          "updatedAt": "2026-07-28T03:21:28.000Z",
+                          "uid": "35240-bfa912fd-75b2-4737-bd82-f2f0c024fd3d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:28.000Z",
+                      "updatedAt": "2026-07-28T03:21:28.000Z",
+                      "uid": "35240-91002cd4-ec6a-4e92-b880-3287449b2d9b"
+                    }
+                  ],
+                  "id": "aebad5ec-ccd3-40d4-bfec-1a1d999e4fe0",
+                  "createdAt": "2026-07-28T03:21:28.000Z",
+                  "updatedAt": "2026-07-28T03:21:28.000Z",
+                  "uid": "35240-aebad5ec-ccd3-40d4-bfec-1a1d999e4fe0"
+                }
+              ],
+              "id": "2e272072-a0c8-4b06-b73e-c6742f27b0e4",
+              "createdAt": "2026-07-28T03:21:28.000Z",
+              "updatedAt": "2026-07-28T03:21:28.000Z",
+              "uid": "35240-2e272072-a0c8-4b06-b73e-c6742f27b0e4"
+            },
+            {
+              "name": "sample10",
+              "item": [
+                {
+                  "name": "stream",
+                  "item": [
+                    {
+                      "name": "Stream sampled Likes",
+                      "id": "a3101c61-324e-48ab-a4de-a239a67367a6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/likes/sample10/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "likes",
+                            "sample10",
+                            "stream"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of minutes of backfill requested.",
+                              "key": "backfill_minutes",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The partition number.",
+                              "key": "partition",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                              "key": "like_with_tweet_author.fields",
+                              "value": "created_at"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "attachments.media_keys"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "duration_ms"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "public_metrics"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "edit_controls"
+                            }
+                          ]
+                        },
+                        "description": "Streams a 10% sample of public Likes in real-time."
+                      },
+                      "response": [
+                        {
+                          "id": "bba79ed4-a421-4bdb-bf41-4791b01de9b1",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/likes/sample10/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "likes",
+                                "sample10",
+                                "stream"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of minutes of backfill requested.",
+                                  "key": "backfill_minutes",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The partition number.",
+                                  "key": "partition",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                                  "key": "like_with_tweet_author.fields",
+                                  "value": "created_at"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "attachments.media_keys"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "public_metrics"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "edit_controls"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"id\": \"KPwxI_G9ctt7J\",\n    \"liked_tweet_id\": \"63\",\n    \"timestamp_ms\": \"<integer>\",\n    \"tweet_author_id\": \"5714714699\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"933764_54\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"AI\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"unknown\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"4322982\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"070532153_15735\"\n          ],\n          \"media_source_tweet_id\": [\n            \"53\"\n          ],\n          \"poll_ids\": [\n            \"0\"\n          ]\n        },\n        \"author_id\": \"764762576294745\",\n        \"community_id\": \"0958\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"655\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"818975\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"5355\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"5480186490\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"EmnOrgsbSZo\",\n              \"id\": \"503640691551224221\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"1127483_6777905393\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"971706244021972117\",\n        \"in_reply_to_user_id\": \"8\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"33\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"22662_777\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"K\",\n                \"id\": \"68\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"0_4537085634\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"37326376547728507\"\n          }\n        ],\n        \"reply_settings\": \"subscribers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"05_7\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"1_13266763610\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"gbM\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"VT\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"1413062295\",\n        \"name\": \"<string>\",\n        \"username\": \"oz\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"7034077\"\n          ]\n        },\n        \"connection_status\": [\n          \"muting\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"k6x1dDUjYqv\",\n                \"id\": \"1206853245\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"93_417949301\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"69217_379\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"371\",\n        \"pinned_tweet_id\": \"38\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Basic\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"business\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"FN\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:28.000Z",
+                          "updatedAt": "2026-07-28T03:21:28.000Z",
+                          "uid": "35240-bba79ed4-a421-4bdb-bf41-4791b01de9b1"
+                        },
+                        {
+                          "id": "268676c7-e053-4712-a888-e71026e30359",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/likes/sample10/stream?backfill_minutes=<integer>&partition=<integer>&start_time=<dateTime>&end_time=<dateTime>&like_with_tweet_author.fields=created_at&expansions=attachments.media_keys&media.fields=duration_ms&user.fields=public_metrics&tweet.fields=edit_controls",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "likes",
+                                "sample10",
+                                "stream"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of minutes of backfill requested.",
+                                  "key": "backfill_minutes",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The partition number.",
+                                  "key": "partition",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "A comma separated list of LikeWithTweetAuthor fields to display.",
+                                  "key": "like_with_tweet_author.fields",
+                                  "value": "created_at"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "attachments.media_keys"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "public_metrics"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "edit_controls"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:28.000Z",
+                          "updatedAt": "2026-07-28T03:21:28.000Z",
+                          "uid": "35240-268676c7-e053-4712-a888-e71026e30359"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:28.000Z",
+                      "updatedAt": "2026-07-28T03:21:28.000Z",
+                      "uid": "35240-a3101c61-324e-48ab-a4de-a239a67367a6"
+                    }
+                  ],
+                  "id": "81855c11-012c-4e20-bbd0-de0861e16acb",
+                  "createdAt": "2026-07-28T03:21:28.000Z",
+                  "updatedAt": "2026-07-28T03:21:28.000Z",
+                  "uid": "35240-81855c11-012c-4e20-bbd0-de0861e16acb"
+                }
+              ],
+              "id": "dfb2d96c-2140-4d19-b98a-8ec6ce1ad11c",
+              "createdAt": "2026-07-28T03:21:28.000Z",
+              "updatedAt": "2026-07-28T03:21:28.000Z",
+              "uid": "35240-dfb2d96c-2140-4d19-b98a-8ec6ce1ad11c"
+            }
+          ],
+          "id": "b87a2c59-f7f7-4ea8-8c4e-1acef3e2357f",
+          "createdAt": "2026-07-28T03:21:28.000Z",
+          "updatedAt": "2026-07-28T03:21:28.000Z",
+          "uid": "35240-b87a2c59-f7f7-4ea8-8c4e-1acef3e2357f"
+        }
+      ],
+      "id": "f34b7c2a-31a4-4cbc-a73a-365f11c68f70",
+      "createdAt": "2026-07-28T03:21:28.000Z",
+      "updatedAt": "2026-07-28T03:21:28.000Z",
+      "uid": "35240-f34b7c2a-31a4-4cbc-a73a-365f11c68f70"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

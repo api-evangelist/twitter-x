@@ -1,0 +1,113 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/changelog.md
+rss: https://docs.x.com/changelog/rss.xml
+description: >-
+  Dated changelog for the X API v2, Enterprise APIs, Ads API, SDKs, streaming,
+  webhooks, and the developer platform. The live changelog at docs.x.com is
+  the source of truth; this captures the recent window (Aug 2025 - Jun 2026).
+  Follow @API on X or the RSS feed for updates.
+scheme: dated entries (no version numbers); OpenAPI spec carries its own version (2.166 as of capture)
+current_api_version: v2 (OpenAPI info.version 2.166)
+entries:
+  - date: '2026-06-11'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Articles draft and publish endpoints added (articleCreateDraft, articlePublish).
+  - date: '2026-06-04'
+    area: X API v2
+    breaking: false
+    highlights:
+      - post.create and post.delete events added to the X Activity API (subscribe by User ID).
+  - date: '2026-06-03'
+    area: X API v2
+    breaking: false
+    highlights:
+      - paid_partnership field on Posts (set on POST /2/tweets; read via tweet.fields=paid_partnership).
+  - date: '2026-05-04'
+    area: X API v2
+    breaking: true
+    highlights:
+      - Search endpoints migrated to the new X core platform search index (better performance, fewer 503s).
+      - New precision operators min_likes / min_replies / min_reposts.
+      - Retweets no longer returned in keyword-based search results (Filtered Stream unchanged).
+  - date: '2026-04-16'
+    area: Pricing
+    breaking: true
+    highlights:
+      - Owned Reads pricing at $0.001 per resource for qualifying own-data endpoints.
+      - POST /2/tweets now $0.015 per post; Posts containing a URL $0.20.
+      - Following, Likes, and Quote-Posts removed from all self-serve tiers.
+  - date: '2026-03-20'
+    area: X API v2
+    breaking: true
+    highlights:
+      - Account Activity replay endpoint deprecated (effective 2026-03-25); use POST /2/webhooks/replay.
+  - date: '2026-03-18'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Optional direction filter (sent/received) for X Activity API subscriptions.
+  - date: '2026-03-13'
+    area: X API v2
+    breaking: true
+    highlights:
+      - X Activity API event types moving from PascalCase to dot-separated lowercase (effective 2026-03-18).
+  - date: '2026-02-23'
+    area: X API v2
+    breaking: true
+    highlights:
+      - Programmatic replies via POST /2/tweets restricted to "summoned" repliers on self-serve tiers (anti-LLM-spam).
+  - date: '2026-02-06'
+    area: Platform
+    breaking: false
+    highlights:
+      - X API Pay-Per-Use pricing launched; new Developer Console at console.x.com.
+      - XDK first-party Python and TypeScript SDKs; Playground; xmcp MCP server.
+      - Up to 20% back in xAI/Grok API credits on X API spend.
+  - date: '2026-01-15'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Full OAuth 2.0 support with fine-grained scopes added to Account Activity API v2.
+  - date: '2025-12-23'
+    area: Tooling
+    breaking: false
+    highlights:
+      - X API Playground introduced — local mock server for v2 endpoints with rate-limit simulation.
+  - date: '2025-11-19'
+    area: X API v2
+    breaking: false
+    highlights:
+      - News endpoints launched (GET /2/news/search, GET /2/news/{id}).
+  - date: '2025-11-03'
+    area: SDKs
+    breaking: false
+    highlights:
+      - Official Python and TypeScript XDKs launched (pip install xdk / npm install @xdevplatform/xdk).
+  - date: '2025-10-18'
+    area: X API v2
+    breaking: false
+    highlights:
+      - X Activity API open beta — real-time activity events with sub-second latency via stream or webhooks.
+  - date: '2025-10-03'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Post editing via the API (edit_options.previous_post_id; requires X Premium, own Post, <1 hour old).
+  - date: '2025-09-19'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Connections API for managing active streaming connections (GET/DELETE /2/connections...).
+  - date: '2025-09-09'
+    area: X API v2
+    breaking: false
+    highlights:
+      - Filtered Stream Webhooks API launched (Enterprise; async webhook delivery of matching Posts).
+  - date: '2025-08-22'
+    area: X API v2
+    breaking: true
+    highlights:
+      - POST likes and follows endpoints removed from the Free tier (paid tiers unaffected).

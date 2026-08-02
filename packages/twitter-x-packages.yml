@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/tools-and-libraries.md
+description: >-
+  First-party client libraries (XDKs) and developer tools published by X for
+  the X API v2, verified against npm and PyPI registry metadata on 2026-07-21.
+  Community libraries listed on the same docs page are excluded (official:
+  false entries are limited to first-party-adjacent tooling X maintains).
+packages:
+  - language: python
+    registry: pypi
+    name: xdk
+    url: https://pypi.org/project/xdk/
+    install: pip install xdk
+    version: 0.9.0
+    source_code: https://github.com/xdevplatform/xdk-python
+    official: true
+    notes: Official Python XDK — async support, type hints, automatic token refresh, pagination and streaming helpers.
+  - language: typescript
+    registry: npm
+    name: "@xdevplatform/xdk"
+    url: https://www.npmjs.com/package/@xdevplatform/xdk
+    install: npm install @xdevplatform/xdk
+    version: 0.5.0
+    source_code: https://github.com/xdevplatform/xdk-typescript
+    official: true
+    notes: Official TypeScript/JavaScript XDK — full type safety, ESM support, Node.js and modern bundlers.
+  - language: javascript
+    registry: npm
+    name: "@xdevplatform/xurl"
+    url: https://www.npmjs.com/package/@xdevplatform/xurl
+    install: npm install -g @xdevplatform/xurl
+    version: 1.3.0
+    source_code: https://github.com/xdevplatform/xurl
+    official: true
+    notes: curl-style CLI for the X API with built-in OAuth; also the `xurl mcp` bridge for the hosted MCP server. Also installable via Homebrew (brew install --cask xdevplatform/tap/xurl) and Go (go install github.com/xdevplatform/xurl@latest).
+  - language: go
+    registry: github
+    name: playground
+    url: https://github.com/xdevplatform/playground
+    install: go install github.com/xdevplatform/playground/cmd/playground@latest
+    source_code: https://github.com/xdevplatform/playground
+    official: true
+    notes: X API Playground — self-hosted local mock server emulating X API v2 endpoints (see sandbox/twitter-x-sandbox.yml).
+  - language: multiple
+    registry: github
+    name: twitter-text
+    url: https://github.com/twitter/twitter-text
+    source_code: https://github.com/twitter/twitter-text
+    official: true
+    notes: First-party library for parsing and validating post text and counting characters (Java/JS/Objective-C/Ruby implementations).

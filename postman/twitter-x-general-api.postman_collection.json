@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "6ba3f53f-dd9c-41e0-90a7-9a768f457c44",
+    "name": "X API v2 Account Activity General API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:26.000Z",
+    "updatedAt": "2026-07-28T03:21:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ba3f53f-dd9c-41e0-90a7-9a768f457c44"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "openapi.json",
+          "item": [
+            {
+              "name": "Get OpenAPI Spec.",
+              "id": "5562ed41-0236-4a2a-9b12-915c629ffe0f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2/openapi.json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "openapi.json"
+                  ]
+                },
+                "description": "Retrieves the full OpenAPI Specification in JSON format. (See https://github.com/OAI/OpenAPI-Specification/blob/master/README.md)"
+              },
+              "response": [
+                {
+                  "id": "92867cad-b22b-47f1-9e15-ed78ae3da6ab",
+                  "name": "The request was successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/openapi.json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "openapi.json"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-92867cad-b22b-47f1-9e15-ed78ae3da6ab"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:26.000Z",
+              "updatedAt": "2026-07-28T03:21:26.000Z",
+              "uid": "35240-5562ed41-0236-4a2a-9b12-915c629ffe0f"
+            }
+          ],
+          "id": "63f39e7d-e512-499f-abd4-8d0c5e61b2ab",
+          "createdAt": "2026-07-28T03:21:26.000Z",
+          "updatedAt": "2026-07-28T03:21:26.000Z",
+          "uid": "35240-63f39e7d-e512-499f-abd4-8d0c5e61b2ab"
+        }
+      ],
+      "id": "665f307a-45fc-4f8d-ba54-946c49f936a6",
+      "createdAt": "2026-07-28T03:21:26.000Z",
+      "updatedAt": "2026-07-28T03:21:26.000Z",
+      "uid": "35240-665f307a-45fc-4f8d-ba54-946c49f936a6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

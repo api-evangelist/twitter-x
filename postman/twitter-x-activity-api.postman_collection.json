@@ -1,0 +1,1085 @@
+{
+  "info": {
+    "_postman_id": "d078b571-5a23-4806-84c8-c770e1a13a6b",
+    "name": "X API v2 Account Activity API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:12.000Z",
+    "updatedAt": "2026-07-28T03:21:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d078b571-5a23-4806-84c8-c770e1a13a6b"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "activity",
+          "item": [
+            {
+              "name": "stream",
+              "item": [
+                {
+                  "name": "Activity Stream",
+                  "id": "b1c7182b-8a56-402a-8417-fa6797fe4883",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/activity/stream?backfill_minutes=<integer>&start_time=<dateTime>&end_time=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "activity",
+                        "stream"
+                      ],
+                      "query": [
+                        {
+                          "description": "The number of minutes of backfill requested.",
+                          "key": "backfill_minutes",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post labels will be provided.",
+                          "key": "start_time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post labels will be provided.",
+                          "key": "end_time",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "description": "Stream of X Activities"
+                  },
+                  "response": [
+                    {
+                      "id": "b75e4873-9227-4ba4-8ba2-a648c96a3d34",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/stream?backfill_minutes=<integer>&start_time=<dateTime>&end_time=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "stream"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of minutes of backfill requested.",
+                              "key": "backfill_minutes",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post labels will be provided.",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post labels will be provided.",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"event_type\": \"<string>\",\n    \"event_uuid\": \"83154157321785286\",\n    \"filter\": {\n      \"direction\": \"inbound\",\n      \"keyword\": \"<string>\",\n      \"user_id\": \"0\"\n    },\n    \"includes\": {\n      \"media\": [\n        {\n          \"type\": \"<string>\",\n          \"height\": \"<integer>\",\n          \"media_key\": \"6_36455048825\",\n          \"width\": \"<integer>\"\n        }\n      ],\n      \"places\": [\n        {\n          \"id\": \"<string>\",\n          \"full_name\": \"<string>\",\n          \"contained_within\": [\n            \"<string>\"\n          ],\n          \"country\": \"<string>\",\n          \"country_code\": \"MI\",\n          \"geo\": {\n            \"type\": \"Feature\",\n            \"bbox\": [\n              \"<double>\",\n              \"<double>\",\n              \"<double>\",\n              \"<double>\"\n            ],\n            \"properties\": {},\n            \"geometry\": {\n              \"type\": \"Point\",\n              \"coordinates\": [\n                \"<number>\",\n                \"<number>\"\n              ]\n            }\n          },\n          \"name\": \"<string>\",\n          \"place_type\": \"country\"\n        }\n      ],\n      \"polls\": [\n        {\n          \"id\": \"569\",\n          \"options\": [\n            {\n              \"position\": \"<integer>\",\n              \"label\": \"<string>\",\n              \"votes\": \"<integer>\"\n            },\n            {\n              \"position\": \"<integer>\",\n              \"label\": \"<string>\",\n              \"votes\": \"<integer>\"\n            }\n          ],\n          \"duration_minutes\": \"<integer>\",\n          \"end_datetime\": \"<dateTime>\",\n          \"voting_status\": \"open\"\n        }\n      ],\n      \"topics\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"tweets\": [\n        {\n          \"attachments\": {\n            \"media_keys\": [\n              \"91518244633_6646236\"\n            ],\n            \"media_source_tweet_id\": [\n              \"656389\"\n            ],\n            \"poll_ids\": [\n              \"5421670751745932\"\n            ]\n          },\n          \"author_id\": \"5021280\",\n          \"community_id\": \"179344\",\n          \"context_annotations\": [\n            {\n              \"domain\": {\n                \"id\": \"08407520991\",\n                \"description\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              \"entity\": {\n                \"id\": \"59593209131\",\n                \"description\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            }\n          ],\n          \"conversation_id\": \"61921525800414195\",\n          \"created_at\": \"<dateTime>\",\n          \"display_text_range\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"edit_controls\": {\n            \"is_edit_eligible\": \"<boolean>\",\n            \"editable_until\": \"<dateTime>\",\n            \"edits_remaining\": \"<integer>\"\n          },\n          \"edit_history_tweet_ids\": [\n            \"4\"\n          ],\n          \"entities\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"b0KBlPp1\",\n                \"id\": \"74429817755869167\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"9307_4\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"geo\": {\n            \"coordinates\": {\n              \"type\": \"Point\",\n              \"coordinates\": [\n                \"<number>\",\n                \"<number>\"\n              ]\n            },\n            \"place_id\": \"<string>\"\n          },\n          \"id\": \"8530641464\",\n          \"in_reply_to_user_id\": \"873451488022175209\",\n          \"lang\": \"<string>\",\n          \"matched_media_notes\": {\n            \"match_status\": \"<string>\",\n            \"note_id\": \"416942412\"\n          },\n          \"non_public_metrics\": {\n            \"impression_count\": \"<integer>\"\n          },\n          \"note_request_suggestions\": {\n            \"source_link\": {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"61_951\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            },\n            \"suggestion\": \"<string>\",\n            \"suggestion_id\": \"<string>\"\n          },\n          \"note_tweet\": {\n            \"entities\": {\n              \"cashtags\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"tag\": \"<string>\"\n                }\n              ],\n              \"hashtags\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"tag\": \"<string>\"\n                }\n              ],\n              \"mentions\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"username\": \"tGdBcM\",\n                  \"id\": \"2443056552081\"\n                }\n              ],\n              \"urls\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"description\": \"<string>\",\n                  \"display_url\": \"<string>\",\n                  \"expanded_url\": \"<uri>\",\n                  \"images\": [\n                    {\n                      \"height\": \"<integer>\",\n                      \"url\": \"<uri>\",\n                      \"width\": \"<integer>\"\n                    }\n                  ],\n                  \"media_key\": \"15_1349\",\n                  \"status\": \"<integer>\",\n                  \"title\": \"<string>\",\n                  \"unwound_url\": \"<uri>\"\n                }\n              ]\n            },\n            \"text\": \"<string>\"\n          },\n          \"organic_metrics\": {\n            \"impression_count\": \"<integer>\",\n            \"retweet_count\": \"<integer>\",\n            \"reply_count\": \"<integer>\",\n            \"like_count\": \"<integer>\"\n          },\n          \"paid_partnership\": \"<boolean>\",\n          \"possibly_sensitive\": \"<boolean>\",\n          \"promoted_metrics\": {\n            \"impression_count\": \"<integer>\",\n            \"like_count\": \"<integer>\",\n            \"reply_count\": \"<integer>\",\n            \"retweet_count\": \"<integer>\"\n          },\n          \"public_metrics\": {\n            \"retweet_count\": \"<integer>\",\n            \"reply_count\": \"<integer>\",\n            \"like_count\": \"<integer>\",\n            \"impression_count\": \"<integer>\",\n            \"bookmark_count\": \"<integer>\",\n            \"quote_count\": \"<integer>\"\n          },\n          \"referenced_tweets\": [\n            {\n              \"type\": \"replied_to\",\n              \"id\": \"69\"\n            }\n          ],\n          \"reply_settings\": \"subscribers\",\n          \"scopes\": {\n            \"followers\": \"<boolean>\"\n          },\n          \"source\": \"<string>\",\n          \"suggested_source_links\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"01890784_4\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ],\n          \"suggested_source_links_with_counts\": {\n            \"count\": \"<integer>\",\n            \"url\": {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"102677_30600718422\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          },\n          \"text\": \"<string>\",\n          \"username\": \"r9iKah\",\n          \"withheld\": {\n            \"copyright\": \"<boolean>\",\n            \"country_codes\": [\n              \"EF\"\n            ],\n            \"scope\": \"tweet\"\n          }\n        }\n      ],\n      \"users\": [\n        {\n          \"id\": \"2\",\n          \"name\": \"<string>\",\n          \"username\": \"_Gffml9iQjrK\",\n          \"affiliation\": {\n            \"badge_url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"url\": \"<uri>\",\n            \"user_id\": [\n              \"8791943026748482\"\n            ]\n          },\n          \"connection_status\": [\n            \"muting\"\n          ],\n          \"created_at\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"entities\": {\n            \"description\": {\n              \"annotations\": [\n                {\n                  \"start\": \"<integer>\",\n                  \"end\": \"<integer>\",\n                  \"normalized_text\": \"<string>\",\n                  \"probability\": \"<double>\",\n                  \"type\": \"<string>\"\n                }\n              ],\n              \"cashtags\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"tag\": \"<string>\"\n                }\n              ],\n              \"hashtags\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"tag\": \"<string>\"\n                }\n              ],\n              \"mentions\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"username\": \"sh\",\n                  \"id\": \"8113688803114537\"\n                }\n              ],\n              \"urls\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"description\": \"<string>\",\n                  \"display_url\": \"<string>\",\n                  \"expanded_url\": \"<uri>\",\n                  \"images\": [\n                    {\n                      \"height\": \"<integer>\",\n                      \"url\": \"<uri>\",\n                      \"width\": \"<integer>\"\n                    }\n                  ],\n                  \"media_key\": \"168802649_927\",\n                  \"status\": \"<integer>\",\n                  \"title\": \"<string>\",\n                  \"unwound_url\": \"<uri>\"\n                }\n              ]\n            },\n            \"url\": {\n              \"urls\": [\n                {\n                  \"end\": \"<integer>\",\n                  \"start\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"description\": \"<string>\",\n                  \"display_url\": \"<string>\",\n                  \"expanded_url\": \"<uri>\",\n                  \"images\": [\n                    {\n                      \"height\": \"<integer>\",\n                      \"url\": \"<uri>\",\n                      \"width\": \"<integer>\"\n                    }\n                  ],\n                  \"media_key\": \"99164371256_23343\",\n                  \"status\": \"<integer>\",\n                  \"title\": \"<string>\",\n                  \"unwound_url\": \"<uri>\"\n                }\n              ]\n            }\n          },\n          \"location\": \"<string>\",\n          \"most_recent_tweet_id\": \"7561099471050406\",\n          \"pinned_tweet_id\": \"3\",\n          \"profile_banner_url\": \"<uri>\",\n          \"profile_image_url\": \"<uri>\",\n          \"protected\": \"<boolean>\",\n          \"public_metrics\": {\n            \"followers_count\": \"<integer>\",\n            \"following_count\": \"<integer>\",\n            \"tweet_count\": \"<integer>\",\n            \"listed_count\": \"<integer>\",\n            \"like_count\": \"<integer>\"\n          },\n          \"receives_your_dm\": \"<boolean>\",\n          \"subscription_type\": \"None\",\n          \"url\": \"<string>\",\n          \"verified\": \"<boolean>\",\n          \"verified_type\": \"government\",\n          \"withheld\": {\n            \"country_codes\": [\n              \"IA\"\n            ],\n            \"scope\": \"user\"\n          }\n        }\n      ]\n    },\n    \"payload\": {\n      \"after\": \"<string>\",\n      \"before\": \"<string>\"\n    },\n    \"tag\": \"<string>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-b75e4873-9227-4ba4-8ba2-a648c96a3d34"
+                    },
+                    {
+                      "id": "ab6e7fe2-353f-46c0-957b-122b77bb4265",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/stream?backfill_minutes=<integer>&start_time=<dateTime>&end_time=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "stream"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of minutes of backfill requested.",
+                              "key": "backfill_minutes",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post labels will be provided.",
+                              "key": "start_time",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post labels will be provided.",
+                              "key": "end_time",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-ab6e7fe2-353f-46c0-957b-122b77bb4265"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:12.000Z",
+                  "updatedAt": "2026-07-28T03:21:12.000Z",
+                  "uid": "35240-b1c7182b-8a56-402a-8417-fa6797fe4883"
+                }
+              ],
+              "id": "8817f1e0-265e-4ad5-8691-cb839807638b",
+              "createdAt": "2026-07-28T03:21:12.000Z",
+              "updatedAt": "2026-07-28T03:21:12.000Z",
+              "uid": "35240-8817f1e0-265e-4ad5-8691-cb839807638b"
+            },
+            {
+              "name": "subscriptions",
+              "item": [
+                {
+                  "name": "{subscription_id}",
+                  "item": [
+                    {
+                      "name": "Deletes X activity subscription",
+                      "id": "2322592f-d928-48ac-be30-0010b10b841d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions",
+                            ":subscription_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "de664dc8-6076-4f4a-8ba7-7b303941166e",
+                              "key": "subscription_id",
+                              "value": "229479375131992",
+                              "description": "(Required) The ID of the subscription to delete."
+                            }
+                          ]
+                        },
+                        "description": "Deletes a subscription for an X activity event"
+                      },
+                      "response": [
+                        {
+                          "id": "2a3845a3-c538-40c8-a706-1e35387c8494",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "activity",
+                                "subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"total_subscriptions\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:12.000Z",
+                          "updatedAt": "2026-07-28T03:21:12.000Z",
+                          "uid": "35240-2a3845a3-c538-40c8-a706-1e35387c8494"
+                        },
+                        {
+                          "id": "4ede0dd5-f4cf-44c6-9a90-4c2582063a21",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "activity",
+                                "subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:12.000Z",
+                          "updatedAt": "2026-07-28T03:21:12.000Z",
+                          "uid": "35240-4ede0dd5-f4cf-44c6-9a90-4c2582063a21"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-2322592f-d928-48ac-be30-0010b10b841d"
+                    },
+                    {
+                      "name": "Update X activity subscription",
+                      "id": "6ff4e175-8b0e-4bf0-80f1-7198349134c1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"95395114843188\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions",
+                            ":subscription_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3272978b-b24d-4c11-aef9-4f150b90b84c",
+                              "key": "subscription_id",
+                              "value": "229479375131992",
+                              "description": "(Required) The ID of the subscription to update."
+                            }
+                          ]
+                        },
+                        "description": "Updates a subscription for an X activity event"
+                      },
+                      "response": [
+                        {
+                          "id": "1b832dd7-6329-4904-bfd0-322d5ab8bb22",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"95395114843188\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "activity",
+                                "subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"subscription\": {\n      \"subscription_id\": \"344927725671935\",\n      \"event_type\": \"<string>\",\n      \"filter\": {\n        \"direction\": \"outbound\",\n        \"keyword\": \"<string>\",\n        \"user_id\": \"5459\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"tag\": \"<string>\",\n      \"webhook_id\": \"153666661539059911\"\n    },\n    \"total_subscriptions\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:12.000Z",
+                          "updatedAt": "2026-07-28T03:21:12.000Z",
+                          "uid": "35240-1b832dd7-6329-4904-bfd0-322d5ab8bb22"
+                        },
+                        {
+                          "id": "2b8041e7-34b9-40eb-8504-fdda64fe315b",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"95395114843188\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2/activity/subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "activity",
+                                "subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:12.000Z",
+                          "updatedAt": "2026-07-28T03:21:12.000Z",
+                          "uid": "35240-2b8041e7-34b9-40eb-8504-fdda64fe315b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-6ff4e175-8b0e-4bf0-80f1-7198349134c1"
+                    }
+                  ],
+                  "id": "e073ef96-cf0f-4640-8f5c-a9f1892c2c14",
+                  "createdAt": "2026-07-28T03:21:12.000Z",
+                  "updatedAt": "2026-07-28T03:21:12.000Z",
+                  "uid": "35240-e073ef96-cf0f-4640-8f5c-a9f1892c2c14"
+                },
+                {
+                  "name": "Delete X activity subscriptions by IDs",
+                  "id": "46a29917-cb99-4160-9256-a265d5774362",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/activity/subscriptions?ids=2200572975052255",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "activity",
+                        "subscriptions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated list of subscription IDs to delete.",
+                          "key": "ids",
+                          "value": "2200572975052255"
+                        }
+                      ]
+                    },
+                    "description": "Deletes multiple subscriptions for X activity events by their IDs"
+                  },
+                  "response": [
+                    {
+                      "id": "220db8ef-0069-48d3-82f5-a8e54cd52b07",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions?ids=2200572975052255",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma-separated list of subscription IDs to delete.",
+                              "key": "ids",
+                              "value": "2200572975052255"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"total_subscriptions\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-220db8ef-0069-48d3-82f5-a8e54cd52b07"
+                    },
+                    {
+                      "id": "3bcec8cf-e295-4a8f-9fc2-780fe2476f51",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions?ids=2200572975052255",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Comma-separated list of subscription IDs to delete.",
+                              "key": "ids",
+                              "value": "2200572975052255"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-3bcec8cf-e295-4a8f-9fc2-780fe2476f51"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:12.000Z",
+                  "updatedAt": "2026-07-28T03:21:12.000Z",
+                  "uid": "35240-46a29917-cb99-4160-9256-a265d5774362"
+                },
+                {
+                  "name": "Get X activity subscriptions",
+                  "id": "a913bb59-6af6-43ea-8e32-d353356938f3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/activity/subscriptions?max_results=1000&pagination_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "activity",
+                        "subscriptions"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results to return per page. Defaults to 1000 when unspecified; use pagination_token (from response meta.next_token) to fetch additional pages.",
+                          "key": "max_results",
+                          "value": "1000"
+                        },
+                        {
+                          "description": "This parameter is used to get the next 'page' of results.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of active subscriptions for XAA"
+                  },
+                  "response": [
+                    {
+                      "id": "5076af2c-d2b7-47a6-a6a9-17fb1ebb5487",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions?max_results=1000&pagination_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of results to return per page. Defaults to 1000 when unspecified; use pagination_token (from response meta.next_token) to fetch additional pages.",
+                              "key": "max_results",
+                              "value": "1000"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"subscription_id\": \"71848588\",\n      \"event_type\": \"<string>\",\n      \"filter\": {\n        \"direction\": \"outbound\",\n        \"keyword\": \"<string>\",\n        \"user_id\": \"2792362716\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"tag\": \"<string>\",\n      \"webhook_id\": \"540\"\n    },\n    {\n      \"subscription_id\": \"03295821575\",\n      \"event_type\": \"<string>\",\n      \"filter\": {\n        \"direction\": \"inbound\",\n        \"keyword\": \"<string>\",\n        \"user_id\": \"351239265286821748\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"tag\": \"<string>\",\n      \"webhook_id\": \"8934486660\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-5076af2c-d2b7-47a6-a6a9-17fb1ebb5487"
+                    },
+                    {
+                      "id": "b50dd018-7c1b-4e83-83ba-0c463a2e00ed",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions?max_results=1000&pagination_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of results to return per page. Defaults to 1000 when unspecified; use pagination_token (from response meta.next_token) to fetch additional pages.",
+                              "key": "max_results",
+                              "value": "1000"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-b50dd018-7c1b-4e83-83ba-0c463a2e00ed"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:12.000Z",
+                  "updatedAt": "2026-07-28T03:21:12.000Z",
+                  "uid": "35240-a913bb59-6af6-43ea-8e32-d353356938f3"
+                },
+                {
+                  "name": "Create X activity subscription",
+                  "id": "065e9080-05a2-4fea-bc56-82104754e98b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"event_type\": \"spaces.start\",\n  \"filter\": {\n    \"direction\": \"inbound\",\n    \"keyword\": \"<string>\",\n    \"user_id\": \"978\"\n  },\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"194959539157\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/activity/subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "activity",
+                        "subscriptions"
+                      ]
+                    },
+                    "description": "Creates a subscription for an X activity event"
+                  },
+                  "response": [
+                    {
+                      "id": "68c7be19-8630-4e5e-a22b-29a151c3a8dd",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"event_type\": \"spaces.start\",\n  \"filter\": {\n    \"direction\": \"inbound\",\n    \"keyword\": \"<string>\",\n    \"user_id\": \"978\"\n  },\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"194959539157\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"subscription\": {\n      \"subscription_id\": \"37310784\",\n      \"event_type\": \"<string>\",\n      \"filter\": {\n        \"direction\": \"inbound\",\n        \"keyword\": \"<string>\",\n        \"user_id\": \"69177\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"tag\": \"<string>\",\n      \"webhook_id\": \"277\"\n    },\n    \"total_subscriptions_for_instance_id\": \"<integer>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"total_subscriptions\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-68c7be19-8630-4e5e-a22b-29a151c3a8dd"
+                    },
+                    {
+                      "id": "00b598f4-4d98-467d-8e46-5b639fc25777",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"event_type\": \"spaces.start\",\n  \"filter\": {\n    \"direction\": \"inbound\",\n    \"keyword\": \"<string>\",\n    \"user_id\": \"978\"\n  },\n  \"tag\": \"<string>\",\n  \"webhook_id\": \"194959539157\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2/activity/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "activity",
+                            "subscriptions"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:12.000Z",
+                      "updatedAt": "2026-07-28T03:21:12.000Z",
+                      "uid": "35240-00b598f4-4d98-467d-8e46-5b639fc25777"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:12.000Z",
+                  "updatedAt": "2026-07-28T03:21:12.000Z",
+                  "uid": "35240-065e9080-05a2-4fea-bc56-82104754e98b"
+                }
+              ],
+              "id": "29c2868b-3a55-469c-b908-b28186f30ce0",
+              "createdAt": "2026-07-28T03:21:12.000Z",
+              "updatedAt": "2026-07-28T03:21:12.000Z",
+              "uid": "35240-29c2868b-3a55-469c-b908-b28186f30ce0"
+            }
+          ],
+          "id": "9f4e10e3-acfc-4fe6-885a-db8156fd5e63",
+          "createdAt": "2026-07-28T03:21:12.000Z",
+          "updatedAt": "2026-07-28T03:21:12.000Z",
+          "uid": "35240-9f4e10e3-acfc-4fe6-885a-db8156fd5e63"
+        }
+      ],
+      "id": "db7ac181-2e5b-4109-b64f-c081d199529e",
+      "createdAt": "2026-07-28T03:21:12.000Z",
+      "updatedAt": "2026-07-28T03:21:12.000Z",
+      "uid": "35240-db7ac181-2e5b-4109-b64f-c081d199529e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

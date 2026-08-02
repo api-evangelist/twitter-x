@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/tools-and-libraries.md
+description: >-
+  Client-side / embeddable surfaces X publishes for the web, distinct from the
+  server-side XDK SDKs in packages/. The docs' developer-tools table lists the
+  Embed Generator at publish.x.com for building embeddable posts, timelines,
+  and buttons for external sites.
+families:
+  - family: Embedded content (X for Websites)
+    components:
+      - name: Embed Generator
+        url: https://publish.x.com/
+        description: >-
+          Hosted generator that produces embed code for posts, timelines, and
+          buttons to place on external websites (listed in the official
+          Tools & Libraries docs as "Build embeddable posts, timelines, or
+          buttons for your site").
+        kind: hosted-generator
+  - family: Text handling
+    components:
+      - name: twitter-text
+        url: https://github.com/twitter/twitter-text
+        description: >-
+          First-party client-side/parsing library for validating post text and
+          counting characters exactly as X does (used when building composer
+          UIs).
+        kind: library

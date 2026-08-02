@@ -1,0 +1,63 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/tools/xurl.md
+name: xurl
+description: >-
+  xurl is X's first-party curl-style command-line client for the X API. It
+  handles OAuth automatically (OAuth 2.0 PKCE browser flow, tokens cached and
+  refreshed in ~/.xurl), signs requests, offers shortcut commands for common
+  operations, doubles as the stdio bridge for the hosted MCP server
+  (`xurl mcp`), and ships a SKILL.md so agents can drive it
+  (npx skills add https://github.com/xdevplatform/xurl).
+source_code: https://github.com/xdevplatform/xurl
+install:
+  - method: go
+    command: go install github.com/xdevplatform/xurl@latest
+  - method: homebrew
+    command: brew install --cask xdevplatform/tap/xurl
+  - method: npm
+    command: npm install -g @xdevplatform/xurl
+  - method: binary
+    url: https://github.com/xdevplatform/xurl/releases
+  - method: script
+    command: curl -fsSL https://raw.githubusercontent.com/xdevplatform/xurl/main/install.sh | bash
+setup:
+  - Create an X app with OAuth 2.0 enabled in the Developer Portal (developer.x.com)
+  - Register redirect URI http://localhost:8080/callback on the app
+  - export CLIENT_ID / CLIENT_SECRET, then run `xurl auth oauth2` (browser flow; `--headless` for remote boxes)
+commands:
+  - group: auth
+    commands:
+      - command: xurl auth oauth2
+        description: Browser-based OAuth 2.0 PKCE login; tokens stored in ~/.xurl
+      - command: xurl auth oauth2 --headless
+        description: Paste-a-code login for headless / remote machines
+      - command: xurl auth oauth2 --app NAME
+        description: Authenticate a specific registered app
+  - group: raw requests
+    commands:
+      - command: xurl /2/users/by/username/xdevelopers
+        description: GET any X API path with auth handled automatically
+      - command: xurl "/2/tweets/search/recent?query=from:xdevelopers&max_results=10"
+        description: Query-string requests, curl-style
+      - command: |-
+          xurl -X POST /2/tweets -d '{"text": "Hello from xurl!"}'
+        description: Authenticated POST with JSON body
+  - group: shortcuts
+    commands:
+      - command: xurl user xdevelopers
+        description: Look up a user by username
+      - command: xurl search "X API"
+        description: Search recent posts
+      - command: xurl post "Hello from xurl!"
+        description: Create a post
+  - group: mcp
+    commands:
+      - command: xurl mcp https://api.x.com/mcp
+        description: Run as local stdio bridge to the hosted X MCP server (see mcp/twitter-x-mcp.yml)
+      - command: xurl mcp -u alice https://api.x.com/mcp
+        description: Bridge acting as a specific previously-authorized OAuth2 user
+agent_support:
+  skill_md: https://github.com/xdevplatform/xurl/blob/main/SKILL.md
+  install: npx skills add https://github.com/xdevplatform/xurl
+package: packages/twitter-x-packages.yml

@@ -1,0 +1,453 @@
+{
+  "info": {
+    "_postman_id": "3dec60b7-cfe4-4eb4-974a-2288bc71ebf1",
+    "name": "X API v2 Account Activity Communities API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:20.000Z",
+    "updatedAt": "2026-07-28T03:21:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3dec60b7-cfe4-4eb4-974a-2288bc71ebf1"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "communities",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Communities",
+                  "id": "c2f9aa3d-1e25-4edc-ace7-7975e8eedf83",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://api.x.com/2/oauth2/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://api.x.com/2/oauth2/authorize",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/communities/search?query=<string>&max_results=10&next_token=<string>&pagination_token=<string>&community.fields=created_at",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "communities",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Query to search communities.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of search results to be returned by a request.",
+                          "key": "max_results",
+                          "value": "10"
+                        },
+                        {
+                          "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma separated list of Community fields to display.",
+                          "key": "community.fields",
+                          "value": "created_at"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a list of Communities matching the specified search query."
+                  },
+                  "response": [
+                    {
+                      "id": "79e6e563-3625-4ac0-a204-0d600b5ab0b7",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/communities/search?query=<string>&max_results=10&next_token=<string>&pagination_token=<string>&community.fields=created_at",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "communities",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Query to search communities.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of search results to be returned by a request.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma separated list of Community fields to display.",
+                              "key": "community.fields",
+                              "value": "created_at"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"40396032\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"next_token\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:21.000Z",
+                      "updatedAt": "2026-07-28T03:21:21.000Z",
+                      "uid": "35240-79e6e563-3625-4ac0-a204-0d600b5ab0b7"
+                    },
+                    {
+                      "id": "67a3ac74-8bfc-4e2f-b4b5-a1dd1a5153c4",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/communities/search?query=<string>&max_results=10&next_token=<string>&pagination_token=<string>&community.fields=created_at",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "communities",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Query to search communities.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of search results to be returned by a request.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This parameter is used to get the next 'page' of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma separated list of Community fields to display.",
+                              "key": "community.fields",
+                              "value": "created_at"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:21.000Z",
+                      "updatedAt": "2026-07-28T03:21:21.000Z",
+                      "uid": "35240-67a3ac74-8bfc-4e2f-b4b5-a1dd1a5153c4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:21.000Z",
+                  "updatedAt": "2026-07-28T03:21:21.000Z",
+                  "uid": "35240-c2f9aa3d-1e25-4edc-ace7-7975e8eedf83"
+                }
+              ],
+              "id": "430f4479-85dc-487f-b2c0-759e106a9aa7",
+              "createdAt": "2026-07-28T03:21:21.000Z",
+              "updatedAt": "2026-07-28T03:21:21.000Z",
+              "uid": "35240-430f4479-85dc-487f-b2c0-759e106a9aa7"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get Community by ID",
+                  "id": "d10141ee-554a-4318-9319-4a43f409d2d6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/communities/:id?community.fields=created_at",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "communities",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "A comma separated list of Community fields to display.",
+                          "key": "community.fields",
+                          "value": "created_at"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b2625209-f76c-40c4-8ef7-187f84199307",
+                          "key": "id",
+                          "value": "114288653",
+                          "description": "(Required) The ID of the Community."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details of a specific Community by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "6faa6936-1f1d-4560-9b2b-19640901e44a",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/communities/:id?community.fields=created_at",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "communities",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of Community fields to display.",
+                              "key": "community.fields",
+                              "value": "created_at"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"966868\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:21.000Z",
+                      "updatedAt": "2026-07-28T03:21:21.000Z",
+                      "uid": "35240-6faa6936-1f1d-4560-9b2b-19640901e44a"
+                    },
+                    {
+                      "id": "a54fab2c-4719-4dc5-9ec1-477e9cc8eb7f",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/communities/:id?community.fields=created_at",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "communities",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of Community fields to display.",
+                              "key": "community.fields",
+                              "value": "created_at"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:21.000Z",
+                      "updatedAt": "2026-07-28T03:21:21.000Z",
+                      "uid": "35240-a54fab2c-4719-4dc5-9ec1-477e9cc8eb7f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:21.000Z",
+                  "updatedAt": "2026-07-28T03:21:21.000Z",
+                  "uid": "35240-d10141ee-554a-4318-9319-4a43f409d2d6"
+                }
+              ],
+              "id": "899b4c89-8d99-45a6-a34d-d838d9340858",
+              "createdAt": "2026-07-28T03:21:21.000Z",
+              "updatedAt": "2026-07-28T03:21:21.000Z",
+              "uid": "35240-899b4c89-8d99-45a6-a34d-d838d9340858"
+            }
+          ],
+          "id": "ca9c953f-e4ce-493f-ad7f-6a94b300ed98",
+          "createdAt": "2026-07-28T03:21:21.000Z",
+          "updatedAt": "2026-07-28T03:21:21.000Z",
+          "uid": "35240-ca9c953f-e4ce-493f-ad7f-6a94b300ed98"
+        }
+      ],
+      "id": "33e49e93-1323-4e86-8e0e-7a63da79568e",
+      "createdAt": "2026-07-28T03:21:21.000Z",
+      "updatedAt": "2026-07-28T03:21:21.000Z",
+      "uid": "35240-33e49e93-1323-4e86-8e0e-7a63da79568e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

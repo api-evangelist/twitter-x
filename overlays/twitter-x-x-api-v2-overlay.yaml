@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the X API v2
+  version: 1.0.0
+  description: >-
+    Overlay of API Evangelist catalog enhancements over the verbatim X API v2
+    OpenAPI (openapi/twitter-x-x-api-v2-openapi.json, harvested 2026-07-21
+    from https://api.x.com/2/openapi.json, spec version 2.166). The original
+    spec is never mutated; these actions annotate it with provenance and
+    cross-links to the artifacts captured in this repository.
+extends: openapi/twitter-x-x-api-v2-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: twitter-x
+      x-apievangelist-harvested: '2026-07-21'
+      x-apievangelist-source: https://api.x.com/2/openapi.json
+      contact:
+        name: X Developer Platform
+        url: https://docs.x.com
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/twitter-x-authentication.yml
+        scopes: scopes/twitter-x-scopes.yml
+        conventions: conventions/twitter-x-conventions.yml
+        errors: errors/twitter-x-problem-types.yml
+        rate-limits: rate-limits/twitter-x-rate-limits.yml
+        webhooks: asyncapi/twitter-x-webhooks.yml
+        lifecycle: lifecycle/twitter-x-lifecycle.yml
+        mcp: mcp/twitter-x-mcp.yml
+  - target: $.externalDocs
+    update:
+      description: X Developer Platform documentation (agent-readable — append .md to any page; root index at /llms.txt)
+      url: https://docs.x.com
+  - target: $.servers[0]
+    update:
+      x-apievangelist-note: api.twitter.com serves the same API and spec; api.x.com is canonical.

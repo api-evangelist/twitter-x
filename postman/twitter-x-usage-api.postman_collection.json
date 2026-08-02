@@ -1,0 +1,214 @@
+{
+  "info": {
+    "_postman_id": "51c4d7ef-68ea-4551-8cc3-9206469be9e1",
+    "name": "X API v2 Account Activity Usage API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:41.000Z",
+    "updatedAt": "2026-07-28T03:21:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-51c4d7ef-68ea-4551-8cc3-9206469be9e1"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "usage",
+          "item": [
+            {
+              "name": "tweets",
+              "item": [
+                {
+                  "name": "Get usage",
+                  "id": "b64c32a0-703e-44f9-9d0c-9ee2dc9eea90",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/usage/tweets?days=7&usage.fields=project_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "usage",
+                        "tweets"
+                      ],
+                      "query": [
+                        {
+                          "description": "The number of days for which you need usage for.",
+                          "key": "days",
+                          "value": "7"
+                        },
+                        {
+                          "description": "A comma separated list of Usage fields to display.",
+                          "key": "usage.fields",
+                          "value": "project_id"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves usage statistics for Posts over a specified number of days."
+                  },
+                  "response": [
+                    {
+                      "id": "2fd2c49e-073c-497d-998c-ff2f253ba163",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/usage/tweets?days=7&usage.fields=project_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "usage",
+                            "tweets"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of days for which you need usage for.",
+                              "key": "days",
+                              "value": "7"
+                            },
+                            {
+                              "description": "A comma separated list of Usage fields to display.",
+                              "key": "usage.fields",
+                              "value": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"cap_reset_day\": \"<integer>\",\n    \"daily_client_app_usage\": [\n      {\n        \"client_app_id\": \"<string>\",\n        \"usage\": [\n          {\n            \"date\": \"<dateTime>\",\n            \"usage\": \"<integer>\"\n          }\n        ],\n        \"usage_result_count\": \"<integer>\"\n      }\n    ],\n    \"daily_project_usage\": {\n      \"project_id\": \"<integer>\",\n      \"usage\": [\n        {\n          \"date\": \"<dateTime>\",\n          \"usage\": \"<integer>\"\n        }\n      ]\n    },\n    \"project_cap\": \"<integer>\",\n    \"project_id\": \"<string>\",\n    \"project_usage\": \"<integer>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:41.000Z",
+                      "updatedAt": "2026-07-28T03:21:41.000Z",
+                      "uid": "35240-2fd2c49e-073c-497d-998c-ff2f253ba163"
+                    },
+                    {
+                      "id": "e68c3a94-6490-421b-8438-5f92b8aa6e88",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/usage/tweets?days=7&usage.fields=project_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "usage",
+                            "tweets"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of days for which you need usage for.",
+                              "key": "days",
+                              "value": "7"
+                            },
+                            {
+                              "description": "A comma separated list of Usage fields to display.",
+                              "key": "usage.fields",
+                              "value": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:41.000Z",
+                      "updatedAt": "2026-07-28T03:21:41.000Z",
+                      "uid": "35240-e68c3a94-6490-421b-8438-5f92b8aa6e88"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:41.000Z",
+                  "updatedAt": "2026-07-28T03:21:41.000Z",
+                  "uid": "35240-b64c32a0-703e-44f9-9d0c-9ee2dc9eea90"
+                }
+              ],
+              "id": "97d17ae1-87e0-4637-8d6d-155ffd2df6a6",
+              "createdAt": "2026-07-28T03:21:41.000Z",
+              "updatedAt": "2026-07-28T03:21:41.000Z",
+              "uid": "35240-97d17ae1-87e0-4637-8d6d-155ffd2df6a6"
+            }
+          ],
+          "id": "eba7c3b6-97d1-4ce0-bec3-7485041692ad",
+          "createdAt": "2026-07-28T03:21:41.000Z",
+          "updatedAt": "2026-07-28T03:21:41.000Z",
+          "uid": "35240-eba7c3b6-97d1-4ce0-bec3-7485041692ad"
+        }
+      ],
+      "id": "ab59820d-69fb-40ff-ae38-e48337ce27bc",
+      "createdAt": "2026-07-28T03:21:41.000Z",
+      "updatedAt": "2026-07-28T03:21:41.000Z",
+      "uid": "35240-ab59820d-69fb-40ff-ae38-e48337ce27bc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

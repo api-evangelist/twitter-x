@@ -1,0 +1,87 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/x-api/webhooks/introduction.md
+type: Webhooks
+description: >-
+  X publishes no AsyncAPI document, but operates a substantial real-time event
+  surface: the V2 Webhooks API (webhook registration + CRC security), three
+  webhook-delivering products (X Activity API, Account Activity API, Filtered
+  Stream Webhooks), and persistent HTTP streaming endpoints (filtered stream,
+  sample, firehose) modeled in the OpenAPI Stream/Webhooks/Activity tags. This
+  artifact captures the webhook catalog; no event spec is fabricated.
+webhook_products:
+  - name: X Activity API (XAA)
+    docs: https://docs.x.com/x-api/activity/introduction
+    description: >-
+      Real-time activity events with sub-second latency, delivered via
+      persistent HTTP stream (GET /2/activity/stream) or webhooks.
+      Subscriptions managed via POST /2/activity/subscriptions; filter by
+      User ID, keyword, and direction (sent/received).
+    event_types:
+      - post.create
+      - post.delete
+      - profile.update.bio
+      - profile.update.picture
+      - profile.update.banner
+      - profile.update.geo
+      - profile.update.url
+      - profile.update.verified
+      - profile.update.affiliate
+      - profile.update.screenname
+      - spaces.start
+      - spaces.end
+      - dm.received
+      - dm.sent
+      - dm.read
+      - dm.indicate_typing
+  - name: Account Activity API (AAA)
+    docs: https://docs.x.com/x-api/account-activity/introduction
+    description: >-
+      Real-time events tied to specific user accounts, delivered to registered
+      webhooks. OAuth 2.0 with fine-grained scopes supported since 2026-01-15
+      (OAuth 1.0a permissions override scopes when present).
+  - name: Filtered Stream Webhooks
+    docs: https://docs.x.com/x-api/webhooks/stream/introduction
+    description: >-
+      Asynchronous webhook delivery of Posts matching filtered-stream rules
+      (rules managed via /2/tweets/search/stream/rules). Enterprise; supports
+      25,000+ rules per project, rules up to 2,048 characters.
+management_endpoints:
+  - operation: createWebhooks
+    method: POST
+    path: /2/webhooks
+    description: Register a new webhook
+  - operation: getWebhooks
+    method: GET
+    path: /2/webhooks
+    description: List registered webhooks (includes valid/invalid status)
+  - operation: deleteWebhooks
+    method: DELETE
+    path: /2/webhooks/{webhook_id}
+    description: Delete a webhook
+  - operation: createWebhookReplayJob
+    method: POST
+    path: /2/webhooks/replay
+    description: Create a replay job to redeliver events
+  - operation: validateWebhooks
+    method: PUT
+    path: /2/webhooks/{webhook_id}
+    description: Trigger a CRC check and re-enable a webhook
+security:
+  crc: >-
+    Challenge-Response Check — X sends GET requests with a challenge; the
+    endpoint must answer with an HMAC-SHA256 response_token computed with the
+    app consumer secret. CRC runs on creation, on explicit PUT, and
+    periodically every 30 minutes if not validated in 24 hours; persistent
+    failures beyond ~28 hours mark the webhook invalid.
+  signature_header: x-twitter-webhooks-signature
+  signature_verification: HMAC signature on each delivery POST so consumers can verify X as the source.
+requirements:
+  - HTTPS webhook URL, publicly accessible, no port in the URL
+  - Respond 200 OK within 10 seconds
+  - CRC support mandatory
+streaming_endpoints_note: >-
+  Persistent HTTP streaming (streamPosts, streamPostsSample,
+  streamPostsFirehose*, streamLikesFirehose, compliance streams) is modeled in
+  the OpenAPI under the Stream tag; the Connections API
+  (GET/DELETE /2/connections*) manages active streaming connections.

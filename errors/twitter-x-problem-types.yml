@@ -1,0 +1,109 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/twitter-x-x-api-v2-openapi.json
+docs: https://docs.x.com/x-api/fundamentals/response-codes-and-errors
+format: rfc9457
+description: >-
+  Error catalog for the X API v2. Every operation declares a `default` error
+  response served as both application/json and application/problem+json,
+  discriminated on the RFC 9457 `type` URI (components.schemas.Problem, 19
+  registered subtypes). A legacy {errors:[{code,message}]} envelope
+  (components.schemas.Error) coexists for v1.1-style errors such as code 88
+  "Rate limit exceeded". 200 responses may additionally carry a partial
+  errors[] array alongside data.
+envelope:
+  primary: '{ "type", "title", "detail", "status" } — application/problem+json'
+  legacy: '{ "errors": [ { "code": int, "message": string } ] }'
+  partial_errors: 200 responses can include errors[] entries with resource_id/resource_type for unavailable resources.
+problems:
+  - type: about:blank
+    title: Generic Problem
+    status: varies
+    remediation: Inspect the HTTP status code; no more specific type is registered for this error.
+  - type: https://api.twitter.com/2/problems/invalid-request
+    title: Invalid Request
+    status: 400
+    remediation: Fix malformed JSON, missing required parameters, or invalid parameter values.
+  - type: https://api.twitter.com/2/problems/client-forbidden
+    title: Client Forbidden
+    status: 403
+    remediation: App is not enrolled for this endpoint or lacks required access level; check project/app enrollment (e.g. Pay-per-use + Production) in the Developer Console.
+  - type: https://api.twitter.com/2/problems/resource-not-found
+    title: Resource Not Found
+    status: 404
+    remediation: Post, user, or other resource does not exist or was deleted; do not retry.
+  - type: https://api.twitter.com/2/problems/not-authorized-for-resource
+    title: Not Authorized For Resource
+    status: 403
+    remediation: No access to private or protected content; requires appropriate user-context authorization.
+  - type: https://api.twitter.com/2/problems/not-authorized-for-field
+    title: Not Authorized For Field
+    status: 403
+    remediation: The requested field requires a higher access level or different auth context.
+  - type: https://api.twitter.com/2/problems/disallowed-resource
+    title: Disallowed Resource
+    status: 403
+    remediation: The resource violates rules (e.g. withheld content) and cannot be returned.
+  - type: https://api.twitter.com/2/problems/unsupported-authentication
+    title: Unsupported Authentication
+    status: 401
+    remediation: The endpoint requires a different authentication method (e.g. user context instead of app-only Bearer).
+  - type: https://api.twitter.com/2/problems/usage-capped
+    title: Usage Capped
+    status: 429
+    remediation: Monthly/plan usage cap exceeded (distinct from rate limiting); upgrade plan or wait for the cap window.
+  - type: https://api.twitter.com/2/problems/rate-limit-exceeded
+    title: Rate Limit Exceeded
+    status: 429
+    remediation: Wait until the x-rate-limit-reset timestamp; implement exponential backoff (legacy envelope code 88).
+  - type: https://api.twitter.com/2/problems/conflict
+    title: Conflict
+    status: 409
+    remediation: Conflicting state — e.g. connecting to the filtered stream with no rules defined; add rules first.
+  - type: https://api.twitter.com/2/problems/streaming-connection
+    title: Streaming Connection Problem
+    status: varies
+    remediation: Stream connection issue; reconnect with backoff and check Connections API for stale connections.
+  - type: https://api.twitter.com/2/problems/client-disconnected
+    title: Client Disconnected
+    status: varies
+    remediation: Client fell behind or dropped; reconnect and consume faster (full-buffer disconnects).
+  - type: https://api.twitter.com/2/problems/operational-disconnect
+    title: Operational Disconnect
+    status: varies
+    remediation: X-side operational disconnect of a stream; reconnect.
+  - type: https://api.twitter.com/2/problems/rule-cap
+    title: Rule Cap Exceeded
+    status: 400
+    remediation: Too many filtered-stream rules for your access level; delete rules or raise the cap.
+  - type: https://api.twitter.com/2/problems/invalid-rules
+    title: Invalid Rules
+    status: 400
+    remediation: Rule syntax error; validate operators, quotes, and parentheses (512/1024-char limits by tier).
+  - type: https://api.twitter.com/2/problems/duplicate-rules
+    title: Duplicate Rules
+    status: 400
+    remediation: The rule already exists on the stream; fetch current rules (getRules) before adding.
+  - type: https://api.twitter.com/2/problems/noncompliant-rules
+    title: Noncompliant Rules
+    status: 400
+    remediation: Rule violates platform policy; adjust the rule value.
+  - type: https://api.twitter.com/2/problems/resource-unavailable
+    title: Resource Unavailable
+    status: varies
+    remediation: Resource temporarily unavailable; retry later.
+  - type: oauth1-permissions (schema Oauth1PermissionsProblem; no registered type URI)
+    title: OAuth 1.0a Permissions Problem
+    status: 403
+    remediation: The OAuth 1.0a app permission level (read / read-write / read-write-DM) does not allow this action.
+http_status_reference:
+  '400': Bad Request — invalid JSON, malformed query, missing required parameters
+  '401': Unauthorized — invalid or missing credentials
+  '403': Forbidden — valid auth but no permission for this resource or action
+  '404': Not Found — resource does not exist or was deleted
+  '409': Conflict — e.g. stream has no rules
+  '429': Too Many Requests — rate limit or usage cap exceeded
+  '500': Internal Server Error — wait and retry; check status page
+  '502': Bad Gateway — wait and retry
+  '503': Service Unavailable — overloaded; wait and retry
+  '504': Gateway Timeout — wait and retry

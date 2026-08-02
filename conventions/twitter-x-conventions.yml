@@ -1,0 +1,107 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.x.com/x-api/fundamentals/data-dictionary.md and sibling
+  fundamentals pages (pagination, rate-limits, response-codes-and-errors,
+  versioning, fields/expansions) plus the harvested OpenAPI 3.0.0 (v2.166).
+description: >-
+  Cross-cutting request/response semantics of the X API v2 — the runtime
+  conventions that apply to every operation: authentication styles, cursor
+  pagination via next_token, the fields/expansions sparse-response model,
+  x-rate-limit-* signaling, the RFC 9457-style problem+json error envelope,
+  and URI-path versioning. The X API documents no idempotency-key mechanism.
+base_url: https://api.x.com
+api_style: REST over HTTPS, JSON requests and responses
+
+authentication:
+  schemes:
+    - Bearer token (OAuth 2.0 app-only) for public data; app-level rate limits
+    - OAuth 2.0 Authorization Code + PKCE (user context, 21 fine-grained scopes)
+    - OAuth 1.0a user context (legacy, still supported)
+    - HTTP Basic (some enterprise endpoints)
+  docs: https://docs.x.com/fundamentals/authentication/overview
+  detail: authentication/twitter-x-authentication.yml
+  scopes: scopes/twitter-x-scopes.yml
+
+idempotency:
+  supported: false
+  note: >-
+    No Idempotency-Key header or equivalent is documented for the X API v2,
+    and the OpenAPI declares no idempotency parameter. Retries of writes
+    (e.g. POST /2/tweets) are not deduplicated by the platform; duplicate
+    identical Posts are rejected by content rules rather than an idempotency
+    contract.
+
+pagination:
+  style: cursor
+  request_params:
+    max_results: results per page (endpoint-specific caps, commonly 100; full-archive search up to 500)
+    pagination_token: set to the next_token or previous_token from the previous response
+  response_fields:
+    meta.result_count: results in this page
+    meta.next_token: cursor for the next page (absent on the last page)
+    meta.previous_token: cursor for the previous page
+  ordering: reverse chronological within and across pages
+  auto_pagination: XDK SDKs paginate automatically
+  notes: Tokens are opaque and may expire; use since_id for polling new data rather than re-paginating.
+  docs: https://docs.x.com/x-api/fundamentals/pagination
+
+field_expansion:
+  supported: true
+  mechanism: >-
+    Sparse responses by default (Posts return only id, text,
+    edit_history_tweet_ids). Request more with per-object fields params
+    (tweet.fields, user.fields, media.fields, poll.fields, place.fields,
+    news.fields, ...) and inline related objects with expansions
+    (e.g. expansions=author_id,attachments.media_keys); expanded objects
+    arrive in the top-level includes section.
+  docs: https://docs.x.com/x-api/fundamentals/fields
+
+metadata:
+  supported: false
+  note: No arbitrary client metadata store on API objects.
+
+request_tracing:
+  request_id_header: none documented
+  note: Error bodies carry a problem type URI + title + detail; no per-request id header is documented for support lookup.
+
+versioning:
+  scheme: uri-path
+  current: v2
+  mechanism: version number in the endpoint path (https://api.x.com/2/...)
+  detail: lifecycle/twitter-x-lifecycle.yml
+  changelog: changelog/twitter-x-changelog.yml
+  docs: https://docs.x.com/x-api/fundamentals/versioning
+
+error_envelope:
+  media_type: application/problem+json (also served as application/json; legacy {errors:[{code,message}]} envelope on v1.1-style errors)
+  rfc9457: true
+  shape: '{ "type": "https://api.twitter.com/2/problems/...", "title", "detail", "status" }'
+  partial_errors: A 200 response may carry both data and an errors[] array when some requested resources are unavailable.
+  detail: errors/twitter-x-problem-types.yml
+  docs: https://docs.x.com/x-api/fundamentals/response-codes-and-errors
+
+rate_limits:
+  signal_status: 429
+  headers:
+    - x-rate-limit-limit
+    - x-rate-limit-remaining
+    - x-rate-limit-reset (Unix timestamp)
+  window: mostly 15-minute windows; some 24-hour and per-second limits
+  scopes: separate per-app (Bearer) and per-user (OAuth user context) limits per endpoint
+  detail: rate-limits/twitter-x-rate-limits.yml
+  docs: https://docs.x.com/x-api/fundamentals/rate-limits
+
+webhooks:
+  signing_header: x-twitter-webhooks-signature
+  verification: HMAC-SHA256 challenge-response checks (CRC) using the app consumer secret; CRC on registration, periodic, and on PUT re-validation
+  detail: asyncapi/twitter-x-webhooks.yml
+  docs: https://docs.x.com/x-api/webhooks/introduction
+
+other_conventions:
+  - name: Streaming
+    detail: Persistent HTTP streaming endpoints (filtered stream, sample, firehose) with reconnection/backoff expectations; Connections API manages active connections.
+  - name: Usage caps
+    detail: Pay-per-use / tier usage caps distinct from rate limits; exceeding them returns the usage-capped problem type.
+  - name: Agent access
+    detail: llms.txt family, .md suffix on any docs URL, skill.md, AGENTS.md, and hosted MCP servers (see mcp/twitter-x-mcp.yml).

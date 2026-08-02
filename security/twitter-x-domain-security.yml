@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: probed
+source: >-
+  live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts, run manually on
+  2026-07-21 (probe-domain-security.py structurally excludes x.com/twitter.com
+  hosts via its social-domain filter, so the identical probes were executed by
+  hand: curl -I for HTTPS/HSTS, openssl s_client for TLS version and cert
+  expiry, dig for DNSKEY/DS/CAA/TXT/_dmarc).
+hosts:
+- host: x.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 26 06:29:58 2026 GMT
+  hsts: true
+  hsts_max_age: 631138519
+  hsts_include_subdomains: true
+- host: api.x.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 26 06:29:58 2026 GMT
+  hsts: true
+  hsts_max_age: 631138519
+  hsts_include_subdomains: true
+- host: docs.x.com
+  https: true
+  hsts: true
+  hsts_max_age: 63072000
+- host: developer.x.com
+  https: true
+  hsts: true
+  hsts_max_age: 631138519
+  hsts_include_subdomains: true
+domains:
+- domain: x.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_policy: '-all (hard fail); Google, Salesforce, Oracle email delivery included'
+  dmarc: true
+  dmarc_policy: reject

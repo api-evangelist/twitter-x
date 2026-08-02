@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.x.com/x-api/fundamentals/versioning.md
+description: >-
+  Versioning, deprecation, and operational-transparency posture of the X API.
+  Version appears in the URL path (/2/). Major versions ship no more than
+  annually with migration guides; additive changes land continuously and are
+  announced on the changelog. The platform runs a documented
+  Active/Deprecated/Retired lifecycle. Live status and incident history are
+  published at docs.x.com/status.
+versioning:
+  scheme: uri-path
+  current: v2
+  example: https://api.x.com/2/tweets
+  older_versions:
+    - version: v1.1
+      status: legacy
+      note: Limited support, minimal updates; migration guides and a v1→v2 endpoint map are published.
+    - version: enterprise (GNIP 2.0)
+      status: available
+      note: High-volume access with dedicated support; being consolidated into v2/Enterprise APIs.
+  breaking_changes: Only in major version bumps (removing endpoints/fields/params, type changes, renames, response-code or scope changes).
+  additive_changes: Any time without a version change (new endpoints, optional params, response fields, new OAuth scopes).
+  release_schedule: Major versions no more than annually; non-breaking changes ongoing via changelog; security patches as needed.
+  docs: https://docs.x.com/x-api/fundamentals/versioning
+deprecation:
+  policy: >-
+    Deprecation -> support period -> retirement. Statuses: Active (fully
+    supported), Deprecated (no new features, critical bugs only), Retired (no
+    longer accessible). Deprecations are announced on the changelog and the
+    developer forum announcements category.
+  policy_url: https://docs.x.com/x-api/fundamentals/versioning
+  sunset_header: false
+  recent_examples:
+    - 'POST /2/account_activity/replay/... deprecated 2026-03-25 in favor of POST /2/webhooks/replay'
+    - 'PascalCase X Activity API event types deprecated 2026-03-18 in favor of dot-separated lowercase'
+  migration_guides: https://docs.x.com/x-api/migrate/overview
+status_page: https://docs.x.com/status
+status_note: Live status with incident history back to 2024; "All systems operational" state plus per-incident timeline entries.
+changelog: https://docs.x.com/changelog
+changelog_rss: https://docs.x.com/changelog/rss.xml
+announcements:
+  - https://devcommunity.x.com/c/announcements/22
+  - https://x.com/XDevelopers
+  - https://x.com/api
+deprecated_operations: []
+deprecated_operations_note: No operations carry deprecated:true in the current OpenAPI (version 2.166).

@@ -1,0 +1,146 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/twitter-x-x-api-v2-openapi.json
+docs: https://docs.x.com/resources/fundamentals/authentication/oauth-2-0/authorization-code
+notes: >-
+  The 21 scopes and their descriptions in the live OpenAPI
+  (api.x.com/2/openapi.json) match the OAuth 2.0 scopes table in the
+  authorization-code docs. OAuth 2.0 fine-grained scopes also apply to the
+  Account Activity API v2 (since 2026-01-15); when OAuth 1.0a credentials are
+  present their all-or-nothing permissions override OAuth 2.0 scopes.
+schemes:
+- name: OAuth2UserToken
+  source: openapi/twitter-x-x-api-v2-openapi.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.x.com/2/oauth2/authorize
+    tokenUrl: https://api.x.com/2/oauth2/token
+scopes:
+- scope: block.read
+  description: View accounts you have blocked.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: bookmark.read
+  description: Read your bookmarked Posts.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: bookmark.write
+  description: Create and delete your bookmarks.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: dm.read
+  description: Read all your Direct Messages.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: dm.write
+  description: Send and manage your Direct Messages.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: follows.read
+  description: View accounts you follow and accounts following you.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: follows.write
+  description: Follow and unfollow accounts on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: like.read
+  description: View Posts you have liked and likes you can see.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: like.write
+  description: Like and unlike Posts on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: list.read
+  description: View Lists, members, and followers of Lists you created or are a member of, including
+    private Lists.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: list.write
+  description: Create and manage Lists on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: media.write
+  description: Upload media, such as photos and videos, on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: mute.read
+  description: View accounts you have muted.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: mute.write
+  description: Mute and unmute accounts on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: offline.access
+  description: Request a refresh token for the app.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: space.read
+  description: View all Spaces you have access to.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: timeline.read
+  description: View all Custom Timelines you can see, including public Custom Timelines from
+    other developers.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: tweet.moderate.write
+  description: Hide and unhide replies to your Posts.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: tweet.read
+  description: View all Posts you can see, including those from protected accounts.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: tweet.write
+  description: Post and repost on your behalf.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- scope: users.read
+  description: View any account you can see, including protected accounts.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json

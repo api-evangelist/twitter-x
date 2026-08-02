@@ -1,0 +1,975 @@
+{
+  "info": {
+    "_postman_id": "15c99e7c-d8f3-4c0c-a30b-2d15bece546b",
+    "name": "X API v2 Account Activity API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:11.000Z",
+    "updatedAt": "2026-07-28T03:21:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-15c99e7c-d8f3-4c0c-a30b-2d15bece546b"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "account_activity",
+          "item": [
+            {
+              "name": "subscriptions",
+              "item": [
+                {
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "Get subscription count",
+                      "id": "d9556923-570d-468a-9551-593dd6232581",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/account_activity/subscriptions/count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "account_activity",
+                            "subscriptions",
+                            "count"
+                          ]
+                        },
+                        "description": "Retrieves a count of currently active Account Activity subscriptions."
+                      },
+                      "response": [
+                        {
+                          "id": "87dbd920-feae-40fc-966d-958e5671df8a",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/account_activity/subscriptions/count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "account_activity",
+                                "subscriptions",
+                                "count"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"account_name\": \"<string>\",\n    \"provisioned_count\": \"<string>\",\n    \"subscriptions_count_all\": \"<string>\",\n    \"subscriptions_count_direct_messages\": \"<string>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:21:11.000Z",
+                          "updatedAt": "2026-07-28T03:21:11.000Z",
+                          "uid": "35240-87dbd920-feae-40fc-966d-958e5671df8a"
+                        },
+                        {
+                          "id": "91f8f618-f598-4823-826b-e248f9242976",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/account_activity/subscriptions/count",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "account_activity",
+                                "subscriptions",
+                                "count"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:11.000Z",
+                          "updatedAt": "2026-07-28T03:21:11.000Z",
+                          "uid": "35240-91f8f618-f598-4823-826b-e248f9242976"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:11.000Z",
+                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                      "uid": "35240-d9556923-570d-468a-9551-593dd6232581"
+                    }
+                  ],
+                  "id": "0d5953e7-c949-4848-abc9-c24eb5a3528a",
+                  "createdAt": "2026-07-28T03:21:11.000Z",
+                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                  "uid": "35240-0d5953e7-c949-4848-abc9-c24eb5a3528a"
+                }
+              ],
+              "id": "d651eef1-21af-4c0a-8352-6ab7d7b75c9f",
+              "createdAt": "2026-07-28T03:21:11.000Z",
+              "updatedAt": "2026-07-28T03:21:11.000Z",
+              "uid": "35240-d651eef1-21af-4c0a-8352-6ab7d7b75c9f"
+            },
+            {
+              "name": "webhooks",
+              "item": [
+                {
+                  "name": "{webhook_id}",
+                  "item": [
+                    {
+                      "name": "subscriptions",
+                      "item": [
+                        {
+                          "name": "all",
+                          "item": [
+                            {
+                              "name": "list",
+                              "item": [
+                                {
+                                  "name": "Get subscriptions",
+                                  "id": "1105aafb-d479-4201-8d04-34446454bdab",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "bearer",
+                                      "bearer": [
+                                        {
+                                          "key": "token",
+                                          "value": "{{bearerToken}}",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all/list",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        "all",
+                                        "list"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8db8ab9f-d2d0-4be5-ba65-3384ee2dc55c",
+                                          "key": "webhook_id",
+                                          "value": "8",
+                                          "description": "(Required) The webhook ID to pull subscriptions for."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Retrieves a list of all active subscriptions for a given webhook."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "2d4f271d-f1ec-46ba-8ea3-af47a5f60593",
+                                      "name": "The request has succeeded.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all/list",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2",
+                                            "account_activity",
+                                            "webhooks",
+                                            ":webhook_id",
+                                            "subscriptions",
+                                            "all",
+                                            "list"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "webhook_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": {\n    \"application_id\": \"<string>\",\n    \"webhook_id\": \"<string>\",\n    \"webhook_url\": \"<string>\",\n    \"subscriptions\": [\n      {\n        \"user_id\": \"<string>\"\n      },\n      {\n        \"user_id\": \"<string>\"\n      }\n    ]\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:21:11.000Z",
+                                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                                      "uid": "35240-2d4f271d-f1ec-46ba-8ea3-af47a5f60593"
+                                    },
+                                    {
+                                      "id": "aeba23f2-a580-471f-99ce-4f49c4363c33",
+                                      "name": "The request has failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all/list",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2",
+                                            "account_activity",
+                                            "webhooks",
+                                            ":webhook_id",
+                                            "subscriptions",
+                                            "all",
+                                            "list"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "webhook_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T03:21:11.000Z",
+                                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                                      "uid": "35240-aeba23f2-a580-471f-99ce-4f49c4363c33"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-1105aafb-d479-4201-8d04-34446454bdab"
+                                }
+                              ],
+                              "id": "364f9fba-ebbb-42b7-a35f-a1522baa836f",
+                              "createdAt": "2026-07-28T03:21:11.000Z",
+                              "updatedAt": "2026-07-28T03:21:11.000Z",
+                              "uid": "35240-364f9fba-ebbb-42b7-a35f-a1522baa836f"
+                            },
+                            {
+                              "name": "Validate subscription",
+                              "id": "e1131921-103f-4475-bc65-cf925d7a644c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://api.x.com/2/oauth2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://api.x.com/2/oauth2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "account_activity",
+                                    "webhooks",
+                                    ":webhook_id",
+                                    "subscriptions",
+                                    "all"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "06547fb7-5738-4877-9d39-3fad9ff7d1dc",
+                                      "key": "webhook_id",
+                                      "value": "8",
+                                      "description": "(Required) The webhook ID to check subscription against."
+                                    }
+                                  ]
+                                },
+                                "description": "Checks a user\u2019s Account Activity subscription for a given webhook."
+                              },
+                              "response": [
+                                {
+                                  "id": "2c770626-12e3-442b-9b4b-822ec0145a22",
+                                  "name": "The request has succeeded.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        "all"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "webhook_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"subscribed\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-2c770626-12e3-442b-9b4b-822ec0145a22"
+                                },
+                                {
+                                  "id": "4a6cea30-3bc6-46f7-8c23-8e09ee435477",
+                                  "name": "The request has failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        "all"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "webhook_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-4a6cea30-3bc6-46f7-8c23-8e09ee435477"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:21:11.000Z",
+                              "updatedAt": "2026-07-28T03:21:11.000Z",
+                              "uid": "35240-e1131921-103f-4475-bc65-cf925d7a644c"
+                            },
+                            {
+                              "name": "Create subscription",
+                              "id": "55fd3489-3b02-4d2f-890b-3f4157b26aac",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://api.x.com/2/oauth2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://api.x.com/2/oauth2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "account_activity",
+                                    "webhooks",
+                                    ":webhook_id",
+                                    "subscriptions",
+                                    "all"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1d245126-8030-4aed-8aa0-3cf0d257148d",
+                                      "key": "webhook_id",
+                                      "value": "8",
+                                      "description": "(Required) The webhook ID to check subscription against."
+                                    }
+                                  ]
+                                },
+                                "description": "Creates an Account Activity subscription for the user and the given webhook."
+                              },
+                              "response": [
+                                {
+                                  "id": "8802d547-f0ec-4aa9-8364-5d5e115e906f",
+                                  "name": "The request has succeeded.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        "all"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "webhook_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"subscribed\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-8802d547-f0ec-4aa9-8364-5d5e115e906f"
+                                },
+                                {
+                                  "id": "f9d4cd51-82ba-4e9a-bbab-8b4dcfe95d78",
+                                  "name": "The request has failed.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/all",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        "all"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "webhook_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-f9d4cd51-82ba-4e9a-bbab-8b4dcfe95d78"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:21:11.000Z",
+                              "updatedAt": "2026-07-28T03:21:11.000Z",
+                              "uid": "35240-55fd3489-3b02-4d2f-890b-3f4157b26aac"
+                            }
+                          ],
+                          "id": "984fa6db-09f7-4e6a-b788-3ac9647a8a94",
+                          "createdAt": "2026-07-28T03:21:11.000Z",
+                          "updatedAt": "2026-07-28T03:21:11.000Z",
+                          "uid": "35240-984fa6db-09f7-4e6a-b788-3ac9647a8a94"
+                        },
+                        {
+                          "name": "{user_id}",
+                          "item": [
+                            {
+                              "name": "all",
+                              "item": [
+                                {
+                                  "name": "Delete subscription",
+                                  "id": "90978b1b-c386-4ef8-90ee-e7b9c31d5bd9",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "bearer",
+                                      "bearer": [
+                                        {
+                                          "key": "token",
+                                          "value": "{{bearerToken}}",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/:user_id/all",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "account_activity",
+                                        "webhooks",
+                                        ":webhook_id",
+                                        "subscriptions",
+                                        ":user_id",
+                                        "all"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "56c79de2-82da-4e94-a465-14c301dae941",
+                                          "key": "webhook_id",
+                                          "value": "8",
+                                          "description": "(Required) The webhook ID to check subscription against."
+                                        },
+                                        {
+                                          "id": "026f057f-f591-4ee1-a5bd-0e1089457da5",
+                                          "key": "user_id",
+                                          "value": "02454886",
+                                          "description": "(Required) User ID to unsubscribe from."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes an Account Activity subscription for the given webhook and user ID."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f307c628-0a6a-4889-a387-06229652efb4",
+                                      "name": "The request has succeeded.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/:user_id/all",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2",
+                                            "account_activity",
+                                            "webhooks",
+                                            ":webhook_id",
+                                            "subscriptions",
+                                            ":user_id",
+                                            "all"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "webhook_id"
+                                            },
+                                            {
+                                              "key": "user_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": {\n    \"subscribed\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:21:11.000Z",
+                                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                                      "uid": "35240-f307c628-0a6a-4889-a387-06229652efb4"
+                                    },
+                                    {
+                                      "id": "6c1bb988-9c49-40b3-901c-203190b3b7cf",
+                                      "name": "The request has failed.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2/account_activity/webhooks/:webhook_id/subscriptions/:user_id/all",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2",
+                                            "account_activity",
+                                            "webhooks",
+                                            ":webhook_id",
+                                            "subscriptions",
+                                            ":user_id",
+                                            "all"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "webhook_id"
+                                            },
+                                            {
+                                              "key": "user_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T03:21:11.000Z",
+                                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                                      "uid": "35240-6c1bb988-9c49-40b3-901c-203190b3b7cf"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:21:11.000Z",
+                                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                                  "uid": "35240-90978b1b-c386-4ef8-90ee-e7b9c31d5bd9"
+                                }
+                              ],
+                              "id": "6ff4fc6b-92a1-4be0-aa25-cdf3d4d9b7e8",
+                              "createdAt": "2026-07-28T03:21:11.000Z",
+                              "updatedAt": "2026-07-28T03:21:11.000Z",
+                              "uid": "35240-6ff4fc6b-92a1-4be0-aa25-cdf3d4d9b7e8"
+                            }
+                          ],
+                          "id": "b0354e78-92d1-4c29-9e74-99d067c22db1",
+                          "createdAt": "2026-07-28T03:21:11.000Z",
+                          "updatedAt": "2026-07-28T03:21:11.000Z",
+                          "uid": "35240-b0354e78-92d1-4c29-9e74-99d067c22db1"
+                        }
+                      ],
+                      "id": "3b1f04cf-ae78-421d-b8af-28ae6dbd5dae",
+                      "createdAt": "2026-07-28T03:21:11.000Z",
+                      "updatedAt": "2026-07-28T03:21:11.000Z",
+                      "uid": "35240-3b1f04cf-ae78-421d-b8af-28ae6dbd5dae"
+                    }
+                  ],
+                  "id": "2bd23822-cb43-4436-8738-f5609e2d3185",
+                  "createdAt": "2026-07-28T03:21:11.000Z",
+                  "updatedAt": "2026-07-28T03:21:11.000Z",
+                  "uid": "35240-2bd23822-cb43-4436-8738-f5609e2d3185"
+                }
+              ],
+              "id": "f683be61-8949-432f-a77f-9851565cf894",
+              "createdAt": "2026-07-28T03:21:11.000Z",
+              "updatedAt": "2026-07-28T03:21:11.000Z",
+              "uid": "35240-f683be61-8949-432f-a77f-9851565cf894"
+            }
+          ],
+          "id": "5e7c871a-d341-496c-a8fa-68c415c62f34",
+          "createdAt": "2026-07-28T03:21:11.000Z",
+          "updatedAt": "2026-07-28T03:21:11.000Z",
+          "uid": "35240-5e7c871a-d341-496c-a8fa-68c415c62f34"
+        }
+      ],
+      "id": "882a71b4-aebc-45cb-aef2-142425035b63",
+      "createdAt": "2026-07-28T03:21:11.000Z",
+      "updatedAt": "2026-07-28T03:21:11.000Z",
+      "uid": "35240-882a71b4-aebc-45cb-aef2-142425035b63"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

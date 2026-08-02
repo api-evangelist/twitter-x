@@ -1,0 +1,21 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: https://hackerone.com/twitter
+
+# Our OpenPGP key
+Encryption: https://twitter.com/security/pgp-key.txt
+
+# Canonical URI
+Canonical: https://twitter.com/.well-known/security.txt
+
+Expires: 2024-01-01T06:00:00.000Z
+
+Hiring: https://careers.twitter.com
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQTR1lpEM7BdJg41CZF6RLZ91cnFDQUCY9144wAKCRB6RLZ91cnF
+Dbh8AQCmIBOlLpVrEQHGn5SX3+sd9bUinS7Na5XNBVfuLsf73AD/bJetgIJrkID0
+evU8eQOtFQO2/iNvhjvY9nt4nhNRxA0=
+=suIL
+-----END PGP SIGNATURE-----

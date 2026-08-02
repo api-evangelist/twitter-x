@@ -1,0 +1,715 @@
+{
+  "info": {
+    "_postman_id": "41fa92f5-8548-47cc-992e-05178b1c61db",
+    "name": "X API v2 Account Activity Connections API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:24.000Z",
+    "updatedAt": "2026-07-28T03:21:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-41fa92f5-8548-47cc-992e-05178b1c61db"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "connections",
+          "item": [
+            {
+              "name": "all",
+              "item": [
+                {
+                  "name": "Terminate all connections",
+                  "id": "a42deda8-e579-496d-934b-85465e037c84",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections/all",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections",
+                        "all"
+                      ]
+                    },
+                    "description": "Terminates all active streaming connections for the authenticated application."
+                  },
+                  "response": [
+                    {
+                      "id": "1c4f3af6-b796-4c82-a990-dfb6263b2939",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/connections/all",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "connections",
+                            "all"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"failed_kills\": \"<integer>\",\n    \"results\": [\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      },\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      }\n    ],\n    \"successful_kills\": \"<integer>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:24.000Z",
+                      "updatedAt": "2026-07-28T03:21:24.000Z",
+                      "uid": "35240-1c4f3af6-b796-4c82-a990-dfb6263b2939"
+                    },
+                    {
+                      "id": "e22c7b2f-ffb0-42a6-a2c7-2a687dd0311f",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/connections/all",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "connections",
+                            "all"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:24.000Z",
+                      "updatedAt": "2026-07-28T03:21:24.000Z",
+                      "uid": "35240-e22c7b2f-ffb0-42a6-a2c7-2a687dd0311f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-a42deda8-e579-496d-934b-85465e037c84"
+                }
+              ],
+              "id": "b4732a99-8284-4e76-82d7-def43046adb5",
+              "createdAt": "2026-07-28T03:21:24.000Z",
+              "updatedAt": "2026-07-28T03:21:24.000Z",
+              "uid": "35240-b4732a99-8284-4e76-82d7-def43046adb5"
+            },
+            {
+              "name": "{endpoint_id}",
+              "item": [
+                {
+                  "name": "Terminate connections by endpoint",
+                  "id": "bf798bb2-f444-4f15-b815-e6edd49ef27e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections/:endpoint_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections",
+                        ":endpoint_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31d6fda6-8e3c-41a3-9d62-c7cf2e957cf7",
+                          "key": "endpoint_id",
+                          "value": "sample_stream",
+                          "description": "(Required) The endpoint ID to terminate connections for."
+                        }
+                      ]
+                    },
+                    "description": "Terminates all streaming connections for a specific endpoint ID for the authenticated application."
+                  },
+                  "response": [
+                    {
+                      "id": "f88d77bb-6d9e-48a3-86d6-67104d75e433",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/connections/:endpoint_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "connections",
+                            ":endpoint_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "endpoint_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"failed_kills\": \"<integer>\",\n    \"results\": [\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      },\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      }\n    ],\n    \"successful_kills\": \"<integer>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:24.000Z",
+                      "updatedAt": "2026-07-28T03:21:24.000Z",
+                      "uid": "35240-f88d77bb-6d9e-48a3-86d6-67104d75e433"
+                    },
+                    {
+                      "id": "aded1108-c8e4-441d-9297-0bdf33198908",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/connections/:endpoint_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "connections",
+                            ":endpoint_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "endpoint_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:24.000Z",
+                      "updatedAt": "2026-07-28T03:21:24.000Z",
+                      "uid": "35240-aded1108-c8e4-441d-9297-0bdf33198908"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-bf798bb2-f444-4f15-b815-e6edd49ef27e"
+                }
+              ],
+              "id": "34b5a8a9-ea27-4cd5-9e54-e085daf9389b",
+              "createdAt": "2026-07-28T03:21:24.000Z",
+              "updatedAt": "2026-07-28T03:21:24.000Z",
+              "uid": "35240-34b5a8a9-ea27-4cd5-9e54-e085daf9389b"
+            },
+            {
+              "name": "Terminate multiple connections",
+              "id": "154287c6-6522-4b84-a988-63c0d7624f90",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uuids\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2/connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "connections"
+                  ]
+                },
+                "description": "Terminates multiple streaming connections by their UUIDs for the authenticated application."
+              },
+              "response": [
+                {
+                  "id": "a6d91d68-2a82-4395-8141-4b35d487b6fb",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"uuids\": [\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"failed_kills\": \"<integer>\",\n    \"results\": [\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      },\n      {\n        \"error_message\": \"<string>\",\n        \"success\": \"<boolean>\",\n        \"uuid\": \"<string>\"\n      }\n    ],\n    \"successful_kills\": \"<integer>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-a6d91d68-2a82-4395-8141-4b35d487b6fb"
+                },
+                {
+                  "id": "8bf902e7-f5a9-44d9-b004-5bef0178a93e",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"uuids\": [\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-8bf902e7-f5a9-44d9-b004-5bef0178a93e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:24.000Z",
+              "updatedAt": "2026-07-28T03:21:24.000Z",
+              "uid": "35240-154287c6-6522-4b84-a988-63c0d7624f90"
+            },
+            {
+              "name": "Get Connection History",
+              "id": "fb00c122-0be1-4205-99ba-79fce250f05d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2/connections?status=active&endpoints=filtered_stream,likes_firehose_stream&max_results=10&pagination_token=<string>&connection.fields=id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "connections"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by connection status. Use 'active' for current connections, 'inactive' for historical/disconnected connections, or 'all' for both.",
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "description": "Filter by streaming endpoint. Specify one or more endpoint names to filter results.",
+                      "key": "endpoints",
+                      "value": "filtered_stream,likes_firehose_stream"
+                    },
+                    {
+                      "description": "The maximum number of results to return per page.",
+                      "key": "max_results",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Token for paginating through results. Use the value from 'next_token' in the previous response.",
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma separated list of Connection fields to display.",
+                      "key": "connection.fields",
+                      "value": "id"
+                    }
+                  ]
+                },
+                "description": "Returns active and historical streaming connections with disconnect reasons for the authenticated application."
+              },
+              "response": [
+                {
+                  "id": "5fa59dc0-9c95-4213-8ffa-1b1417bd1435",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections?status=active&endpoints=filtered_stream,likes_firehose_stream&max_results=10&pagination_token=<string>&connection.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by connection status. Use 'active' for current connections, 'inactive' for historical/disconnected connections, or 'all' for both.",
+                          "key": "status",
+                          "value": "active"
+                        },
+                        {
+                          "description": "Filter by streaming endpoint. Specify one or more endpoint names to filter results.",
+                          "key": "endpoints",
+                          "value": "filtered_stream,likes_firehose_stream"
+                        },
+                        {
+                          "description": "The maximum number of results to return per page.",
+                          "key": "max_results",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Token for paginating through results. Use the value from 'next_token' in the previous response.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma separated list of Connection fields to display.",
+                          "key": "connection.fields",
+                          "value": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"connected_at\": \"<dateTime>\",\n      \"endpoint_name\": \"<string>\",\n      \"client_ip\": \"<string>\",\n      \"disconnect_reason\": \"<string>\",\n      \"disconnected_at\": \"<dateTime>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-5fa59dc0-9c95-4213-8ffa-1b1417bd1435"
+                },
+                {
+                  "id": "28f2349d-e6e4-41a6-900e-abdfbea59dd5",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/connections?status=active&endpoints=filtered_stream,likes_firehose_stream&max_results=10&pagination_token=<string>&connection.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "connections"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by connection status. Use 'active' for current connections, 'inactive' for historical/disconnected connections, or 'all' for both.",
+                          "key": "status",
+                          "value": "active"
+                        },
+                        {
+                          "description": "Filter by streaming endpoint. Specify one or more endpoint names to filter results.",
+                          "key": "endpoints",
+                          "value": "filtered_stream,likes_firehose_stream"
+                        },
+                        {
+                          "description": "The maximum number of results to return per page.",
+                          "key": "max_results",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Token for paginating through results. Use the value from 'next_token' in the previous response.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma separated list of Connection fields to display.",
+                          "key": "connection.fields",
+                          "value": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:24.000Z",
+                  "updatedAt": "2026-07-28T03:21:24.000Z",
+                  "uid": "35240-28f2349d-e6e4-41a6-900e-abdfbea59dd5"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:24.000Z",
+              "updatedAt": "2026-07-28T03:21:24.000Z",
+              "uid": "35240-fb00c122-0be1-4205-99ba-79fce250f05d"
+            }
+          ],
+          "id": "d784be4a-1991-4d2c-839a-010e5f3d38e5",
+          "createdAt": "2026-07-28T03:21:24.000Z",
+          "updatedAt": "2026-07-28T03:21:24.000Z",
+          "uid": "35240-d784be4a-1991-4d2c-839a-010e5f3d38e5"
+        }
+      ],
+      "id": "64e24472-54eb-4adc-b147-b76dfcc7d3e4",
+      "createdAt": "2026-07-28T03:21:24.000Z",
+      "updatedAt": "2026-07-28T03:21:24.000Z",
+      "uid": "35240-64e24472-54eb-4adc-b147-b76dfcc7d3e4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

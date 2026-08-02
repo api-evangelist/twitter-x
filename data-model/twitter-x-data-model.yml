@@ -1,0 +1,158 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/twitter-x-x-api-v2-openapi.json
+docs: https://docs.x.com/x-api/fundamentals/data-dictionary
+description: >-
+  Entity-relationship graph of the X API v2 core objects, derived from
+  components.schemas $ref links and typed id fields (TweetId, UserId,
+  SpaceId, ...) in the harvested OpenAPI (v2.166). Posts (Tweets), Users, and
+  Spaces are the core objects; related objects are delivered via the
+  expansions/includes mechanism rather than nesting.
+entities:
+  - name: Tweet (Post)
+    id_field: id (TweetId)
+    relationships:
+      - relation: belongs_to
+        entity: User
+        via: author_id
+      - relation: belongs_to
+        entity: User
+        via: in_reply_to_user_id
+      - relation: belongs_to
+        entity: Community
+        via: community_id
+      - relation: belongs_to
+        entity: Tweet
+        via: conversation_id
+      - relation: has_many
+        entity: Tweet
+        via: 'referenced_tweets[].id (retweeted/quoted/replied_to)'
+      - relation: has_many
+        entity: Tweet
+        via: edit_history_tweet_ids
+      - relation: has_many
+        entity: Media
+        via: attachments.media_keys
+      - relation: has_many
+        entity: Poll
+        via: attachments.poll_ids
+      - relation: belongs_to
+        entity: Place
+        via: geo.place_id
+      - relation: has_many
+        entity: CommunityNote
+        via: matched_media_notes
+  - name: User
+    id_field: id (UserId)
+    relationships:
+      - relation: has_one
+        entity: Tweet
+        via: pinned_tweet_id
+      - relation: has_one
+        entity: Tweet
+        via: most_recent_tweet_id
+      - relation: belongs_to
+        entity: User
+        via: 'affiliation.user_id (array since 2025-02-18)'
+      - relation: has_many
+        entity: Tweet
+        via: 'GET /2/users/{id}/tweets timeline'
+      - relation: has_many
+        entity: User
+        via: 'GET /2/users/{id}/following and /followers'
+      - relation: has_many
+        entity: List
+        via: 'GET /2/users/{id}/owned_lists'
+  - name: Space
+    id_field: id (SpaceId)
+    relationships:
+      - relation: belongs_to
+        entity: User
+        via: creator_id
+      - relation: has_many
+        entity: User
+        via: host_ids
+      - relation: has_many
+        entity: User
+        via: speaker_ids
+      - relation: has_many
+        entity: User
+        via: invited_user_ids
+  - name: List
+    id_field: id (ListId)
+    relationships:
+      - relation: belongs_to
+        entity: User
+        via: owner_id
+      - relation: has_many
+        entity: User
+        via: 'GET /2/lists/{id}/members and /followers'
+      - relation: has_many
+        entity: Tweet
+        via: 'GET /2/lists/{id}/tweets'
+  - name: Media
+    id_field: media_key (MediaKey)
+    relationships:
+      - relation: has_many
+        entity: Tweet
+        via: attachments.media_keys (inverse)
+  - name: DmEvent
+    id_field: id (DmEventId)
+    relationships:
+      - relation: belongs_to
+        entity: DmConversation
+        via: dm_conversation_id
+      - relation: belongs_to
+        entity: User
+        via: sender_id
+      - relation: has_many
+        entity: User
+        via: 'participant_ids (only on ParticipantsJoin/ParticipantsLeave events since 2025-06-03)'
+      - relation: has_many
+        entity: Tweet
+        via: referenced_tweets
+      - relation: has_many
+        entity: Media
+        via: attachments (media keys)
+  - name: Place
+    id_field: id (PlaceId)
+    relationships:
+      - relation: has_many
+        entity: Place
+        via: contained_within
+      - relation: has_many
+        entity: Tweet
+        via: geo.place_id (inverse)
+  - name: Poll
+    id_field: id (PollId)
+    relationships:
+      - relation: belongs_to
+        entity: Tweet
+        via: attachments.poll_ids (inverse)
+  - name: Community
+    id_field: id (CommunityId)
+    relationships:
+      - relation: has_many
+        entity: Tweet
+        via: community_id (inverse)
+  - name: News
+    id_field: rest_id (NewsId)
+    relationships:
+      - relation: has_many
+        entity: Tweet
+        via: cluster_posts_results
+  - name: Trend
+    id_field: none (WOEID-scoped listing)
+    relationships:
+      - relation: belongs_to
+        entity: Place (WOEID)
+        via: 'GET /2/trends/by/woeid/{woeid}'
+id_domains:
+  TweetId: numeric string (e.g. "1346889436626259968")
+  UserId: numeric string
+  MediaKey: prefixed string "<type>_<id>" (e.g. "13_1263145212760805376")
+  DmConversationId: participant-pair or conversation id string
+delivery_model: >-
+  Related objects are returned as ids by default and inlined into the
+  top-level `includes` object when requested via `expansions`
+  (e.g. author_id, attachments.media_keys, referenced_tweets.id).

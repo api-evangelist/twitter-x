@@ -1,0 +1,441 @@
+{
+  "info": {
+    "_postman_id": "eeaa0809-2c27-44b5-9a70-7f39b305620e",
+    "name": "X API v2 Account Activity Trends API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:37.000Z",
+    "updatedAt": "2026-07-28T03:21:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eeaa0809-2c27-44b5-9a70-7f39b305620e"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "trends",
+          "item": [
+            {
+              "name": "by",
+              "item": [
+                {
+                  "name": "woeid",
+                  "item": [
+                    {
+                      "name": "{woeid}",
+                      "item": [
+                        {
+                          "name": "Get Trends by WOEID",
+                          "id": "e15cd496-3133-4951-ad61-0eec8f843c37",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/trends/by/woeid/:woeid?max_trends=20&trend.fields=trend_name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "trends",
+                                "by",
+                                "woeid",
+                                ":woeid"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_trends",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "A comma separated list of Trend fields to display.",
+                                  "key": "trend.fields",
+                                  "value": "trend_name"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8bea5679-dabb-4f4b-b1c9-1b7c61073d94",
+                                  "key": "woeid",
+                                  "value": "<integer>",
+                                  "description": "(Required) The WOEID of the place to lookup a trend for."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves trending topics for a specific location identified by its WOEID."
+                          },
+                          "response": [
+                            {
+                              "id": "e65fc4f8-26e8-4b1f-93e2-b34e6482fab1",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/trends/by/woeid/:woeid?max_trends=20&trend.fields=trend_name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "trends",
+                                    "by",
+                                    "woeid",
+                                    ":woeid"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of results.",
+                                      "key": "max_trends",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Trend fields to display.",
+                                      "key": "trend.fields",
+                                      "value": "trend_name"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "woeid"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"trend_name\": \"<string>\",\n      \"tweet_count\": \"<integer>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:21:38.000Z",
+                              "updatedAt": "2026-07-28T03:21:38.000Z",
+                              "uid": "35240-e65fc4f8-26e8-4b1f-93e2-b34e6482fab1"
+                            },
+                            {
+                              "id": "9475fc7b-d1a9-4129-870e-3c2741d9777b",
+                              "name": "The request has failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/trends/by/woeid/:woeid?max_trends=20&trend.fields=trend_name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "trends",
+                                    "by",
+                                    "woeid",
+                                    ":woeid"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of results.",
+                                      "key": "max_trends",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Trend fields to display.",
+                                      "key": "trend.fields",
+                                      "value": "trend_name"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "woeid"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:21:38.000Z",
+                              "updatedAt": "2026-07-28T03:21:38.000Z",
+                              "uid": "35240-9475fc7b-d1a9-4129-870e-3c2741d9777b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:21:38.000Z",
+                          "updatedAt": "2026-07-28T03:21:38.000Z",
+                          "uid": "35240-e15cd496-3133-4951-ad61-0eec8f843c37"
+                        }
+                      ],
+                      "id": "e7adbbc5-53c5-44aa-aa74-233f2d5e252c",
+                      "createdAt": "2026-07-28T03:21:38.000Z",
+                      "updatedAt": "2026-07-28T03:21:38.000Z",
+                      "uid": "35240-e7adbbc5-53c5-44aa-aa74-233f2d5e252c"
+                    }
+                  ],
+                  "id": "6347be6b-e3c7-4e35-a16d-fc519e96b994",
+                  "createdAt": "2026-07-28T03:21:38.000Z",
+                  "updatedAt": "2026-07-28T03:21:38.000Z",
+                  "uid": "35240-6347be6b-e3c7-4e35-a16d-fc519e96b994"
+                }
+              ],
+              "id": "3b955df3-7f15-4eae-88f9-709d05828bbc",
+              "createdAt": "2026-07-28T03:21:38.000Z",
+              "updatedAt": "2026-07-28T03:21:38.000Z",
+              "uid": "35240-3b955df3-7f15-4eae-88f9-709d05828bbc"
+            }
+          ],
+          "id": "585c7232-d140-4129-b89f-22d7d9e65f36",
+          "createdAt": "2026-07-28T03:21:38.000Z",
+          "updatedAt": "2026-07-28T03:21:38.000Z",
+          "uid": "35240-585c7232-d140-4129-b89f-22d7d9e65f36"
+        },
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "personalized_trends",
+              "item": [
+                {
+                  "name": "Get personalized Trends",
+                  "id": "b6433b79-73d8-4978-b786-62bdeaee6283",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://api.x.com/2/oauth2/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://api.x.com/2/oauth2/authorize",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/users/personalized_trends?personalized_trend.fields=category",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "users",
+                        "personalized_trends"
+                      ],
+                      "query": [
+                        {
+                          "description": "A comma separated list of PersonalizedTrend fields to display.",
+                          "key": "personalized_trend.fields",
+                          "value": "category"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves personalized trending topics for the authenticated user."
+                  },
+                  "response": [
+                    {
+                      "id": "ce4475cb-9757-4549-9e60-8ad2a79c8488",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/users/personalized_trends?personalized_trend.fields=category",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "users",
+                            "personalized_trends"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of PersonalizedTrend fields to display.",
+                              "key": "personalized_trend.fields",
+                              "value": "category"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"category\": \"<string>\",\n      \"post_count\": \"<integer>\",\n      \"trend_name\": \"<string>\",\n      \"trending_since\": \"<string>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:38.000Z",
+                      "updatedAt": "2026-07-28T03:21:38.000Z",
+                      "uid": "35240-ce4475cb-9757-4549-9e60-8ad2a79c8488"
+                    },
+                    {
+                      "id": "44a90089-929f-4734-bd86-b2981781356a",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/users/personalized_trends?personalized_trend.fields=category",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "users",
+                            "personalized_trends"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of PersonalizedTrend fields to display.",
+                              "key": "personalized_trend.fields",
+                              "value": "category"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:38.000Z",
+                      "updatedAt": "2026-07-28T03:21:38.000Z",
+                      "uid": "35240-44a90089-929f-4734-bd86-b2981781356a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:38.000Z",
+                  "updatedAt": "2026-07-28T03:21:38.000Z",
+                  "uid": "35240-b6433b79-73d8-4978-b786-62bdeaee6283"
+                }
+              ],
+              "id": "1717152a-8f4d-42e8-b5b4-08b94ce34e2b",
+              "createdAt": "2026-07-28T03:21:38.000Z",
+              "updatedAt": "2026-07-28T03:21:38.000Z",
+              "uid": "35240-1717152a-8f4d-42e8-b5b4-08b94ce34e2b"
+            }
+          ],
+          "id": "0223f45c-6840-4de2-b228-d0d3be0c353c",
+          "createdAt": "2026-07-28T03:21:38.000Z",
+          "updatedAt": "2026-07-28T03:21:38.000Z",
+          "uid": "35240-0223f45c-6840-4de2-b228-d0d3be0c353c"
+        }
+      ],
+      "id": "3ee6c300-6567-48ef-b07b-b01333b1ecf0",
+      "createdAt": "2026-07-28T03:21:38.000Z",
+      "updatedAt": "2026-07-28T03:21:38.000Z",
+      "uid": "35240-3ee6c300-6567-48ef-b07b-b01333b1ecf0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

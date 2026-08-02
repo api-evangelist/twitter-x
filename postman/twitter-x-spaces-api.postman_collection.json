@@ -1,0 +1,1484 @@
+{
+  "info": {
+    "_postman_id": "40e3db69-2a53-4fd0-a9ab-d1f627c3a3b7",
+    "name": "X API v2 Account Activity Spaces API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:34.000Z",
+    "updatedAt": "2026-07-28T03:21:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-40e3db69-2a53-4fd0-a9ab-d1f627c3a3b7"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "spaces",
+          "item": [
+            {
+              "name": "by",
+              "item": [
+                {
+                  "name": "creator_ids",
+                  "item": [
+                    {
+                      "name": "Get Spaces by creator IDs",
+                      "id": "d9e41c89-a20c-4b20-b4e7-b301885c7e83",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/by/creator_ids?user_ids=16591306928797&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            "by",
+                            "creator_ids"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The IDs of Users to search through.",
+                              "key": "user_ids",
+                              "value": "16591306928797"
+                            },
+                            {
+                              "description": "A comma separated list of Space fields to display.",
+                              "key": "space.fields",
+                              "value": "topic_ids"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "host_ids"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Topic fields to display.",
+                              "key": "topic.fields",
+                              "value": "id"
+                            }
+                          ]
+                        },
+                        "description": "Retrieves details of Spaces created by specified User IDs."
+                      },
+                      "response": [
+                        {
+                          "id": "33b47af7-9930-49aa-bc28-0d6c3e46d007",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/by/creator_ids?user_ids=16591306928797&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                "by",
+                                "creator_ids"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The IDs of Users to search through.",
+                                  "key": "user_ids",
+                                  "value": "16591306928797"
+                                },
+                                {
+                                  "description": "A comma separated list of Space fields to display.",
+                                  "key": "space.fields",
+                                  "value": "topic_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "host_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Topic fields to display.",
+                                  "key": "topic.fields",
+                                  "value": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"Y8WbWb8\",\n      \"state\": \"ended\",\n      \"created_at\": \"<dateTime>\",\n      \"creator_id\": \"18791367309\",\n      \"ended_at\": \"<dateTime>\",\n      \"host_ids\": [\n        \"486425730062073\"\n      ],\n      \"invited_user_ids\": [\n        \"841166\"\n      ],\n      \"is_ticketed\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"participant_count\": \"<integer>\",\n      \"scheduled_start\": \"<dateTime>\",\n      \"speaker_ids\": [\n        \"5296596\"\n      ],\n      \"started_at\": \"<dateTime>\",\n      \"subscriber_count\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"topics\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"711_2353909\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"SM\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"country\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"309801064845622151\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"143_357995\"\n          ],\n          \"media_source_tweet_id\": [\n            \"597943687\"\n          ],\n          \"poll_ids\": [\n            \"1828615\"\n          ]\n        },\n        \"author_id\": \"9\",\n        \"community_id\": \"45093779\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"3452837083\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"0720\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"0909658043021162\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"974\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"mzp\",\n              \"id\": \"64\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"923508580_8002324\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"3\",\n        \"in_reply_to_user_id\": \"31966564711112899\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"25395897997\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"9098_8410676\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"VfA7TAZKA53HG\",\n                \"id\": \"082973010454\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2761823306_424651\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"507721782047465\"\n          }\n        ],\n        \"reply_settings\": \"subscribers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"827592790_61356017\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"878779_03194305\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"p6oMo9\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"MT\"\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"994370987\",\n        \"name\": \"<string>\",\n        \"username\": \"P\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"01932625\"\n          ]\n        },\n        \"connection_status\": [\n          \"blocking\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"XHA1Sty3YfAa\",\n                \"id\": \"583856566034207\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"690068538_0\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"314073_29\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"8463\",\n        \"pinned_tweet_id\": \"0196196512682251\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"DA\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-33b47af7-9930-49aa-bc28-0d6c3e46d007"
+                        },
+                        {
+                          "id": "ed9012f1-0f07-405b-8638-e5c72d25840a",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/by/creator_ids?user_ids=16591306928797&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                "by",
+                                "creator_ids"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The IDs of Users to search through.",
+                                  "key": "user_ids",
+                                  "value": "16591306928797"
+                                },
+                                {
+                                  "description": "A comma separated list of Space fields to display.",
+                                  "key": "space.fields",
+                                  "value": "topic_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "host_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Topic fields to display.",
+                                  "key": "topic.fields",
+                                  "value": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-ed9012f1-0f07-405b-8638-e5c72d25840a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-d9e41c89-a20c-4b20-b4e7-b301885c7e83"
+                    }
+                  ],
+                  "id": "e5a293a7-9a99-41cb-a9f9-e0855412c943",
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-e5a293a7-9a99-41cb-a9f9-e0855412c943"
+                }
+              ],
+              "id": "38a4dfaa-2cd4-499b-9876-b9a6723538d8",
+              "createdAt": "2026-07-28T03:21:35.000Z",
+              "updatedAt": "2026-07-28T03:21:35.000Z",
+              "uid": "35240-38a4dfaa-2cd4-499b-9876-b9a6723538d8"
+            },
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Spaces",
+                  "id": "935a3b20-fcb3-497e-998a-97716cd0315f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/spaces/search?query=<string>&state=all&max_results=100&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "spaces",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The state of Spaces to search for.",
+                          "key": "state",
+                          "value": "all"
+                        },
+                        {
+                          "description": "The number of results to return.",
+                          "key": "max_results",
+                          "value": "100"
+                        },
+                        {
+                          "description": "A comma separated list of Space fields to display.",
+                          "key": "space.fields",
+                          "value": "topic_ids"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "host_ids"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "pinned_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Topic fields to display.",
+                          "key": "topic.fields",
+                          "value": "id"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a list of Spaces matching the specified search query."
+                  },
+                  "response": [
+                    {
+                      "id": "e6cd6c73-1d5e-4d6f-9811-b41be0ffd68a",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/search?query=<string>&state=all&max_results=100&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The state of Spaces to search for.",
+                              "key": "state",
+                              "value": "all"
+                            },
+                            {
+                              "description": "The number of results to return.",
+                              "key": "max_results",
+                              "value": "100"
+                            },
+                            {
+                              "description": "A comma separated list of Space fields to display.",
+                              "key": "space.fields",
+                              "value": "topic_ids"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "host_ids"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Topic fields to display.",
+                              "key": "topic.fields",
+                              "value": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"Y8WbWb8\",\n      \"state\": \"ended\",\n      \"created_at\": \"<dateTime>\",\n      \"creator_id\": \"18791367309\",\n      \"ended_at\": \"<dateTime>\",\n      \"host_ids\": [\n        \"486425730062073\"\n      ],\n      \"invited_user_ids\": [\n        \"841166\"\n      ],\n      \"is_ticketed\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"participant_count\": \"<integer>\",\n      \"scheduled_start\": \"<dateTime>\",\n      \"speaker_ids\": [\n        \"5296596\"\n      ],\n      \"started_at\": \"<dateTime>\",\n      \"subscriber_count\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"topics\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"711_2353909\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"SM\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"country\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"309801064845622151\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"143_357995\"\n          ],\n          \"media_source_tweet_id\": [\n            \"597943687\"\n          ],\n          \"poll_ids\": [\n            \"1828615\"\n          ]\n        },\n        \"author_id\": \"9\",\n        \"community_id\": \"45093779\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"3452837083\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"0720\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"0909658043021162\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"974\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"mzp\",\n              \"id\": \"64\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"923508580_8002324\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"3\",\n        \"in_reply_to_user_id\": \"31966564711112899\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"25395897997\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"9098_8410676\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"VfA7TAZKA53HG\",\n                \"id\": \"082973010454\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2761823306_424651\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"507721782047465\"\n          }\n        ],\n        \"reply_settings\": \"subscribers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"827592790_61356017\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"878779_03194305\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"p6oMo9\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"MT\"\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"994370987\",\n        \"name\": \"<string>\",\n        \"username\": \"P\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"01932625\"\n          ]\n        },\n        \"connection_status\": [\n          \"blocking\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"XHA1Sty3YfAa\",\n                \"id\": \"583856566034207\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"690068538_0\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"314073_29\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"8463\",\n        \"pinned_tweet_id\": \"0196196512682251\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"DA\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"result_count\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-e6cd6c73-1d5e-4d6f-9811-b41be0ffd68a"
+                    },
+                    {
+                      "id": "1cebee06-d3b0-4392-acb6-0ea8a3aae7ff",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/search?query=<string>&state=all&max_results=100&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The state of Spaces to search for.",
+                              "key": "state",
+                              "value": "all"
+                            },
+                            {
+                              "description": "The number of results to return.",
+                              "key": "max_results",
+                              "value": "100"
+                            },
+                            {
+                              "description": "A comma separated list of Space fields to display.",
+                              "key": "space.fields",
+                              "value": "topic_ids"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "host_ids"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Topic fields to display.",
+                              "key": "topic.fields",
+                              "value": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-1cebee06-d3b0-4392-acb6-0ea8a3aae7ff"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-935a3b20-fcb3-497e-998a-97716cd0315f"
+                }
+              ],
+              "id": "003eb946-3793-4838-bff1-a0e99e882e17",
+              "createdAt": "2026-07-28T03:21:35.000Z",
+              "updatedAt": "2026-07-28T03:21:35.000Z",
+              "uid": "35240-003eb946-3793-4838-bff1-a0e99e882e17"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "buyers",
+                  "item": [
+                    {
+                      "name": "Get Space ticket buyers",
+                      "id": "c2221fc3-35c3-40c9-9780-2b12e91b4fc7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://api.x.com/2/oauth2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://api.x.com/2/oauth2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/:id/buyers?pagination_token=<string>&max_results=100&user.fields=pinned_tweet_id&expansions=affiliation.user_id&tweet.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            ":id",
+                            "buyers"
+                          ],
+                          "query": [
+                            {
+                              "description": "This parameter is used to get a specified 'page' of results.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of results.",
+                              "key": "max_results",
+                              "value": "100"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "affiliation.user_id"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3ebef488-ebcd-4ad8-88ee-557181808832",
+                              "key": "id",
+                              "value": "vZF5OB",
+                              "description": "(Required) The ID of the Space to be retrieved."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a list of Users who purchased tickets to a specific Space by its ID."
+                      },
+                      "response": [
+                        {
+                          "id": "e5b83749-5b91-48e3-91eb-0d388159575e",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/:id/buyers?pagination_token=<string>&max_results=100&user.fields=pinned_tweet_id&expansions=affiliation.user_id&tweet.fields=id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                ":id",
+                                "buyers"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This parameter is used to get a specified 'page' of results.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "affiliation.user_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "id"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"8623\",\n      \"name\": \"<string>\",\n      \"username\": \"xPE6j3KJfR\",\n      \"affiliation\": {\n        \"badge_url\": \"<uri>\",\n        \"description\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"user_id\": [\n          \"8703166272762555449\"\n        ]\n      },\n      \"connection_status\": [\n        \"follow_request_sent\"\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"entities\": {\n        \"description\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"pf6oKKFPUqp3WQ4\",\n              \"id\": \"63011495668960\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"32835_22437\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"url\": {\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"875925_363\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        }\n      },\n      \"location\": \"<string>\",\n      \"most_recent_tweet_id\": \"434531111360677\",\n      \"pinned_tweet_id\": \"6467422097697\",\n      \"profile_banner_url\": \"<uri>\",\n      \"profile_image_url\": \"<uri>\",\n      \"protected\": \"<boolean>\",\n      \"public_metrics\": {\n        \"followers_count\": \"<integer>\",\n        \"following_count\": \"<integer>\",\n        \"tweet_count\": \"<integer>\",\n        \"listed_count\": \"<integer>\",\n        \"like_count\": \"<integer>\"\n      },\n      \"receives_your_dm\": \"<boolean>\",\n      \"subscription_type\": \"None\",\n      \"url\": \"<string>\",\n      \"verified\": \"<boolean>\",\n      \"verified_type\": \"blue\",\n      \"withheld\": {\n        \"country_codes\": [\n          \"KH\"\n        ],\n        \"scope\": \"user\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"69837_971475146\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"DV\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"admin\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"77429099645565685\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"14578_737773834\"\n          ],\n          \"media_source_tweet_id\": [\n            \"4612290766713\"\n          ],\n          \"poll_ids\": [\n            \"698202\"\n          ]\n        },\n        \"author_id\": \"2\",\n        \"community_id\": \"8\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"5850\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"3025958645610\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"08\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"064245005068320\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"U5mKdkiyX\",\n              \"id\": \"258\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"18471712470_68240\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"863209687831441\",\n        \"in_reply_to_user_id\": \"30504\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"566834566\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"15415387727_3602\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"cf\",\n                \"id\": \"49836171939\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2_76\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"1521571813139911819\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"239468_89087467\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"1139681_770848\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"qBw\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"UH\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"7206126584523106993\",\n        \"name\": \"<string>\",\n        \"username\": \"W6ZE\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"11\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"E6_P\",\n                \"id\": \"8\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"161049479_2029021975\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2229669373_86673172\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"45142089675425789\",\n        \"pinned_tweet_id\": \"1379611931\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Basic\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"YP\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"previous_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-e5b83749-5b91-48e3-91eb-0d388159575e"
+                        },
+                        {
+                          "id": "b6c23b25-891a-48fd-9c6a-cc8282788d1d",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/:id/buyers?pagination_token=<string>&max_results=100&user.fields=pinned_tweet_id&expansions=affiliation.user_id&tweet.fields=id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                ":id",
+                                "buyers"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This parameter is used to get a specified 'page' of results.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "affiliation.user_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "id"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-b6c23b25-891a-48fd-9c6a-cc8282788d1d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-c2221fc3-35c3-40c9-9780-2b12e91b4fc7"
+                    }
+                  ],
+                  "id": "5aa2909e-0cdb-428f-851d-53f0ce200306",
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-5aa2909e-0cdb-428f-851d-53f0ce200306"
+                },
+                {
+                  "name": "tweets",
+                  "item": [
+                    {
+                      "name": "Get Space Posts",
+                      "id": "879ccd06-eac8-4f62-ad2b-dec2e38ed36c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/:id/tweets?max_results=100&tweet.fields=id&expansions=referenced_tweets.id&media.fields=duration_ms&poll.fields=voting_status&user.fields=pinned_tweet_id&place.fields=name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            ":id",
+                            "tweets"
+                          ],
+                          "query": [
+                            {
+                              "description": "The number of Posts to fetch from the provided space. If not provided, the value will default to the maximum of 100.",
+                              "key": "max_results",
+                              "value": "100"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "id"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "referenced_tweets.id"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "duration_ms"
+                            },
+                            {
+                              "description": "A comma separated list of Poll fields to display.",
+                              "key": "poll.fields",
+                              "value": "voting_status"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Place fields to display.",
+                              "key": "place.fields",
+                              "value": "name"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a714310c-80e9-401c-8e7d-71d04d76bf30",
+                              "key": "id",
+                              "value": "vZF5OB",
+                              "description": "(Required) The ID of the Space to be retrieved."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a list of Posts shared in a specific Space by its ID."
+                      },
+                      "response": [
+                        {
+                          "id": "2fbefd73-f081-40da-880e-342dabb770cc",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/:id/tweets?max_results=100&tweet.fields=id&expansions=referenced_tweets.id&media.fields=duration_ms&poll.fields=voting_status&user.fields=pinned_tweet_id&place.fields=name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                ":id",
+                                "tweets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of Posts to fetch from the provided space. If not provided, the value will default to the maximum of 100.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "referenced_tweets.id"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of Poll fields to display.",
+                                  "key": "poll.fields",
+                                  "value": "voting_status"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Place fields to display.",
+                                  "key": "place.fields",
+                                  "value": "name"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"attachments\": {\n        \"media_keys\": [\n          \"7289_39\"\n        ],\n        \"media_source_tweet_id\": [\n          \"4800572\"\n        ],\n        \"poll_ids\": [\n          \"66717929\"\n        ]\n      },\n      \"author_id\": \"1548\",\n      \"community_id\": \"6075291283233\",\n      \"context_annotations\": [\n        {\n          \"domain\": {\n            \"id\": \"8809\",\n            \"description\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          \"entity\": {\n            \"id\": \"01506892498908530\",\n            \"description\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        }\n      ],\n      \"conversation_id\": \"3389162225801\",\n      \"created_at\": \"<dateTime>\",\n      \"display_text_range\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"edit_controls\": {\n        \"is_edit_eligible\": \"<boolean>\",\n        \"editable_until\": \"<dateTime>\",\n        \"edits_remaining\": \"<integer>\"\n      },\n      \"edit_history_tweet_ids\": [\n        \"811\"\n      ],\n      \"entities\": {\n        \"annotations\": [\n          {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\",\n            \"normalized_text\": \"<string>\",\n            \"probability\": \"<double>\",\n            \"type\": \"<string>\"\n          }\n        ],\n        \"cashtags\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"tag\": \"<string>\"\n          }\n        ],\n        \"hashtags\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"tag\": \"<string>\"\n          }\n        ],\n        \"mentions\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"username\": \"08Rw2lvLk7pX9Yb\",\n            \"id\": \"6528286555036865426\"\n          }\n        ],\n        \"urls\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"04059965834_4016169\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ]\n      },\n      \"geo\": {\n        \"coordinates\": {\n          \"type\": \"Point\",\n          \"coordinates\": [\n            \"<number>\",\n            \"<number>\"\n          ]\n        },\n        \"place_id\": \"<string>\"\n      },\n      \"id\": \"598057573709995\",\n      \"in_reply_to_user_id\": \"9032783635418238\",\n      \"lang\": \"<string>\",\n      \"matched_media_notes\": {\n        \"match_status\": \"<string>\",\n        \"note_id\": \"1724503704025\"\n      },\n      \"non_public_metrics\": {\n        \"impression_count\": \"<integer>\"\n      },\n      \"note_request_suggestions\": {\n        \"source_link\": {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"90865022_9642272861\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        },\n        \"suggestion\": \"<string>\",\n        \"suggestion_id\": \"<string>\"\n      },\n      \"note_tweet\": {\n        \"entities\": {\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"JgO4OCeTq\",\n              \"id\": \"303072494030230849\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"3260191424_22789\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"text\": \"<string>\"\n      },\n      \"organic_metrics\": {\n        \"impression_count\": \"<integer>\",\n        \"retweet_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"like_count\": \"<integer>\"\n      },\n      \"paid_partnership\": \"<boolean>\",\n      \"possibly_sensitive\": \"<boolean>\",\n      \"promoted_metrics\": {\n        \"impression_count\": \"<integer>\",\n        \"like_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"retweet_count\": \"<integer>\"\n      },\n      \"public_metrics\": {\n        \"retweet_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"like_count\": \"<integer>\",\n        \"impression_count\": \"<integer>\",\n        \"bookmark_count\": \"<integer>\",\n        \"quote_count\": \"<integer>\"\n      },\n      \"referenced_tweets\": [\n        {\n          \"type\": \"retweeted\",\n          \"id\": \"45917665903717\"\n        }\n      ],\n      \"reply_settings\": \"everyone\",\n      \"scopes\": {\n        \"followers\": \"<boolean>\"\n      },\n      \"source\": \"<string>\",\n      \"suggested_source_links\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"17185_4365911895\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      ],\n      \"suggested_source_links_with_counts\": {\n        \"count\": \"<integer>\",\n        \"url\": {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"4_722\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      },\n      \"text\": \"<string>\",\n      \"username\": \"jvPuIihKCFQuA\",\n      \"withheld\": {\n        \"copyright\": \"<boolean>\",\n        \"country_codes\": [\n          \"WL\"\n        ],\n        \"scope\": \"tweet\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"28952_675586985\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"ES\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"admin\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"70097\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"5382108112_219\"\n          ],\n          \"media_source_tweet_id\": [\n            \"2287436519\"\n          ],\n          \"poll_ids\": [\n            \"2799971770479865856\"\n          ]\n        },\n        \"author_id\": \"191\",\n        \"community_id\": \"876402935014\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"77117182\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"916175361\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"6840958865\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"42\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"7wgBht3OPtwk\",\n              \"id\": \"08611111563659\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"051997162_7107603526\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"567871893\",\n        \"in_reply_to_user_id\": \"043677248976716613\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"0488337508\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"51_582\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"P\",\n                \"id\": \"0476\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"658075_28187934942\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"43\"\n          }\n        ],\n        \"reply_settings\": \"following\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"807047_2434932612\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"802_23\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"kNspf\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"JN\"\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"1585\",\n        \"name\": \"<string>\",\n        \"username\": \"1wq\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"37437923943958\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"LDVmUYXnh29W\",\n                \"id\": \"730\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"215_9926506136\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"02039020017_471864795\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"58221025883\",\n        \"pinned_tweet_id\": \"04403324243\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Basic\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"government\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"II\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"previous_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-2fbefd73-f081-40da-880e-342dabb770cc"
+                        },
+                        {
+                          "id": "0202ad47-4956-46fc-8c4f-2595b3158d4c",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/spaces/:id/tweets?max_results=100&tweet.fields=id&expansions=referenced_tweets.id&media.fields=duration_ms&poll.fields=voting_status&user.fields=pinned_tweet_id&place.fields=name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "spaces",
+                                ":id",
+                                "tweets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The number of Posts to fetch from the provided space. If not provided, the value will default to the maximum of 100.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "referenced_tweets.id"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "duration_ms"
+                                },
+                                {
+                                  "description": "A comma separated list of Poll fields to display.",
+                                  "key": "poll.fields",
+                                  "value": "voting_status"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "pinned_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Place fields to display.",
+                                  "key": "place.fields",
+                                  "value": "name"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:35.000Z",
+                          "updatedAt": "2026-07-28T03:21:35.000Z",
+                          "uid": "35240-0202ad47-4956-46fc-8c4f-2595b3158d4c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-879ccd06-eac8-4f62-ad2b-dec2e38ed36c"
+                    }
+                  ],
+                  "id": "d47c2f99-ec6c-460a-855d-bf88621a30f2",
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-d47c2f99-ec6c-460a-855d-bf88621a30f2"
+                },
+                {
+                  "name": "Get space by ID",
+                  "id": "5edb9775-c2c7-4b0d-9a92-c80b776f8b39",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/spaces/:id?space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "spaces",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "A comma separated list of Space fields to display.",
+                          "key": "space.fields",
+                          "value": "topic_ids"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "host_ids"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "pinned_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Topic fields to display.",
+                          "key": "topic.fields",
+                          "value": "id"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3c07eb9e-a1ce-4f8f-ac38-71edd5876785",
+                          "key": "id",
+                          "value": "vZF5OB",
+                          "description": "(Required) The ID of the Space to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details of a specific space by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "06df2de5-5ed6-4202-82fb-04feedd88654",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/:id?space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of Space fields to display.",
+                              "key": "space.fields",
+                              "value": "topic_ids"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "host_ids"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Topic fields to display.",
+                              "key": "topic.fields",
+                              "value": "id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"A5t9Xdii\",\n    \"state\": \"ended\",\n    \"created_at\": \"<dateTime>\",\n    \"creator_id\": \"7\",\n    \"ended_at\": \"<dateTime>\",\n    \"host_ids\": [\n      \"7664209170459138771\"\n    ],\n    \"invited_user_ids\": [\n      \"5\"\n    ],\n    \"is_ticketed\": \"<boolean>\",\n    \"lang\": \"<string>\",\n    \"participant_count\": \"<integer>\",\n    \"scheduled_start\": \"<dateTime>\",\n    \"speaker_ids\": [\n      \"8074061887\"\n    ],\n    \"started_at\": \"<dateTime>\",\n    \"subscriber_count\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"214651_8381995\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"ME\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"neighborhood\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"064\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"760_0251773028\"\n          ],\n          \"media_source_tweet_id\": [\n            \"312243938\"\n          ],\n          \"poll_ids\": [\n            \"1814563574744021547\"\n          ]\n        },\n        \"author_id\": \"67530458219\",\n        \"community_id\": \"073\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"2614647003157912930\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"27589129430\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1343078\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"033709574649\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"gFM9n\",\n              \"id\": \"400405\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"4744655_1342760\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"1585824196416\",\n        \"in_reply_to_user_id\": \"935760164817291301\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"2613196644768875\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"7_8326\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"HUy\",\n                \"id\": \"082\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"79705_64260910438\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"8472\"\n          }\n        ],\n        \"reply_settings\": \"other\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"303563_01032093074\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"144_20\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"7Kad4XDX\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"LE\"\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"463189857072\",\n        \"name\": \"<string>\",\n        \"username\": \"jiUWW6o\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"4218708119648294\"\n          ]\n        },\n        \"connection_status\": [\n          \"blocking\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"WouWxenjlc\",\n                \"id\": \"11730166\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"99_089638729\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"359_476847241\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"7101754001992786\",\n        \"pinned_tweet_id\": \"89705763\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"None\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"FJ\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-06df2de5-5ed6-4202-82fb-04feedd88654"
+                    },
+                    {
+                      "id": "d0ea22d4-ffc1-456e-9807-10fbb88a3e91",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/spaces/:id?space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "spaces",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of Space fields to display.",
+                              "key": "space.fields",
+                              "value": "topic_ids"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "host_ids"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "pinned_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Topic fields to display.",
+                              "key": "topic.fields",
+                              "value": "id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:35.000Z",
+                      "updatedAt": "2026-07-28T03:21:35.000Z",
+                      "uid": "35240-d0ea22d4-ffc1-456e-9807-10fbb88a3e91"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-5edb9775-c2c7-4b0d-9a92-c80b776f8b39"
+                }
+              ],
+              "id": "298b4674-fb49-45b3-9668-0bc241880af3",
+              "createdAt": "2026-07-28T03:21:35.000Z",
+              "updatedAt": "2026-07-28T03:21:35.000Z",
+              "uid": "35240-298b4674-fb49-45b3-9668-0bc241880af3"
+            },
+            {
+              "name": "Get Spaces by IDs",
+              "id": "095e7d9b-8ce9-45f6-bad8-1737d336224e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2/spaces?ids=QfZq&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "spaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The list of Space IDs to return.",
+                      "key": "ids",
+                      "value": "QfZq"
+                    },
+                    {
+                      "description": "A comma separated list of Space fields to display.",
+                      "key": "space.fields",
+                      "value": "topic_ids"
+                    },
+                    {
+                      "description": "A comma separated list of fields to expand.",
+                      "key": "expansions",
+                      "value": "host_ids"
+                    },
+                    {
+                      "description": "A comma separated list of User fields to display.",
+                      "key": "user.fields",
+                      "value": "pinned_tweet_id"
+                    },
+                    {
+                      "description": "A comma separated list of Topic fields to display.",
+                      "key": "topic.fields",
+                      "value": "id"
+                    }
+                  ]
+                },
+                "description": "Retrieves details of multiple Spaces by their IDs."
+              },
+              "response": [
+                {
+                  "id": "904b3aeb-8dbd-492c-9aad-650de5a71e60",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/spaces?ids=QfZq&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "spaces"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The list of Space IDs to return.",
+                          "key": "ids",
+                          "value": "QfZq"
+                        },
+                        {
+                          "description": "A comma separated list of Space fields to display.",
+                          "key": "space.fields",
+                          "value": "topic_ids"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "host_ids"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "pinned_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Topic fields to display.",
+                          "key": "topic.fields",
+                          "value": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"uf4\",\n      \"state\": \"scheduled\",\n      \"created_at\": \"<dateTime>\",\n      \"creator_id\": \"6160\",\n      \"ended_at\": \"<dateTime>\",\n      \"host_ids\": [\n        \"597\"\n      ],\n      \"invited_user_ids\": [\n        \"8085059064768790\"\n      ],\n      \"is_ticketed\": \"<boolean>\",\n      \"lang\": \"<string>\",\n      \"participant_count\": \"<integer>\",\n      \"scheduled_start\": \"<dateTime>\",\n      \"speaker_ids\": [\n        \"18639\"\n      ],\n      \"started_at\": \"<dateTime>\",\n      \"subscriber_count\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"topics\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ],\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"1_167753412\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"DO\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"admin\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"092342183864\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"7427207_71\"\n          ],\n          \"media_source_tweet_id\": [\n            \"68613067582325084\"\n          ],\n          \"poll_ids\": [\n            \"3394181761\"\n          ]\n        },\n        \"author_id\": \"4959801020759334\",\n        \"community_id\": \"3825750579204\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"4724314062\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"24612330\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"66858355007\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"85691820507033796\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"Vfr\",\n              \"id\": \"611234303787478980\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"943969_529217\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"7\",\n        \"in_reply_to_user_id\": \"8410950\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"5828363390906858\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"51_368679\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"LI\",\n                \"id\": \"782713719607935087\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"12015591923_37631\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"016058865650782\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"38336703895_515882704\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"4300967871_978267\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"Qktc2HCxgNcuho\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"QS\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"96387455\",\n        \"name\": \"<string>\",\n        \"username\": \"Y3nvB8A3\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"7713\"\n          ]\n        },\n        \"connection_status\": [\n          \"followed_by\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"KyBT\",\n                \"id\": \"4887844552129063\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"237556516_0\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2267_0\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"47441\",\n        \"pinned_tweet_id\": \"96330259394076\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Premium\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"government\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"CC\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-904b3aeb-8dbd-492c-9aad-650de5a71e60"
+                },
+                {
+                  "id": "9a61ee32-f932-4d37-8b08-0420cb648610",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/spaces?ids=QfZq&space.fields=topic_ids&expansions=host_ids&user.fields=pinned_tweet_id&topic.fields=id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "spaces"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The list of Space IDs to return.",
+                          "key": "ids",
+                          "value": "QfZq"
+                        },
+                        {
+                          "description": "A comma separated list of Space fields to display.",
+                          "key": "space.fields",
+                          "value": "topic_ids"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "host_ids"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "pinned_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Topic fields to display.",
+                          "key": "topic.fields",
+                          "value": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:35.000Z",
+                  "updatedAt": "2026-07-28T03:21:35.000Z",
+                  "uid": "35240-9a61ee32-f932-4d37-8b08-0420cb648610"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:35.000Z",
+              "updatedAt": "2026-07-28T03:21:35.000Z",
+              "uid": "35240-095e7d9b-8ce9-45f6-bad8-1737d336224e"
+            }
+          ],
+          "id": "db6aef1f-8da7-4a55-a432-35e9e1f58e75",
+          "createdAt": "2026-07-28T03:21:35.000Z",
+          "updatedAt": "2026-07-28T03:21:35.000Z",
+          "uid": "35240-db6aef1f-8da7-4a55-a432-35e9e1f58e75"
+        }
+      ],
+      "id": "2aabbc51-723d-4efa-9cab-d62df97d9e63",
+      "createdAt": "2026-07-28T03:21:35.000Z",
+      "updatedAt": "2026-07-28T03:21:35.000Z",
+      "uid": "35240-2aabbc51-723d-4efa-9cab-d62df97d9e63"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

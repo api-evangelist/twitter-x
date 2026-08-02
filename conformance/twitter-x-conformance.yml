@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/twitter-x-x-api-v2-openapi.json + docs.x.com fundamentals pages
+description: >-
+  Industry / cross-cutting standards conformance of the X API v2, derived from
+  the harvested OpenAPI (v2.166) and the published fundamentals documentation.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes.OAuth2UserToken (authorizationCode flow, 21 scopes, authorize/token at api.x.com/2/oauth2/*); OAuth 2.0 PKCE documented at docs.x.com/fundamentals/authentication.
+  - id: oauth2-pkce
+    conforms: true
+    evidence: Authorization Code Flow with PKCE is the documented OAuth 2.0 user-context method.
+  - id: oauth1
+    conforms: true
+    evidence: OpenAPI securitySchemes.UserToken (http/OAuth signature scheme); OAuth 1.0a user context remains supported.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery document (x.com/.well-known/openid-configuration serves the SPA shell) and no openIdConnect securityScheme.
+  - id: rfc9457-problem-details
+    conforms: true
+    evidence: Every operation's default error response is served as application/problem+json with a type/title/detail Problem schema discriminated on 19 registered https://api.twitter.com/2/problems/* type URIs.
+  - id: rfc9116-security-txt
+    conforms: true
+    evidence: PGP-signed /.well-known/security.txt on x.com (well-known/twitter-x-security.txt), though its Expires field is stale.
+  - id: cursor-pagination
+    conforms: true
+    evidence: meta.next_token / pagination_token cursor pagination across list endpoints (docs.x.com/x-api/fundamentals/pagination).
+  - id: idempotency-key
+    conforms: false
+    evidence: No Idempotency-Key header or equivalent documented; no idempotency parameter in the OpenAPI.
+  - id: rate-limit-headers
+    conforms: true
+    evidence: x-rate-limit-limit / x-rate-limit-remaining / x-rate-limit-reset on every response (vendor-prefixed, not the IETF draft RateLimit fields).
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: Deprecations are announced via changelog/forum; no Sunset header support documented.
+  - id: json-api
+    conforms: false
+    evidence: Responses use X's own data/includes/meta/errors envelope, not JSON:API media type.
+  - id: scim
+    conforms: false
+    evidence: No SCIM provisioning surface in the public API.
+  - id: mcp
+    conforms: true
+    evidence: Hosted MCP servers at api.x.com/mcp (protocol 2025-06-18) and docs.x.com/mcp (mcp/twitter-x-mcp.yml).
+  - id: llms-txt
+    conforms: true
+    evidence: docs.x.com/llms.txt root index + nested per-section llms.txt files + llms-full.txt + .md suffix on every docs page.
+  - id: agent-skills
+    conforms: true
+    evidence: docs.x.com/skill.md published in agentskills.io format (skills/twitter-x-x-api-skill.md); xurl ships its own SKILL.md.
+compliance_program_note: >-
+  No public trust center or certification program (SOC 2 / ISO 27001) is
+  published for the X developer platform (probe-security-programs.py found
+  none), so no Compliance pointer is emitted.

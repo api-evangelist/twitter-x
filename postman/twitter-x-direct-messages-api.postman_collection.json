@@ -1,0 +1,2234 @@
+{
+  "info": {
+    "_postman_id": "0fdbdda8-6e60-4e0c-b671-0320c4a49a7e",
+    "name": "X API v2 Account Activity Direct Messages API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:25.000Z",
+    "updatedAt": "2026-07-28T03:21:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0fdbdda8-6e60-4e0c-b671-0320c4a49a7e"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "dm_conversations",
+          "item": [
+            {
+              "name": "media",
+              "item": [
+                {
+                  "name": "{dm_id}",
+                  "item": [
+                    {
+                      "name": "{media_id}",
+                      "item": [
+                        {
+                          "name": "{resource_id}",
+                          "item": [
+                            {
+                              "name": "Download DM Media",
+                              "id": "fb3d81f5-50bb-492f-b076-f20eee8f771d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://api.x.com/2/oauth2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://api.x.com/2/oauth2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/dm_conversations/media/:dm_id/:media_id/:resource_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "dm_conversations",
+                                    "media",
+                                    ":dm_id",
+                                    ":media_id",
+                                    ":resource_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "02e2a1bf-a508-4ff8-bea1-a889b5df8fb6",
+                                      "key": "dm_id",
+                                      "value": "056912024631638003",
+                                      "description": "(Required) The unique identifier of the Direct Message event containing the media."
+                                    },
+                                    {
+                                      "id": "950df958-70ad-4441-92e8-e833d6bc5844",
+                                      "key": "media_id",
+                                      "value": "8005653785",
+                                      "description": "(Required) The unique identifier of the media attached to the Direct Message."
+                                    },
+                                    {
+                                      "id": "5450bdb3-ce8b-4eed-bcd6-6db50824e4d3",
+                                      "key": "resource_id",
+                                      "value": "X3",
+                                      "description": "(Required) The resource identifier of the media file, including file extension (e.g. 'hVJQTwig.jpg')."
+                                    }
+                                  ]
+                                },
+                                "description": "Downloads media attached to a legacy Direct Message. The requesting user must be a participant in the conversation containing the specified DM event. The response body contains raw binary bytes."
+                              },
+                              "response": [
+                                {
+                                  "id": "a82bc3e4-ffbe-4f29-b849-5f1bfb4db780",
+                                  "name": "The request has succeeded.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/octet-stream"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/dm_conversations/media/:dm_id/:media_id/:resource_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "dm_conversations",
+                                        "media",
+                                        ":dm_id",
+                                        ":media_id",
+                                        ":resource_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dm_id"
+                                        },
+                                        {
+                                          "key": "media_id"
+                                        },
+                                        {
+                                          "key": "resource_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/octet-stream"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "<binary>",
+                                  "createdAt": "2026-07-28T03:21:26.000Z",
+                                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                                  "uid": "35240-a82bc3e4-ffbe-4f29-b849-5f1bfb4db780"
+                                },
+                                {
+                                  "id": "1f28e8e8-e9af-41d7-9801-752273ec785e",
+                                  "name": "The request has failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2/dm_conversations/media/:dm_id/:media_id/:resource_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2",
+                                        "dm_conversations",
+                                        "media",
+                                        ":dm_id",
+                                        ":media_id",
+                                        ":resource_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "dm_id"
+                                        },
+                                        {
+                                          "key": "media_id"
+                                        },
+                                        {
+                                          "key": "resource_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:21:26.000Z",
+                                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                                  "uid": "35240-1f28e8e8-e9af-41d7-9801-752273ec785e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:21:26.000Z",
+                              "updatedAt": "2026-07-28T03:21:26.000Z",
+                              "uid": "35240-fb3d81f5-50bb-492f-b076-f20eee8f771d"
+                            }
+                          ],
+                          "id": "15dd4278-3aba-4cea-9aeb-5ed9c2f46c97",
+                          "createdAt": "2026-07-28T03:21:25.000Z",
+                          "updatedAt": "2026-07-28T03:21:25.000Z",
+                          "uid": "35240-15dd4278-3aba-4cea-9aeb-5ed9c2f46c97"
+                        }
+                      ],
+                      "id": "c2a38e83-2bc6-47b7-a0cc-f76fc370303f",
+                      "createdAt": "2026-07-28T03:21:25.000Z",
+                      "updatedAt": "2026-07-28T03:21:25.000Z",
+                      "uid": "35240-c2a38e83-2bc6-47b7-a0cc-f76fc370303f"
+                    }
+                  ],
+                  "id": "e1e14797-5a05-4a45-b322-83d1d011c155",
+                  "createdAt": "2026-07-28T03:21:25.000Z",
+                  "updatedAt": "2026-07-28T03:21:25.000Z",
+                  "uid": "35240-e1e14797-5a05-4a45-b322-83d1d011c155"
+                }
+              ],
+              "id": "446b352d-e450-405d-af61-3110c7d6a170",
+              "createdAt": "2026-07-28T03:21:25.000Z",
+              "updatedAt": "2026-07-28T03:21:25.000Z",
+              "uid": "35240-446b352d-e450-405d-af61-3110c7d6a170"
+            },
+            {
+              "name": "with",
+              "item": [
+                {
+                  "name": "{participant_id}",
+                  "item": [
+                    {
+                      "name": "dm_events",
+                      "item": [
+                        {
+                          "name": "Get DM events for a DM conversation",
+                          "id": "c2389d2d-b27b-4a45-83ef-2ad1b6467625",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://api.x.com/2/oauth2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://api.x.com/2/oauth2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                "with",
+                                ":participant_id",
+                                "dm_events"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "This parameter is used to get a specified 'page' of results.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The set of event_types to include in the results.",
+                                  "key": "event_types",
+                                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                                },
+                                {
+                                  "description": "A comma separated list of DmEvent fields to display.",
+                                  "key": "dm_event.fields",
+                                  "value": "dm_conversation_id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "participant_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "width"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "most_recent_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "author_id"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "794beb6a-4179-4eed-912f-5dc20d2f9058",
+                                  "key": "participant_id",
+                                  "value": "625771547144257",
+                                  "description": "(Required) The ID of the participant user for the One to One DM conversation."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves direct message events for a specific conversation."
+                          },
+                          "response": [
+                            {
+                              "id": "f36c5b75-caa8-40d9-b51b-0cd21f07d0ff",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "dm_conversations",
+                                    "with",
+                                    ":participant_id",
+                                    "dm_events"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of results.",
+                                      "key": "max_results",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "This parameter is used to get a specified 'page' of results.",
+                                      "key": "pagination_token",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The set of event_types to include in the results.",
+                                      "key": "event_types",
+                                      "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                                    },
+                                    {
+                                      "description": "A comma separated list of DmEvent fields to display.",
+                                      "key": "dm_event.fields",
+                                      "value": "dm_conversation_id"
+                                    },
+                                    {
+                                      "description": "A comma separated list of fields to expand.",
+                                      "key": "expansions",
+                                      "value": "participant_ids"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Media fields to display.",
+                                      "key": "media.fields",
+                                      "value": "width"
+                                    },
+                                    {
+                                      "description": "A comma separated list of User fields to display.",
+                                      "key": "user.fields",
+                                      "value": "most_recent_tweet_id"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Tweet fields to display.",
+                                      "key": "tweet.fields",
+                                      "value": "author_id"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "participant_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"id\": \"6277061753968\",\n      \"event_type\": \"<string>\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"<string>\"\n        ],\n        \"media_keys\": [\n          \"82_7497407021\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"dm_conversation_id\": \"7522342-71562905482551092\",\n      \"hashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"username\": \"VYTcoZXVdwzns\",\n          \"id\": \"008712896871682218\"\n        }\n      ],\n      \"participant_ids\": [\n        \"1713011467053\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"006451220298\"\n        }\n      ],\n      \"sender_id\": \"90086396522038\",\n      \"text\": \"<string>\",\n      \"urls\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"06567679_93\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"15271973552_3766579456\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"SX\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"neighborhood\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"937683\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"869_281902677\"\n          ],\n          \"media_source_tweet_id\": [\n            \"96760955387903\"\n          ],\n          \"poll_ids\": [\n            \"18195510186\"\n          ]\n        },\n        \"author_id\": \"5163680469672171645\",\n        \"community_id\": \"481502826\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"4108036738659491992\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"434\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"78264226\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"23249759\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"_G2p5SX\",\n              \"id\": \"76046577538594557\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"764_11391450636\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"84400009445\",\n        \"in_reply_to_user_id\": \"6168842180014731\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"0805473196641468721\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"3994316_3407\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"_MpVeIh\",\n                \"id\": \"134719761357\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"20363818535_4783795945\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"28629265\"\n          }\n        ],\n        \"reply_settings\": \"mentionedUsers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"0404698_04611689\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"06205703_9867114\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"euyIWPAw\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"JM\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"274152437\",\n        \"name\": \"<string>\",\n        \"username\": \"fHzOtWIlQD6PY5\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"3605393333\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"RK6PGI\",\n                \"id\": \"238\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"14439246524_135\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"3987_4\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"96013759639285\",\n        \"pinned_tweet_id\": \"7458100715876\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"None\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"NH\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"previous_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:21:26.000Z",
+                              "updatedAt": "2026-07-28T03:21:26.000Z",
+                              "uid": "35240-f36c5b75-caa8-40d9-b51b-0cd21f07d0ff"
+                            },
+                            {
+                              "id": "15ba57f2-76e1-4641-ae06-fae5b6482467",
+                              "name": "The request has failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "dm_conversations",
+                                    "with",
+                                    ":participant_id",
+                                    "dm_events"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The maximum number of results.",
+                                      "key": "max_results",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "This parameter is used to get a specified 'page' of results.",
+                                      "key": "pagination_token",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The set of event_types to include in the results.",
+                                      "key": "event_types",
+                                      "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                                    },
+                                    {
+                                      "description": "A comma separated list of DmEvent fields to display.",
+                                      "key": "dm_event.fields",
+                                      "value": "dm_conversation_id"
+                                    },
+                                    {
+                                      "description": "A comma separated list of fields to expand.",
+                                      "key": "expansions",
+                                      "value": "participant_ids"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Media fields to display.",
+                                      "key": "media.fields",
+                                      "value": "width"
+                                    },
+                                    {
+                                      "description": "A comma separated list of User fields to display.",
+                                      "key": "user.fields",
+                                      "value": "most_recent_tweet_id"
+                                    },
+                                    {
+                                      "description": "A comma separated list of Tweet fields to display.",
+                                      "key": "tweet.fields",
+                                      "value": "author_id"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "participant_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:21:26.000Z",
+                              "updatedAt": "2026-07-28T03:21:26.000Z",
+                              "uid": "35240-15ba57f2-76e1-4641-ae06-fae5b6482467"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-c2389d2d-b27b-4a45-83ef-2ad1b6467625"
+                        }
+                      ],
+                      "id": "ab08d38a-9ec1-4000-a683-2842e5d3302a",
+                      "createdAt": "2026-07-28T03:21:25.000Z",
+                      "updatedAt": "2026-07-28T03:21:25.000Z",
+                      "uid": "35240-ab08d38a-9ec1-4000-a683-2842e5d3302a"
+                    },
+                    {
+                      "name": "messages",
+                      "item": [
+                        {
+                          "name": "Create DM message by participant ID",
+                          "id": "16814006-0e60-4729-9bf4-c879fadb4d05",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://api.x.com/2/oauth2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://api.x.com/2/oauth2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/messages",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                "with",
+                                ":participant_id",
+                                "messages"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "52783829-157e-489d-a65e-7c8f66a26d1c",
+                                  "key": "participant_id",
+                                  "value": "625771547144257",
+                                  "description": "(Required) The ID of the recipient user that will receive the DM."
+                                }
+                              ]
+                            },
+                            "description": "Sends a new direct message to a specific participant by their ID."
+                          },
+                          "response": [
+                            {
+                              "id": "532cfed8-d99c-4433-89b7-4fbfa69a8ade",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/messages",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "dm_conversations",
+                                    "with",
+                                    ":participant_id",
+                                    "messages"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "participant_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"85487696797232338-02\",\n    \"dm_event_id\": \"845799101675952\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:21:26.000Z",
+                              "updatedAt": "2026-07-28T03:21:26.000Z",
+                              "uid": "35240-532cfed8-d99c-4433-89b7-4fbfa69a8ade"
+                            },
+                            {
+                              "id": "3778540f-51ab-45ea-af09-df75ddcf42b2",
+                              "name": "The request has failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/2/dm_conversations/with/:participant_id/messages",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2",
+                                    "dm_conversations",
+                                    "with",
+                                    ":participant_id",
+                                    "messages"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "participant_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:21:26.000Z",
+                              "updatedAt": "2026-07-28T03:21:26.000Z",
+                              "uid": "35240-3778540f-51ab-45ea-af09-df75ddcf42b2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-16814006-0e60-4729-9bf4-c879fadb4d05"
+                        }
+                      ],
+                      "id": "d9c8af16-2015-417c-887c-6e335087cb28",
+                      "createdAt": "2026-07-28T03:21:25.000Z",
+                      "updatedAt": "2026-07-28T03:21:25.000Z",
+                      "uid": "35240-d9c8af16-2015-417c-887c-6e335087cb28"
+                    }
+                  ],
+                  "id": "f45530e8-c65a-4c51-92b8-ae5f8ea15438",
+                  "createdAt": "2026-07-28T03:21:25.000Z",
+                  "updatedAt": "2026-07-28T03:21:25.000Z",
+                  "uid": "35240-f45530e8-c65a-4c51-92b8-ae5f8ea15438"
+                }
+              ],
+              "id": "39054e05-2be6-43f9-b388-fd285164c41b",
+              "createdAt": "2026-07-28T03:21:25.000Z",
+              "updatedAt": "2026-07-28T03:21:25.000Z",
+              "uid": "35240-39054e05-2be6-43f9-b388-fd285164c41b"
+            },
+            {
+              "name": "{dm_conversation_id}",
+              "item": [
+                {
+                  "name": "messages",
+                  "item": [
+                    {
+                      "name": "Create DM message by conversation ID",
+                      "id": "20c91b5b-eca3-4f55-a6b0-88316c2b8781",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://api.x.com/2/oauth2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://api.x.com/2/oauth2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_conversations/:dm_conversation_id/messages",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_conversations",
+                            ":dm_conversation_id",
+                            "messages"
+                          ],
+                          "variable": [
+                            {
+                              "id": "700caeab-5a65-4940-ba05-b2c335c454ea",
+                              "key": "dm_conversation_id",
+                              "value": "<string>",
+                              "description": "(Required) The DM Conversation ID."
+                            }
+                          ]
+                        },
+                        "description": "Sends a new direct message to a specific conversation by its ID."
+                      },
+                      "response": [
+                        {
+                          "id": "810b737e-e648-4736-9ee3-1ce9477d2d41",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/:dm_conversation_id/messages",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                ":dm_conversation_id",
+                                "messages"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dm_conversation_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"85487696797232338-02\",\n    \"dm_event_id\": \"845799101675952\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-810b737e-e648-4736-9ee3-1ce9477d2d41"
+                        },
+                        {
+                          "id": "3f87e334-b905-4fb1-a5b0-c87f4323490f",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"00444138840\"\n    },\n    {\n      \"media_id\": \"9410589223182955\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/:dm_conversation_id/messages",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                ":dm_conversation_id",
+                                "messages"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dm_conversation_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-3f87e334-b905-4fb1-a5b0-c87f4323490f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-20c91b5b-eca3-4f55-a6b0-88316c2b8781"
+                    }
+                  ],
+                  "id": "96c0f9b6-a4a3-485c-bdd2-3df776cbffef",
+                  "createdAt": "2026-07-28T03:21:25.000Z",
+                  "updatedAt": "2026-07-28T03:21:25.000Z",
+                  "uid": "35240-96c0f9b6-a4a3-485c-bdd2-3df776cbffef"
+                }
+              ],
+              "id": "29cd551b-8efd-4d98-a5f2-1bfff835fd60",
+              "createdAt": "2026-07-28T03:21:25.000Z",
+              "updatedAt": "2026-07-28T03:21:25.000Z",
+              "uid": "35240-29cd551b-8efd-4d98-a5f2-1bfff835fd60"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "dm_events",
+                  "item": [
+                    {
+                      "name": "Get DM events for a DM conversation",
+                      "id": "f8af6943-1085-4405-9240-1c30bad5706c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://api.x.com/2/oauth2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://api.x.com/2/oauth2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_conversations/:id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_conversations",
+                            ":id",
+                            "dm_events"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of results.",
+                              "key": "max_results",
+                              "value": "100"
+                            },
+                            {
+                              "description": "This parameter is used to get a specified 'page' of results.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The set of event_types to include in the results.",
+                              "key": "event_types",
+                              "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                            },
+                            {
+                              "description": "A comma separated list of DmEvent fields to display.",
+                              "key": "dm_event.fields",
+                              "value": "dm_conversation_id"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "participant_ids"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "width"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "most_recent_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "author_id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c6622ec8-e394-45ee-9fe7-05b15a84c725",
+                              "key": "id",
+                              "value": "8493163240022738104",
+                              "description": "(Required) The DM conversation ID."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves direct message events for a specific conversation."
+                      },
+                      "response": [
+                        {
+                          "id": "8cdd23bf-aec8-4a0f-a20f-b4fea684d298",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/:id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                ":id",
+                                "dm_events"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "This parameter is used to get a specified 'page' of results.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The set of event_types to include in the results.",
+                                  "key": "event_types",
+                                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                                },
+                                {
+                                  "description": "A comma separated list of DmEvent fields to display.",
+                                  "key": "dm_event.fields",
+                                  "value": "dm_conversation_id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "participant_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "width"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "most_recent_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "author_id"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"6277061753968\",\n      \"event_type\": \"<string>\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"<string>\"\n        ],\n        \"media_keys\": [\n          \"82_7497407021\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"dm_conversation_id\": \"7522342-71562905482551092\",\n      \"hashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"username\": \"VYTcoZXVdwzns\",\n          \"id\": \"008712896871682218\"\n        }\n      ],\n      \"participant_ids\": [\n        \"1713011467053\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"006451220298\"\n        }\n      ],\n      \"sender_id\": \"90086396522038\",\n      \"text\": \"<string>\",\n      \"urls\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"06567679_93\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"15271973552_3766579456\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"SX\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"neighborhood\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"937683\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"869_281902677\"\n          ],\n          \"media_source_tweet_id\": [\n            \"96760955387903\"\n          ],\n          \"poll_ids\": [\n            \"18195510186\"\n          ]\n        },\n        \"author_id\": \"5163680469672171645\",\n        \"community_id\": \"481502826\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"4108036738659491992\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"434\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"78264226\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"23249759\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"_G2p5SX\",\n              \"id\": \"76046577538594557\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"764_11391450636\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"84400009445\",\n        \"in_reply_to_user_id\": \"6168842180014731\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"0805473196641468721\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"3994316_3407\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"_MpVeIh\",\n                \"id\": \"134719761357\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"20363818535_4783795945\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"28629265\"\n          }\n        ],\n        \"reply_settings\": \"mentionedUsers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"0404698_04611689\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"06205703_9867114\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"euyIWPAw\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"JM\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"274152437\",\n        \"name\": \"<string>\",\n        \"username\": \"fHzOtWIlQD6PY5\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"3605393333\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"RK6PGI\",\n                \"id\": \"238\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"14439246524_135\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"3987_4\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"96013759639285\",\n        \"pinned_tweet_id\": \"7458100715876\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"None\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"NH\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"previous_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-8cdd23bf-aec8-4a0f-a20f-b4fea684d298"
+                        },
+                        {
+                          "id": "99a77530-ac4d-4166-b07a-a6ab043479e0",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/dm_conversations/:id/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "dm_conversations",
+                                ":id",
+                                "dm_events"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The maximum number of results.",
+                                  "key": "max_results",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "This parameter is used to get a specified 'page' of results.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The set of event_types to include in the results.",
+                                  "key": "event_types",
+                                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                                },
+                                {
+                                  "description": "A comma separated list of DmEvent fields to display.",
+                                  "key": "dm_event.fields",
+                                  "value": "dm_conversation_id"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "participant_ids"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "width"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "most_recent_tweet_id"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "author_id"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:26.000Z",
+                          "updatedAt": "2026-07-28T03:21:26.000Z",
+                          "uid": "35240-99a77530-ac4d-4166-b07a-a6ab043479e0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-f8af6943-1085-4405-9240-1c30bad5706c"
+                    }
+                  ],
+                  "id": "759fbc80-1624-4f88-9870-c6667a614ec7",
+                  "createdAt": "2026-07-28T03:21:25.000Z",
+                  "updatedAt": "2026-07-28T03:21:25.000Z",
+                  "uid": "35240-759fbc80-1624-4f88-9870-c6667a614ec7"
+                }
+              ],
+              "id": "a2130f29-3507-4d87-acd5-99f61a20cbe0",
+              "createdAt": "2026-07-28T03:21:25.000Z",
+              "updatedAt": "2026-07-28T03:21:25.000Z",
+              "uid": "35240-a2130f29-3507-4d87-acd5-99f61a20cbe0"
+            },
+            {
+              "name": "Create DM conversation",
+              "id": "30cb1708-ffa1-42c6-a057-d6e07e15042f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                      "type": "string"
+                    },
+                    {
+                      "key": "accessTokenUrl",
+                      "value": "https://api.x.com/2/oauth2/token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://api.x.com/2/oauth2/authorize",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversation_type\": \"Group\",\n  \"participant_ids\": [\n    \"47089\",\n    \"0913406730\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": \"214935090883679\"\n      },\n      {\n        \"media_id\": \"55360611476569915\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2/dm_conversations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "dm_conversations"
+                  ]
+                },
+                "description": "Initiates a new direct message conversation with specified participants."
+              },
+              "response": [
+                {
+                  "id": "1c3661f3-30ee-4226-9168-6bd9a143f047",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"conversation_type\": \"Group\",\n  \"participant_ids\": [\n    \"47089\",\n    \"0913406730\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": \"214935090883679\"\n      },\n      {\n        \"media_id\": \"55360611476569915\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_conversations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_conversations"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"85487696797232338-02\",\n    \"dm_event_id\": \"845799101675952\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-1c3661f3-30ee-4226-9168-6bd9a143f047"
+                },
+                {
+                  "id": "ee951828-689a-4001-ac59-d97668dbbdf5",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"conversation_type\": \"Group\",\n  \"participant_ids\": [\n    \"47089\",\n    \"0913406730\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": \"214935090883679\"\n      },\n      {\n        \"media_id\": \"55360611476569915\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_conversations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_conversations"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-ee951828-689a-4001-ac59-d97668dbbdf5"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:26.000Z",
+              "updatedAt": "2026-07-28T03:21:26.000Z",
+              "uid": "35240-30cb1708-ffa1-42c6-a057-d6e07e15042f"
+            }
+          ],
+          "id": "efe2c6b6-e722-4f3b-bb36-90a3b8fd9df4",
+          "createdAt": "2026-07-28T03:21:25.000Z",
+          "updatedAt": "2026-07-28T03:21:25.000Z",
+          "uid": "35240-efe2c6b6-e722-4f3b-bb36-90a3b8fd9df4"
+        },
+        {
+          "name": "dm_events",
+          "item": [
+            {
+              "name": "{event_id}",
+              "item": [
+                {
+                  "name": "Delete DM event",
+                  "id": "3ef45ee3-10e6-46fc-8316-f587b805778c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://api.x.com/2/oauth2/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://api.x.com/2/oauth2/authorize",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_events/:event_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_events",
+                        ":event_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dcd220fc-6d81-4601-87a9-ffb88d18c673",
+                          "key": "event_id",
+                          "value": "056912024631638003",
+                          "description": "(Required) The ID of the direct-message event to delete."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a specific direct message event by its ID, if owned by the authenticated user."
+                  },
+                  "response": [
+                    {
+                      "id": "9fe476f8-6df7-43d5-b430-891aea25a268",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_events/:event_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_events",
+                            ":event_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "event_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-9fe476f8-6df7-43d5-b430-891aea25a268"
+                    },
+                    {
+                      "id": "217bbce6-0dbc-41a5-a7d8-2fc469d59cd1",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_events/:event_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_events",
+                            ":event_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "event_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-217bbce6-0dbc-41a5-a7d8-2fc469d59cd1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-3ef45ee3-10e6-46fc-8316-f587b805778c"
+                },
+                {
+                  "name": "Get DM event by ID",
+                  "id": "b56c23a3-aa50-4f64-bd05-6aafd76bd2d1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://api.x.com/2/oauth2/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://api.x.com/2/oauth2/authorize",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_events/:event_id?dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_events",
+                        ":event_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "A comma separated list of DmEvent fields to display.",
+                          "key": "dm_event.fields",
+                          "value": "dm_conversation_id"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "participant_ids"
+                        },
+                        {
+                          "description": "A comma separated list of Media fields to display.",
+                          "key": "media.fields",
+                          "value": "width"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "most_recent_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Tweet fields to display.",
+                          "key": "tweet.fields",
+                          "value": "author_id"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b20650d6-b5b9-4ea1-90e7-021a524bed50",
+                          "key": "event_id",
+                          "value": "056912024631638003",
+                          "description": "(Required) dm event id."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details of a specific direct message event by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "cab2b792-c66d-4f28-b0d3-529468a86dc3",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_events/:event_id?dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_events",
+                            ":event_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of DmEvent fields to display.",
+                              "key": "dm_event.fields",
+                              "value": "dm_conversation_id"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "participant_ids"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "width"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "most_recent_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "author_id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "event_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"45896\",\n    \"event_type\": \"<string>\",\n    \"attachments\": {\n      \"card_ids\": [\n        \"<string>\"\n      ],\n      \"media_keys\": [\n        \"41327782_09294871\"\n      ]\n    },\n    \"cashtags\": [\n      {\n        \"end\": \"<integer>\",\n        \"start\": \"<integer>\",\n        \"tag\": \"<string>\"\n      }\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"dm_conversation_id\": \"2430863-542\",\n    \"hashtags\": [\n      {\n        \"end\": \"<integer>\",\n        \"start\": \"<integer>\",\n        \"tag\": \"<string>\"\n      }\n    ],\n    \"mentions\": [\n      {\n        \"end\": \"<integer>\",\n        \"start\": \"<integer>\",\n        \"username\": \"F07JCI\",\n        \"id\": \"895268703809\"\n      }\n    ],\n    \"participant_ids\": [\n      \"834\"\n    ],\n    \"referenced_tweets\": [\n      {\n        \"id\": \"0426\"\n      }\n    ],\n    \"sender_id\": \"39621786\",\n    \"text\": \"<string>\",\n    \"urls\": [\n      {\n        \"end\": \"<integer>\",\n        \"start\": \"<integer>\",\n        \"url\": \"<uri>\",\n        \"description\": \"<string>\",\n        \"display_url\": \"<string>\",\n        \"expanded_url\": \"<uri>\",\n        \"images\": [\n          {\n            \"height\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"width\": \"<integer>\"\n          }\n        ],\n        \"media_key\": \"3216599_12947597475\",\n        \"status\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"unwound_url\": \"<uri>\"\n      }\n    ]\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"654875_4967\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"ZY\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"16\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"15482380_377\"\n          ],\n          \"media_source_tweet_id\": [\n            \"707431208\"\n          ],\n          \"poll_ids\": [\n            \"9421546129006\"\n          ]\n        },\n        \"author_id\": \"8623789553389\",\n        \"community_id\": \"600656172879\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"698561\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"336729687108\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"145\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"23180222783979\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"FJP6x45B6y6c\",\n              \"id\": \"0315461646183434\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"1779_1\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"519\",\n        \"in_reply_to_user_id\": \"219\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"27158280180\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"41917680_376749076\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"zP1WBH\",\n                \"id\": \"32789123753\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"680653_9458388055\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"6530\"\n          }\n        ],\n        \"reply_settings\": \"mentionedUsers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"6776_746764\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"5_6355821\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"JBX0Tt4rwKJtn\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"SN\"\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"304\",\n        \"name\": \"<string>\",\n        \"username\": \"xl4AzpkJJKXhKB\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"633320099\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"Gei91QuuXywVSB\",\n                \"id\": \"90821193881142704\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"553_320\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"2_74392\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"839267827113482\",\n        \"pinned_tweet_id\": \"092905090157107\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"AZ\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-cab2b792-c66d-4f28-b0d3-529468a86dc3"
+                    },
+                    {
+                      "id": "d9ebfb99-054a-4b28-a534-d6287a8b8ee5",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/dm_events/:event_id?dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "dm_events",
+                            ":event_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "A comma separated list of DmEvent fields to display.",
+                              "key": "dm_event.fields",
+                              "value": "dm_conversation_id"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "participant_ids"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "width"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "most_recent_tweet_id"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "author_id"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "event_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:26.000Z",
+                      "updatedAt": "2026-07-28T03:21:26.000Z",
+                      "uid": "35240-d9ebfb99-054a-4b28-a534-d6287a8b8ee5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-b56c23a3-aa50-4f64-bd05-6aafd76bd2d1"
+                }
+              ],
+              "id": "13070bdf-edce-4030-b2e0-42e2ab3cd1df",
+              "createdAt": "2026-07-28T03:21:25.000Z",
+              "updatedAt": "2026-07-28T03:21:25.000Z",
+              "uid": "35240-13070bdf-edce-4030-b2e0-42e2ab3cd1df"
+            },
+            {
+              "name": "Get DM events",
+              "id": "97af5504-a5e5-4705-ba17-c1c4c9aa806e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                      "type": "string"
+                    },
+                    {
+                      "key": "accessTokenUrl",
+                      "value": "https://api.x.com/2/oauth2/token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://api.x.com/2/oauth2/authorize",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "dm_events"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of results.",
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "description": "This parameter is used to get a specified 'page' of results.",
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The set of event_types to include in the results.",
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                    },
+                    {
+                      "description": "A comma separated list of DmEvent fields to display.",
+                      "key": "dm_event.fields",
+                      "value": "dm_conversation_id"
+                    },
+                    {
+                      "description": "A comma separated list of fields to expand.",
+                      "key": "expansions",
+                      "value": "participant_ids"
+                    },
+                    {
+                      "description": "A comma separated list of Media fields to display.",
+                      "key": "media.fields",
+                      "value": "width"
+                    },
+                    {
+                      "description": "A comma separated list of User fields to display.",
+                      "key": "user.fields",
+                      "value": "most_recent_tweet_id"
+                    },
+                    {
+                      "description": "A comma separated list of Tweet fields to display.",
+                      "key": "tweet.fields",
+                      "value": "author_id"
+                    }
+                  ]
+                },
+                "description": "Retrieves a list of recent direct message events across all conversations."
+              },
+              "response": [
+                {
+                  "id": "b41eeb9e-ad33-4e67-95e1-c917714b2bdb",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_events"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results.",
+                          "key": "max_results",
+                          "value": "100"
+                        },
+                        {
+                          "description": "This parameter is used to get a specified 'page' of results.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The set of event_types to include in the results.",
+                          "key": "event_types",
+                          "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                        },
+                        {
+                          "description": "A comma separated list of DmEvent fields to display.",
+                          "key": "dm_event.fields",
+                          "value": "dm_conversation_id"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "participant_ids"
+                        },
+                        {
+                          "description": "A comma separated list of Media fields to display.",
+                          "key": "media.fields",
+                          "value": "width"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "most_recent_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Tweet fields to display.",
+                          "key": "tweet.fields",
+                          "value": "author_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"6277061753968\",\n      \"event_type\": \"<string>\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"<string>\"\n        ],\n        \"media_keys\": [\n          \"82_7497407021\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"dm_conversation_id\": \"7522342-71562905482551092\",\n      \"hashtags\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"tag\": \"<string>\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"username\": \"VYTcoZXVdwzns\",\n          \"id\": \"008712896871682218\"\n        }\n      ],\n      \"participant_ids\": [\n        \"1713011467053\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"006451220298\"\n        }\n      ],\n      \"sender_id\": \"90086396522038\",\n      \"text\": \"<string>\",\n      \"urls\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"06567679_93\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"15271973552_3766579456\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"SX\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"neighborhood\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"937683\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"869_281902677\"\n          ],\n          \"media_source_tweet_id\": [\n            \"96760955387903\"\n          ],\n          \"poll_ids\": [\n            \"18195510186\"\n          ]\n        },\n        \"author_id\": \"5163680469672171645\",\n        \"community_id\": \"481502826\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"4108036738659491992\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"434\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"78264226\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"23249759\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"_G2p5SX\",\n              \"id\": \"76046577538594557\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"764_11391450636\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"84400009445\",\n        \"in_reply_to_user_id\": \"6168842180014731\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"0805473196641468721\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"3994316_3407\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"_MpVeIh\",\n                \"id\": \"134719761357\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"20363818535_4783795945\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"28629265\"\n          }\n        ],\n        \"reply_settings\": \"mentionedUsers\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"0404698_04611689\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"06205703_9867114\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"euyIWPAw\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"JM\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"274152437\",\n        \"name\": \"<string>\",\n        \"username\": \"fHzOtWIlQD6PY5\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"3605393333\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"RK6PGI\",\n                \"id\": \"238\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"14439246524_135\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"3987_4\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"96013759639285\",\n        \"pinned_tweet_id\": \"7458100715876\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"None\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"NH\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"previous_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-b41eeb9e-ad33-4e67-95e1-c917714b2bdb"
+                },
+                {
+                  "id": "a2b1ae63-a301-4965-83c5-da575195e229",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/dm_events?max_results=100&pagination_token=<string>&event_types=MessageCreate,ParticipantsLeave,ParticipantsJoin&dm_event.fields=dm_conversation_id&expansions=participant_ids&media.fields=width&user.fields=most_recent_tweet_id&tweet.fields=author_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "dm_events"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of results.",
+                          "key": "max_results",
+                          "value": "100"
+                        },
+                        {
+                          "description": "This parameter is used to get a specified 'page' of results.",
+                          "key": "pagination_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The set of event_types to include in the results.",
+                          "key": "event_types",
+                          "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin"
+                        },
+                        {
+                          "description": "A comma separated list of DmEvent fields to display.",
+                          "key": "dm_event.fields",
+                          "value": "dm_conversation_id"
+                        },
+                        {
+                          "description": "A comma separated list of fields to expand.",
+                          "key": "expansions",
+                          "value": "participant_ids"
+                        },
+                        {
+                          "description": "A comma separated list of Media fields to display.",
+                          "key": "media.fields",
+                          "value": "width"
+                        },
+                        {
+                          "description": "A comma separated list of User fields to display.",
+                          "key": "user.fields",
+                          "value": "most_recent_tweet_id"
+                        },
+                        {
+                          "description": "A comma separated list of Tweet fields to display.",
+                          "key": "tweet.fields",
+                          "value": "author_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:26.000Z",
+                  "updatedAt": "2026-07-28T03:21:26.000Z",
+                  "uid": "35240-a2b1ae63-a301-4965-83c5-da575195e229"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:26.000Z",
+              "updatedAt": "2026-07-28T03:21:26.000Z",
+              "uid": "35240-97af5504-a5e5-4705-ba17-c1c4c9aa806e"
+            }
+          ],
+          "id": "9557781f-1fac-4a1b-a8d9-35bf2698407b",
+          "createdAt": "2026-07-28T03:21:25.000Z",
+          "updatedAt": "2026-07-28T03:21:25.000Z",
+          "uid": "35240-9557781f-1fac-4a1b-a8d9-35bf2698407b"
+        }
+      ],
+      "id": "70c627ab-8c90-4922-832a-3b0d851c6f18",
+      "createdAt": "2026-07-28T03:21:25.000Z",
+      "updatedAt": "2026-07-28T03:21:25.000Z",
+      "uid": "35240-70c627ab-8c90-4922-832a-3b0d851c6f18"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

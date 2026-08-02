@@ -1,0 +1,1137 @@
+{
+  "info": {
+    "_postman_id": "3c69c7bf-a344-4934-8661-37e8e09d7e69",
+    "name": "X API v2 Account Activity Community Notes API",
+    "description": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:21:22.000Z",
+    "updatedAt": "2026-07-28T03:21:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c69c7bf-a344-4934-8661-37e8e09d7e69"
+  },
+  "item": [
+    {
+      "name": "2",
+      "item": [
+        {
+          "name": "evaluate_note",
+          "item": [
+            {
+              "name": "Evaluate a Community Note",
+              "id": "320792e4-fb96-4879-b21e-285617dd1a7e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                      "type": "string"
+                    },
+                    {
+                      "key": "accessTokenUrl",
+                      "value": "https://api.x.com/2/oauth2/token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://api.x.com/2/oauth2/authorize",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"post_id\": \"73460486494346\",\n  \"note_text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2/evaluate_note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "evaluate_note"
+                  ]
+                },
+                "description": "Endpoint to evaluate a community note."
+              },
+              "response": [
+                {
+                  "id": "82da049f-5836-4d6c-b254-11717cc56f4d",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"post_id\": \"73460486494346\",\n  \"note_text\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/evaluate_note",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "evaluate_note"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"claim_opinion_score\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-82da049f-5836-4d6c-b254-11717cc56f4d"
+                },
+                {
+                  "id": "a7f2d283-8c77-41c9-b413-89c61dfed093",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"post_id\": \"73460486494346\",\n  \"note_text\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/evaluate_note",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "evaluate_note"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-a7f2d283-8c77-41c9-b413-89c61dfed093"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:22.000Z",
+              "updatedAt": "2026-07-28T03:21:22.000Z",
+              "uid": "35240-320792e4-fb96-4879-b21e-285617dd1a7e"
+            }
+          ],
+          "id": "c81aefe0-8c35-43df-844b-93f558730999",
+          "createdAt": "2026-07-28T03:21:22.000Z",
+          "updatedAt": "2026-07-28T03:21:22.000Z",
+          "uid": "35240-c81aefe0-8c35-43df-844b-93f558730999"
+        },
+        {
+          "name": "notes",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "notes_written",
+                  "item": [
+                    {
+                      "name": "Search for Community Notes Written",
+                      "id": "8c57e208-b39f-49c7-98fe-19fc16294c83",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://api.x.com/2/oauth2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://api.x.com/2/oauth2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/notes/search/notes_written?test_mode=<boolean>&pagination_token=<string>&max_results=10&note.fields=scoring_status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "notes",
+                            "search",
+                            "notes_written"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) If true, return the notes the caller wrote for the test. If false, return the notes the caller wrote on the product.",
+                              "key": "test_mode",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Pagination token to get next set of posts eligible for notes.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max results to return.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "A comma separated list of Note fields to display.",
+                              "key": "note.fields",
+                              "value": "scoring_status"
+                            }
+                          ]
+                        },
+                        "description": "Returns all the community notes written by the user."
+                      },
+                      "response": [
+                        {
+                          "id": "5fa5fcf9-2024-4ffd-806f-a0406c517ea6",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/notes/search/notes_written?test_mode=<boolean>&pagination_token=<string>&max_results=10&note.fields=scoring_status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "notes",
+                                "search",
+                                "notes_written"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) If true, return the notes the caller wrote for the test. If false, return the notes the caller wrote on the product.",
+                                  "key": "test_mode",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Pagination token to get next set of posts eligible for notes.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Max results to return.",
+                                  "key": "max_results",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "A comma separated list of Note fields to display.",
+                                  "key": "note.fields",
+                                  "value": "scoring_status"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"00\",\n      \"post_id\": \"19\",\n      \"info\": {\n        \"text\": \"\u20045 Cd\\t \",\n        \"classification\": \"not_misleading\",\n        \"misleading_tags\": [\n          \"missing_important_context\",\n          \"missing_important_context\"\n        ],\n        \"trustworthy_sources\": \"<boolean>\",\n        \"is_media_note\": \"<boolean>\"\n      },\n      \"scoring_status\": {\n        \"has_access\": \"<boolean>\",\n        \"rating_counts_per_model\": {\n          \"model_name\": \"<string>\",\n          \"value\": {\n            \"negative_factor_bucket_counts\": {\n              \"helpful_count\": \"<integer>\",\n              \"helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"not_helpful_count\": \"<integer>\",\n              \"not_helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"somewhat_helpful_count\": \"<integer>\"\n            },\n            \"neutral_factor_bucket_counts\": {\n              \"helpful_count\": \"<integer>\",\n              \"helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"not_helpful_count\": \"<integer>\",\n              \"not_helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"somewhat_helpful_count\": \"<integer>\"\n            },\n            \"positive_factor_bucket_counts\": {\n              \"helpful_count\": \"<integer>\",\n              \"helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"not_helpful_count\": \"<integer>\",\n              \"not_helpful_tag_counts\": {\n                \"tag_count\": \"<integer>\",\n                \"tag_name\": \"<string>\"\n              },\n              \"somewhat_helpful_count\": \"<integer>\"\n            }\n          }\n        }\n      },\n      \"status\": \"firm_reject\",\n      \"test_result\": {\n        \"evaluator_score_bucket\": \"<string>\",\n        \"evaluator_type\": \"<string>\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:22.000Z",
+                          "updatedAt": "2026-07-28T03:21:22.000Z",
+                          "uid": "35240-5fa5fcf9-2024-4ffd-806f-a0406c517ea6"
+                        },
+                        {
+                          "id": "e2d27941-c59f-48f9-9b63-7ed748e37f56",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/notes/search/notes_written?test_mode=<boolean>&pagination_token=<string>&max_results=10&note.fields=scoring_status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "notes",
+                                "search",
+                                "notes_written"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) If true, return the notes the caller wrote for the test. If false, return the notes the caller wrote on the product.",
+                                  "key": "test_mode",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Pagination token to get next set of posts eligible for notes.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Max results to return.",
+                                  "key": "max_results",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "A comma separated list of Note fields to display.",
+                                  "key": "note.fields",
+                                  "value": "scoring_status"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:22.000Z",
+                          "updatedAt": "2026-07-28T03:21:22.000Z",
+                          "uid": "35240-e2d27941-c59f-48f9-9b63-7ed748e37f56"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:22.000Z",
+                      "updatedAt": "2026-07-28T03:21:22.000Z",
+                      "uid": "35240-8c57e208-b39f-49c7-98fe-19fc16294c83"
+                    }
+                  ],
+                  "id": "3e2863dd-0d75-4676-8c49-8d13cdd00443",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-3e2863dd-0d75-4676-8c49-8d13cdd00443"
+                },
+                {
+                  "name": "posts_eligible_for_notes",
+                  "item": [
+                    {
+                      "name": "Search for Posts Eligible for Community Notes",
+                      "id": "178939d8-7a7c-4212-90d7-146aff6630f9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://api.x.com/2/oauth2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://api.x.com/2/oauth2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/notes/search/posts_eligible_for_notes?test_mode=<boolean>&pagination_token=<string>&max_results=10&post_selection=<string>&tweet.fields=possibly_sensitive&expansions=entities.note.mentions.username&media.fields=height&poll.fields=end_datetime&user.fields=withheld&place.fields=name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "notes",
+                            "search",
+                            "posts_eligible_for_notes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) If true, return a list of posts that are for the test. If false, return a list of posts that the bots can write proposed notes on the product.",
+                              "key": "test_mode",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Pagination token to get next set of posts eligible for notes.",
+                              "key": "pagination_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max results to return.",
+                              "key": "max_results",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The selection of posts to return. Valid values are 'feed_size: [small|large|xl|xxl], feed_lang: [en|es|...|all]'. Default (if not specified) is 'feed_size: small, feed_lang: en'. Only top AI writers have access to large, xl, and xxl size feeds.",
+                              "key": "post_selection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma separated list of Tweet fields to display.",
+                              "key": "tweet.fields",
+                              "value": "possibly_sensitive"
+                            },
+                            {
+                              "description": "A comma separated list of fields to expand.",
+                              "key": "expansions",
+                              "value": "entities.note.mentions.username"
+                            },
+                            {
+                              "description": "A comma separated list of Media fields to display.",
+                              "key": "media.fields",
+                              "value": "height"
+                            },
+                            {
+                              "description": "A comma separated list of Poll fields to display.",
+                              "key": "poll.fields",
+                              "value": "end_datetime"
+                            },
+                            {
+                              "description": "A comma separated list of User fields to display.",
+                              "key": "user.fields",
+                              "value": "withheld"
+                            },
+                            {
+                              "description": "A comma separated list of Place fields to display.",
+                              "key": "place.fields",
+                              "value": "name"
+                            }
+                          ]
+                        },
+                        "description": "Returns all the posts that are eligible for community notes."
+                      },
+                      "response": [
+                        {
+                          "id": "2f103d74-da7e-44fe-ba2c-06b371792e7a",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/notes/search/posts_eligible_for_notes?test_mode=<boolean>&pagination_token=<string>&max_results=10&post_selection=<string>&tweet.fields=possibly_sensitive&expansions=entities.note.mentions.username&media.fields=height&poll.fields=end_datetime&user.fields=withheld&place.fields=name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "notes",
+                                "search",
+                                "posts_eligible_for_notes"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) If true, return a list of posts that are for the test. If false, return a list of posts that the bots can write proposed notes on the product.",
+                                  "key": "test_mode",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Pagination token to get next set of posts eligible for notes.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Max results to return.",
+                                  "key": "max_results",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The selection of posts to return. Valid values are 'feed_size: [small|large|xl|xxl], feed_lang: [en|es|...|all]'. Default (if not specified) is 'feed_size: small, feed_lang: en'. Only top AI writers have access to large, xl, and xxl size feeds.",
+                                  "key": "post_selection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "possibly_sensitive"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "entities.note.mentions.username"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "height"
+                                },
+                                {
+                                  "description": "A comma separated list of Poll fields to display.",
+                                  "key": "poll.fields",
+                                  "value": "end_datetime"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "withheld"
+                                },
+                                {
+                                  "description": "A comma separated list of Place fields to display.",
+                                  "key": "place.fields",
+                                  "value": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"attachments\": {\n        \"media_keys\": [\n          \"3_70395907612\"\n        ],\n        \"media_source_tweet_id\": [\n          \"725\"\n        ],\n        \"poll_ids\": [\n          \"193400496874\"\n        ]\n      },\n      \"author_id\": \"13367019751\",\n      \"community_id\": \"975728369812\",\n      \"context_annotations\": [\n        {\n          \"domain\": {\n            \"id\": \"78506554318157701\",\n            \"description\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          \"entity\": {\n            \"id\": \"9462604\",\n            \"description\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        }\n      ],\n      \"conversation_id\": \"287905091\",\n      \"created_at\": \"<dateTime>\",\n      \"display_text_range\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"edit_controls\": {\n        \"is_edit_eligible\": \"<boolean>\",\n        \"editable_until\": \"<dateTime>\",\n        \"edits_remaining\": \"<integer>\"\n      },\n      \"edit_history_tweet_ids\": [\n        \"1422619690434712\"\n      ],\n      \"entities\": {\n        \"annotations\": [\n          {\n            \"start\": \"<integer>\",\n            \"end\": \"<integer>\",\n            \"normalized_text\": \"<string>\",\n            \"probability\": \"<double>\",\n            \"type\": \"<string>\"\n          }\n        ],\n        \"cashtags\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"tag\": \"<string>\"\n          }\n        ],\n        \"hashtags\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"tag\": \"<string>\"\n          }\n        ],\n        \"mentions\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"username\": \"_DDDKdq\",\n            \"id\": \"1517812451831439\"\n          }\n        ],\n        \"urls\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"3117057_3826726192\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ]\n      },\n      \"geo\": {\n        \"coordinates\": {\n          \"type\": \"Point\",\n          \"coordinates\": [\n            \"<number>\",\n            \"<number>\"\n          ]\n        },\n        \"place_id\": \"<string>\"\n      },\n      \"id\": \"36112526960984\",\n      \"in_reply_to_user_id\": \"18\",\n      \"lang\": \"<string>\",\n      \"matched_media_notes\": {\n        \"match_status\": \"<string>\",\n        \"note_id\": \"9128166501\"\n      },\n      \"non_public_metrics\": {\n        \"impression_count\": \"<integer>\"\n      },\n      \"note_request_suggestions\": {\n        \"source_link\": {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"926111_85974\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        },\n        \"suggestion\": \"<string>\",\n        \"suggestion_id\": \"<string>\"\n      },\n      \"note_tweet\": {\n        \"entities\": {\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"Kf\",\n              \"id\": \"0994320475472821804\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"4_60\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"text\": \"<string>\"\n      },\n      \"organic_metrics\": {\n        \"impression_count\": \"<integer>\",\n        \"retweet_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"like_count\": \"<integer>\"\n      },\n      \"paid_partnership\": \"<boolean>\",\n      \"possibly_sensitive\": \"<boolean>\",\n      \"promoted_metrics\": {\n        \"impression_count\": \"<integer>\",\n        \"like_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"retweet_count\": \"<integer>\"\n      },\n      \"public_metrics\": {\n        \"retweet_count\": \"<integer>\",\n        \"reply_count\": \"<integer>\",\n        \"like_count\": \"<integer>\",\n        \"impression_count\": \"<integer>\",\n        \"bookmark_count\": \"<integer>\",\n        \"quote_count\": \"<integer>\"\n      },\n      \"referenced_tweets\": [\n        {\n          \"type\": \"replied_to\",\n          \"id\": \"0152383240248852\"\n        }\n      ],\n      \"reply_settings\": \"subscribers\",\n      \"scopes\": {\n        \"followers\": \"<boolean>\"\n      },\n      \"source\": \"<string>\",\n      \"suggested_source_links\": [\n        {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"23367330385_519270\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      ],\n      \"suggested_source_links_with_counts\": {\n        \"count\": \"<integer>\",\n        \"url\": {\n          \"end\": \"<integer>\",\n          \"start\": \"<integer>\",\n          \"url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"display_url\": \"<string>\",\n          \"expanded_url\": \"<uri>\",\n          \"images\": [\n            {\n              \"height\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"width\": \"<integer>\"\n            }\n          ],\n          \"media_key\": \"859336826_64606\",\n          \"status\": \"<integer>\",\n          \"title\": \"<string>\",\n          \"unwound_url\": \"<uri>\"\n        }\n      },\n      \"text\": \"<string>\",\n      \"username\": \"2I06Q9S\",\n      \"withheld\": {\n        \"copyright\": \"<boolean>\",\n        \"country_codes\": [\n          \"DC\"\n        ],\n        \"scope\": \"user\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"<string>\",\n        \"height\": \"<integer>\",\n        \"media_key\": \"794209399_647992551\",\n        \"width\": \"<integer>\"\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\",\n        \"contained_within\": [\n          \"<string>\"\n        ],\n        \"country\": \"<string>\",\n        \"country_code\": \"FC\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            \"<double>\",\n            \"<double>\",\n            \"<double>\",\n            \"<double>\"\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          }\n        },\n        \"name\": \"<string>\",\n        \"place_type\": \"poi\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"602421675605155642\",\n        \"options\": [\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          },\n          {\n            \"position\": \"<integer>\",\n            \"label\": \"<string>\",\n            \"votes\": \"<integer>\"\n          }\n        ],\n        \"duration_minutes\": \"<integer>\",\n        \"end_datetime\": \"<dateTime>\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"142_376044346\"\n          ],\n          \"media_source_tweet_id\": [\n            \"30063535141\"\n          ],\n          \"poll_ids\": [\n            \"38079577\"\n          ]\n        },\n        \"author_id\": \"823730\",\n        \"community_id\": \"20681960298666116\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"id\": \"5223068950\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            \"entity\": {\n              \"id\": \"2786060360065155\",\n              \"description\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"45578608708\",\n        \"created_at\": \"<dateTime>\",\n        \"display_text_range\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": \"<boolean>\",\n          \"editable_until\": \"<dateTime>\",\n          \"edits_remaining\": \"<integer>\"\n        },\n        \"edit_history_tweet_ids\": [\n          \"78196632\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"start\": \"<integer>\",\n              \"end\": \"<integer>\",\n              \"normalized_text\": \"<string>\",\n              \"probability\": \"<double>\",\n              \"type\": \"<string>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"tag\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"username\": \"AsAC6x\",\n              \"id\": \"113638349398\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"end\": \"<integer>\",\n              \"start\": \"<integer>\",\n              \"url\": \"<uri>\",\n              \"description\": \"<string>\",\n              \"display_url\": \"<string>\",\n              \"expanded_url\": \"<uri>\",\n              \"images\": [\n                {\n                  \"height\": \"<integer>\",\n                  \"url\": \"<uri>\",\n                  \"width\": \"<integer>\"\n                }\n              ],\n              \"media_key\": \"3630064600_6\",\n              \"status\": \"<integer>\",\n              \"title\": \"<string>\",\n              \"unwound_url\": \"<uri>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n              \"<number>\",\n              \"<number>\"\n            ]\n          },\n          \"place_id\": \"<string>\"\n        },\n        \"id\": \"7\",\n        \"in_reply_to_user_id\": \"563626241802349\",\n        \"lang\": \"<string>\",\n        \"matched_media_notes\": {\n          \"match_status\": \"<string>\",\n          \"note_id\": \"526324229640248423\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": \"<integer>\"\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"172_490383988\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          },\n          \"suggestion\": \"<string>\",\n          \"suggestion_id\": \"<string>\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"68CJwl1naa6\",\n                \"id\": \"116679540\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"1379046761_87220310017\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"text\": \"<string>\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"paid_partnership\": \"<boolean>\",\n        \"possibly_sensitive\": \"<boolean>\",\n        \"promoted_metrics\": {\n          \"impression_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"retweet_count\": \"<integer>\"\n        },\n        \"public_metrics\": {\n          \"retweet_count\": \"<integer>\",\n          \"reply_count\": \"<integer>\",\n          \"like_count\": \"<integer>\",\n          \"impression_count\": \"<integer>\",\n          \"bookmark_count\": \"<integer>\",\n          \"quote_count\": \"<integer>\"\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"30734666185685\"\n          }\n        ],\n        \"reply_settings\": \"verified\",\n        \"scopes\": {\n          \"followers\": \"<boolean>\"\n        },\n        \"source\": \"<string>\",\n        \"suggested_source_links\": [\n          {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"592_3\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": \"<integer>\",\n          \"url\": {\n            \"end\": \"<integer>\",\n            \"start\": \"<integer>\",\n            \"url\": \"<uri>\",\n            \"description\": \"<string>\",\n            \"display_url\": \"<string>\",\n            \"expanded_url\": \"<uri>\",\n            \"images\": [\n              {\n                \"height\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"width\": \"<integer>\"\n              }\n            ],\n            \"media_key\": \"699_3620507\",\n            \"status\": \"<integer>\",\n            \"title\": \"<string>\",\n            \"unwound_url\": \"<uri>\"\n          }\n        },\n        \"text\": \"<string>\",\n        \"username\": \"_gOOmlocwsf\",\n        \"withheld\": {\n          \"copyright\": \"<boolean>\",\n          \"country_codes\": [\n            \"FJ\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"70655740330899\",\n        \"name\": \"<string>\",\n        \"username\": \"5bbygjDEeX\",\n        \"affiliation\": {\n          \"badge_url\": \"<uri>\",\n          \"description\": \"<string>\",\n          \"url\": \"<uri>\",\n          \"user_id\": [\n            \"326428\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\"\n        ],\n        \"created_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"start\": \"<integer>\",\n                \"end\": \"<integer>\",\n                \"normalized_text\": \"<string>\",\n                \"probability\": \"<double>\",\n                \"type\": \"<string>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"tag\": \"<string>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"username\": \"S8pwaht\",\n                \"id\": \"6403850205203561\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"770137970_2334708963\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"end\": \"<integer>\",\n                \"start\": \"<integer>\",\n                \"url\": \"<uri>\",\n                \"description\": \"<string>\",\n                \"display_url\": \"<string>\",\n                \"expanded_url\": \"<uri>\",\n                \"images\": [\n                  {\n                    \"height\": \"<integer>\",\n                    \"url\": \"<uri>\",\n                    \"width\": \"<integer>\"\n                  }\n                ],\n                \"media_key\": \"03175097_014216\",\n                \"status\": \"<integer>\",\n                \"title\": \"<string>\",\n                \"unwound_url\": \"<uri>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"<string>\",\n        \"most_recent_tweet_id\": \"188785\",\n        \"pinned_tweet_id\": \"788630\",\n        \"profile_banner_url\": \"<uri>\",\n        \"profile_image_url\": \"<uri>\",\n        \"protected\": \"<boolean>\",\n        \"public_metrics\": {\n          \"followers_count\": \"<integer>\",\n          \"following_count\": \"<integer>\",\n          \"tweet_count\": \"<integer>\",\n          \"listed_count\": \"<integer>\",\n          \"like_count\": \"<integer>\"\n        },\n        \"receives_your_dm\": \"<boolean>\",\n        \"subscription_type\": \"Basic\",\n        \"url\": \"<string>\",\n        \"verified\": \"<boolean>\",\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            \"LJ\"\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"<string>\",\n    \"result_count\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:21:22.000Z",
+                          "updatedAt": "2026-07-28T03:21:22.000Z",
+                          "uid": "35240-2f103d74-da7e-44fe-ba2c-06b371792e7a"
+                        },
+                        {
+                          "id": "b5d3d721-bef6-4b16-8b04-2efc6489ca5b",
+                          "name": "The request has failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2/notes/search/posts_eligible_for_notes?test_mode=<boolean>&pagination_token=<string>&max_results=10&post_selection=<string>&tweet.fields=possibly_sensitive&expansions=entities.note.mentions.username&media.fields=height&poll.fields=end_datetime&user.fields=withheld&place.fields=name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2",
+                                "notes",
+                                "search",
+                                "posts_eligible_for_notes"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) If true, return a list of posts that are for the test. If false, return a list of posts that the bots can write proposed notes on the product.",
+                                  "key": "test_mode",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Pagination token to get next set of posts eligible for notes.",
+                                  "key": "pagination_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Max results to return.",
+                                  "key": "max_results",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The selection of posts to return. Valid values are 'feed_size: [small|large|xl|xxl], feed_lang: [en|es|...|all]'. Default (if not specified) is 'feed_size: small, feed_lang: en'. Only top AI writers have access to large, xl, and xxl size feeds.",
+                                  "key": "post_selection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A comma separated list of Tweet fields to display.",
+                                  "key": "tweet.fields",
+                                  "value": "possibly_sensitive"
+                                },
+                                {
+                                  "description": "A comma separated list of fields to expand.",
+                                  "key": "expansions",
+                                  "value": "entities.note.mentions.username"
+                                },
+                                {
+                                  "description": "A comma separated list of Media fields to display.",
+                                  "key": "media.fields",
+                                  "value": "height"
+                                },
+                                {
+                                  "description": "A comma separated list of Poll fields to display.",
+                                  "key": "poll.fields",
+                                  "value": "end_datetime"
+                                },
+                                {
+                                  "description": "A comma separated list of User fields to display.",
+                                  "key": "user.fields",
+                                  "value": "withheld"
+                                },
+                                {
+                                  "description": "A comma separated list of Place fields to display.",
+                                  "key": "place.fields",
+                                  "value": "name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:21:22.000Z",
+                          "updatedAt": "2026-07-28T03:21:22.000Z",
+                          "uid": "35240-b5d3d721-bef6-4b16-8b04-2efc6489ca5b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:21:22.000Z",
+                      "updatedAt": "2026-07-28T03:21:22.000Z",
+                      "uid": "35240-178939d8-7a7c-4212-90d7-146aff6630f9"
+                    }
+                  ],
+                  "id": "1e2b39ad-9b8b-42cd-8190-8f912474ff48",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-1e2b39ad-9b8b-42cd-8190-8f912474ff48"
+                }
+              ],
+              "id": "aefbea3a-7255-4f2f-b637-3cd3ebccb705",
+              "createdAt": "2026-07-28T03:21:22.000Z",
+              "updatedAt": "2026-07-28T03:21:22.000Z",
+              "uid": "35240-aefbea3a-7255-4f2f-b637-3cd3ebccb705"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Delete a Community Note",
+                  "id": "03386594-0c67-420b-8659-a2d0a3b2566b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://api.x.com/2/oauth2/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://api.x.com/2/oauth2/authorize",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "authorization_code",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2/notes/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "notes",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "52d5942d-7980-4578-88f2-f6c378a66f16",
+                          "key": "id",
+                          "value": "4432309425947284072",
+                          "description": "(Required) The community note id to delete."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a community note."
+                  },
+                  "response": [
+                    {
+                      "id": "0b75ed56-8019-4440-bfed-458faf6fe482",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/notes/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "notes",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:21:22.000Z",
+                      "updatedAt": "2026-07-28T03:21:22.000Z",
+                      "uid": "35240-0b75ed56-8019-4440-bfed-458faf6fe482"
+                    },
+                    {
+                      "id": "5afd1efa-da99-4bd2-b613-58ffd496f4e6",
+                      "name": "The request has failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2/notes/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2",
+                            "notes",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:21:22.000Z",
+                      "updatedAt": "2026-07-28T03:21:22.000Z",
+                      "uid": "35240-5afd1efa-da99-4bd2-b613-58ffd496f4e6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-03386594-0c67-420b-8659-a2d0a3b2566b"
+                }
+              ],
+              "id": "ca790545-94a6-48a2-9339-4ca01d577009",
+              "createdAt": "2026-07-28T03:21:22.000Z",
+              "updatedAt": "2026-07-28T03:21:22.000Z",
+              "uid": "35240-ca790545-94a6-48a2-9339-4ca01d577009"
+            },
+            {
+              "name": "Create a Community Note",
+              "id": "c8f23ab8-1115-42a0-8d88-994a7b690643",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read",
+                      "type": "string"
+                    },
+                    {
+                      "key": "accessTokenUrl",
+                      "value": "https://api.x.com/2/oauth2/token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://api.x.com/2/oauth2/authorize",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"77542507958\",\n  \"info\": {\n    \"text\": \"f\\r\u2004\ufeff\\f/=\",\n    \"classification\": \"not_misleading\",\n    \"misleading_tags\": [\n      \"other\",\n      \"manipulated_media\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2",
+                    "notes"
+                  ]
+                },
+                "description": "Creates a community note endpoint for LLM use case."
+              },
+              "response": [
+                {
+                  "id": "610d4324-a7d9-4b45-8e7e-4c8ee1a79bf2",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"77542507958\",\n  \"info\": {\n    \"text\": \"f\\r\u2004\ufeff\\f/=\",\n    \"classification\": \"not_misleading\",\n    \"misleading_tags\": [\n      \"other\",\n      \"manipulated_media\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/notes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "notes"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"0065425228153\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"status\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-610d4324-a7d9-4b45-8e7e-4c8ee1a79bf2"
+                },
+                {
+                  "id": "9a90796b-d423-4b3d-88d2-cbe3809b2475",
+                  "name": "The request has failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"77542507958\",\n  \"info\": {\n    \"text\": \"f\\r\u2004\ufeff\\f/=\",\n    \"classification\": \"not_misleading\",\n    \"misleading_tags\": [\n      \"other\",\n      \"manipulated_media\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2/notes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2",
+                        "notes"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:21:22.000Z",
+                  "updatedAt": "2026-07-28T03:21:22.000Z",
+                  "uid": "35240-9a90796b-d423-4b3d-88d2-cbe3809b2475"
+                }
+              ],
+              "createdAt": "2026-07-28T03:21:22.000Z",
+              "updatedAt": "2026-07-28T03:21:22.000Z",
+              "uid": "35240-c8f23ab8-1115-42a0-8d88-994a7b690643"
+            }
+          ],
+          "id": "985c2476-df58-4973-88f1-c4525c98313d",
+          "createdAt": "2026-07-28T03:21:22.000Z",
+          "updatedAt": "2026-07-28T03:21:22.000Z",
+          "uid": "35240-985c2476-df58-4973-88f1-c4525c98313d"
+        }
+      ],
+      "id": "1fff0492-ceae-4123-8b1b-850953ff3eb7",
+      "createdAt": "2026-07-28T03:21:22.000Z",
+      "updatedAt": "2026-07-28T03:21:22.000Z",
+      "uid": "35240-1fff0492-ceae-4123-8b1b-850953ff3eb7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.x.com"
+    }
+  ]
+}

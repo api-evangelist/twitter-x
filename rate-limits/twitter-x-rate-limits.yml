@@ -1,0 +1,123 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Twitter/X
+providerId: twitter-x
+created: '2026-07-21'
+modified: '2026-07-21'
+generated: '2026-07-21'
+method: searched
+tags:
+  - Rate Limiting
+  - Social
+description: >-
+  X API v2 rate limits are per-endpoint, mostly on 15-minute windows (some
+  24-hour and per-second), with separate per-app (Bearer app-only) and
+  per-user (OAuth user context) limits. Every response carries
+  x-rate-limit-limit / x-rate-limit-remaining / x-rate-limit-reset headers;
+  429 with problem type rate-limit-exceeded signals throttling. Representative
+  published limits below; the full per-endpoint tables live in the docs and
+  Developer Console.
+sources:
+  - https://docs.x.com/x-api/fundamentals/rate-limits
+  - https://docs.x.com/fundamentals/rate-limits
+headers:
+  limit: x-rate-limit-limit
+  remaining: x-rate-limit-remaining
+  reset: x-rate-limit-reset
+responseCodes:
+  throttled: 429
+limits:
+  - name: Posts lookup GET /2/tweets (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 3500
+    timeFrame: 15 minutes
+  - name: Posts lookup GET /2/tweets (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 5000
+    timeFrame: 15 minutes
+  - name: Post lookup GET /2/tweets/:id (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 450
+    timeFrame: 15 minutes
+  - name: Recent search GET /2/tweets/search/recent (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 450
+    timeFrame: 15 minutes
+  - name: Recent search GET /2/tweets/search/recent (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 300
+    timeFrame: 15 minutes
+  - name: Full-archive search GET /2/tweets/search/all (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 300
+    timeFrame: 15 minutes
+    notes: Also capped at 1 request/second.
+  - name: Post counts GET /2/tweets/counts/recent (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 300
+    timeFrame: 15 minutes
+  - name: Filtered stream connect GET /2/tweets/search/stream (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 50
+    timeFrame: 15 minutes
+    notes: 1 connection; up to 1000 rules; 250 posts/sec delivery.
+  - name: Stream rules POST /2/tweets/search/stream/rules (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 100
+    timeFrame: 15 minutes
+  - name: Create post POST /2/tweets (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 10000
+    timeFrame: 24 hours
+  - name: Create post POST /2/tweets (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 100
+    timeFrame: 15 minutes
+  - name: Delete post DELETE /2/tweets/:id (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 50
+    timeFrame: 15 minutes
+  - name: User posts GET /2/users/:id/tweets (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 10000
+    timeFrame: 15 minutes
+  - name: User posts GET /2/users/:id/tweets (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 900
+    timeFrame: 15 minutes
+  - name: User mentions GET /2/users/:id/mentions (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 450
+    timeFrame: 15 minutes
+  - name: Reverse-chronological timeline GET /2/users/:id/timelines/reverse_chronological (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 180
+    timeFrame: 15 minutes
+  - name: Liking users GET /2/tweets/:id/liking_users (per app)
+    scope: app
+    metric: requests_per_window
+    limit: 75
+    timeFrame: 15 minutes
+  - name: Like posts POST /2/users/:id/likes (per user)
+    scope: user
+    metric: requests_per_window
+    limit: 50
+    timeFrame: 15 minutes
+    notes: Also capped at 1000/24hrs.

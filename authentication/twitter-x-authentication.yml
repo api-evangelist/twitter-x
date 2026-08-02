@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/twitter-x-x-api-v2-openapi.json
+docs: https://docs.x.com/fundamentals/authentication/overview
+notes: >-
+  Documented methods — OAuth 1.0a User Context (legacy, still supported for
+  user actions), App-only Bearer token (public data, app-level rate limits),
+  OAuth 2.0 Authorization Code with PKCE (user context with 21 fine-grained
+  scopes; see scopes/twitter-x-scopes.yml), and HTTP Basic auth on some
+  enterprise endpoints. Credentials come from the Developer Console
+  (console.x.com). The three OpenAPI securitySchemes below map to Bearer
+  (BearerToken), OAuth 2.0 user context (OAuth2UserToken), and OAuth 1.0a
+  (UserToken).
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: BearerToken
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- name: OAuth2UserToken
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.x.com/2/oauth2/authorize
+    tokenUrl: https://api.x.com/2/oauth2/token
+    scopes: 21
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
+- name: UserToken
+  type: http
+  scheme: OAuth
+  sources:
+  - openapi/twitter-x-x-api-v2-openapi.json
