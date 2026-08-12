@@ -363,6 +363,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/twitter-x-x-api-v2-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/twitterx/overview
 - type: AgenticAccess
