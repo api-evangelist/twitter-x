@@ -2,54 +2,57 @@ generated: '2026-07-21'
 method: searched
 status: published
 source: https://docs.x.com/tools/mcp.md
-description: >-
-  X operates two official hosted MCP servers. The X MCP (api.x.com/mcp,
-  serverInfo "xmcp", Streamable HTTP, protocol 2025-06-18) exposes X API
-  capabilities — search, users, bookmarks, trends, news, Articles — and is
-  reached either directly with an app-only Bearer token (read-only) or through
-  the open-source `xurl mcp` local bridge, which performs the OAuth 2.0 PKCE
-  login and injects a fresh user-context Bearer token on every call (required
-  for writes). The Docs MCP (docs.x.com/mcp) searches and reads the X API
-  documentation. Capability list captured verbatim from the MCP docs page;
-  the server does not advertise native MCP OAuth discovery and has no dynamic
-  client registration.
+description: X operates two official hosted MCP servers. The X MCP (api.x.com/mcp, serverInfo "xmcp",
+  Streamable HTTP, protocol 2025-06-18) exposes X API capabilities — search, users, bookmarks, trends,
+  news, Articles — and is reached either directly with an app-only Bearer token (read-only) or through
+  the open-source `xurl mcp` local bridge, which performs the OAuth 2.0 PKCE login and injects a fresh
+  user-context Bearer token on every call (required for writes). The Docs MCP (docs.x.com/mcp) searches
+  and reads the X API documentation. Capability list captured verbatim from the MCP docs page; the server
+  does not advertise native MCP OAuth discovery and has no dynamic client registration.
 servers:
-  - name: xmcp
-    label: X MCP (X API)
-    transport: http
-    url: https://api.x.com/mcp
-    protocol: '2025-06-18'
-    auth: >-
-      OAuth 2.0 user context via the `xurl mcp` stdio bridge (npx -y
-      @xdevplatform/xurl mcp https://api.x.com/mcp; CLIENT_ID/CLIENT_SECRET of
-      your own X app), or app-only Bearer token as a static Authorization
-      header (read-only, no user context).
-    bridge:
-      name: "@xdevplatform/xurl"
-      transport: stdio
-      install: npx -y @xdevplatform/xurl mcp https://api.x.com/mcp
-      source: https://github.com/xdevplatform/xurl
-    capabilities:
-      - category: Posts
-        description: Fetch posts, see likers / reposters / quoters, recent counts
-      - category: Search
-        description: Full-archive post search, user search, news search
-      - category: Users
-        description: Resolve the current user, look up by id / handle, read a user's posts, timeline, and mentions
-      - category: Bookmarks
-        description: List / add / remove bookmarks and manage bookmark folders
-      - category: News & Trends
-        description: Get news stories, get trends for a location (WOEID)
-      - category: Articles
-        description: Create draft Articles and publish them
-    source_code: https://github.com/xdevplatform/xmcp
-  - name: x-docs
-    label: Docs MCP (documentation search)
-    transport: http
-    url: https://docs.x.com/mcp
-    auth: none documented (public docs search)
-    tools:
-      - name: search_x
-        description: Search across the X documentation for relevant information, code examples, API references, and guides
-      - name: get_page_x
-        description: Retrieve the full content of a specific documentation page by its path
+- name: xmcp
+  label: X MCP (X API)
+  transport: http
+  url: https://api.x.com/mcp
+  protocol: '2025-06-18'
+  auth: OAuth 2.0 user context via the `xurl mcp` stdio bridge (npx -y @xdevplatform/xurl mcp https://api.x.com/mcp;
+    CLIENT_ID/CLIENT_SECRET of your own X app), or app-only Bearer token as a static Authorization header
+    (read-only, no user context).
+  bridge:
+    name: '@xdevplatform/xurl'
+    transport: stdio
+    install: npx -y @xdevplatform/xurl mcp https://api.x.com/mcp
+    source: https://github.com/xdevplatform/xurl
+  capabilities:
+  - category: Posts
+    description: Fetch posts, see likers / reposters / quoters, recent counts
+  - category: Search
+    description: Full-archive post search, user search, news search
+  - category: Users
+    description: Resolve the current user, look up by id / handle, read a user's posts, timeline, and
+      mentions
+  - category: Bookmarks
+    description: List / add / remove bookmarks and manage bookmark folders
+  - category: News & Trends
+    description: Get news stories, get trends for a location (WOEID)
+  - category: Articles
+    description: Create draft Articles and publish them
+  source_code: https://github.com/xdevplatform/xmcp
+- name: x-docs
+  label: Docs MCP (documentation search)
+  transport: http
+  url: https://docs.x.com/mcp
+  auth: none documented (public docs search)
+  tools:
+  - name: search_x
+    description: Search across the X documentation for relevant information, code examples, API references,
+      and guides
+  - name: get_page_x
+    description: Retrieve the full content of a specific documentation page by its path
+deployment:
+  mode: remote
+  endpoint: https://api.x.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

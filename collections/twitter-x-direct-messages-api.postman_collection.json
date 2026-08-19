@@ -1,0 +1,2091 @@
+{
+  "item": [
+    {
+      "id": "9e6e4650-db2d-49df-81d0-e702f1200e52",
+      "name": "Direct Messages",
+      "description": {
+        "content": "Endpoints related to retrieving, managing Direct Messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a0746bc-62fe-44a0-8558-e481b3515cdb",
+          "name": "Create DM conversation",
+          "request": {
+            "name": "Create DM conversation",
+            "description": {
+              "content": "Initiates a new direct message conversation with specified participants.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversation_type\": \"<string>\",\n  \"participant_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd96080b-e19d-48eb-9f34-e8301ab0f9f9",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversation_type\": \"<string>\",\n  \"participant_ids\": [\n    \"2244994945\",\n    \"2244994945\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"123123123-456456456\",\n    \"dm_event_id\": \"1146654567674912769\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8681\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dedc89f-139d-4b19-a19e-78a555ab7963",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversation_type\": \"<string>\",\n  \"participant_ids\": [\n    \"2244994945\",\n    \"2244994945\"\n  ],\n  \"message\": {\n    \"text\": \"<string>\",\n    \"attachments\": [\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"media_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3316fe6f-caac-46ba-b495-2e8f72822a43",
+          "name": "Download DM Media",
+          "request": {
+            "name": "Download DM Media",
+            "description": {
+              "content": "Downloads media attached to a legacy Direct Message. The requesting user must be a participant in the conversation containing the specified DM event. The response body contains raw binary bytes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations",
+                "media",
+                ":dm_id",
+                ":media_id",
+                ":resource_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dm_id",
+                  "description": "(Required) The unique identifier of the Direct Message event containing the media."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "media_id",
+                  "description": "(Required) The unique identifier of the media attached to the Direct Message."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resource_id",
+                  "description": "(Required) The resource identifier of the media file, including file extension (e.g. 'hVJQTwig.jpg')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "830d1455-b4e9-46bf-9261-2630154ed9dc",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "media",
+                    ":dm_id",
+                    ":media_id",
+                    ":resource_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dm_id",
+                      "description": "(Required) The unique identifier of the Direct Message event containing the media."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "media_id",
+                      "description": "(Required) The unique identifier of the media attached to the Direct Message."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The resource identifier of the media file, including file extension (e.g. 'hVJQTwig.jpg')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "daf3aa72-9ccd-4fe9-b05a-be220db8d077",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "media",
+                    ":dm_id",
+                    ":media_id",
+                    ":resource_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dm_id",
+                      "description": "(Required) The unique identifier of the Direct Message event containing the media."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "media_id",
+                      "description": "(Required) The unique identifier of the media attached to the Direct Message."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resource_id",
+                      "description": "(Required) The resource identifier of the media file, including file extension (e.g. 'hVJQTwig.jpg')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd92dd74-d9f7-4d77-b930-ade1c902309b",
+          "name": "Get DM events for a DM conversation",
+          "request": {
+            "name": "Get DM events for a DM conversation",
+            "description": {
+              "content": "Retrieves direct message events for a specific conversation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations",
+                "with",
+                ":participant_id",
+                "dm_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "This parameter is used to get a specified 'page' of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "event_types",
+                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin",
+                  "description": "The set of event_types to include in the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "dm_event.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of DmEvent fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participant_id",
+                  "description": "(Required) The ID of the participant user for the One to One DM conversation."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ea27948-1d9f-407c-b70c-e0a8e887c53b",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "with",
+                    ":participant_id",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant_id",
+                      "description": "(Required) The ID of the participant user for the One to One DM conversation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1146654567674912769\",\n      \"event_type\": \"MessageCreate\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"string\"\n        ],\n        \"media_keys\": [\n          \"2877670978_7032441\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"TWTR\"\n        }\n      ],\n      \"created_at\": \"1948-03-08T20:12:23.481Z\",\n      \"dm_conversation_id\": \"123123123-456456456\",\n      \"hashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"MondayMotivation\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"username\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"participant_ids\": [\n        \"2244994945\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"1346889436626259968\"\n        }\n      ],\n      \"sender_id\": \"2244994945\",\n      \"text\": \"string\",\n      \"urls\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 5669\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 8669,\n        \"media_key\": \"48_4784135688\",\n        \"width\": 133\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 3222,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 2122\n          },\n          {\n            \"position\": 3136,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9972\n          }\n        ],\n        \"duration_minutes\": 1155,\n        \"end_datetime\": \"1991-04-15T08:22:31.115Z\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"10385771649_4952572\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          4842,\n          2999\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 1423\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 4781\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5762,\n          \"retweet_count\": 2848,\n          \"reply_count\": 3555,\n          \"like_count\": 3730\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2605,\n          \"like_count\": 6077,\n          \"reply_count\": 4146,\n          \"retweet_count\": 3044\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 6364,\n          \"reply_count\": 3872,\n          \"like_count\": 565,\n          \"impression_count\": 5457,\n          \"bookmark_count\": 9614,\n          \"quote_count\": 8142\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 9821,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"hVu\",\n        \"withheld\": {\n          \"copyright\": false,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"dQeroNg\",\n        \"affiliation\": {\n          \"badge_url\": \"https://jMJCNlopYfPRrdrFHDwnjmuQenXCrwuh.qaYJbOE4+crjPe0\",\n          \"description\": \"string\",\n          \"url\": \"https://G.loSQrkB-SSRfK7TcLGCWQss33gnugQJi4GLtTLRMBLt0qHc7wZNVGCBH5\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\",\n          \"blocking\"\n        ],\n        \"created_at\": \"1957-12-12T10:16:30.498Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://JheaMoWAUnEKVt.wjFGgfp8VpT1UVxnASSpdZX5COR.Mst8OZp7k6DnDWYLb7YSv6vqtf87t6\",\n        \"profile_image_url\": \"https://bVZAPKAtVeuqfipDvsHAgfC.syiwkehILVBqbYgqRimxE9tSWpXtVoNA-fsX0OfyA\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 2033,\n          \"following_count\": 6109,\n          \"tweet_count\": 1367,\n          \"listed_count\": 7037,\n          \"like_count\": 7410\n        },\n        \"receives_your_dm\": false,\n        \"subscription_type\": \"None\",\n        \"url\": \"string\",\n        \"verified\": true,\n        \"verified_type\": \"government\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"previous_token\": \"string\",\n    \"result_count\": 225\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96a3b6bf-a5e6-4434-993c-38e8f11809b6",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "with",
+                    ":participant_id",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant_id",
+                      "description": "(Required) The ID of the participant user for the One to One DM conversation."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e08d8e5-46cf-45de-8072-8da877285494",
+          "name": "Create DM message by participant ID",
+          "request": {
+            "name": "Create DM message by participant ID",
+            "description": {
+              "content": "Sends a new direct message to a specific participant by their ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations",
+                "with",
+                ":participant_id",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "participant_id",
+                  "description": "(Required) The ID of the recipient user that will receive the DM."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"<string>\"\n    },\n    {\n      \"media_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "290379c0-ec63-4799-b818-2f83d47e76f9",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "with",
+                    ":participant_id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant_id",
+                      "description": "(Required) The ID of the recipient user that will receive the DM."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"1146654567674912769\"\n    },\n    {\n      \"media_id\": \"1146654567674912769\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"123123123-456456456\",\n    \"dm_event_id\": \"1146654567674912769\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 272\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27af580e-0db4-4c9f-9d00-8ba07a3e410b",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    "with",
+                    ":participant_id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "participant_id",
+                      "description": "(Required) The ID of the recipient user that will receive the DM."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"1146654567674912769\"\n    },\n    {\n      \"media_id\": \"1146654567674912769\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d1f50ff-700c-4009-b1b4-6c29b48c688d",
+          "name": "Create DM message by conversation ID",
+          "request": {
+            "name": "Create DM message by conversation ID",
+            "description": {
+              "content": "Sends a new direct message to a specific conversation by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations",
+                ":dm_conversation_id",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dm_conversation_id",
+                  "description": "(Required) The DM Conversation ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"<string>\"\n    },\n    {\n      \"media_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73cd6d39-56e6-4342-a3c5-8300ca6f0d3c",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    ":dm_conversation_id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dm_conversation_id",
+                      "description": "(Required) The DM Conversation ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"1146654567674912769\"\n    },\n    {\n      \"media_id\": \"1146654567674912769\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"dm_conversation_id\": \"123123123-456456456\",\n    \"dm_event_id\": \"1146654567674912769\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 272\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4d390cc-47a2-41ae-aea6-bc1f8e25d813",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    ":dm_conversation_id",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dm_conversation_id",
+                      "description": "(Required) The DM Conversation ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"<string>\",\n  \"attachments\": [\n    {\n      \"media_id\": \"1146654567674912769\"\n    },\n    {\n      \"media_id\": \"1146654567674912769\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ed381cd-bf90-41a4-8bdd-4c22ab366541",
+          "name": "Get DM events for a DM conversation",
+          "request": {
+            "name": "Get DM events for a DM conversation",
+            "description": {
+              "content": "Retrieves direct message events for a specific conversation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_conversations",
+                ":id",
+                "dm_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "This parameter is used to get a specified 'page' of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "event_types",
+                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin",
+                  "description": "The set of event_types to include in the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "dm_event.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of DmEvent fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The DM conversation ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18d3979b-727a-4a25-a07a-1f7df3dc682a",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    ":id",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The DM conversation ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1146654567674912769\",\n      \"event_type\": \"MessageCreate\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"string\"\n        ],\n        \"media_keys\": [\n          \"582_55998177\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"TWTR\"\n        }\n      ],\n      \"created_at\": \"2006-08-19T22:44:08.793Z\",\n      \"dm_conversation_id\": \"123123123-456456456\",\n      \"hashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"MondayMotivation\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"username\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"participant_ids\": [\n        \"2244994945\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"1346889436626259968\"\n        }\n      ],\n      \"sender_id\": \"2244994945\",\n      \"text\": \"string\",\n      \"urls\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8168\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 2506,\n        \"media_key\": \"937619047_07806\",\n        \"width\": 4845\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 2573,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 7668\n          },\n          {\n            \"position\": 32,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9821\n          }\n        ],\n        \"duration_minutes\": 7770,\n        \"end_datetime\": \"1967-12-01T05:25:51.559Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"66_05\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          1393,\n          3878\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 3466\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 2959\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5074,\n          \"retweet_count\": 8420,\n          \"reply_count\": 2067,\n          \"like_count\": 1217\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2790,\n          \"like_count\": 3324,\n          \"reply_count\": 7221,\n          \"retweet_count\": 7240\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 8973,\n          \"reply_count\": 7753,\n          \"like_count\": 8920,\n          \"impression_count\": 1646,\n          \"bookmark_count\": 5616,\n          \"quote_count\": 5225\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 6025,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"u53_Y4oqI\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"HfNPoRoqJ\",\n        \"affiliation\": {\n          \"badge_url\": \"https://EFyPXlHsRNiJptuT.wmqbxqXCnDXlHCmKFg6i40Gw\",\n          \"description\": \"string\",\n          \"url\": \"http://JYBgdbSmvJqCamEe.uzFJGfwDvR\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_sent\",\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"2015-06-07T09:29:51.945Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://euUPqoqjbURVZctvywyHogtvzdXYvItA.ebgXylhw56lsCsI9OYnSZfN\",\n        \"profile_image_url\": \"http://cI.glD8O8c28F7,tRM6g\",\n        \"protected\": true,\n        \"public_metrics\": {\n          \"followers_count\": 9025,\n          \"following_count\": 5605,\n          \"tweet_count\": 7407,\n          \"listed_count\": 3855,\n          \"like_count\": 4069\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"previous_token\": \"string\",\n    \"result_count\": 3435\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a14c49a4-8030-4bf0-baf0-c7864a46b7ea",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_conversations",
+                    ":id",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The DM conversation ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c96a28a-8a7b-4029-bff1-984feb7322db",
+          "name": "Get DM events",
+          "request": {
+            "name": "Get DM events",
+            "description": {
+              "content": "Retrieves a list of recent direct message events across all conversations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "This parameter is used to get a specified 'page' of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "event_types",
+                  "value": "MessageCreate,ParticipantsLeave,ParticipantsJoin",
+                  "description": "The set of event_types to include in the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "dm_event.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of DmEvent fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6be6c410-e4cd-4fbb-9040-5e99ba54ee06",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1146654567674912769\",\n      \"event_type\": \"MessageCreate\",\n      \"attachments\": {\n        \"card_ids\": [\n          \"string\"\n        ],\n        \"media_keys\": [\n          \"582_55998177\"\n        ]\n      },\n      \"cashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"TWTR\"\n        }\n      ],\n      \"created_at\": \"2006-08-19T22:44:08.793Z\",\n      \"dm_conversation_id\": \"123123123-456456456\",\n      \"hashtags\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"tag\": \"MondayMotivation\"\n        }\n      ],\n      \"mentions\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"username\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"participant_ids\": [\n        \"2244994945\"\n      ],\n      \"referenced_tweets\": [\n        {\n          \"id\": \"1346889436626259968\"\n        }\n      ],\n      \"sender_id\": \"2244994945\",\n      \"text\": \"string\",\n      \"urls\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8168\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 2506,\n        \"media_key\": \"937619047_07806\",\n        \"width\": 4845\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 2573,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 7668\n          },\n          {\n            \"position\": 32,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9821\n          }\n        ],\n        \"duration_minutes\": 7770,\n        \"end_datetime\": \"1967-12-01T05:25:51.559Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"66_05\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          1393,\n          3878\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 3466\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 2959\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5074,\n          \"retweet_count\": 8420,\n          \"reply_count\": 2067,\n          \"like_count\": 1217\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2790,\n          \"like_count\": 3324,\n          \"reply_count\": 7221,\n          \"retweet_count\": 7240\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 8973,\n          \"reply_count\": 7753,\n          \"like_count\": 8920,\n          \"impression_count\": 1646,\n          \"bookmark_count\": 5616,\n          \"quote_count\": 5225\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 6025,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"u53_Y4oqI\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"HfNPoRoqJ\",\n        \"affiliation\": {\n          \"badge_url\": \"https://EFyPXlHsRNiJptuT.wmqbxqXCnDXlHCmKFg6i40Gw\",\n          \"description\": \"string\",\n          \"url\": \"http://JYBgdbSmvJqCamEe.uzFJGfwDvR\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_sent\",\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"2015-06-07T09:29:51.945Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://euUPqoqjbURVZctvywyHogtvzdXYvItA.ebgXylhw56lsCsI9OYnSZfN\",\n        \"profile_image_url\": \"http://cI.glD8O8c28F7,tRM6g\",\n        \"protected\": true,\n        \"public_metrics\": {\n          \"followers_count\": 9025,\n          \"following_count\": 5605,\n          \"tweet_count\": 7407,\n          \"listed_count\": 3855,\n          \"like_count\": 4069\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"previous_token\": \"string\",\n    \"result_count\": 3435\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e2051a4-b899-4f1d-9b7a-0cea6b1bb1b9",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "event_types",
+                      "value": "MessageCreate,ParticipantsLeave"
+                    },
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fce8164e-54b2-4f17-b20f-124f0cd7dcdc",
+          "name": "Delete DM event",
+          "request": {
+            "name": "Delete DM event",
+            "description": {
+              "content": "Deletes a specific direct message event by its ID, if owned by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_events",
+                ":event_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event_id",
+                  "description": "(Required) The ID of the direct-message event to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "680065a8-5b45-45c6-947d-c532efc2cf28",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event_id",
+                      "description": "(Required) The ID of the direct-message event to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deleted\": true\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8772\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fdc8ec5-594b-479c-8383-09c65f666e30",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event_id",
+                      "description": "(Required) The ID of the direct-message event to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d17d7e37-c077-41e7-b99c-5aca5ef12b91",
+          "name": "Get DM event by ID",
+          "request": {
+            "name": "Get DM event by ID",
+            "description": {
+              "content": "Retrieves details of a specific direct message event by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "dm_events",
+                ":event_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dm_event.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of DmEvent fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event_id",
+                  "description": "(Required) dm event id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ab9aebc-feed-458e-bb5c-dff965e27775",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event_id",
+                      "description": "(Required) dm event id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1146654567674912769\",\n    \"event_type\": \"MessageCreate\",\n    \"attachments\": {\n      \"card_ids\": [\n        \"string\"\n      ],\n      \"media_keys\": [\n        \"433531707_19\"\n      ]\n    },\n    \"cashtags\": [\n      {\n        \"end\": 61,\n        \"start\": 50,\n        \"tag\": \"TWTR\"\n      }\n    ],\n    \"created_at\": \"1952-04-15T22:25:02.948Z\",\n    \"dm_conversation_id\": \"123123123-456456456\",\n    \"hashtags\": [\n      {\n        \"end\": 61,\n        \"start\": 50,\n        \"tag\": \"MondayMotivation\"\n      }\n    ],\n    \"mentions\": [\n      {\n        \"end\": 61,\n        \"start\": 50,\n        \"username\": \"Ip27BHDcAgmJ_Y\",\n        \"id\": \"2244994945\"\n      }\n    ],\n    \"participant_ids\": [\n      \"2244994945\"\n    ],\n    \"referenced_tweets\": [\n      {\n        \"id\": \"1346889436626259968\"\n      }\n    ],\n    \"sender_id\": \"2244994945\",\n    \"text\": \"string\",\n    \"urls\": [\n      {\n        \"end\": 61,\n        \"start\": 50,\n        \"url\": \"https://developer.twitter.com/en/docs/twitter-api\",\n        \"description\": \"This is a description of the website.\",\n        \"display_url\": \"twittercommunity.com/t/introducing-…\",\n        \"expanded_url\": \"https://developer.twitter.com/en/docs/twitter-api\",\n        \"images\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"media_key\": \"112_6887371\",\n        \"status\": 111,\n        \"title\": \"Introducing the v2 follow lookup endpoints\",\n        \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n      }\n    ]\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 669\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 3881,\n        \"media_key\": \"59682_17938586788\",\n        \"width\": 8295\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 1264,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 6080\n          },\n          {\n            \"position\": 7465,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9378\n          }\n        ],\n        \"duration_minutes\": 6876,\n        \"end_datetime\": \"1952-06-28T21:13:12.916Z\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"228900008_6793786437\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          4502,\n          7690\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 3815\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 6600\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5662,\n          \"retweet_count\": 7460,\n          \"reply_count\": 345,\n          \"like_count\": 3765\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2556,\n          \"like_count\": 9660,\n          \"reply_count\": 6943,\n          \"retweet_count\": 7039\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 4650,\n          \"reply_count\": 256,\n          \"like_count\": 7926,\n          \"impression_count\": 4775,\n          \"bookmark_count\": 9420,\n          \"quote_count\": 7653\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"following\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 8333,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"N\",\n        \"withheld\": {\n          \"copyright\": false,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"e9BLwUL1FRPgOo\",\n        \"affiliation\": {\n          \"badge_url\": \"http://WjbiUuFbHltkFcVkrsGLaF.pnpiShKHTEAGmkyy6YH.v\",\n          \"description\": \"string\",\n          \"url\": \"https://LBfoIiJirVXM.afbspO0LZ5vNFqslm-utdG0lJSNF3YUUp+-T8UH4k3jmFf77b7tiTqx+WeFOQxslbK\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"followed_by\",\n          \"muting\"\n        ],\n        \"created_at\": \"1948-03-21T06:23:44.389Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://dLTBkMvQtlFrkQvEXGrVxuK.iiFK,V-nj04JMuh2keXGE1-aM3BsKRTOqtFAgiL,fDuduqC\",\n        \"profile_image_url\": \"https://XLGoDODEncuWcnvZlNXbnCFsFouxybWF.lcotWAg4NS8dsK\",\n        \"protected\": true,\n        \"public_metrics\": {\n          \"followers_count\": 4455,\n          \"following_count\": 6148,\n          \"tweet_count\": 12,\n          \"listed_count\": 9460,\n          \"like_count\": 2423\n        },\n        \"receives_your_dm\": false,\n        \"subscription_type\": \"Premium\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4a28734-3280-42c6-9109-da094aebde74",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "dm_events",
+                    ":event_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dm_event.fields",
+                      "value": "attachments,created_at,dm_conversation_id,entities,event_type,id,participant_ids,referenced_tweets,sender_id,text"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "attachments.media_keys,participant_ids,referenced_tweets.id,sender_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event_id",
+                      "description": "(Required) dm event id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9195,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "88f1c574-1798-49d8-a11a-aec699dabb0e",
+    "name": "X API v2 Account Activity Direct Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

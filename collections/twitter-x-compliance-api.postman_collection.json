@@ -1,0 +1,1315 @@
+{
+  "item": [
+    {
+      "id": "de401d7a-6ab1-4797-853e-594ed4828e5d",
+      "name": "Compliance",
+      "description": {
+        "content": "Endpoints related to keeping X data in your systems compliant",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1314807-b27a-4118-8fd8-1aa89ee9664a",
+          "name": "Get Compliance Jobs",
+          "request": {
+            "name": "Get Compliance Jobs",
+            "description": {
+              "content": "Retrieves a list of Compliance Jobs filtered by job type and optional status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "compliance",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) Type of Compliance Job to list."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status of Compliance Job to list."
+                },
+                {
+                  "disabled": false,
+                  "key": "compliance_job.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of ComplianceJob fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "480ea301-3904-4bd1-bcfb-ed72dae808a4",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compliance_job.fields",
+                      "value": "created_at,download_expires_at,download_url,id,name,resumable,status,type,upload_expires_at,upload_url"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1372966999991541762\",\n      \"type\": \"tweets\",\n      \"created_at\": \"2021-01-06T18:40:40.000Z\",\n      \"upload_url\": \"http://LtzMthXS.iiE316zTJLsM4icOLyOA2-+6s0tREAzJACD0otEdtgCzz+\",\n      \"download_url\": \"https://MzzRVFpevKmkYAVIDqu.tvs7au1O0ypqcxtzXE5\",\n      \"upload_expires_at\": \"2021-01-06T18:40:40.000Z\",\n      \"download_expires_at\": \"2021-01-06T18:40:40.000Z\",\n      \"status\": \"in_progress\",\n      \"name\": \"my-job\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8685\n    }\n  ],\n  \"meta\": {\n    \"result_count\": 4358\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "077c5ccb-54c4-4fca-96c7-dbe72933874a",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compliance_job.fields",
+                      "value": "created_at,download_expires_at,download_url,id,name,resumable,status,type,upload_expires_at,upload_url"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f551c034-5d85-4f9f-be51-6395144f483c",
+          "name": "Create Compliance Job",
+          "request": {
+            "name": "Create Compliance Job",
+            "description": {
+              "content": "Creates a new Compliance Job for the specified job type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "compliance",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"resumable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ac15e8d-bf97-4487-882f-dea5f24c34b9",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"my-job\",\n  \"resumable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1372966999991541762\",\n    \"type\": \"tweets\",\n    \"created_at\": \"2021-01-06T18:40:40.000Z\",\n    \"upload_url\": \"https://oiJKG.sfxgZVeJjbl36YYLMj4sxI5pqkTgnQ\",\n    \"download_url\": \"http://dfZroAoqeSvwQRW.gfxkrt7osENBgJVgMqWy6RoAHLouxrmeGM3nOvdUI5-FotJwBD9s0xQxKw3W.scyoQM8l\",\n    \"upload_expires_at\": \"2021-01-06T18:40:40.000Z\",\n    \"download_expires_at\": \"2021-01-06T18:40:40.000Z\",\n    \"status\": \"failed\",\n    \"name\": \"my-job\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 5210\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de32c810-0bd0-4c80-a268-b5bd1a48b064",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"my-job\",\n  \"resumable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a3acf96-33e4-4bbe-8863-25423202eca0",
+          "name": "Get Compliance Job by ID",
+          "request": {
+            "name": "Get Compliance Job by ID",
+            "description": {
+              "content": "Retrieves details of a specific Compliance Job by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "compliance",
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "compliance_job.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of ComplianceJob fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the Compliance Job to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5493bfa7-4ce1-46a8-a26b-e8a0d039b276",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "compliance_job.fields",
+                      "value": "created_at,download_expires_at,download_url,id,name,resumable,status,type,upload_expires_at,upload_url"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Compliance Job to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1372966999991541762\",\n    \"type\": \"users\",\n    \"created_at\": \"2021-01-06T18:40:40.000Z\",\n    \"upload_url\": \"http://fdqHeSAfXUuXujNGXvJ.hjhsLH2mDeN9qGVpvdI\",\n    \"download_url\": \"https://IzAVaQOhaQpnvhWPdmuYIxxouIATc.kyXoXRAXMecyTDWakVXyZCFbeTE8BB7T6SAbEs0Hu-G-l2wGhUeTVhQvd+\",\n    \"upload_expires_at\": \"2021-01-06T18:40:40.000Z\",\n    \"download_expires_at\": \"2021-01-06T18:40:40.000Z\",\n    \"status\": \"created\",\n    \"name\": \"my-job\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 2552\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ee1dea3-01ef-42f6-b6e8-effc8aec461d",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "compliance",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "compliance_job.fields",
+                      "value": "created_at,download_expires_at,download_url,id,name,resumable,status,type,upload_expires_at,upload_url"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Compliance Job to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "200e16fd-cbd4-43bc-a019-71179562e62b",
+          "name": "Stream Likes compliance data",
+          "request": {
+            "name": "Stream Likes compliance data",
+            "description": {
+              "content": "Streams all compliance data related to Likes for Users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "likes",
+                "compliance",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "backfill_minutes",
+                  "value": "<integer>",
+                  "description": "The number of minutes of backfill requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Likes Compliance events will be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Likes Compliance events will be provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb6bc0f3-51a7-4d6a-9ff2-478e7eefa957",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "likes",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"delete\": {\n      \"favorite\": {\n        \"id\": \"1346889436626259968\",\n        \"user_id\": \"2244994945\"\n      },\n      \"event_at\": \"2021-07-06T18:40:40.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fad17a0b-044d-4552-9871-db54fc8e3f16",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "likes",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b445e01-36df-4d7b-bc48-0bfd5afdd939",
+          "name": "Stream Posts compliance data",
+          "request": {
+            "name": "Stream Posts compliance data",
+            "description": {
+              "content": "Streams all compliance data related to Posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "tweets",
+                "compliance",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "backfill_minutes",
+                  "value": "<integer>",
+                  "description": "The number of minutes of backfill requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "partition",
+                  "value": "<integer>",
+                  "description": "(Required) The partition number."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post Compliance events will be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Post Compliance events will be provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "80a55d26-2517-425c-bdee-1c3bf98d434a",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "tweets",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "partition",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-14T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"delete\": {\n      \"tweet\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"author_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"event_at\": \"2021-07-06T18:40:40.000Z\",\n      \"quote_tweet_id\": \"1346889436626259968\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18743545-f832-4114-a5c2-49124ee24cec",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "tweets",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "partition",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-14T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d17441e-6548-4e2e-8fbc-43afbcbb7602",
+          "name": "Stream Post labels",
+          "request": {
+            "name": "Stream Post labels",
+            "description": {
+              "content": "Streams all labeling events applied to Posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "tweets",
+                "label",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "backfill_minutes",
+                  "value": "<integer>",
+                  "description": "The number of minutes of backfill requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post labels will be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post labels will be provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0f882630-94b3-4dfc-8b6c-0771cbcf2524",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "tweets",
+                    "label",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"public_tweet_notice\": {\n      \"tweet\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"author_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"event_type\": \"misleading\",\n      \"event_at\": \"2021-07-06T18:40:40.000Z\",\n      \"application\": \"apply\",\n      \"details\": \"string\",\n      \"extended_details_url\": \"string\",\n      \"label_title\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e807e058-07c7-4f24-ad51-bc4a7bbc25bb",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "tweets",
+                    "label",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6167e749-4fae-424a-a018-3e7304a14e4e",
+          "name": "Stream Users compliance data",
+          "request": {
+            "name": "Stream Users compliance data",
+            "description": {
+              "content": "Streams all compliance data related to Users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "users",
+                "compliance",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "backfill_minutes",
+                  "value": "<integer>",
+                  "description": "The number of minutes of backfill requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "partition",
+                  "value": "<integer>",
+                  "description": "(Required) The partition number."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the User Compliance events will be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>",
+                  "description": "YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the User Compliance events will be provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "196b2c8c-cd0d-46e9-9d4d-6ae95bcd0379",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "users",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "partition",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"user_protect\": {\n      \"user\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"event_at\": \"2021-07-06T18:40:40.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29878534-e55b-463a-aac4-a93b178e6cc5",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "users",
+                    "compliance",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "backfill_minutes",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "partition",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "2021-02-01T18:40:40.000Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1608,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "906af463-322d-4cae-8710-15e11fe74d3d",
+    "name": "X API v2 Account Activity Compliance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

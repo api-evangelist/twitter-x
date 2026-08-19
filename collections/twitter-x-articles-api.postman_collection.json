@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "a09d9ddb-de23-4aa5-944b-dedb3f8c699f",
+      "name": "Articles",
+      "description": {
+        "content": "Endpoints related to retrieving, creating & modifying Articles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78426ec8-e405-4146-ac96-318e9f98b08a",
+          "name": "Create draft Article",
+          "request": {
+            "name": "Create draft Article",
+            "description": {
+              "content": "Creates a new Article draft that can later be published.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "articles",
+                "draft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"content_state\": {\n    \"blocks\": [\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      }\n    ],\n    \"entities\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      }\n    ]\n  },\n  \"cover_media\": {\n    \"media_category\": \"<string>\",\n    \"media_id\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a9b7708-a8e2-40a2-a0fd-cfff4383e53d",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "articles",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content_state\": {\n    \"blocks\": [\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      }\n    ],\n    \"entities\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      }\n    ]\n  },\n  \"cover_media\": {\n    \"media_category\": \"<string>\",\n    \"media_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1146654567674912769\",\n    \"title\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 6411\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8852e6d0-7de0-444f-8052-661f1bcfbc43",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "articles",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content_state\": {\n    \"blocks\": [\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": {\n          \"cashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            },\n            {\n              \"from_index\": \"<integer>\",\n              \"to_index\": \"<integer>\",\n              \"text\": \"<string>\"\n            }\n          ]\n        },\n        \"entity_ranges\": [\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          },\n          {\n            \"key\": \"<integer>\",\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\"\n          }\n        ],\n        \"inline_style_ranges\": [\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          },\n          {\n            \"offset\": \"<integer>\",\n            \"length\": \"<integer>\",\n            \"style\": \"<string>\"\n          }\n        ],\n        \"key\": \"<string>\"\n      }\n    ],\n    \"entities\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": {\n          \"type\": \"<string>\",\n          \"mutability\": \"<string>\",\n          \"data\": {\n            \"caption\": \"<string>\",\n            \"entity_key\": \"<string>\",\n            \"markdown\": \"<string>\",\n            \"media_items\": [\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              },\n              {\n                \"media_category\": \"<string>\",\n                \"media_id\": \"<string>\"\n              }\n            ],\n            \"post_id\": \"<string>\",\n            \"url\": \"<string>\"\n          }\n        }\n      }\n    ]\n  },\n  \"cover_media\": {\n    \"media_category\": \"<string>\",\n    \"media_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7298,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "999015f0-789e-4ba5-9a6c-7db4a2e4aa36",
+          "name": "Publish Article",
+          "request": {
+            "name": "Publish Article",
+            "description": {
+              "content": "Publishes a draft Article, making it publicly visible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "articles",
+                ":article_id",
+                "publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "article_id",
+                  "description": "(Required) The ID of the draft article to publish."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac9f3912-4755-4384-af8e-e806e39c20be",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "articles",
+                    ":article_id",
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "article_id",
+                      "description": "(Required) The ID of the draft article to publish."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"post_id\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 704\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4df16ef6-5d80-40d5-b40f-0eda3f3b443f",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "articles",
+                    ":article_id",
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "article_id",
+                      "description": "(Required) The ID of the draft article to publish."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7298,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "557f7d52-c19c-45ba-84fe-72536d0b5dfd",
+    "name": "X API v2 Account Activity Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

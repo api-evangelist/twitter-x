@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "4fd0c1c1-259d-4596-8962-c17faa5e41cc",
+      "name": "General",
+      "description": {
+        "content": "Miscellaneous endpoints for general API functionality",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b759aeba-b0eb-48bd-9202-32119e417a0f",
+          "name": "Get OpenAPI Spec.",
+          "request": {
+            "name": "Get OpenAPI Spec.",
+            "description": {
+              "content": "Retrieves the full OpenAPI Specification in JSON format. (See https://github.com/OAI/OpenAPI-Specification/blob/master/README.md)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "openapi.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53954254-b729-47a2-8948-46f0f7dccc2f",
+              "name": "The request was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "openapi.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "43db6b07-5e67-44f4-a589-ecd665ee6a11",
+    "name": "X API v2 Account Activity General API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

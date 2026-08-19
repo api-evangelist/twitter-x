@@ -1,0 +1,1412 @@
+{
+  "item": [
+    {
+      "id": "2b29d8b1-ea65-408c-993d-31d03f99eeb1",
+      "name": "Spaces",
+      "description": {
+        "content": "Endpoints related to retrieving, managing Spaces",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15694946-10f3-4655-8671-30558fbe5e96",
+          "name": "Get Spaces by IDs",
+          "request": {
+            "name": "Get Spaces by IDs",
+            "description": {
+              "content": "Retrieves details of multiple Spaces by their IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "(Required) The list of Space IDs to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "space.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Space fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Topic fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d99c6e0c-4fcb-4b62-ae15-d1b9c81663e5",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "1SLjjRYNejbKM"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1SLjjRYNejbKM\",\n      \"state\": \"live\",\n      \"created_at\": \"2021-07-06T18:40:40.000Z\",\n      \"creator_id\": \"2244994945\",\n      \"ended_at\": \"2021-07-06T18:40:40.000Z\",\n      \"host_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"invited_user_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"is_ticketed\": false,\n      \"lang\": \"en\",\n      \"participant_count\": 10,\n      \"scheduled_start\": \"2021-07-06T18:40:40.000Z\",\n      \"speaker_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"started_at\": \"1987-04-14T16:37:49.252Z\",\n      \"subscriber_count\": 10,\n      \"title\": \"Spaces are Awesome\",\n      \"topics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"updated_at\": \"1964-01-18T16:57:34.944Z\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 5203\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 3808,\n        \"media_key\": \"09303_7829\",\n        \"width\": 8589\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 8552,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 2963\n          },\n          {\n            \"position\": 802,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 4052\n          }\n        ],\n        \"duration_minutes\": 120,\n        \"end_datetime\": \"1959-10-28T22:34:13.105Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"18128875_408409181\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          830,\n          7073\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 5533\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 1649\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 2779,\n          \"retweet_count\": 5106,\n          \"reply_count\": 3262,\n          \"like_count\": 8839\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 324,\n          \"like_count\": 4421,\n          \"reply_count\": 4443,\n          \"retweet_count\": 1592\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 3658,\n          \"reply_count\": 2832,\n          \"like_count\": 4097,\n          \"impression_count\": 8907,\n          \"bookmark_count\": 8177,\n          \"quote_count\": 8499\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"mentionedUsers\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 1232,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"NU1h7VCtyT\",\n        \"withheld\": {\n          \"copyright\": false,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"C0dle4VIP3bzB\",\n        \"affiliation\": {\n          \"badge_url\": \"https://gPCcVxMQkMfbji.qbnkG0H+fE4VqxU+eaKkGq95JiWceOoGCe5V+nQhHagNe.T\",\n          \"description\": \"string\",\n          \"url\": \"https://fWCCvOSC.zrPP1xUg8zhemfgNqzaUOTjtadtek8F50louOvEwlR2-kv\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_sent\",\n          \"muting\"\n        ],\n        \"created_at\": \"1965-01-23T00:21:57.461Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://CAwBJZfRMHEKvQkoHNzys.lqbKiptAh7JZT93dwD2kDkIA-x5.Mpe4KUwaYxx3U1ldshhozCJ,KMZnnAKKPUXGgpRial\",\n        \"profile_image_url\": \"http://anphCFzmbDtE.cynRWsxU7YZfVvJhK6rUB8L4glIZF2YlW2NnEUhO2ZzyXSfA-C7Km8TBEQ2FXH1G827qPeHOMHJTNgJm\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 5636,\n          \"following_count\": 3050,\n          \"tweet_count\": 3091,\n          \"listed_count\": 4571,\n          \"like_count\": 7064\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"Basic\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a5d1cbb-ec02-4845-9a74-743d87ad69cd",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "1SLjjRYNejbKM"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3452fa8-7092-4274-9c72-9f4f8a7775c2",
+          "name": "Get Spaces by creator IDs",
+          "request": {
+            "name": "Get Spaces by creator IDs",
+            "description": {
+              "content": "Retrieves details of Spaces created by specified User IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces",
+                "by",
+                "creator_ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids",
+                  "value": "<string>",
+                  "description": "(Required) The IDs of Users to search through."
+                },
+                {
+                  "disabled": false,
+                  "key": "space.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Space fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Topic fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "141783f2-e86c-4601-ab6c-3573ff41b9aa",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    "by",
+                    "creator_ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids",
+                      "value": "2244994945"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1SLjjRYNejbKM\",\n      \"state\": \"live\",\n      \"created_at\": \"2021-07-06T18:40:40.000Z\",\n      \"creator_id\": \"2244994945\",\n      \"ended_at\": \"2021-07-06T18:40:40.000Z\",\n      \"host_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"invited_user_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"is_ticketed\": true,\n      \"lang\": \"en\",\n      \"participant_count\": 10,\n      \"scheduled_start\": \"2021-07-06T18:40:40.000Z\",\n      \"speaker_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"started_at\": \"1971-04-27T06:20:53.670Z\",\n      \"subscriber_count\": 10,\n      \"title\": \"Spaces are Awesome\",\n      \"topics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"updated_at\": \"1962-01-07T10:03:26.538Z\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8818\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 4606,\n        \"media_key\": \"91_7358331598\",\n        \"width\": 8656\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 3203,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9538\n          },\n          {\n            \"position\": 7433,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 375\n          }\n        ],\n        \"duration_minutes\": 4072,\n        \"end_datetime\": \"1969-12-02T15:52:30.436Z\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"69_547\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          1526,\n          6085\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 4189\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 26\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5192,\n          \"retweet_count\": 5691,\n          \"reply_count\": 6904,\n          \"like_count\": 525\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 6972,\n          \"like_count\": 8028,\n          \"reply_count\": 305,\n          \"retweet_count\": 2292\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 3714,\n          \"reply_count\": 3340,\n          \"like_count\": 167,\n          \"impression_count\": 2667,\n          \"bookmark_count\": 3375,\n          \"quote_count\": 349\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"verified\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 8863,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"a\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"7G4dordYRFfJ\",\n        \"affiliation\": {\n          \"badge_url\": \"http://PaINofhLfSxeVDnVEtyetcfdRlX.urjqCHumDLynmzCYzk5UVuq-HRhjq6tVsq59wb+JwJcvY\",\n          \"description\": \"string\",\n          \"url\": \"http://TsZ.yayT1iAyZCX-pWP3yoLPnueDjnV6.rCPFtq5i30wnz4drvJ.uTYZi2\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_sent\",\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"1950-05-20T03:46:14.827Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"http://qKIpDXsBwxAndDDSQp.rrwntO\",\n        \"profile_image_url\": \"https://BplZyzuODUzqtpPCRpeQoHtaKoItSbQ.perr881NuGzSppVRrx\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 2960,\n          \"following_count\": 4589,\n          \"tweet_count\": 7920,\n          \"listed_count\": 3330,\n          \"like_count\": 2921\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"result_count\": 4092\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c50e766-07a6-4c1b-8546-af34437d6466",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    "by",
+                    "creator_ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids",
+                      "value": "2244994945"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ad06d4f-8b05-46a4-a9b5-ba21152feb4c",
+          "name": "Search Spaces",
+          "request": {
+            "name": "Search Spaces",
+            "description": {
+              "content": "Retrieves a list of Spaces matching the specified search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "all",
+                  "description": "The state of Spaces to search for."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "space.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Space fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Topic fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8c1855ce-30d2-4f0a-ac63-dda8a9e0322f",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "crypto"
+                    },
+                    {
+                      "key": "state",
+                      "value": "all"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1SLjjRYNejbKM\",\n      \"state\": \"live\",\n      \"created_at\": \"2021-07-06T18:40:40.000Z\",\n      \"creator_id\": \"2244994945\",\n      \"ended_at\": \"2021-07-06T18:40:40.000Z\",\n      \"host_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"invited_user_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"is_ticketed\": true,\n      \"lang\": \"en\",\n      \"participant_count\": 10,\n      \"scheduled_start\": \"2021-07-06T18:40:40.000Z\",\n      \"speaker_ids\": [\n        \"2244994945\",\n        \"2244994945\"\n      ],\n      \"started_at\": \"1971-04-27T06:20:53.670Z\",\n      \"subscriber_count\": 10,\n      \"title\": \"Spaces are Awesome\",\n      \"topics\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        }\n      ],\n      \"updated_at\": \"1962-01-07T10:03:26.538Z\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 8818\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 4606,\n        \"media_key\": \"91_7358331598\",\n        \"width\": 8656\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 3203,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 9538\n          },\n          {\n            \"position\": 7433,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 375\n          }\n        ],\n        \"duration_minutes\": 4072,\n        \"end_datetime\": \"1969-12-02T15:52:30.436Z\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"69_547\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          1526,\n          6085\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 4189\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 26\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5192,\n          \"retweet_count\": 5691,\n          \"reply_count\": 6904,\n          \"like_count\": 525\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 6972,\n          \"like_count\": 8028,\n          \"reply_count\": 305,\n          \"retweet_count\": 2292\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 3714,\n          \"reply_count\": 3340,\n          \"like_count\": 167,\n          \"impression_count\": 2667,\n          \"bookmark_count\": 3375,\n          \"quote_count\": 349\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"verified\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 8863,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"a\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"7G4dordYRFfJ\",\n        \"affiliation\": {\n          \"badge_url\": \"http://PaINofhLfSxeVDnVEtyetcfdRlX.urjqCHumDLynmzCYzk5UVuq-HRhjq6tVsq59wb+JwJcvY\",\n          \"description\": \"string\",\n          \"url\": \"http://TsZ.yayT1iAyZCX-pWP3yoLPnueDjnV6.rCPFtq5i30wnz4drvJ.uTYZi2\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_sent\",\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"1950-05-20T03:46:14.827Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"http://qKIpDXsBwxAndDDSQp.rrwntO\",\n        \"profile_image_url\": \"https://BplZyzuODUzqtpPCRpeQoHtaKoItSbQ.perr881NuGzSppVRrx\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 2960,\n          \"following_count\": 4589,\n          \"tweet_count\": 7920,\n          \"listed_count\": 3330,\n          \"like_count\": 2921\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"blue\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"result_count\": 4092\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40a03e3d-8cc3-4910-8b06-4babe2dd1c19",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "crypto"
+                    },
+                    {
+                      "key": "state",
+                      "value": "all"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41540486-0966-4ff3-93d6-458839d78189",
+          "name": "Get space by ID",
+          "request": {
+            "name": "Get space by ID",
+            "description": {
+              "content": "Retrieves details of a specific space by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "space.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Space fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Topic fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the Space to be retrieved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "460619d6-6bfe-4d2c-a528-b2f8cad4b37d",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1SLjjRYNejbKM\",\n    \"state\": \"live\",\n    \"created_at\": \"2021-07-06T18:40:40.000Z\",\n    \"creator_id\": \"2244994945\",\n    \"ended_at\": \"2021-07-06T18:40:40.000Z\",\n    \"host_ids\": [\n      \"2244994945\",\n      \"2244994945\"\n    ],\n    \"invited_user_ids\": [\n      \"2244994945\",\n      \"2244994945\"\n    ],\n    \"is_ticketed\": false,\n    \"lang\": \"en\",\n    \"participant_count\": 10,\n    \"scheduled_start\": \"2021-07-06T18:40:40.000Z\",\n    \"speaker_ids\": [\n      \"2244994945\",\n      \"2244994945\"\n    ],\n    \"started_at\": \"2010-06-20T03:51:19.477Z\",\n    \"subscriber_count\": 10,\n    \"title\": \"Spaces are Awesome\",\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\"\n      }\n    ],\n    \"updated_at\": \"1971-04-07T03:30:06.177Z\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 6894\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 1337,\n        \"media_key\": \"7818970473_129254\",\n        \"width\": 3941\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 7748,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 5331\n          },\n          {\n            \"position\": 8489,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 1317\n          }\n        ],\n        \"duration_minutes\": 8404,\n        \"end_datetime\": \"1957-10-28T09:00:43.037Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"00395932_76762607\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          6581,\n          1329\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 3844\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 6785\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 1262,\n          \"retweet_count\": 8533,\n          \"reply_count\": 8694,\n          \"like_count\": 3248\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 9351,\n          \"like_count\": 9752,\n          \"reply_count\": 5992,\n          \"retweet_count\": 8174\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 4960,\n          \"reply_count\": 1980,\n          \"like_count\": 812,\n          \"impression_count\": 3286,\n          \"bookmark_count\": 1856,\n          \"quote_count\": 9075\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"retweeted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"subscribers\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 5231,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"9GDL\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"6J8lJ\",\n        \"affiliation\": {\n          \"badge_url\": \"https://Sx.rnqzGLmZ692dDHlgTzXcuVwqexzLf.FUk3aqPCkASM6DrbbKuZ5EkW5\",\n          \"description\": \"string\",\n          \"url\": \"http://GtPOnO.pfB,PJquTcudI8vWoiW-YmdqwUY+Np10FqVPNx0NFXF4EIG2SONsz8uU6Nown4FLC4oMk\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\",\n          \"following\"\n        ],\n        \"created_at\": \"1960-02-22T21:55:33.923Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://YWoeCGLRfFuQBiOaCdSjrHnVRDj.iaQs2CuCVksdIyUfNI9SSBssYBecoh63e\",\n        \"profile_image_url\": \"http://cL.yxB\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 9902,\n          \"following_count\": 1410,\n          \"tweet_count\": 9556,\n          \"listed_count\": 1390,\n          \"like_count\": 2832\n        },\n        \"receives_your_dm\": false,\n        \"subscription_type\": \"PremiumPlus\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"business\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c5989d4-d747-43a9-a7fc-516ac519567d",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "space.fields",
+                      "value": "created_at,creator_id,ended_at,host_ids,id,invited_user_ids,is_ticketed,lang,participant_count,scheduled_start,speaker_ids,started_at,state,subscriber_count,title,topic_ids,updated_at"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "creator_id,host_ids,invited_user_ids,speaker_ids,topic_ids"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "topic.fields",
+                      "value": "description,id,name"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84c2b667-4f15-4ea2-b19a-d777fbd85845",
+          "name": "Get Space ticket buyers",
+          "request": {
+            "name": "Get Space ticket buyers",
+            "description": {
+              "content": "Retrieves a list of Users who purchased tickets to a specific Space by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces",
+                ":id",
+                "buyers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "This parameter is used to get a specified 'page' of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the Space to be retrieved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ee483b7-debd-460f-9391-f7e4e09ee733",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id",
+                    "buyers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "affiliation.user_id,most_recent_tweet_id,pinned_tweet_id"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"2244994945\",\n      \"name\": \"string\",\n      \"username\": \"K9jEYEM0Yz6tpM9\",\n      \"affiliation\": {\n        \"badge_url\": \"http://honW.gvCeJtW\",\n        \"description\": \"string\",\n        \"url\": \"https://wtMZwIfBLQyAPKsumRhEsnKJ.ojhF5+UVfoJIgWror2s7meOVAgxrS0vM0XjhJmJMaqoxy6ofXh94c89CUNqPufi\",\n        \"user_id\": [\n          \"2244994945\"\n        ]\n      },\n      \"connection_status\": [\n        \"follow_request_sent\",\n        \"following\"\n      ],\n      \"created_at\": \"1980-11-14T03:02:03.019Z\",\n      \"description\": \"string\",\n      \"entities\": {\n        \"description\": {\n          \"annotations\": [\n            {\n              \"normalized_text\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"probability\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"url\": {\n          \"urls\": [\n            {\n              \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"location\": \"string\",\n      \"most_recent_tweet_id\": \"1346889436626259968\",\n      \"pinned_tweet_id\": \"1346889436626259968\",\n      \"profile_banner_url\": \"https://dgcXOTPH.nwges8,ywLmt\",\n      \"profile_image_url\": \"https://BmHIcAnSlSOckEBA.rnygJ8Kdfajt0\",\n      \"protected\": true,\n      \"public_metrics\": {\n        \"followers_count\": 3945,\n        \"following_count\": 3312,\n        \"tweet_count\": 6680,\n        \"listed_count\": 3752,\n        \"like_count\": 8676\n      },\n      \"receives_your_dm\": false,\n      \"subscription_type\": \"None\",\n      \"url\": \"string\",\n      \"verified\": true,\n      \"verified_type\": \"business\",\n      \"withheld\": {\n        \"country_codes\": [\n          \"US\"\n        ],\n        \"scope\": \"user\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 4913\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 1266,\n        \"media_key\": \"1985430429_9955045093\",\n        \"width\": 4132\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 6395,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 5274\n          },\n          {\n            \"position\": 6571,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 2758\n          }\n        ],\n        \"duration_minutes\": 9298,\n        \"end_datetime\": \"2023-02-18T08:00:27.348Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"369_65147942\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          7135,\n          9490\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 2443\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 5694\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 5420,\n          \"retweet_count\": 5689,\n          \"reply_count\": 1467,\n          \"like_count\": 1059\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 9314,\n          \"like_count\": 6292,\n          \"reply_count\": 6153,\n          \"retweet_count\": 8554\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 5272,\n          \"reply_count\": 4106,\n          \"like_count\": 3498,\n          \"impression_count\": 6115,\n          \"bookmark_count\": 8919,\n          \"quote_count\": 9261\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"quoted\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"verified\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 4723,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"eMep4htH\",\n        \"withheld\": {\n          \"copyright\": true,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"BCqzT9uvA\",\n        \"affiliation\": {\n          \"badge_url\": \"http://qHuIkVJSh.ympntnHhPhXKCW4p7xvLDy\",\n          \"description\": \"string\",\n          \"url\": \"http://nWpJcXRoyYehswhJzkzXO.wdnqRCzOMx8R9RsGLM00LH6tzdEd-55.2XVcoxvf57A4ShsAEvYVipOqpO9p\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"following\",\n          \"follow_request_received\"\n        ],\n        \"created_at\": \"1967-04-05T17:42:11.354Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"http://f.teqX4lbItCJTBw4oOBixSBucxE6ZnOnJQ0Nea3Km+zYtSQRxv.gFp,GoySfG0XW\",\n        \"profile_image_url\": \"http://tpBhypmaZCmeYsawGseNuYjMdz.tnmkOi\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 5660,\n          \"following_count\": 3498,\n          \"tweet_count\": 6598,\n          \"listed_count\": 8488,\n          \"like_count\": 6136\n        },\n        \"receives_your_dm\": true,\n        \"subscription_type\": \"Premium\",\n        \"url\": \"string\",\n        \"verified\": false,\n        \"verified_type\": \"government\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"previous_token\": \"string\",\n    \"result_count\": 2593\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc47e07e-9c42-48f7-9921-360a2d33c1ec",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id",
+                    "buyers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "affiliation.user_id,most_recent_tweet_id,pinned_tweet_id"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cf0f7f5-8d78-4189-858d-291644930c54",
+          "name": "Get Space Posts",
+          "request": {
+            "name": "Get Space Posts",
+            "description": {
+              "content": "Retrieves a list of Posts shared in a specific Space by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "spaces",
+                ":id",
+                "tweets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "100",
+                  "description": "The number of Posts to fetch from the provided space. If not provided, the value will default to the maximum of 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "poll.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Poll fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "place.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Place fields to display."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the Space to be retrieved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed05933b-99ef-4e7e-8c98-da43153c275a",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id",
+                    "tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "25"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "article.cover_media,article.media_entities,attachments.media_keys,attachments.media_source_tweet,attachments.poll_ids,author_id,edit_history_tweet_ids,entities.mentions.username,geo.place_id,in_reply_to_user_id,entities.note.mentions.username,referenced_tweets.id,referenced_tweets.id.attachments.media_keys,referenced_tweets.id.author_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "poll.fields",
+                      "value": "duration_minutes,end_datetime,id,options,voting_status"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "place.fields",
+                      "value": "contained_within,country,country_code,full_name,geo,id,name,place_type"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"attachments\": {\n        \"media_keys\": [\n          \"90634901_699769828\"\n        ],\n        \"media_source_tweet_id\": [\n          \"1346889436626259968\"\n        ],\n        \"poll_ids\": [\n          \"1365059861688410112\"\n        ]\n      },\n      \"author_id\": \"2244994945\",\n      \"community_id\": \"1146654567674912769\",\n      \"context_annotations\": [\n        {\n          \"domain\": {\n            \"id\": \"89541503\",\n            \"description\": \"string\",\n            \"name\": \"string\"\n          },\n          \"entity\": {\n            \"id\": \"25198807\",\n            \"description\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ],\n      \"conversation_id\": \"1346889436626259968\",\n      \"created_at\": \"2021-01-06T18:40:40.000Z\",\n      \"display_text_range\": [\n        5488,\n        1827\n      ],\n      \"edit_controls\": {\n        \"is_edit_eligible\": false,\n        \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n        \"edits_remaining\": 8512\n      },\n      \"edit_history_tweet_ids\": [\n        \"1346889436626259968\"\n      ],\n      \"entities\": {\n        \"annotations\": [\n          {\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normalized_text\": \"Barack Obama\",\n            \"probability\": 0.7141283614871027,\n            \"type\": \"Person\"\n          }\n        ],\n        \"cashtags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"hashtags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"mentions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"urls\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"geo\": {\n        \"coordinates\": {\n          \"type\": \"Point\",\n          \"coordinates\": [\n            -105.18816086351444,\n            40.247749999999996\n          ]\n        },\n        \"place_id\": \"f7eb2fa2fea288b1\"\n      },\n      \"id\": \"1346889436626259968\",\n      \"in_reply_to_user_id\": \"2244994945\",\n      \"lang\": \"en\",\n      \"matched_media_notes\": {\n        \"match_status\": \"matched_and_shown\",\n        \"note_id\": \"1146654567674912769\"\n      },\n      \"non_public_metrics\": {\n        \"impression_count\": 5454\n      },\n      \"note_request_suggestions\": {\n        \"source_link\": {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        },\n        \"suggestion\": \"string\",\n        \"suggestion_id\": \"string\"\n      },\n      \"note_tweet\": {\n        \"entities\": {\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n      },\n      \"organic_metrics\": {\n        \"impression_count\": 6409,\n        \"retweet_count\": 6413,\n        \"reply_count\": 9379,\n        \"like_count\": 9569\n      },\n      \"paid_partnership\": false,\n      \"possibly_sensitive\": false,\n      \"promoted_metrics\": {\n        \"impression_count\": 2797,\n        \"like_count\": 6515,\n        \"reply_count\": 2759,\n        \"retweet_count\": 6098\n      },\n      \"public_metrics\": {\n        \"retweet_count\": 8158,\n        \"reply_count\": 8576,\n        \"like_count\": 9589,\n        \"impression_count\": 6743,\n        \"bookmark_count\": 1637,\n        \"quote_count\": 5731\n      },\n      \"referenced_tweets\": [\n        {\n          \"type\": \"quoted\",\n          \"id\": \"1346889436626259968\"\n        }\n      ],\n      \"reply_settings\": \"mentionedUsers\",\n      \"scopes\": {\n        \"followers\": false\n      },\n      \"source\": \"string\",\n      \"suggested_source_links\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        },\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      ],\n      \"suggested_source_links_with_counts\": {\n        \"count\": 5775,\n        \"url\": {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      },\n      \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n      \"username\": \"EcsXyM\",\n      \"withheld\": {\n        \"copyright\": true,\n        \"country_codes\": [\n          \"US\"\n        ],\n        \"scope\": \"tweet\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 9601\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 5675,\n        \"media_key\": \"7738240760_6348894\",\n        \"width\": 8583\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 6926,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 4638\n          },\n          {\n            \"position\": 2988,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 1088\n          }\n        ],\n        \"duration_minutes\": 3067,\n        \"end_datetime\": \"2006-04-17T16:04:38.118Z\",\n        \"voting_status\": \"open\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"6366797040_94105903\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          7829,\n          2548\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 1742\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 2391\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 7898,\n          \"retweet_count\": 5679,\n          \"reply_count\": 8953,\n          \"like_count\": 8548\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2967,\n          \"like_count\": 9226,\n          \"reply_count\": 3873,\n          \"retweet_count\": 4239\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 8612,\n          \"reply_count\": 2413,\n          \"like_count\": 6501,\n          \"impression_count\": 4373,\n          \"bookmark_count\": 8732,\n          \"quote_count\": 5362\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 2874,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"S3AV9zcsZOmVq5O\",\n        \"withheld\": {\n          \"copyright\": false,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"VXLjK\",\n        \"affiliation\": {\n          \"badge_url\": \"https://Silx.khs+TX\",\n          \"description\": \"string\",\n          \"url\": \"http://VtYfMRFwYZNNEAMJjzeOImaIPV.ipXMwnAAAtkl.rjUqUNSAzzXdYe-3qyz-+EDYLv\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"follow_request_received\",\n          \"followed_by\"\n        ],\n        \"created_at\": \"1981-09-14T21:40:43.115Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"http://P.zyGDz4vv3C7M,Ych,,cUgiaFtk0MeCYHNWMVdd5jMFply+duYcCg2p6aHInYuQ6PR\",\n        \"profile_image_url\": \"http://mpAaYomdrbkLvQgxDZFXbqDpslPIJCDc.ygitW7T,-FgNC\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 822,\n          \"following_count\": 4262,\n          \"tweet_count\": 6801,\n          \"listed_count\": 8817,\n          \"like_count\": 848\n        },\n        \"receives_your_dm\": false,\n        \"subscription_type\": \"Basic\",\n        \"url\": \"string\",\n        \"verified\": true,\n        \"verified_type\": \"government\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"previous_token\": \"str\",\n    \"result_count\": 2710\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c610a176-a79e-4e00-a95b-36889238bd60",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "spaces",
+                    ":id",
+                    "tweets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_results",
+                      "value": "25"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "article.cover_media,article.media_entities,attachments.media_keys,attachments.media_source_tweet,attachments.poll_ids,author_id,edit_history_tweet_ids,entities.mentions.username,geo.place_id,in_reply_to_user_id,entities.note.mentions.username,referenced_tweets.id,referenced_tweets.id.attachments.media_keys,referenced_tweets.id.author_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "poll.fields",
+                      "value": "duration_minutes,end_datetime,id,options,voting_status"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "place.fields",
+                      "value": "contained_within,country,country_code,full_name,geo,id,name,place_type"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the Space to be retrieved."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9522,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "34bc5453-e31f-4faf-8a27-05c081ef16d6",
+    "name": "X API v2 Account Activity Spaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1051 @@
+{
+  "item": [
+    {
+      "id": "d6937125-a2e1-46ce-9f5d-19f303d5e65a",
+      "name": "Community Notes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3b8d4e6-d7b2-4217-bd98-993218505a30",
+          "name": "Evaluate a Community Note",
+          "request": {
+            "name": "Evaluate a Community Note",
+            "description": {
+              "content": "Endpoint to evaluate a community note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "evaluate_note"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"post_id\": \"<string>\",\n  \"note_text\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80b19823-85e8-47ea-9314-66322836b19d",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "evaluate_note"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"post_id\": \"1346889436626259968\",\n  \"note_text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"claim_opinion_score\": 9131.558162994303\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 6134\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa20055b-b658-4887-8afc-94db544599aa",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "evaluate_note"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"post_id\": \"1346889436626259968\",\n  \"note_text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4eaa69fa-98f9-4cf1-bf2e-e9579791cae7",
+          "name": "Create a Community Note",
+          "request": {
+            "name": "Create a Community Note",
+            "description": {
+              "content": "Creates a community note endpoint for LLM use case.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"<string>\",\n  \"info\": {\n    \"text\": \"<string>\",\n    \"classification\": \"<string>\",\n    \"misleading_tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ca6ac68-f2ef-47af-bca8-17896c953566",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"1346889436626259968\",\n  \"info\": {\n    \"text\": \"<string>\",\n    \"classification\": \"<string>\",\n    \"misleading_tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"1146654567674912769\"\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 3226\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "862c4d9c-14a8-4e95-a4f9-fdb07081d39c",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"test_mode\": \"<boolean>\",\n  \"post_id\": \"1346889436626259968\",\n  \"info\": {\n    \"text\": \"<string>\",\n    \"classification\": \"<string>\",\n    \"misleading_tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"trustworthy_sources\": \"<boolean>\",\n    \"is_media_note\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a35dd1f0-992a-48e6-acdb-95d378138b8f",
+          "name": "Search for Community Notes Written",
+          "request": {
+            "name": "Search for Community Notes Written",
+            "description": {
+              "content": "Returns all the community notes written by the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "notes",
+                "search",
+                "notes_written"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "test_mode",
+                  "value": "<boolean>",
+                  "description": "(Required) If true, return the notes the caller wrote for the test. If false, return the notes the caller wrote on the product."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "Pagination token to get next set of posts eligible for notes."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "10",
+                  "description": "Max results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "note.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Note fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95d37dc5-8629-4555-b0bc-a312c40963e5",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    "search",
+                    "notes_written"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "test_mode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "note.fields",
+                      "value": "id,info,scoring_status,status,test_result"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"1146654567674912769\",\n      \"post_id\": \"1346889436626259968\",\n      \"info\": {\n        \"text\": \"<string>\",\n        \"classification\": \"<string>\",\n        \"misleading_tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"trustworthy_sources\": \"<boolean>\",\n        \"is_media_note\": \"<boolean>\"\n      },\n      \"scoring_status\": {\n        \"has_access\": false,\n        \"rating_counts_per_model\": {\n          \"model_name\": \"string\",\n          \"value\": {\n            \"negative_factor_bucket_counts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"neutral_factor_bucket_counts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive_factor_bucket_counts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"status\": \"currently_rated_not_helpful\",\n      \"test_result\": {\n        \"evaluator_score_bucket\": \"string\",\n        \"evaluator_type\": \"string\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 7805\n    }\n  ],\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"result_count\": 5076\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "303917ff-bf62-4bf5-bc0b-31445a5fcacf",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    "search",
+                    "notes_written"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "test_mode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "note.fields",
+                      "value": "id,info,scoring_status,status,test_result"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf64d926-4e4f-45df-a548-4d1c988e50b5",
+          "name": "Search for Posts Eligible for Community Notes",
+          "request": {
+            "name": "Search for Posts Eligible for Community Notes",
+            "description": {
+              "content": "Returns all the posts that are eligible for community notes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "notes",
+                "search",
+                "posts_eligible_for_notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "test_mode",
+                  "value": "<boolean>",
+                  "description": "(Required) If true, return a list of posts that are for the test. If false, return a list of posts that the bots can write proposed notes on the product."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination_token",
+                  "value": "<string>",
+                  "description": "Pagination token to get next set of posts eligible for notes."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_results",
+                  "value": "10",
+                  "description": "Max results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "post_selection",
+                  "value": "<string>",
+                  "description": "The selection of posts to return. Valid values are 'feed_size: [small|large|xl|xxl], feed_lang: [en|es|...|all]'. Default (if not specified) is 'feed_size: small, feed_lang: en'. Only top AI writers have access to large, xl, and xxl size feeds."
+                },
+                {
+                  "disabled": false,
+                  "key": "tweet.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Tweet fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "expansions",
+                  "value": "<string>",
+                  "description": "A comma separated list of fields to expand."
+                },
+                {
+                  "disabled": false,
+                  "key": "media.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Media fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "poll.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Poll fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "user.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of User fields to display."
+                },
+                {
+                  "disabled": false,
+                  "key": "place.fields",
+                  "value": "<string>",
+                  "description": "A comma separated list of Place fields to display."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd7e1a52-50d6-4085-bfad-b76acf6e4788",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    "search",
+                    "posts_eligible_for_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "test_mode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post_selection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "article.cover_media,article.media_entities,attachments.media_keys,attachments.media_source_tweet,attachments.poll_ids,author_id,edit_history_tweet_ids,entities.mentions.username,geo.place_id,in_reply_to_user_id,entities.note.mentions.username,referenced_tweets.id,referenced_tweets.id.attachments.media_keys,referenced_tweets.id.author_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "poll.fields",
+                      "value": "duration_minutes,end_datetime,id,options,voting_status"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "place.fields",
+                      "value": "contained_within,country,country_code,full_name,geo,id,name,place_type"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"attachments\": {\n        \"media_keys\": [\n          \"643837101_882578\"\n        ],\n        \"media_source_tweet_id\": [\n          \"1346889436626259968\"\n        ],\n        \"poll_ids\": [\n          \"1365059861688410112\"\n        ]\n      },\n      \"author_id\": \"2244994945\",\n      \"community_id\": \"1146654567674912769\",\n      \"context_annotations\": [\n        {\n          \"domain\": {\n            \"id\": \"999960624509799352\",\n            \"description\": \"string\",\n            \"name\": \"string\"\n          },\n          \"entity\": {\n            \"id\": \"690\",\n            \"description\": \"string\",\n            \"name\": \"string\"\n          }\n        }\n      ],\n      \"conversation_id\": \"1346889436626259968\",\n      \"created_at\": \"2021-01-06T18:40:40.000Z\",\n      \"display_text_range\": [\n        5420,\n        686\n      ],\n      \"edit_controls\": {\n        \"is_edit_eligible\": false,\n        \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n        \"edits_remaining\": 5479\n      },\n      \"edit_history_tweet_ids\": [\n        \"1346889436626259968\"\n      ],\n      \"entities\": {\n        \"annotations\": [\n          {\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normalized_text\": \"Barack Obama\",\n            \"probability\": 0.7507608319804955,\n            \"type\": \"Person\"\n          }\n        ],\n        \"cashtags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"hashtags\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"mentions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"urls\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"geo\": {\n        \"coordinates\": {\n          \"type\": \"Point\",\n          \"coordinates\": [\n            -105.18816086351444,\n            40.247749999999996\n          ]\n        },\n        \"place_id\": \"f7eb2fa2fea288b1\"\n      },\n      \"id\": \"1346889436626259968\",\n      \"in_reply_to_user_id\": \"2244994945\",\n      \"lang\": \"en\",\n      \"matched_media_notes\": {\n        \"match_status\": \"matched_and_shown\",\n        \"note_id\": \"1146654567674912769\"\n      },\n      \"non_public_metrics\": {\n        \"impression_count\": 103\n      },\n      \"note_request_suggestions\": {\n        \"source_link\": {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        },\n        \"suggestion\": \"string\",\n        \"suggestion_id\": \"string\"\n      },\n      \"note_tweet\": {\n        \"entities\": {\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n      },\n      \"organic_metrics\": {\n        \"impression_count\": 2771,\n        \"retweet_count\": 9385,\n        \"reply_count\": 1392,\n        \"like_count\": 6720\n      },\n      \"paid_partnership\": false,\n      \"possibly_sensitive\": false,\n      \"promoted_metrics\": {\n        \"impression_count\": 9540,\n        \"like_count\": 5681,\n        \"reply_count\": 1627,\n        \"retweet_count\": 3418\n      },\n      \"public_metrics\": {\n        \"retweet_count\": 6073,\n        \"reply_count\": 8289,\n        \"like_count\": 2454,\n        \"impression_count\": 6185,\n        \"bookmark_count\": 4293,\n        \"quote_count\": 5397\n      },\n      \"referenced_tweets\": [\n        {\n          \"type\": \"retweeted\",\n          \"id\": \"1346889436626259968\"\n        }\n      ],\n      \"reply_settings\": \"other\",\n      \"scopes\": {\n        \"followers\": false\n      },\n      \"source\": \"string\",\n      \"suggested_source_links\": [\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        },\n        {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      ],\n      \"suggested_source_links_with_counts\": {\n        \"count\": 8942,\n        \"url\": {\n          \"end\": 61,\n          \"start\": 50,\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"This is a description of the website.\",\n          \"display_url\": \"twittercommunity.com/t/introducing-…\",\n          \"expanded_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"images\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"media_key\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"Introducing the v2 follow lookup endpoints\",\n          \"unwound_url\": \"https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118\"\n        }\n      },\n      \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n      \"username\": \"8S\",\n      \"withheld\": {\n        \"copyright\": false,\n        \"country_codes\": [\n          \"US\"\n        ],\n        \"scope\": \"user\"\n      }\n    }\n  ],\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 4379\n    }\n  ],\n  \"includes\": {\n    \"media\": [\n      {\n        \"type\": \"string\",\n        \"height\": 2445,\n        \"media_key\": \"06875_96088805\",\n        \"width\": 6383\n      }\n    ],\n    \"places\": [\n      {\n        \"id\": \"f7eb2fa2fea288b1\",\n        \"full_name\": \"Lakewood, CO\",\n        \"contained_within\": [\n          \"f7eb2fa2fea288b1\"\n        ],\n        \"country\": \"United States\",\n        \"country_code\": \"US\",\n        \"geo\": {\n          \"type\": \"Feature\",\n          \"bbox\": [\n            -105.193475,\n            39.60973,\n            -105.053164,\n            39.761974\n          ],\n          \"properties\": {},\n          \"geometry\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"name\": \"Lakewood\",\n        \"place_type\": \"city\"\n      }\n    ],\n    \"polls\": [\n      {\n        \"id\": \"1365059861688410112\",\n        \"options\": [\n          {\n            \"position\": 4302,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 2582\n          },\n          {\n            \"position\": 2890,\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"votes\": 4448\n          }\n        ],\n        \"duration_minutes\": 680,\n        \"end_datetime\": \"1969-07-17T10:39:24.003Z\",\n        \"voting_status\": \"closed\"\n      }\n    ],\n    \"topics\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"Technology\",\n        \"description\": \"All about technology\"\n      }\n    ],\n    \"tweets\": [\n      {\n        \"attachments\": {\n          \"media_keys\": [\n            \"23_4\"\n          ],\n          \"media_source_tweet_id\": [\n            \"1346889436626259968\"\n          ],\n          \"poll_ids\": [\n            \"1365059861688410112\"\n          ]\n        },\n        \"author_id\": \"2244994945\",\n        \"community_id\": \"1146654567674912769\",\n        \"context_annotations\": [\n          {\n            \"domain\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"entity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"conversation_id\": \"1346889436626259968\",\n        \"created_at\": \"2021-01-06T18:40:40.000Z\",\n        \"display_text_range\": [\n          4732,\n          7217\n        ],\n        \"edit_controls\": {\n          \"is_edit_eligible\": false,\n          \"editable_until\": \"2021-01-06T18:40:40.000Z\",\n          \"edits_remaining\": 9910\n        },\n        \"edit_history_tweet_ids\": [\n          \"1346889436626259968\"\n        ],\n        \"entities\": {\n          \"annotations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"cashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"hashtags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mentions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"urls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"geo\": {\n          \"coordinates\": {\n            \"type\": \"Point\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"place_id\": \"f7eb2fa2fea288b1\"\n        },\n        \"id\": \"1346889436626259968\",\n        \"in_reply_to_user_id\": \"2244994945\",\n        \"lang\": \"en\",\n        \"matched_media_notes\": {\n          \"match_status\": \"matched_and_shown\",\n          \"note_id\": \"1146654567674912769\"\n        },\n        \"non_public_metrics\": {\n          \"impression_count\": 5021\n        },\n        \"note_request_suggestions\": {\n          \"source_link\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggestion\": \"string\",\n          \"suggestion_id\": \"string\"\n        },\n        \"note_tweet\": {\n          \"entities\": {\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\"\n        },\n        \"organic_metrics\": {\n          \"impression_count\": 214,\n          \"retweet_count\": 5269,\n          \"reply_count\": 2447,\n          \"like_count\": 3295\n        },\n        \"paid_partnership\": false,\n        \"possibly_sensitive\": false,\n        \"promoted_metrics\": {\n          \"impression_count\": 2337,\n          \"like_count\": 2195,\n          \"reply_count\": 3680,\n          \"retweet_count\": 7953\n        },\n        \"public_metrics\": {\n          \"retweet_count\": 4435,\n          \"reply_count\": 954,\n          \"like_count\": 6462,\n          \"impression_count\": 1493,\n          \"bookmark_count\": 2474,\n          \"quote_count\": 895\n        },\n        \"referenced_tweets\": [\n          {\n            \"type\": \"replied_to\",\n            \"id\": \"1346889436626259968\"\n          }\n        ],\n        \"reply_settings\": \"everyone\",\n        \"scopes\": {\n          \"followers\": false\n        },\n        \"source\": \"string\",\n        \"suggested_source_links\": [\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"suggested_source_links_with_counts\": {\n          \"count\": 5212,\n          \"url\": {\n            \"description\": \"Represent the portion of text recognized as a URL, and its start and end position within the text.\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"text\": \"Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\\\\u2026 https:\\\\/\\\\/t.co\\\\/56a0vZUx7i\",\n        \"username\": \"ZGqOOQc5L\",\n        \"withheld\": {\n          \"copyright\": false,\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"tweet\"\n        }\n      }\n    ],\n    \"users\": [\n      {\n        \"id\": \"2244994945\",\n        \"name\": \"string\",\n        \"username\": \"1KssffXpyOU6\",\n        \"affiliation\": {\n          \"badge_url\": \"https://ZkTgxSnAtD.lzxFHQnB3TtQIT1FMxhiVb9KqGQKWOW+3Pp+pp82FQYoPu\",\n          \"description\": \"string\",\n          \"url\": \"http://sPJpPcYqMZXhDdiAvzqLCWWHaHYWiJiF.cuNk-6G+RMVFTH+KNwYUut6H4QI\",\n          \"user_id\": [\n            \"2244994945\"\n          ]\n        },\n        \"connection_status\": [\n          \"muting\",\n          \"muting\"\n        ],\n        \"created_at\": \"1988-04-25T08:55:10.885Z\",\n        \"description\": \"string\",\n        \"entities\": {\n          \"description\": {\n            \"annotations\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"cashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"hashtags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"mentions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"url\": {\n            \"urls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"location\": \"string\",\n        \"most_recent_tweet_id\": \"1346889436626259968\",\n        \"pinned_tweet_id\": \"1346889436626259968\",\n        \"profile_banner_url\": \"https://yhpycOqzqsfRXNwSYuck.qfgLROM9\",\n        \"profile_image_url\": \"http://gYkKi.eamr9CaGRFwn+Ttey.OKwU73IpyldWQSvtQRLPdr-1aqQycC\",\n        \"protected\": false,\n        \"public_metrics\": {\n          \"followers_count\": 7035,\n          \"following_count\": 5314,\n          \"tweet_count\": 5346,\n          \"listed_count\": 1883,\n          \"like_count\": 3952\n        },\n        \"receives_your_dm\": false,\n        \"subscription_type\": \"None\",\n        \"url\": \"string\",\n        \"verified\": true,\n        \"verified_type\": \"none\",\n        \"withheld\": {\n          \"country_codes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"scope\": \"user\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"next_token\": \"string\",\n    \"result_count\": 4908\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61dd9d90-e406-4131-b00d-5b2a6b9dda5d",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    "search",
+                    "posts_eligible_for_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "test_mode",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pagination_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post_selection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tweet.fields",
+                      "value": "article,attachments,author_id,card_uri,community_id,context_annotations,conversation_id,created_at,display_text_range,edit_controls,edit_history_tweet_ids,entities,geo,id,in_reply_to_user_id,lang,matched_media_notes,media_metadata,non_public_metrics,note_request_suggestions,note_tweet,organic_metrics,paid_partnership,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,reply_settings,scopes,source,suggested_source_links,suggested_source_links_with_counts,text,withheld"
+                    },
+                    {
+                      "key": "expansions",
+                      "value": "article.cover_media,article.media_entities,attachments.media_keys,attachments.media_source_tweet,attachments.poll_ids,author_id,edit_history_tweet_ids,entities.mentions.username,geo.place_id,in_reply_to_user_id,entities.note.mentions.username,referenced_tweets.id,referenced_tweets.id.attachments.media_keys,referenced_tweets.id.author_id"
+                    },
+                    {
+                      "key": "media.fields",
+                      "value": "alt_text,duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,variants,width"
+                    },
+                    {
+                      "key": "poll.fields",
+                      "value": "duration_minutes,end_datetime,id,options,voting_status"
+                    },
+                    {
+                      "key": "user.fields",
+                      "value": "affiliation,confirmed_email,connection_status,created_at,description,entities,id,is_identity_verified,location,most_recent_tweet_id,name,parody,pinned_tweet_id,profile_banner_url,profile_image_url,protected,public_metrics,receives_your_dm,subscription,subscription_type,url,username,verified,verified_followers_count,verified_type,withheld"
+                    },
+                    {
+                      "key": "place.fields",
+                      "value": "contained_within,country,country_code,full_name,geo,id,name,place_type"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d975fe0-4c95-4a8f-905c-12e28e0905ed",
+          "name": "Delete a Community Note",
+          "request": {
+            "name": "Delete a Community Note",
+            "description": {
+              "content": "Deletes a community note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2",
+                "notes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The community note id to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "block.read bookmark.read bookmark.write dm.read dm.write follows.read follows.write like.read like.write list.read list.write media.write mute.read mute.write offline.access space.read timeline.read tweet.moderate.write tweet.read tweet.write users.read"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.x.com/2/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.x.com/2/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e312e749-be56-4676-8b88-638075198171",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The community note id to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deleted\": false\n  },\n  \"errors\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 9386\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57c81026-4537-406e-abc4-81d1080f23ba",
+              "name": "The request has failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2",
+                    "notes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The community note id to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4029,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.x.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9a6ee6a8-53e4-484d-8f76-2ae42e7a3ef5",
+    "name": "X API v2 Account Activity Community Notes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "X API v2 available endpoints\n\nContact Support:\n Name: X Developers",
+      "type": "text/plain"
+    }
+  }
+}

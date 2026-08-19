@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "X API v2 Account Activity Articles API",
+    "version": "2.166"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create draft Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.x.com/2/articles/draft",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.x.com/2/oauth2/authorize",
+              "accessTokenUrl": "https://api.x.com/2/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new Article draft that can later be published."
+        },
+        {
+          "info": {
+            "name": "Publish Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.x.com/2/articles/:article_id/publish",
+            "params": [
+              {
+                "name": "article_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the draft article to publish."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.x.com/2/oauth2/authorize",
+              "accessTokenUrl": "https://api.x.com/2/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Publishes a draft Article, making it publicly visible."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
