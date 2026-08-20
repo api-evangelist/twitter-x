@@ -42,6 +42,15 @@ image: https://abs.twimg.com/favicons/twitter.3.ico
 tags:
 - Company
 - Social
+- Social-Media
+- Posts
+- Real-Time
+- Streaming
+- News
+- Developer Platform
+tags_raw:
+- Company
+- Social
 - Social Media
 - Posts
 - Real-Time
@@ -194,7 +203,8 @@ apis:
   description: Miscellaneous endpoints for general API functionality
   humanURL: https://docs.x.com/x-api/introduction
   baseURL: https://api.x.com
-  tags:
+  tags: []
+  tags_raw:
   - General
   properties:
   - type: OpenAPI
@@ -223,6 +233,8 @@ apis:
   humanURL: https://docs.x.com/x-api/introduction
   baseURL: https://api.x.com
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -335,6 +347,8 @@ apis:
   humanURL: https://docs.x.com/x-api/introduction
   baseURL: https://api.x.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -349,6 +363,8 @@ apis:
   humanURL: https://docs.x.com/x-api/introduction
   baseURL: https://api.x.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
