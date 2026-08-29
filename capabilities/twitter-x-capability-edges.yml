@@ -1,0 +1,35 @@
+slug: twitter-x
+provider: Twitter/X
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Webhooks
+  spec_file: twitter-x-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: POST /2/webhooks  createWebhooks  Create webhook; PUT /2/webhooks/{webhook_id}  validateWebhooks  Validate
+    webhook; POST /2/webhooks/replay  createWebhookReplayJob
+  reason: The operations manage the full lifecycle of outbound webhook endpoints including validation
+    and delivery replay, which is precisely Webhook & Event Subscription Management on a developer platform.
+- tag: Usage
+  spec_file: twitter-x-usage-api-openapi.yml
+  capability_id: BC-4270.50
+  capability_id_l1: BC-4270
+  capability_name: API Consumption Governance
+  confidence: 0.75
+  evidence: 'GET /2/usage/tweets  getUsage  Get usage; schemas: ClientAppUsage, Usage, UsageFields'
+  reason: The single operation reports the developer client application's API consumption against the
+    credit-based plan, which is exactly quota/usage analytics for a public API — API Consumption Governance.
+    Thin surface (one endpoint) so confidence is moderate.
