@@ -289,6 +289,8 @@ apis:
   humanURL: https://docs.x.com/x-api/introduction
   baseURL: https://api.x.com
   tags:
+  - Space
+  tags_raw:
   - Spaces
   properties:
   - type: OpenAPI
