@@ -1,28 +1,7 @@
 {
   "provider": "twitter-x",
   "sources": [
-    "twitter-x-account-activity-api-openapi.yml",
-    "twitter-x-activity-api-openapi.yml",
-    "twitter-x-articles-api-openapi.yml",
-    "twitter-x-bookmarks-api-openapi.yml",
-    "twitter-x-chat-api-openapi.yml",
-    "twitter-x-communities-api-openapi.yml",
-    "twitter-x-community-notes-api-openapi.yml",
-    "twitter-x-compliance-api-openapi.yml",
-    "twitter-x-connections-api-openapi.yml",
-    "twitter-x-direct-messages-api-openapi.yml",
-    "twitter-x-general-api-openapi.yml",
-    "twitter-x-likes-api-openapi.yml",
-    "twitter-x-lists-api-openapi.yml",
-    "twitter-x-media-api-openapi.yml",
-    "twitter-x-news-api-openapi.yml",
-    "twitter-x-spaces-api-openapi.yml",
-    "twitter-x-stream-api-openapi.yml",
-    "twitter-x-trends-api-openapi.yml",
-    "twitter-x-tweets-api-openapi.yml",
-    "twitter-x-usage-api-openapi.yml",
-    "twitter-x-users-api-openapi.yml",
-    "twitter-x-webhooks-api-openapi.yml"
+    "_original/twitter-x-x-api-v2-openapi.json"
   ],
   "outputs": [
     "twitter-x-account-activity-api-openapi.yml",
@@ -51,6 +30,41 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "twitter-x-x-api-v2-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Activity",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Chat",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Communities",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Community Notes",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Likes",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Trends",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Usage",
+    "twitter-x-x-api-v2-openapi.json: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "twitter-x-account-activity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-activity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-articles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-bookmarks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-communities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-community-notes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-compliance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-connections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-direct-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-general-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-likes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-lists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-media-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-news-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-spaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-stream-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-trends-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-tweets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-usage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "twitter-x-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: X API v2 available endpoints
   version: '2.166'
-  title: X API v2 Account Activity Trends API
+  title: X API v2 Trends API
   termsOfService: https://developer.x.com/en/developer-terms/agreement-and-policy.html
   contact:
     name: X Developers
@@ -98,6 +98,51 @@ paths:
               schema:
                 $ref: '#/components/schemas/Problem'
 components:
+  parameters:
+    TrendFieldsParameter:
+      name: trend.fields
+      in: query
+      description: A comma separated list of Trend fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Trend object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - trend_name
+          - tweet_count
+        example:
+        - trend_name
+        - tweet_count
+      explode: false
+      style: form
+    PersonalizedTrendFieldsParameter:
+      name: personalized_trend.fields
+      in: query
+      description: A comma separated list of PersonalizedTrend fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a PersonalizedTrend object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - category
+          - post_count
+          - trend_name
+          - trending_since
+        example:
+        - category
+        - post_count
+        - trend_name
+        - trending_since
+      explode: false
+      style: form
   schemas:
     Trend:
       type: object
@@ -110,22 +155,17 @@ components:
           type: integer
           description: Number of Posts in this trend.
           format: int32
-    PersonalizedTrend:
+    Error:
       type: object
-      description: A trend.
+      required:
+      - code
+      - message
       properties:
-        category:
-          type: string
-          description: Category of this trend.
-        post_count:
+        code:
           type: integer
-          description: Number of posts pertaining to this trend.
-        trend_name:
+          format: int32
+        message:
           type: string
-          description: Name of the trend.
-        trending_since:
-          type: string
-          description: Time since this is trending.
     Get2TrendsByWoeidWoeidResponse:
       type: object
       properties:
@@ -175,6 +215,22 @@ components:
           https://api.twitter.com/2/problems/streaming-connection: '#/components/schemas/ConnectionExceptionProblem'
           https://api.twitter.com/2/problems/unsupported-authentication: '#/components/schemas/UnsupportedAuthenticationProblem'
           https://api.twitter.com/2/problems/usage-capped: '#/components/schemas/UsageCapExceededProblem'
+    PersonalizedTrend:
+      type: object
+      description: A trend.
+      properties:
+        category:
+          type: string
+          description: Category of this trend.
+        post_count:
+          type: integer
+          description: Number of posts pertaining to this trend.
+        trend_name:
+          type: string
+          description: Name of the trend.
+        trending_since:
+          type: string
+          description: Time since this is trending.
     Get2UsersPersonalizedTrendsResponse:
       type: object
       properties:
@@ -188,62 +244,6 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-  parameters:
-    TrendFieldsParameter:
-      name: trend.fields
-      in: query
-      description: A comma separated list of Trend fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Trend object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - trend_name
-          - tweet_count
-        example:
-        - trend_name
-        - tweet_count
-      explode: false
-      style: form
-    PersonalizedTrendFieldsParameter:
-      name: personalized_trend.fields
-      in: query
-      description: A comma separated list of PersonalizedTrend fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a PersonalizedTrend object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - category
-          - post_count
-          - trend_name
-          - trending_since
-        example:
-        - category
-        - post_count
-        - trend_name
-        - trending_since
-      explode: false
-      style: form
   securitySchemes:
     BearerToken:
       type: http

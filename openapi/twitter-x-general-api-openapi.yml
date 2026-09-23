@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: X API v2 available endpoints
   version: '2.166'
-  title: X API v2 Account Activity General API
+  title: X API v2 General API
   termsOfService: https://developer.x.com/en/developer-terms/agreement-and-policy.html
   contact:
     name: X Developers
@@ -24,7 +24,7 @@ paths:
     get:
       tags:
       - General
-      summary: Get OpenAPI Spec.
+      summary: Get OpenAPI Spec
       description: Retrieves the full OpenAPI Specification in JSON format. (See https://github.com/OAI/OpenAPI-Specification/blob/master/README.md)
       operationId: getOpenApiSpec
       parameters: []

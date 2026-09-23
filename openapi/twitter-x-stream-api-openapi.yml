@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: X API v2 available endpoints
   version: '2.166'
-  title: X API v2 Account Activity Stream API
+  title: X API v2 Stream API
   termsOfService: https://developer.x.com/en/developer-terms/agreement-and-policy.html
   contact:
     name: X Developers
@@ -1307,16 +1307,164 @@ paths:
       x-twitter-streaming: true
 components:
   schemas:
-    HashtagEntity:
+    UnlikeComplianceSchema:
+      type: object
+      required:
+      - favorite
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        favorite:
+          type: object
+          required:
+          - id
+          - user_id
+          properties:
+            id:
+              $ref: '#/components/schemas/TweetId'
+            user_id:
+              $ref: '#/components/schemas/UserId'
+    CashtagEntity:
       allOf:
       - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/HashtagFields'
-    Keyword:
+      - $ref: '#/components/schemas/CashtagFields'
+    UserWithheldComplianceSchema:
+      type: object
+      required:
+      - user_withheld
+      properties:
+        user_withheld:
+          $ref: '#/components/schemas/UserTakedownComplianceSchema'
+    AddRulesRequest:
+      type: object
+      description: A request to add a user-specified stream filtering rule.
+      required:
+      - add
+      properties:
+        add:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleNoId'
+    AddOrDeleteRulesRequest:
+      oneOf:
+      - $ref: '#/components/schemas/AddRulesRequest'
+      - $ref: '#/components/schemas/DeleteRulesRequest'
+    WebhookLinksDeleteResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deleted:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    Get2TweetsSearchStreamRulesCountsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/RulesCount'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    ContextAnnotationDomainFields:
+      type: object
+      description: Represents the data for the context annotation domain.
+      required:
+      - id
+      properties:
+        description:
+          type: string
+          description: Description of the context annotation domain.
+        id:
+          type: string
+          description: The unique id for a context annotation domain.
+          pattern: ^[0-9]{1,19}$
+        name:
+          type: string
+          description: Name of the context annotation domain.
+    TweetWithheldComplianceSchema:
+      type: object
+      required:
+      - withheld
+      properties:
+        withheld:
+          $ref: '#/components/schemas/TweetTakedownComplianceSchema'
+    TweetEditComplianceSchema:
+      type: object
+      required:
+      - tweet_edit
+      properties:
+        tweet_edit:
+          $ref: '#/components/schemas/TweetEditComplianceObjectSchema'
+    UserWithheld:
+      type: object
+      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+      required:
+      - country_codes
+      properties:
+        country_codes:
+          type: array
+          description: Provides a list of countries where this content is not available.
+          minItems: 1
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/CountryCode'
+        scope:
+          type: string
+          description: Indicates that the content being withheld is a `user`.
+          enum:
+          - user
+    ActivitySubscriptionId:
       type: string
-      description: A keyword to filter on.
-      minLength: 1
-      maxLength: 150
-      example: The President
+      description: The unique identifier of this subscription.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    UserProtectComplianceSchema:
+      type: object
+      required:
+      - user_protect
+      properties:
+        user_protect:
+          $ref: '#/components/schemas/UserComplianceSchema'
+    HttpStatusCode:
+      type: integer
+      description: HTTP Status Code.
+      minimum: 100
+      maximum: 599
+    UrlEntity:
+      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/UrlFields'
+    CashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          example: TWTR
+    HashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          description: The text of the Hashtag.
+          example: MondayMotivation
     User:
       type: object
       description: The X User object.
@@ -1463,69 +1611,6 @@ components:
         name: X Dev
         protected: false
         username: TwitterDev
-    Rule:
-      type: object
-      description: A user-provided stream filtering rule.
-      required:
-      - value
-      properties:
-        id:
-          $ref: '#/components/schemas/RuleId'
-        tag:
-          $ref: '#/components/schemas/RuleTag'
-        value:
-          $ref: '#/components/schemas/RuleValue'
-    WebhookLinksDeleteResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            deleted:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    ContextAnnotation:
-      type: object
-      description: Annotation inferred from the Tweet text.
-      required:
-      - domain
-      - entity
-      properties:
-        domain:
-          $ref: '#/components/schemas/ContextAnnotationDomainFields'
-        entity:
-          $ref: '#/components/schemas/ContextAnnotationEntityFields'
-    TweetEditComplianceObjectSchema:
-      type: object
-      required:
-      - tweet
-      - event_at
-      - initial_tweet_id
-      - edit_tweet_ids
-      properties:
-        edit_tweet_ids:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/TweetId'
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        initial_tweet_id:
-          $ref: '#/components/schemas/TweetId'
-        tweet:
-          type: object
-          required:
-          - id
-          properties:
-            id:
-              $ref: '#/components/schemas/TweetId'
     UserTakedownComplianceSchema:
       type: object
       required:
@@ -1550,49 +1635,216 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/CountryCode'
-    FilteredStreamingTweetResponse:
+    TweetLabelData:
+      description: Tweet label data.
+      oneOf:
+      - $ref: '#/components/schemas/TweetNoticeSchema'
+      - $ref: '#/components/schemas/TweetUnviewableSchema'
+    UserScrubGeoObjectSchema:
       type: object
-      description: A Tweet or error that can be returned by the streaming Tweet API. The values returned with a successful streamed Tweet includes the user provided rules that the Tweet matched.
+      required:
+      - user
+      - up_to_tweet_id
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        up_to_tweet_id:
+          $ref: '#/components/schemas/TweetId'
+        user:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              $ref: '#/components/schemas/UserId'
+    Media:
+      type: object
+      required:
+      - type
+      properties:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        media_key:
+          $ref: '#/components/schemas/MediaKey'
+        type:
+          type: string
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+      discriminator:
+        propertyName: type
+        mapping:
+          animated_gif: '#/components/schemas/AnimatedGif'
+          photo: '#/components/schemas/Photo'
+          video: '#/components/schemas/Video'
+    UserComplianceData:
+      description: User compliance data.
+      oneOf:
+      - $ref: '#/components/schemas/UserProtectComplianceSchema'
+      - $ref: '#/components/schemas/UserUnprotectComplianceSchema'
+      - $ref: '#/components/schemas/UserDeleteComplianceSchema'
+      - $ref: '#/components/schemas/UserUndeleteComplianceSchema'
+      - $ref: '#/components/schemas/UserSuspendComplianceSchema'
+      - $ref: '#/components/schemas/UserUnsuspendComplianceSchema'
+      - $ref: '#/components/schemas/UserWithheldComplianceSchema'
+      - $ref: '#/components/schemas/UserScrubGeoSchema'
+      - $ref: '#/components/schemas/UserProfileModificationComplianceSchema'
+    TweetId:
+      type: string
+      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
+      pattern: ^[0-9]{1,19}$
+      example: '1346889436626259968'
+    PostDeleteActivityResponsePayload:
+      type: object
+      description: The identity of a deleted Post.
+      required:
+      - id
+      - author_id
+      properties:
+        author_id:
+          $ref: '#/components/schemas/UserId'
+        id:
+          $ref: '#/components/schemas/TweetId'
+      additionalProperties: false
+    UserUndeleteComplianceSchema:
+      type: object
+      required:
+      - user_undelete
+      properties:
+        user_undelete:
+          $ref: '#/components/schemas/UserComplianceSchema'
+    DeleteRulesRequest:
+      type: object
+      description: A response from deleting user-specified stream filtering rules.
+      required:
+      - delete
+      properties:
+        delete:
+          type: object
+          description: IDs and values of all deleted user-specified stream filtering rules.
+          properties:
+            ids:
+              type: array
+              description: IDs of all deleted user-specified stream filtering rules.
+              items:
+                $ref: '#/components/schemas/RuleId'
+            values:
+              type: array
+              description: Values of all deleted user-specified stream filtering rules.
+              items:
+                $ref: '#/components/schemas/RuleValue'
+    Url:
+      type: string
+      description: A validly formatted URL.
+      format: uri
+      example: https://developer.twitter.com/en/docs/twitter-api
+    MediaHeight:
+      type: integer
+      description: The height of the media in pixels.
+      minimum: 0
+    WebhookLinksGetResponse:
+      type: object
       properties:
         data:
-          $ref: '#/components/schemas/Tweet'
+          type: object
+          description: The list of active webhook links for a given stream
+          required:
+          - links
+          properties:
+            links:
+              type: array
+              description: list of links
+              items:
+                type: object
+                properties:
+                  application_id:
+                    type: string
+                    description: The application ID
+                  business_user_id:
+                    type: string
+                    description: The user ID
+                  created_at:
+                    type: string
+                    description: The datetime the webhook was linked to the stream
+                    format: data-time
+                  fields:
+                    type: array
+                    description: Requested fields to be rendered
+                    items:
+                      type: string
+                      description: A query-parameter formatted field or expansion, e.g., 'expansions=author_id' or 'user.fields=name,username'
+                  instance_id:
+                    type: string
+                    description: The stream ID associated with the FilteredStream instance
+                  webhook_id:
+                    type: string
+                    description: The unique identifier for the webhook
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        matching_rules:
-          type: array
-          description: The list of rules which matched the Tweet
-          items:
-            type: object
-            required:
-            - id
-            properties:
-              id:
-                $ref: '#/components/schemas/RuleId'
-              tag:
-                $ref: '#/components/schemas/RuleTag'
-    UserWithheld:
+    WebhookLinksCreateResponse:
       type: object
-      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
-      required:
-      - country_codes
       properties:
-        country_codes:
+        data:
+          type: object
+          properties:
+            provisioned:
+              type: boolean
+        errors:
           type: array
-          description: Provides a list of countries where this content is not available.
           minItems: 1
-          uniqueItems: true
           items:
-            $ref: '#/components/schemas/CountryCode'
-        scope:
-          type: string
-          description: Indicates that the content being withheld is a `user`.
-          enum:
-          - user
+            $ref: '#/components/schemas/Problem'
+    Expansions:
+      type: object
+      properties:
+        media:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Media'
+        places:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Place'
+        polls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Poll'
+        topics:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Topic'
+        tweets:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        users:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+    AllProjectClientApps:
+      type: array
+      description: Client App Rule Counts for all applications in the project
+      items:
+        $ref: '#/components/schemas/AppRulesCount'
+    TweetUndropComplianceSchema:
+      type: object
+      required:
+      - undrop
+      properties:
+        undrop:
+          $ref: '#/components/schemas/TweetComplianceSchema'
     Problem:
       type: object
       description: An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).
@@ -1629,6 +1881,380 @@ components:
           https://api.twitter.com/2/problems/streaming-connection: '#/components/schemas/ConnectionExceptionProblem'
           https://api.twitter.com/2/problems/unsupported-authentication: '#/components/schemas/UnsupportedAuthenticationProblem'
           https://api.twitter.com/2/problems/usage-capped: '#/components/schemas/UsageCapExceededProblem'
+    ActivitySubscription:
+      type: object
+      description: An XActivity subscription.
+      required:
+      - subscription_id
+      - event_type
+      - filter
+      - created_at
+      - updated_at
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        event_type:
+          type: string
+        filter:
+          $ref: '#/components/schemas/ActivitySubscriptionFilter'
+        subscription_id:
+          $ref: '#/components/schemas/ActivitySubscriptionId'
+        tag:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        webhook_id:
+          $ref: '#/components/schemas/WebhookConfigId'
+    ContextAnnotation:
+      type: object
+      description: Annotation inferred from the Tweet text.
+      required:
+      - domain
+      - entity
+      properties:
+        domain:
+          $ref: '#/components/schemas/ContextAnnotationDomainFields'
+        entity:
+          $ref: '#/components/schemas/ContextAnnotationEntityFields'
+    DisplayTextRange:
+      type: array
+      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: integer
+        minimum: 0
+    TweetTakedownComplianceSchema:
+      type: object
+      required:
+      - tweet
+      - withheld_in_countries
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        quote_tweet_id:
+          $ref: '#/components/schemas/TweetId'
+        tweet:
+          type: object
+          required:
+          - id
+          - author_id
+          properties:
+            author_id:
+              $ref: '#/components/schemas/UserId'
+            id:
+              $ref: '#/components/schemas/TweetId'
+        withheld_in_countries:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CountryCode'
+    UrlImage:
+      type: object
+      description: Represent the information for the URL image.
+      properties:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        url:
+          $ref: '#/components/schemas/Url'
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+    TopicId:
+      type: string
+      description: Unique identifier of this Topic.
+    TweetComplianceData:
+      description: Tweet compliance data.
+      oneOf:
+      - $ref: '#/components/schemas/TweetDeleteComplianceSchema'
+      - $ref: '#/components/schemas/TweetWithheldComplianceSchema'
+      - $ref: '#/components/schemas/TweetDropComplianceSchema'
+      - $ref: '#/components/schemas/TweetUndropComplianceSchema'
+      - $ref: '#/components/schemas/TweetEditComplianceSchema'
+    NoteTweetText:
+      type: string
+      description: The note content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    Rule:
+      type: object
+      description: A user-provided stream filtering rule.
+      required:
+      - value
+      properties:
+        id:
+          $ref: '#/components/schemas/RuleId'
+        tag:
+          $ref: '#/components/schemas/RuleTag'
+        value:
+          $ref: '#/components/schemas/RuleValue'
+    RulesLookupResponse:
+      type: object
+      required:
+      - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        meta:
+          $ref: '#/components/schemas/RulesResponseMetadata'
+    WebhookConfigId:
+      type: string
+      description: The unique identifier of this webhook config.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    RuleValue:
+      type: string
+      description: The filterlang value of the rule.
+      example: coffee -is:retweet
+    Keyword:
+      type: string
+      description: A keyword to filter on.
+      minLength: 1
+      maxLength: 150
+      example: The President
+    UserUnsuspendComplianceSchema:
+      type: object
+      required:
+      - user_unsuspend
+      properties:
+        user_unsuspend:
+          $ref: '#/components/schemas/UserComplianceSchema'
+    EntityIndicesInclusiveExclusive:
+      type: object
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      required:
+      - start
+      - end
+      properties:
+        end:
+          type: integer
+          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          minimum: 0
+          example: 61
+        start:
+          type: integer
+          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
+          minimum: 0
+          example: 50
+    MediaWidth:
+      type: integer
+      description: The width of the media in pixels.
+      minimum: 0
+    ActivitySubscriptionCreateRequest:
+      type: object
+      required:
+      - event_type
+      - filter
+      properties:
+        event_type:
+          type: string
+          enum:
+          - profile.update.bio
+          - profile.update.profile_picture
+          - profile.update.banner_picture
+          - profile.update.screenname
+          - profile.update.geo
+          - profile.update.url
+          - profile.update.verified_badge
+          - profile.update.affiliate_badge
+          - profile.update.handle
+          - news.new
+          - follow.follow
+          - follow.unfollow
+          - spaces.start
+          - spaces.end
+          - chat.received
+          - chat.sent
+          - chat.conversation_join
+          - dm.sent
+          - dm.received
+          - dm.indicate_typing
+          - dm.read
+          - post.create
+          - post.delete
+          - post.mention.create
+          - like.create
+        filter:
+          $ref: '#/components/schemas/ActivitySubscriptionFilter'
+        tag:
+          type: string
+          minLength: 1
+          maxLength: 200
+        webhook_id:
+          $ref: '#/components/schemas/WebhookConfigId'
+      additionalProperties: false
+    PlaceType:
+      type: string
+      enum:
+      - poi
+      - neighborhood
+      - city
+      - admin
+      - country
+      - unknown
+      example: city
+    TweetComplianceSchema:
+      type: object
+      required:
+      - tweet
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        quote_tweet_id:
+          $ref: '#/components/schemas/TweetId'
+        tweet:
+          type: object
+          required:
+          - id
+          - author_id
+          properties:
+            author_id:
+              $ref: '#/components/schemas/UserId'
+            id:
+              $ref: '#/components/schemas/TweetId'
+    PollId:
+      type: string
+      description: Unique identifier of this poll.
+      pattern: ^[0-9]{1,19}$
+      example: '1365059861688410112'
+    Geo:
+      type: object
+      required:
+      - type
+      - bbox
+      - properties
+      properties:
+        bbox:
+          type: array
+          minItems: 4
+          maxItems: 4
+          items:
+            type: number
+            minimum: -180
+            maximum: 180
+            format: double
+          example:
+          - -105.193475
+          - 39.60973
+          - -105.053164
+          - 39.761974
+        geometry:
+          $ref: '#/components/schemas/Point'
+        properties:
+          type: object
+        type:
+          type: string
+          enum:
+          - Feature
+    RulesRequestSummary:
+      oneOf:
+      - type: object
+        description: A summary of the results of the addition of user-specified stream filtering rules.
+        required:
+        - created
+        - not_created
+        - valid
+        - invalid
+        properties:
+          created:
+            type: integer
+            description: Number of user-specified stream filtering rules that were created.
+            format: int32
+            example: 1
+          invalid:
+            type: integer
+            description: Number of invalid user-specified stream filtering rules.
+            format: int32
+            example: 1
+          not_created:
+            type: integer
+            description: Number of user-specified stream filtering rules that were not created.
+            format: int32
+            example: 1
+          valid:
+            type: integer
+            description: Number of valid user-specified stream filtering rules.
+            format: int32
+            example: 1
+      - type: object
+        required:
+        - deleted
+        - not_deleted
+        properties:
+          deleted:
+            type: integer
+            description: Number of user-specified stream filtering rules that were deleted.
+            format: int32
+          not_deleted:
+            type: integer
+            description: Number of user-specified stream filtering rules that were not deleted.
+            format: int32
+    ActivityStreamingResponsePayload:
+      oneOf:
+      - $ref: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+      - $ref: '#/components/schemas/NewsActivityResponsePayload'
+      - $ref: '#/components/schemas/FollowActivityResponsePayload'
+      - $ref: '#/components/schemas/Tweet'
+      - $ref: '#/components/schemas/PostDeleteActivityResponsePayload'
+      - $ref: '#/components/schemas/LikeWithTweetAuthor'
+      discriminator:
+        propertyName: ../event_type
+        mapping:
+          follow.follow: '#/components/schemas/FollowActivityResponsePayload'
+          follow.unfollow: '#/components/schemas/FollowActivityResponsePayload'
+          like.create: '#/components/schemas/LikeWithTweetAuthor'
+          news.new: '#/components/schemas/NewsActivityResponsePayload'
+          post.create: '#/components/schemas/Tweet'
+          post.delete: '#/components/schemas/PostDeleteActivityResponsePayload'
+          post.mention.create: '#/components/schemas/Tweet'
+          profile.update.affiliate_badge: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.banner_picture: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.bio: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.geo: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.handle: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.profile_picture: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.screenname: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.url: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+          profile.update.verified_badge: '#/components/schemas/ProfileUpdateActivityResponsePayload'
+    TweetComplianceStreamResponse:
+      description: Tweet compliance stream events.
+      oneOf:
+      - type: object
+        description: Compliance event.
+        required:
+        - data
+        properties:
+          data:
+            $ref: '#/components/schemas/TweetComplianceData'
+      - type: object
+        required:
+        - errors
+        properties:
+          errors:
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/components/schemas/Problem'
+    AppRulesCount:
+      type: object
+      description: A count of user-provided stream filtering rules at the client application level.
+      properties:
+        client_app_id:
+          $ref: '#/components/schemas/ClientAppId'
+        rule_count:
+          type: integer
+          description: Number of rules for client application
+          format: int32
     Poll:
       type: object
       description: Represent a Poll attached to a Tweet.
@@ -1657,79 +2283,104 @@ components:
           enum:
           - open
           - closed
-    TweetUndropComplianceSchema:
+    TweetEditComplianceObjectSchema:
       type: object
       required:
-      - undrop
+      - tweet
+      - event_at
+      - initial_tweet_id
+      - edit_tweet_ids
       properties:
-        undrop:
-          $ref: '#/components/schemas/TweetComplianceSchema'
-    ActivitySubscriptionId:
-      type: string
-      description: The unique identifier of this subscription.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    TweetLabelStreamResponse:
-      description: Tweet label stream events.
-      oneOf:
-      - type: object
-        description: Tweet Label event.
-        required:
-        - data
-        properties:
-          data:
-            $ref: '#/components/schemas/TweetLabelData'
-      - type: object
-        required:
-        - errors
-        properties:
-          errors:
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/components/schemas/Problem'
-    PostDeleteActivityResponsePayload:
+        edit_tweet_ids:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/TweetId'
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        initial_tweet_id:
+          $ref: '#/components/schemas/TweetId'
+        tweet:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              $ref: '#/components/schemas/TweetId'
+    ActivitySubscriptionCreateResponse:
       type: object
-      description: The identity of a deleted Post.
+      properties:
+        data:
+          type: object
+          properties:
+            subscription:
+              $ref: '#/components/schemas/ActivitySubscription'
+            total_subscriptions_for_instance_id:
+              type: integer
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        meta:
+          type: object
+          properties:
+            total_subscriptions:
+              type: integer
+              description: Number of active subscriptions.
+              format: int32
+    TweetUnviewableSchema:
+      type: object
+      required:
+      - public_tweet_unviewable
+      properties:
+        public_tweet_unviewable:
+          $ref: '#/components/schemas/TweetUnviewable'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Place:
+      type: object
       required:
       - id
-      - author_id
+      - full_name
       properties:
-        author_id:
-          $ref: '#/components/schemas/UserId'
+        contained_within:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/PlaceId'
+        country:
+          type: string
+          description: The full name of the county in which this place exists.
+          example: United States
+        country_code:
+          $ref: '#/components/schemas/CountryCode'
+        full_name:
+          type: string
+          description: The full name of this place.
+          example: Lakewood, CO
+        geo:
+          $ref: '#/components/schemas/Geo'
         id:
-          $ref: '#/components/schemas/TweetId'
-      additionalProperties: false
-    DeleteRulesRequest:
-      type: object
-      description: A response from deleting user-specified stream filtering rules.
-      required:
-      - delete
-      properties:
-        delete:
-          type: object
-          description: IDs and values of all deleted user-specified stream filtering rules.
-          properties:
-            ids:
-              type: array
-              description: IDs of all deleted user-specified stream filtering rules.
-              items:
-                $ref: '#/components/schemas/RuleId'
-            values:
-              type: array
-              description: Values of all deleted user-specified stream filtering rules.
-              items:
-                $ref: '#/components/schemas/RuleValue'
-    AllProjectClientApps:
-      type: array
-      description: Client App Rule Counts for all applications in the project
-      items:
-        $ref: '#/components/schemas/AppRulesCount'
-    ClientAppId:
-      type: string
-      description: The ID of the client application
-      minLength: 1
-      maxLength: 19
+          $ref: '#/components/schemas/PlaceId'
+        name:
+          type: string
+          description: The human readable name of this place.
+          example: Lakewood
+        place_type:
+          $ref: '#/components/schemas/PlaceType'
     Point:
       type: object
       description: A [GeoJson Point](https://tools.ietf.org/html/rfc7946#section-3.1.2) geometry object.
@@ -1744,23 +2395,15 @@ components:
           enum:
           - Point
           example: Point
-    Topic:
-      type: object
-      description: The topic of a Space, as selected by its creator.
-      required:
-      - id
-      - name
-      properties:
-        description:
-          type: string
-          description: The description of the given topic.
-          example: All about technology
-        id:
-          $ref: '#/components/schemas/TopicId'
-        name:
-          type: string
-          description: The name of the given topic.
-          example: Technology
+    CountryCode:
+      type: string
+      description: A two-letter ISO 3166-1 alpha-2 country code.
+      pattern: ^[A-Z]{2}$
+      example: US
+    MediaKey:
+      type: string
+      description: The Media Key identifier for this attachment.
+      pattern: ^([0-9]+)_([0-9]+)$
     UrlFields:
       type: object
       description: Represent the portion of text recognized as a URL.
@@ -1797,16 +2440,59 @@ components:
           example: https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118
         url:
           $ref: '#/components/schemas/Url'
-    EntityIndicesInclusiveExclusive:
+    NewsActivityResponsePayload:
       type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      properties:
+        category:
+          type: string
+        headline:
+          type: string
+        hook:
+          type: string
+        summary:
+          type: string
+      additionalProperties: false
+    UserSuspendComplianceSchema:
+      type: object
+      required:
+      - user_suspend
+      properties:
+        user_suspend:
+          $ref: '#/components/schemas/UserComplianceSchema'
+    UserProfileModificationObjectSchema:
+      type: object
+      required:
+      - user
+      - profile_field
+      - new_value
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        new_value:
+          type: string
+        profile_field:
+          type: string
+        user:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              $ref: '#/components/schemas/UserId'
+    EntityIndicesInclusiveInclusive:
+      type: object
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
       required:
       - start
       - end
       properties:
         end:
           type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
           minimum: 0
           example: 61
         start:
@@ -1814,6 +2500,263 @@ components:
           description: Index (zero-based) at which position this entity starts.  The index is inclusive.
           minimum: 0
           example: 50
+    Position:
+      type: array
+      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
+      example:
+      - -105.18816086351444
+      - 40.247749999999996
+    HashtagEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/HashtagFields'
+    TweetNotice:
+      type: object
+      required:
+      - tweet
+      - event_type
+      - event_at
+      - application
+      properties:
+        application:
+          type: string
+          description: If the label is being applied or removed. Possible values are ‘apply’ or ‘remove’.
+          example: apply
+        details:
+          type: string
+          description: Information shown on the Tweet label
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        event_type:
+          type: string
+          description: The type of label on the Tweet
+          example: misleading
+        extended_details_url:
+          type: string
+          description: Link to more information about this kind of label
+        label_title:
+          type: string
+          description: Title/header of the Tweet label
+        tweet:
+          type: object
+          required:
+          - id
+          - author_id
+          properties:
+            author_id:
+              $ref: '#/components/schemas/UserId'
+            id:
+              $ref: '#/components/schemas/TweetId'
+    UserScrubGeoSchema:
+      type: object
+      required:
+      - scrub_geo
+      properties:
+        scrub_geo:
+          $ref: '#/components/schemas/UserScrubGeoObjectSchema'
+    FullTextEntities:
+      type: object
+      properties:
+        annotations:
+          type: array
+          minItems: 1
+          items:
+            description: Annotation for entities based on the Tweet text.
+            allOf:
+            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
+            - type: object
+              description: Represents the data for the annotation.
+              properties:
+                normalized_text:
+                  type: string
+                  description: Text used to determine annotation.
+                  example: Barack Obama
+                probability:
+                  type: number
+                  description: Confidence factor for annotation type.
+                  minimum: 0
+                  maximum: 1
+                  format: double
+                type:
+                  type: string
+                  description: Annotation type.
+                  example: Person
+        cashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CashtagEntity'
+        hashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/HashtagEntity'
+        mentions:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/MentionEntity'
+        urls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UrlEntity'
+    TweetNoticeSchema:
+      type: object
+      required:
+      - public_tweet_notice
+      properties:
+        public_tweet_notice:
+          $ref: '#/components/schemas/TweetNotice'
+    PlaceId:
+      type: string
+      description: The identifier for this place.
+      example: f7eb2fa2fea288b1
+    LikesComplianceStreamResponse:
+      description: Likes compliance stream events.
+      oneOf:
+      - type: object
+        description: Compliance event.
+        required:
+        - data
+        properties:
+          data:
+            $ref: '#/components/schemas/LikeComplianceSchema'
+      - type: object
+        required:
+        - errors
+        properties:
+          errors:
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/components/schemas/Problem'
+    Topic:
+      type: object
+      description: The topic of a Space, as selected by its creator.
+      required:
+      - id
+      - name
+      properties:
+        description:
+          type: string
+          description: The description of the given topic.
+          example: All about technology
+        id:
+          $ref: '#/components/schemas/TopicId'
+        name:
+          type: string
+          description: The name of the given topic.
+          example: Technology
+    UserProfileModificationComplianceSchema:
+      type: object
+      required:
+      - user_profile_modification
+      properties:
+        user_profile_modification:
+          $ref: '#/components/schemas/UserProfileModificationObjectSchema'
+    MentionEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/MentionFields'
+    UserComplianceSchema:
+      type: object
+      required:
+      - user
+      - event_at
+      properties:
+        event_at:
+          type: string
+          description: Event time.
+          format: date-time
+          example: '2021-07-06T18:40:40.000Z'
+        user:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              $ref: '#/components/schemas/UserId'
+    LikeComplianceSchema:
+      type: object
+      required:
+      - delete
+      properties:
+        delete:
+          $ref: '#/components/schemas/UnlikeComplianceSchema'
+    ClientAppId:
+      type: string
+      description: The ID of the client application
+      minLength: 1
+      maxLength: 19
+    MentionFields:
+      type: object
+      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
+      required:
+      - username
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        username:
+          $ref: '#/components/schemas/UserName'
+    TweetText:
+      type: string
+      description: The content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    UserName:
+      type: string
+      description: The X handle (screen name) of this user.
+      pattern: ^[A-Za-z0-9_]{1,15}$
+    Get2TweetsSample10StreamResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    PollOption:
+      type: object
+      description: Describes a choice in a Poll object.
+      required:
+      - position
+      - label
+      - votes
+      properties:
+        label:
+          $ref: '#/components/schemas/PollOptionLabel'
+        position:
+          type: integer
+          description: Position of this choice in the poll.
+        votes:
+          type: integer
+          description: Number of users who voted for this choice.
+    ActivitySubscriptionFilter:
+      type: object
+      description: An XAA subscription filter.
+      properties:
+        direction:
+          type: string
+          description: Optional direction filter for directional events.
+          enum:
+          - inbound
+          - outbound
+        keyword:
+          $ref: '#/components/schemas/Keyword'
+        user_id:
+          $ref: '#/components/schemas/UserId'
+      additionalProperties: false
     Tweet:
       type: object
       properties:
@@ -2095,149 +3038,6 @@ components:
         id: '1346889436626259968'
         text: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
         username: XDevelopers
-    TweetDeleteComplianceSchema:
-      type: object
-      required:
-      - delete
-      properties:
-        delete:
-          $ref: '#/components/schemas/TweetComplianceSchema'
-    AddOrDeleteRulesResponse:
-      type: object
-      description: A response from modifying user-specified stream filtering rules.
-      required:
-      - meta
-      properties:
-        data:
-          type: array
-          description: All user-specified stream filtering rules that were created.
-          items:
-            $ref: '#/components/schemas/Rule'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        meta:
-          $ref: '#/components/schemas/RulesResponseMetadata'
-    PlaceId:
-      type: string
-      description: The identifier for this place.
-      example: f7eb2fa2fea288b1
-    ContextAnnotationEntityFields:
-      type: object
-      description: Represents the data for the context annotation entity.
-      required:
-      - id
-      properties:
-        description:
-          type: string
-          description: Description of the context annotation entity.
-        id:
-          type: string
-          description: The unique id for a context annotation entity.
-          pattern: ^[0-9]{1,19}$
-        name:
-          type: string
-          description: Name of the context annotation entity.
-    Media:
-      type: object
-      required:
-      - type
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        media_key:
-          $ref: '#/components/schemas/MediaKey'
-        type:
-          type: string
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-      discriminator:
-        propertyName: type
-        mapping:
-          animated_gif: '#/components/schemas/AnimatedGif'
-          photo: '#/components/schemas/Photo'
-          video: '#/components/schemas/Video'
-    UserName:
-      type: string
-      description: The X handle (screen name) of this user.
-      pattern: ^[A-Za-z0-9_]{1,15}$
-    MentionEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/MentionFields'
-    TweetLabelData:
-      description: Tweet label data.
-      oneOf:
-      - $ref: '#/components/schemas/TweetNoticeSchema'
-      - $ref: '#/components/schemas/TweetUnviewableSchema'
-    RuleTag:
-      type: string
-      description: A tag meant for the labeling of user provided rules.
-      example: Non-retweeted coffee Posts
-    UserComplianceSchema:
-      type: object
-      required:
-      - user
-      - event_at
-      properties:
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        user:
-          type: object
-          required:
-          - id
-          properties:
-            id:
-              $ref: '#/components/schemas/UserId'
-    RuleNoId:
-      type: object
-      description: A user-provided stream filtering rule.
-      required:
-      - value
-      properties:
-        tag:
-          $ref: '#/components/schemas/RuleTag'
-        value:
-          $ref: '#/components/schemas/RuleValue'
-    NoteId:
-      type: string
-      description: The unique identifier of this Community Note.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    Geo:
-      type: object
-      required:
-      - type
-      - bbox
-      - properties
-      properties:
-        bbox:
-          type: array
-          minItems: 4
-          maxItems: 4
-          items:
-            type: number
-            minimum: -180
-            maximum: 180
-            format: double
-          example:
-          - -105.193475
-          - 39.60973
-          - -105.053164
-          - 39.761974
-        geometry:
-          $ref: '#/components/schemas/Point'
-        properties:
-          type: object
-        type:
-          type: string
-          enum:
-          - Feature
     RulesResponseMetadata:
       type: object
       required:
@@ -2253,163 +3053,75 @@ components:
           type: string
         summary:
           $ref: '#/components/schemas/RulesRequestSummary'
-    PlaceType:
-      type: string
-      enum:
-      - poi
-      - neighborhood
-      - city
-      - admin
-      - country
-      - unknown
-      example: city
-    AddRulesRequest:
+    UserUnprotectComplianceSchema:
       type: object
-      description: A request to add a user-specified stream filtering rule.
       required:
-      - add
+      - user_unprotect
       properties:
-        add:
-          type: array
-          items:
-            $ref: '#/components/schemas/RuleNoId'
+        user_unprotect:
+          $ref: '#/components/schemas/UserComplianceSchema'
+    TweetDeleteComplianceSchema:
+      type: object
+      required:
+      - delete
+      properties:
+        delete:
+          $ref: '#/components/schemas/TweetComplianceSchema'
+    CommunityId:
+      type: string
+      description: The unique identifier of this Community.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
     RuleId:
       type: string
       description: Unique identifier of this rule.
       pattern: ^[0-9]{1,19}$
       example: '120897978112909812'
-    UserProtectComplianceSchema:
+    FilteredStreamingTweetResponse:
       type: object
-      required:
-      - user_protect
+      description: A Tweet or error that can be returned by the streaming Tweet API. The values returned with a successful streamed Tweet includes the user provided rules that the Tweet matched.
       properties:
-        user_protect:
-          $ref: '#/components/schemas/UserComplianceSchema'
-    NextToken:
-      type: string
-      description: The next token.
-      minLength: 1
-    UserProfileModificationComplianceSchema:
+        data:
+          $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        matching_rules:
+          type: array
+          description: The list of rules which matched the Tweet
+          items:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                $ref: '#/components/schemas/RuleId'
+              tag:
+                $ref: '#/components/schemas/RuleTag'
+    RulesCount:
       type: object
-      required:
-      - user_profile_modification
+      description: A count of user-provided stream filtering rules at the application and project levels.
       properties:
-        user_profile_modification:
-          $ref: '#/components/schemas/UserProfileModificationObjectSchema'
-    UserScrubGeoObjectSchema:
-      type: object
-      required:
-      - user
-      - up_to_tweet_id
-      - event_at
-      properties:
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        up_to_tweet_id:
-          $ref: '#/components/schemas/TweetId'
-        user:
-          type: object
-          required:
-          - id
-          properties:
-            id:
-              $ref: '#/components/schemas/UserId'
-    ActivityStreamingResponsePayload:
-      oneOf:
-      - $ref: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-      - $ref: '#/components/schemas/NewsActivityResponsePayload'
-      - $ref: '#/components/schemas/FollowActivityResponsePayload'
-      - $ref: '#/components/schemas/Tweet'
-      - $ref: '#/components/schemas/PostDeleteActivityResponsePayload'
-      - $ref: '#/components/schemas/LikeWithTweetAuthor'
-      discriminator:
-        propertyName: ../event_type
-        mapping:
-          follow.follow: '#/components/schemas/FollowActivityResponsePayload'
-          follow.unfollow: '#/components/schemas/FollowActivityResponsePayload'
-          like.create: '#/components/schemas/LikeWithTweetAuthor'
-          news.new: '#/components/schemas/NewsActivityResponsePayload'
-          post.create: '#/components/schemas/Tweet'
-          post.delete: '#/components/schemas/PostDeleteActivityResponsePayload'
-          post.mention.create: '#/components/schemas/Tweet'
-          profile.update.affiliate_badge: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.banner_picture: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.bio: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.geo: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.handle: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.profile_picture: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.screenname: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.url: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-          profile.update.verified_badge: '#/components/schemas/ProfileUpdateActivityResponsePayload'
-    LikesComplianceStreamResponse:
-      description: Likes compliance stream events.
-      oneOf:
-      - type: object
-        description: Compliance event.
-        required:
-        - data
-        properties:
-          data:
-            $ref: '#/components/schemas/LikeComplianceSchema'
-      - type: object
-        required:
-        - errors
-        properties:
-          errors:
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/components/schemas/Problem'
-    FullTextEntities:
-      type: object
-      properties:
-        annotations:
-          type: array
-          minItems: 1
-          items:
-            description: Annotation for entities based on the Tweet text.
-            allOf:
-            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
-            - type: object
-              description: Represents the data for the annotation.
-              properties:
-                normalized_text:
-                  type: string
-                  description: Text used to determine annotation.
-                  example: Barack Obama
-                probability:
-                  type: number
-                  description: Confidence factor for annotation type.
-                  minimum: 0
-                  maximum: 1
-                  format: double
-                type:
-                  type: string
-                  description: Annotation type.
-                  example: Person
-        cashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/CashtagEntity'
-        hashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/HashtagEntity'
-        mentions:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/MentionEntity'
-        urls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/UrlEntity'
+        all_project_client_apps:
+          $ref: '#/components/schemas/AllProjectClientApps'
+        cap_per_client_app:
+          type: integer
+          description: Cap of number of rules allowed per client application
+          format: int32
+        cap_per_project:
+          type: integer
+          description: Cap of number of rules allowed per project
+          format: int32
+        client_app_rules_count:
+          $ref: '#/components/schemas/AppRulesCount'
+        project_rules_count:
+          type: integer
+          description: Number of rules for project
+          format: int32
     TweetUnviewable:
       type: object
       required:
@@ -2436,71 +3148,34 @@ components:
               $ref: '#/components/schemas/UserId'
             id:
               $ref: '#/components/schemas/TweetId'
-    TweetNotice:
-      type: object
-      required:
-      - tweet
-      - event_type
-      - event_at
-      - application
-      properties:
-        application:
-          type: string
-          description: If the label is being applied or removed. Possible values are ‘apply’ or ‘remove’.
-          example: apply
-        details:
-          type: string
-          description: Information shown on the Tweet label
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        event_type:
-          type: string
-          description: The type of label on the Tweet
-          example: misleading
-        extended_details_url:
-          type: string
-          description: Link to more information about this kind of label
-        label_title:
-          type: string
-          description: Title/header of the Tweet label
-        tweet:
-          type: object
-          required:
-          - id
-          - author_id
-          properties:
-            author_id:
-              $ref: '#/components/schemas/UserId'
-            id:
-              $ref: '#/components/schemas/TweetId'
-    TweetText:
+    NoteId:
       type: string
-      description: The content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    UserComplianceData:
-      description: User compliance data.
-      oneOf:
-      - $ref: '#/components/schemas/UserProtectComplianceSchema'
-      - $ref: '#/components/schemas/UserUnprotectComplianceSchema'
-      - $ref: '#/components/schemas/UserDeleteComplianceSchema'
-      - $ref: '#/components/schemas/UserUndeleteComplianceSchema'
-      - $ref: '#/components/schemas/UserSuspendComplianceSchema'
-      - $ref: '#/components/schemas/UserUnsuspendComplianceSchema'
-      - $ref: '#/components/schemas/UserWithheldComplianceSchema'
-      - $ref: '#/components/schemas/UserScrubGeoSchema'
-      - $ref: '#/components/schemas/UserProfileModificationComplianceSchema'
-    MediaHeight:
-      type: integer
-      description: The height of the media in pixels.
-      minimum: 0
-    UrlEntity:
-      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/UrlFields'
+      description: The unique identifier of this Community Note.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    LikeId:
+      type: string
+      description: The unique identifier of this Like.
+      pattern: ^[A-Za-z0-9_]{1,40}$
+      example: 8ba4f34e6235d905a46bac021d98e923
+    FollowActivityResponsePayload:
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/User'
+        target:
+          $ref: '#/components/schemas/User'
+      additionalProperties: false
+    RuleNoId:
+      type: object
+      description: A user-provided stream filtering rule.
+      required:
+      - value
+      properties:
+        tag:
+          $ref: '#/components/schemas/RuleTag'
+        value:
+          $ref: '#/components/schemas/RuleValue'
     TweetWithheld:
       type: object
       description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
@@ -2524,32 +3199,99 @@ components:
           enum:
           - tweet
           - user
-    UnlikeComplianceSchema:
+    StreamingLikeResponseV2:
       type: object
-      required:
-      - favorite
-      - event_at
       properties:
-        event_at:
+        data:
+          $ref: '#/components/schemas/LikeWithTweetAuthor'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    ProfileUpdateActivityResponsePayload:
+      type: object
+      properties:
+        after:
           type: string
-          description: Event time.
+        before:
+          type: string
+      additionalProperties: false
+    LikeWithTweetAuthor:
+      type: object
+      description: A Like event, with the tweet author user and the tweet being liked
+      properties:
+        created_at:
+          type: string
+          description: Creation time of the Tweet.
           format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        favorite:
-          type: object
-          required:
-          - id
-          - user_id
-          properties:
-            id:
-              $ref: '#/components/schemas/TweetId'
-            user_id:
-              $ref: '#/components/schemas/UserId'
-    Url:
+          example: '2021-01-06T18:40:40.000Z'
+        id:
+          $ref: '#/components/schemas/LikeId'
+        liked_tweet_id:
+          $ref: '#/components/schemas/TweetId'
+        timestamp_ms:
+          type: integer
+          description: Timestamp in milliseconds of creation.
+          format: int32
+        tweet_author_id:
+          $ref: '#/components/schemas/UserId'
+    UserComplianceStreamResponse:
+      description: User compliance stream events.
+      oneOf:
+      - type: object
+        description: User compliance event.
+        required:
+        - data
+        properties:
+          data:
+            $ref: '#/components/schemas/UserComplianceData'
+      - type: object
+        required:
+        - errors
+        properties:
+          errors:
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/components/schemas/Problem'
+    StreamingTweetResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    UserId:
       type: string
-      description: A validly formatted URL.
-      format: uri
-      example: https://developer.twitter.com/en/docs/twitter-api
+      description: Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
+      pattern: ^[0-9]{1,19}$
+      example: '2244994945'
+    AddOrDeleteRulesResponse:
+      type: object
+      description: A response from modifying user-specified stream filtering rules.
+      required:
+      - meta
+      properties:
+        data:
+          type: array
+          description: All user-specified stream filtering rules that were created.
+          items:
+            $ref: '#/components/schemas/Rule'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        meta:
+          $ref: '#/components/schemas/RulesResponseMetadata'
     ActivityStreamingResponse:
       type: object
       description: An activity event or error that can be returned by the x activity streaming API.
@@ -2574,613 +3316,15 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    PollId:
+    NextToken:
       type: string
-      description: Unique identifier of this poll.
-      pattern: ^[0-9]{1,19}$
-      example: '1365059861688410112'
-    NewsActivityResponsePayload:
-      type: object
-      properties:
-        category:
-          type: string
-        headline:
-          type: string
-        hook:
-          type: string
-        summary:
-          type: string
-      additionalProperties: false
+      description: The next token.
+      minLength: 1
     ActivityEventId:
       type: string
       description: The unique identifier of an Activity event.
       pattern: ^[0-9]{1,19}$
       example: '1146654567674912769'
-    LikeWithTweetAuthor:
-      type: object
-      description: A Like event, with the tweet author user and the tweet being liked
-      properties:
-        created_at:
-          type: string
-          description: Creation time of the Tweet.
-          format: date-time
-          example: '2021-01-06T18:40:40.000Z'
-        id:
-          $ref: '#/components/schemas/LikeId'
-        liked_tweet_id:
-          $ref: '#/components/schemas/TweetId'
-        timestamp_ms:
-          type: integer
-          description: Timestamp in milliseconds of creation.
-          format: int32
-        tweet_author_id:
-          $ref: '#/components/schemas/UserId'
-    UserDeleteComplianceSchema:
-      type: object
-      required:
-      - user_delete
-      properties:
-        user_delete:
-          $ref: '#/components/schemas/UserComplianceSchema'
-    WebhookLinksGetResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          description: The list of active webhook links for a given stream
-          required:
-          - links
-          properties:
-            links:
-              type: array
-              description: list of links
-              items:
-                type: object
-                properties:
-                  application_id:
-                    type: string
-                    description: The application ID
-                  business_user_id:
-                    type: string
-                    description: The user ID
-                  created_at:
-                    type: string
-                    description: The datetime the webhook was linked to the stream
-                    format: data-time
-                  fields:
-                    type: array
-                    description: Requested fields to be rendered
-                    items:
-                      type: string
-                      description: A query-parameter formatted field or expansion, e.g., 'expansions=author_id' or 'user.fields=name,username'
-                  instance_id:
-                    type: string
-                    description: The stream ID associated with the FilteredStream instance
-                  webhook_id:
-                    type: string
-                    description: The unique identifier for the webhook
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    UserId:
-      type: string
-      description: Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
-      pattern: ^[0-9]{1,19}$
-      example: '2244994945'
-    CommunityId:
-      type: string
-      description: The unique identifier of this Community.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    EntityIndicesInclusiveInclusive:
-      type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
-      required:
-      - start
-      - end
-      properties:
-        end:
-          type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
-          minimum: 0
-          example: 61
-        start:
-          type: integer
-          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
-          minimum: 0
-          example: 50
-    TweetComplianceData:
-      description: Tweet compliance data.
-      oneOf:
-      - $ref: '#/components/schemas/TweetDeleteComplianceSchema'
-      - $ref: '#/components/schemas/TweetWithheldComplianceSchema'
-      - $ref: '#/components/schemas/TweetDropComplianceSchema'
-      - $ref: '#/components/schemas/TweetUndropComplianceSchema'
-      - $ref: '#/components/schemas/TweetEditComplianceSchema'
-    UserSuspendComplianceSchema:
-      type: object
-      required:
-      - user_suspend
-      properties:
-        user_suspend:
-          $ref: '#/components/schemas/UserComplianceSchema'
-    TweetEditComplianceSchema:
-      type: object
-      required:
-      - tweet_edit
-      properties:
-        tweet_edit:
-          $ref: '#/components/schemas/TweetEditComplianceObjectSchema'
-    TweetComplianceStreamResponse:
-      description: Tweet compliance stream events.
-      oneOf:
-      - type: object
-        description: Compliance event.
-        required:
-        - data
-        properties:
-          data:
-            $ref: '#/components/schemas/TweetComplianceData'
-      - type: object
-        required:
-        - errors
-        properties:
-          errors:
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/components/schemas/Problem'
-    StreamingTweetResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Tweet'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    TweetWithheldComplianceSchema:
-      type: object
-      required:
-      - withheld
-      properties:
-        withheld:
-          $ref: '#/components/schemas/TweetTakedownComplianceSchema'
-    TweetTakedownComplianceSchema:
-      type: object
-      required:
-      - tweet
-      - withheld_in_countries
-      - event_at
-      properties:
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        quote_tweet_id:
-          $ref: '#/components/schemas/TweetId'
-        tweet:
-          type: object
-          required:
-          - id
-          - author_id
-          properties:
-            author_id:
-              $ref: '#/components/schemas/UserId'
-            id:
-              $ref: '#/components/schemas/TweetId'
-        withheld_in_countries:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/CountryCode'
-    WebhookLinksCreateResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            provisioned:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    CashtagEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/CashtagFields'
-    MentionFields:
-      type: object
-      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
-      required:
-      - username
-      properties:
-        id:
-          $ref: '#/components/schemas/UserId'
-        username:
-          $ref: '#/components/schemas/UserName'
-    UserScrubGeoSchema:
-      type: object
-      required:
-      - scrub_geo
-      properties:
-        scrub_geo:
-          $ref: '#/components/schemas/UserScrubGeoObjectSchema'
-    UserUnprotectComplianceSchema:
-      type: object
-      required:
-      - user_unprotect
-      properties:
-        user_unprotect:
-          $ref: '#/components/schemas/UserComplianceSchema'
-    ContextAnnotationDomainFields:
-      type: object
-      description: Represents the data for the context annotation domain.
-      required:
-      - id
-      properties:
-        description:
-          type: string
-          description: Description of the context annotation domain.
-        id:
-          type: string
-          description: The unique id for a context annotation domain.
-          pattern: ^[0-9]{1,19}$
-        name:
-          type: string
-          description: Name of the context annotation domain.
-    ActivitySubscriptionFilter:
-      type: object
-      description: An XAA subscription filter.
-      properties:
-        direction:
-          type: string
-          description: Optional direction filter for directional events.
-          enum:
-          - inbound
-          - outbound
-        keyword:
-          $ref: '#/components/schemas/Keyword'
-        user_id:
-          $ref: '#/components/schemas/UserId'
-      additionalProperties: false
-    ActivitySubscription:
-      type: object
-      description: An XActivity subscription.
-      required:
-      - subscription_id
-      - event_type
-      - filter
-      - created_at
-      - updated_at
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        event_type:
-          type: string
-        filter:
-          $ref: '#/components/schemas/ActivitySubscriptionFilter'
-        subscription_id:
-          $ref: '#/components/schemas/ActivitySubscriptionId'
-        tag:
-          type: string
-        updated_at:
-          type: string
-          format: date-time
-        webhook_id:
-          $ref: '#/components/schemas/WebhookConfigId'
-    UrlImage:
-      type: object
-      description: Represent the information for the URL image.
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        url:
-          $ref: '#/components/schemas/Url'
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-    AddOrDeleteRulesRequest:
-      oneOf:
-      - $ref: '#/components/schemas/AddRulesRequest'
-      - $ref: '#/components/schemas/DeleteRulesRequest'
-    RulesCount:
-      type: object
-      description: A count of user-provided stream filtering rules at the application and project levels.
-      properties:
-        all_project_client_apps:
-          $ref: '#/components/schemas/AllProjectClientApps'
-        cap_per_client_app:
-          type: integer
-          description: Cap of number of rules allowed per client application
-          format: int32
-        cap_per_project:
-          type: integer
-          description: Cap of number of rules allowed per project
-          format: int32
-        client_app_rules_count:
-          $ref: '#/components/schemas/AppRulesCount'
-        project_rules_count:
-          type: integer
-          description: Number of rules for project
-          format: int32
-    UserWithheldComplianceSchema:
-      type: object
-      required:
-      - user_withheld
-      properties:
-        user_withheld:
-          $ref: '#/components/schemas/UserTakedownComplianceSchema'
-    UserComplianceStreamResponse:
-      description: User compliance stream events.
-      oneOf:
-      - type: object
-        description: User compliance event.
-        required:
-        - data
-        properties:
-          data:
-            $ref: '#/components/schemas/UserComplianceData'
-      - type: object
-        required:
-        - errors
-        properties:
-          errors:
-            type: array
-            minItems: 1
-            items:
-              $ref: '#/components/schemas/Problem'
-    UserProfileModificationObjectSchema:
-      type: object
-      required:
-      - user
-      - profile_field
-      - new_value
-      - event_at
-      properties:
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        new_value:
-          type: string
-        profile_field:
-          type: string
-        user:
-          type: object
-          required:
-          - id
-          properties:
-            id:
-              $ref: '#/components/schemas/UserId'
-    TweetComplianceSchema:
-      type: object
-      required:
-      - tweet
-      - event_at
-      properties:
-        event_at:
-          type: string
-          description: Event time.
-          format: date-time
-          example: '2021-07-06T18:40:40.000Z'
-        quote_tweet_id:
-          $ref: '#/components/schemas/TweetId'
-        tweet:
-          type: object
-          required:
-          - id
-          - author_id
-          properties:
-            author_id:
-              $ref: '#/components/schemas/UserId'
-            id:
-              $ref: '#/components/schemas/TweetId'
-    TweetDropComplianceSchema:
-      type: object
-      required:
-      - drop
-      properties:
-        drop:
-          $ref: '#/components/schemas/TweetComplianceSchema'
-    PollOptionLabel:
-      type: string
-      description: The text of a poll choice.
-      minLength: 1
-      maxLength: 25
-    LikeId:
-      type: string
-      description: The unique identifier of this Like.
-      pattern: ^[A-Za-z0-9_]{1,40}$
-      example: 8ba4f34e6235d905a46bac021d98e923
-    RuleValue:
-      type: string
-      description: The filterlang value of the rule.
-      example: coffee -is:retweet
-    Place:
-      type: object
-      required:
-      - id
-      - full_name
-      properties:
-        contained_within:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/PlaceId'
-        country:
-          type: string
-          description: The full name of the county in which this place exists.
-          example: United States
-        country_code:
-          $ref: '#/components/schemas/CountryCode'
-        full_name:
-          type: string
-          description: The full name of this place.
-          example: Lakewood, CO
-        geo:
-          $ref: '#/components/schemas/Geo'
-        id:
-          $ref: '#/components/schemas/PlaceId'
-        name:
-          type: string
-          description: The human readable name of this place.
-          example: Lakewood
-        place_type:
-          $ref: '#/components/schemas/PlaceType'
-    Get2TweetsSearchStreamRulesCountsResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/RulesCount'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    ProfileUpdateActivityResponsePayload:
-      type: object
-      properties:
-        after:
-          type: string
-        before:
-          type: string
-      additionalProperties: false
-    StreamingLikeResponseV2:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LikeWithTweetAuthor'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    ActivitySubscriptionCreateRequest:
-      type: object
-      required:
-      - event_type
-      - filter
-      properties:
-        event_type:
-          type: string
-          enum:
-          - profile.update.bio
-          - profile.update.profile_picture
-          - profile.update.banner_picture
-          - profile.update.screenname
-          - profile.update.geo
-          - profile.update.url
-          - profile.update.verified_badge
-          - profile.update.affiliate_badge
-          - profile.update.handle
-          - news.new
-          - follow.follow
-          - follow.unfollow
-          - spaces.start
-          - spaces.end
-          - chat.received
-          - chat.sent
-          - chat.conversation_join
-          - dm.sent
-          - dm.received
-          - dm.indicate_typing
-          - dm.read
-          - post.create
-          - post.delete
-          - post.mention.create
-          - like.create
-        filter:
-          $ref: '#/components/schemas/ActivitySubscriptionFilter'
-        tag:
-          type: string
-          minLength: 1
-          maxLength: 200
-        webhook_id:
-          $ref: '#/components/schemas/WebhookConfigId'
-      additionalProperties: false
-    Expansions:
-      type: object
-      properties:
-        media:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Media'
-        places:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Place'
-        polls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Poll'
-        topics:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Topic'
-        tweets:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Tweet'
-        users:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-    PollOption:
-      type: object
-      description: Describes a choice in a Poll object.
-      required:
-      - position
-      - label
-      - votes
-      properties:
-        label:
-          $ref: '#/components/schemas/PollOptionLabel'
-        position:
-          type: integer
-          description: Position of this choice in the poll.
-        votes:
-          type: integer
-          description: Number of users who voted for this choice.
-    ActivitySubscriptionCreateResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            subscription:
-              $ref: '#/components/schemas/ActivitySubscription'
-            total_subscriptions_for_instance_id:
-              type: integer
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        meta:
-          type: object
-          properties:
-            total_subscriptions:
-              type: integer
-              description: Number of active subscriptions.
-              format: int32
     ReplySettingsWithVerifiedUsers:
       type: string
       description: Shows who can reply a Tweet. Fields returned are everyone, mentioned_users, subscribers, verified and following.
@@ -3192,237 +3336,65 @@ components:
       - other
       - subscribers
       - verified
-    CashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
-      required:
-      - tag
-      properties:
-        tag:
-          type: string
-          example: TWTR
-    AppRulesCount:
-      type: object
-      description: A count of user-provided stream filtering rules at the client application level.
-      properties:
-        client_app_id:
-          $ref: '#/components/schemas/ClientAppId'
-        rule_count:
-          type: integer
-          description: Number of rules for client application
-          format: int32
-    UserUnsuspendComplianceSchema:
+    TweetDropComplianceSchema:
       type: object
       required:
-      - user_unsuspend
+      - drop
       properties:
-        user_unsuspend:
+        drop:
+          $ref: '#/components/schemas/TweetComplianceSchema'
+    UserDeleteComplianceSchema:
+      type: object
+      required:
+      - user_delete
+      properties:
+        user_delete:
           $ref: '#/components/schemas/UserComplianceSchema'
-    LikeComplianceSchema:
-      type: object
-      required:
-      - delete
-      properties:
-        delete:
-          $ref: '#/components/schemas/UnlikeComplianceSchema'
-    MediaWidth:
-      type: integer
-      description: The width of the media in pixels.
-      minimum: 0
-    HashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
-      required:
-      - tag
-      properties:
-        tag:
-          type: string
-          description: The text of the Hashtag.
-          example: MondayMotivation
-    MediaKey:
+    PollOptionLabel:
       type: string
-      description: The Media Key identifier for this attachment.
-      pattern: ^([0-9]+)_([0-9]+)$
-    TweetId:
-      type: string
-      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
-      pattern: ^[0-9]{1,19}$
-      example: '1346889436626259968'
-    RulesRequestSummary:
+      description: The text of a poll choice.
+      minLength: 1
+      maxLength: 25
+    TweetLabelStreamResponse:
+      description: Tweet label stream events.
       oneOf:
       - type: object
-        description: A summary of the results of the addition of user-specified stream filtering rules.
+        description: Tweet Label event.
         required:
-        - created
-        - not_created
-        - valid
-        - invalid
+        - data
         properties:
-          created:
-            type: integer
-            description: Number of user-specified stream filtering rules that were created.
-            format: int32
-            example: 1
-          invalid:
-            type: integer
-            description: Number of invalid user-specified stream filtering rules.
-            format: int32
-            example: 1
-          not_created:
-            type: integer
-            description: Number of user-specified stream filtering rules that were not created.
-            format: int32
-            example: 1
-          valid:
-            type: integer
-            description: Number of valid user-specified stream filtering rules.
-            format: int32
-            example: 1
+          data:
+            $ref: '#/components/schemas/TweetLabelData'
       - type: object
         required:
-        - deleted
-        - not_deleted
+        - errors
         properties:
-          deleted:
-            type: integer
-            description: Number of user-specified stream filtering rules that were deleted.
-            format: int32
-          not_deleted:
-            type: integer
-            description: Number of user-specified stream filtering rules that were not deleted.
-            format: int32
-    WebhookConfigId:
-      type: string
-      description: The unique identifier of this webhook config.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    FollowActivityResponsePayload:
+          errors:
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/components/schemas/Problem'
+    ContextAnnotationEntityFields:
       type: object
-      properties:
-        source:
-          $ref: '#/components/schemas/User'
-        target:
-          $ref: '#/components/schemas/User'
-      additionalProperties: false
-    NoteTweetText:
-      type: string
-      description: The note content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    HttpStatusCode:
-      type: integer
-      description: HTTP Status Code.
-      minimum: 100
-      maximum: 599
-    DisplayTextRange:
-      type: array
-      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: integer
-        minimum: 0
-    Position:
-      type: array
-      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-      example:
-      - -105.18816086351444
-      - 40.247749999999996
-    TopicId:
-      type: string
-      description: Unique identifier of this Topic.
-    CountryCode:
-      type: string
-      description: A two-letter ISO 3166-1 alpha-2 country code.
-      pattern: ^[A-Z]{2}$
-      example: US
-    TweetUnviewableSchema:
-      type: object
+      description: Represents the data for the context annotation entity.
       required:
-      - public_tweet_unviewable
+      - id
       properties:
-        public_tweet_unviewable:
-          $ref: '#/components/schemas/TweetUnviewable'
-    RulesLookupResponse:
-      type: object
-      required:
-      - meta
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        meta:
-          $ref: '#/components/schemas/RulesResponseMetadata'
-    Get2TweetsSample10StreamResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Tweet'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    TweetNoticeSchema:
-      type: object
-      required:
-      - public_tweet_notice
-      properties:
-        public_tweet_notice:
-          $ref: '#/components/schemas/TweetNotice'
-    UserUndeleteComplianceSchema:
-      type: object
-      required:
-      - user_undelete
-      properties:
-        user_undelete:
-          $ref: '#/components/schemas/UserComplianceSchema'
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        description:
           type: string
+          description: Description of the context annotation entity.
+        id:
+          type: string
+          description: The unique id for a context annotation entity.
+          pattern: ^[0-9]{1,19}$
+        name:
+          type: string
+          description: Name of the context annotation entity.
+    RuleTag:
+      type: string
+      description: A tag meant for the labeling of user provided rules.
+      example: Non-retweeted coffee Posts
   parameters:
-    LikeWithTweetAuthorFieldsParameter:
-      name: like_with_tweet_author.fields
-      in: query
-      description: A comma separated list of LikeWithTweetAuthor fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a LikeWithTweetAuthor object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - attachments_media_keys
-          - created_at
-          - id
-          - liked_tweet_author_id
-          - liked_tweet_id
-          - timestamp_ms
-        example:
-        - attachments_media_keys
-        - created_at
-        - id
-        - liked_tweet_author_id
-        - liked_tweet_id
-        - timestamp_ms
-      explode: false
-      style: form
     PollFieldsParameter:
       name: poll.fields
       in: query
@@ -3447,6 +3419,32 @@ components:
         - id
         - options
         - voting_status
+      explode: false
+      style: form
+    RulesCountFieldsParameter:
+      name: rules_count.fields
+      in: query
+      description: A comma separated list of RulesCount fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a RulesCount object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - all_project_client_apps
+          - cap_per_client_app
+          - cap_per_project
+          - client_app_rules_count
+          - project_rules_count
+        example:
+        - all_project_client_apps
+        - cap_per_client_app
+        - cap_per_project
+        - client_app_rules_count
+        - project_rules_count
       explode: false
       style: form
     UserFieldsParameter:
@@ -3515,170 +3513,6 @@ components:
         - verified_followers_count
         - verified_type
         - withheld
-      explode: false
-      style: form
-    RulesCountFieldsParameter:
-      name: rules_count.fields
-      in: query
-      description: A comma separated list of RulesCount fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a RulesCount object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - all_project_client_apps
-          - cap_per_client_app
-          - cap_per_project
-          - client_app_rules_count
-          - project_rules_count
-        example:
-        - all_project_client_apps
-        - cap_per_client_app
-        - cap_per_project
-        - client_app_rules_count
-        - project_rules_count
-      explode: false
-      style: form
-    PlaceFieldsParameter:
-      name: place.fields
-      in: query
-      description: A comma separated list of Place fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Place object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - contained_within
-          - country
-          - country_code
-          - full_name
-          - geo
-          - id
-          - name
-          - place_type
-        example:
-        - contained_within
-        - country
-        - country_code
-        - full_name
-        - geo
-        - id
-        - name
-        - place_type
-      explode: false
-      style: form
-    MediaFieldsParameter:
-      name: media.fields
-      in: query
-      description: A comma separated list of Media fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Media object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - alt_text
-          - duration_ms
-          - height
-          - media_key
-          - non_public_metrics
-          - organic_metrics
-          - preview_image_url
-          - promoted_metrics
-          - public_metrics
-          - type
-          - url
-          - variants
-          - width
-        example:
-        - alt_text
-        - duration_ms
-        - height
-        - media_key
-        - non_public_metrics
-        - organic_metrics
-        - preview_image_url
-        - promoted_metrics
-        - public_metrics
-        - type
-        - url
-        - variants
-        - width
-      explode: false
-      style: form
-    LikeWithTweetAuthorExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [LikeWithTweetAuthor](#LikeWithTweetAuthor) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - attachments.media_keys
-          - liked_tweet_author_id
-          - liked_tweet_id
-        example:
-        - attachments.media_keys
-        - liked_tweet_author_id
-        - liked_tweet_id
-      explode: false
-      style: form
-    TweetExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [Tweet](#Tweet) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - article.cover_media
-          - article.media_entities
-          - attachments.media_keys
-          - attachments.media_source_tweet
-          - attachments.poll_ids
-          - author_id
-          - edit_history_tweet_ids
-          - entities.mentions.username
-          - geo.place_id
-          - in_reply_to_user_id
-          - entities.note.mentions.username
-          - referenced_tweets.id
-          - referenced_tweets.id.attachments.media_keys
-          - referenced_tweets.id.author_id
-        example:
-        - article.cover_media
-        - article.media_entities
-        - attachments.media_keys
-        - attachments.media_source_tweet
-        - attachments.poll_ids
-        - author_id
-        - edit_history_tweet_ids
-        - entities.mentions.username
-        - geo.place_id
-        - in_reply_to_user_id
-        - entities.note.mentions.username
-        - referenced_tweets.id
-        - referenced_tweets.id.attachments.media_keys
-        - referenced_tweets.id.author_id
       explode: false
       style: form
     TweetFieldsParameter:
@@ -3763,6 +3597,172 @@ components:
         - suggested_source_links_with_counts
         - text
         - withheld
+      explode: false
+      style: form
+    TweetExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [Tweet](#Tweet) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - article.cover_media
+          - article.media_entities
+          - attachments.media_keys
+          - attachments.media_source_tweet
+          - attachments.poll_ids
+          - author_id
+          - edit_history_tweet_ids
+          - entities.mentions.username
+          - geo.place_id
+          - in_reply_to_user_id
+          - entities.note.mentions.username
+          - referenced_tweets.id
+          - referenced_tweets.id.attachments.media_keys
+          - referenced_tweets.id.author_id
+        example:
+        - article.cover_media
+        - article.media_entities
+        - attachments.media_keys
+        - attachments.media_source_tweet
+        - attachments.poll_ids
+        - author_id
+        - edit_history_tweet_ids
+        - entities.mentions.username
+        - geo.place_id
+        - in_reply_to_user_id
+        - entities.note.mentions.username
+        - referenced_tweets.id
+        - referenced_tweets.id.attachments.media_keys
+        - referenced_tweets.id.author_id
+      explode: false
+      style: form
+    LikeWithTweetAuthorExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [LikeWithTweetAuthor](#LikeWithTweetAuthor) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - attachments.media_keys
+          - liked_tweet_author_id
+          - liked_tweet_id
+        example:
+        - attachments.media_keys
+        - liked_tweet_author_id
+        - liked_tweet_id
+      explode: false
+      style: form
+    LikeWithTweetAuthorFieldsParameter:
+      name: like_with_tweet_author.fields
+      in: query
+      description: A comma separated list of LikeWithTweetAuthor fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a LikeWithTweetAuthor object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - attachments_media_keys
+          - created_at
+          - id
+          - liked_tweet_author_id
+          - liked_tweet_id
+          - timestamp_ms
+        example:
+        - attachments_media_keys
+        - created_at
+        - id
+        - liked_tweet_author_id
+        - liked_tweet_id
+        - timestamp_ms
+      explode: false
+      style: form
+    MediaFieldsParameter:
+      name: media.fields
+      in: query
+      description: A comma separated list of Media fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Media object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - alt_text
+          - duration_ms
+          - height
+          - media_key
+          - non_public_metrics
+          - organic_metrics
+          - preview_image_url
+          - promoted_metrics
+          - public_metrics
+          - type
+          - url
+          - variants
+          - width
+        example:
+        - alt_text
+        - duration_ms
+        - height
+        - media_key
+        - non_public_metrics
+        - organic_metrics
+        - preview_image_url
+        - promoted_metrics
+        - public_metrics
+        - type
+        - url
+        - variants
+        - width
+      explode: false
+      style: form
+    PlaceFieldsParameter:
+      name: place.fields
+      in: query
+      description: A comma separated list of Place fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Place object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - contained_within
+          - country
+          - country_code
+          - full_name
+          - geo
+          - id
+          - name
+          - place_type
+        example:
+        - contained_within
+        - country
+        - country_code
+        - full_name
+        - geo
+        - id
+        - name
+        - place_type
       explode: false
       style: form
   securitySchemes:

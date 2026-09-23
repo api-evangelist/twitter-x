@@ -2,7 +2,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for the X API v2
   version: 1.0.0
-  description: >-
+  x-description: >-
     Overlay of API Evangelist catalog enhancements over the verbatim X API v2
     OpenAPI (openapi/twitter-x-x-api-v2-openapi.json, harvested 2026-07-21
     from https://api.x.com/2/openapi.json, spec version 2.166). The original

@@ -1,96 +1,122 @@
-generated: '2026-07-21'
+generated: '2026-09-19'
 method: searched
-description: >-
-  Probe of the /.well-known/ discovery surface on X hosts, 2026-07-21. Only
-  x.com/.well-known/security.txt returned a real document (text/plain, RFC
-  9116, PGP-signed). The other x.com paths returned HTTP 200 but served the
-  text/html SPA shell (catch-all route), so they are recorded as not
-  published. API and docs hosts return 404 for all probed paths.
+description: Probe of the /.well-known/ discovery surface on X hosts, 2026-07-21. Only x.com/.well-known/security.txt
+  returned a real document (text/plain, RFC 9116, PGP-signed). The other x.com paths returned HTTP 200
+  but served the text/html SPA shell (catch-all route), so they are recorded as not published. API and
+  docs hosts return 404 for all probed paths.
 hosts:
-  - host: https://x.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 200
-        content_type: text/plain
-        file: twitter-x-security.txt
-        note: RFC 9116 security.txt, PGP-signed. Contact points to https://hackerone.com/twitter. Expires header is stale (2024-01-01) but the file is still served.
-      - path: /.well-known/openid-configuration
-        status: 200
-        content_type: text/html
-        published: false
-        note: SPA catch-all — HTML shell, not an OIDC discovery document.
-      - path: /.well-known/oauth-authorization-server
-        status: 200
-        content_type: text/html
-        published: false
-        note: SPA catch-all — not an RFC 8414 document.
-      - path: /.well-known/api-catalog
-        status: 200
-        content_type: text/html
-        published: false
-        note: SPA catch-all — not an RFC 9727 api-catalog.
-      - path: /.well-known/ai-plugin.json
-        status: 200
-        content_type: text/html
-        published: false
-        note: SPA catch-all — not an ai-plugin manifest.
-  - host: https://api.x.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
-      - path: /.well-known/ai-plugin.json
-        status: 404
-  - host: https://api.twitter.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
-      - path: /.well-known/ai-plugin.json
-        status: 404
-  - host: https://docs.x.com
-    documents:
-      - path: /.well-known/agent-skills/index.json
-        status: 200
-        content_type: application/json
-        file: twitter-x-agent-skills-index.json
-        note: agentskills.io discovery 0.2.0 document pointing at /.well-known/agent-skills/x/skill.md (sha256 digest included).
-      - path: /.well-known/skills/index.json
-        status: 200
-        content_type: application/json
-        file: twitter-x-skills-index.json
-        note: Original skills-discovery format listing the "x" skill (SKILL.md).
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
-      - path: /.well-known/ai-plugin.json
-        status: 404
-  - host: https://developer.x.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
-      - path: /.well-known/ai-plugin.json
-        status: 404
+- host: https://x.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: twitter-x-security.txt
+    note: RFC 9116 security.txt, PGP-signed. Contact points to https://hackerone.com/twitter. Expires
+      header is stale (2024-01-01) but the file is still served.
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA catch-all — HTML shell, not an OIDC discovery document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA catch-all — not an RFC 8414 document.
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA catch-all — not an RFC 9727 api-catalog.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    published: false
+    note: SPA catch-all — not an ai-plugin manifest.
+- host: https://api.x.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: twitter-x-api-oauth-protected-resource.json
+    bytes: 386
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: twitter-x-api-oauth-authorization-server.json
+    bytes: 659
+  path_echo_control: passed
+- host: https://api.twitter.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.x.com
+  documents:
+  - path: /.well-known/agent-skills/index.json
+    status: 200
+    content_type: application/json
+    file: twitter-x-agent-skills-index.json
+    note: agentskills.io discovery 0.2.0 document pointing at /.well-known/agent-skills/x/skill.md (sha256
+      digest included).
+  - path: /.well-known/skills/index.json
+    status: 200
+    content_type: application/json
+    file: twitter-x-skills-index.json
+    note: Original skills-discovery format listing the "x" skill (SKILL.md).
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://developer.x.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
 related:
-  - note: docs.x.com states all documentation pages are also indexed under /.well-known/llms.txt on the docs host; the canonical agent index is https://docs.x.com/llms.txt (captured at llms/twitter-x-llms.txt).
+- note: docs.x.com states all documentation pages are also indexed under /.well-known/llms.txt on the
+    docs host; the canonical agent index is https://docs.x.com/llms.txt (captured at llms/twitter-x-llms.txt).
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://api.x.com
+    path: /.well-known/oauth-protected-resource
+    file: twitter-x-api-oauth-protected-resource.json
+  - host: https://api.x.com
+    path: /.well-known/oauth-authorization-server
+    file: twitter-x-api-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

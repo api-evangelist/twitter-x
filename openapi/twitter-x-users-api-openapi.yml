@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: X API v2 available endpoints
   version: '2.166'
-  title: X API v2 Account Activity Users API
+  title: X API v2 Users API
   termsOfService: https://developer.x.com/en/developer-terms/agreement-and-policy.html
   contact:
     name: X Developers
@@ -2463,11 +2463,14 @@ paths:
                 $ref: '#/components/schemas/Problem'
 components:
   schemas:
-    HashtagEntity:
+    CashtagEntity:
       allOf:
       - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/HashtagFields'
-    Get2UsersIdFollowingResponse:
+      - $ref: '#/components/schemas/CashtagFields'
+    OldestId:
+      type: string
+      description: The oldest id in this response.
+    Get2TweetsIdRetweetedByResponse:
       type: object
       properties:
         data:
@@ -2491,10 +2494,184 @@ components:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
-    PaginationToken36:
+    Get2ListsIdFollowersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    UsersRetweetsDeleteResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            retweeted:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    ContextAnnotationDomainFields:
+      type: object
+      description: Represents the data for the context annotation domain.
+      required:
+      - id
+      properties:
+        description:
+          type: string
+          description: Description of the context annotation domain.
+        id:
+          type: string
+          description: The unique id for a context annotation domain.
+          pattern: ^[0-9]{1,19}$
+        name:
+          type: string
+          description: Name of the context annotation domain.
+    PreviousToken:
       type: string
-      description: A base36 pagination token.
+      description: The previous token.
       minLength: 1
+    ListPinnedResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            pinned:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    Get2ListsIdMembersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    PaginationTokenLong:
+      type: string
+      description: A 'long' pagination token.
+      minLength: 1
+      maxLength: 19
+    ResultCount:
+      type: integer
+      description: The number of results returned in this response.
+      format: int32
+    UserWithheld:
+      type: object
+      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+      required:
+      - country_codes
+      properties:
+        country_codes:
+          type: array
+          description: Provides a list of countries where this content is not available.
+          minItems: 1
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/CountryCode'
+        scope:
+          type: string
+          description: Indicates that the content being withheld is a `user`.
+          enum:
+          - user
+    UsersLikesCreateResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            liked:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    HttpStatusCode:
+      type: integer
+      description: HTTP Status Code.
+      minimum: 100
+      maximum: 599
+    UrlEntity:
+      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/UrlFields'
+    UsersRetweetsCreateResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/TweetId'
+            retweeted:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    CashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          example: TWTR
+    HashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          description: The text of the Hashtag.
+          example: MondayMotivation
     User:
       type: object
       description: The X User object.
@@ -2641,42 +2818,7 @@ components:
         name: X Dev
         protected: false
         username: TwitterDev
-    Get2UsersIdListMembershipsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/List'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    ContextAnnotation:
-      type: object
-      description: Annotation inferred from the Tweet text.
-      required:
-      - domain
-      - entity
-      properties:
-        domain:
-          $ref: '#/components/schemas/ContextAnnotationDomainFields'
-        entity:
-          $ref: '#/components/schemas/ContextAnnotationEntityFields'
-    Get2UsersIdBookmarksResponse:
+    Get2UsersIdMentionsResponse:
       type: object
       properties:
         data:
@@ -2694,32 +2836,125 @@ components:
         meta:
           type: object
           properties:
+            newest_id:
+              $ref: '#/components/schemas/NewestId'
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            oldest_id:
+              $ref: '#/components/schemas/OldestId'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    Media:
+      type: object
+      required:
+      - type
+      properties:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        media_key:
+          $ref: '#/components/schemas/MediaKey'
+        type:
+          type: string
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+      discriminator:
+        propertyName: type
+        mapping:
+          animated_gif: '#/components/schemas/AnimatedGif'
+          photo: '#/components/schemas/Photo'
+          video: '#/components/schemas/Video'
+    Get2UsersByResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    TweetId:
+      type: string
+      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
+      pattern: ^[0-9]{1,19}$
+      example: '1346889436626259968'
+    Get2UsersIdFollowersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
             next_token:
               $ref: '#/components/schemas/NextToken'
             previous_token:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
-    ListPinnedRequest:
+    UserIdMatchesAuthenticatedUser:
+      type: string
+      description: Unique identifier of this User. The value must be the same as the authenticated user.
+      example: '2244994945'
+    Url:
+      type: string
+      description: A validly formatted URL.
+      format: uri
+      example: https://developer.twitter.com/en/docs/twitter-api
+    MediaHeight:
+      type: integer
+      description: The height of the media in pixels.
+      minimum: 0
+    Expansions:
       type: object
-      required:
-      - list_id
       properties:
-        list_id:
-          $ref: '#/components/schemas/ListId'
-    MuteUserMutationResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            muting:
-              type: boolean
-        errors:
+        media:
           type: array
           minItems: 1
           items:
-            $ref: '#/components/schemas/Problem'
+            $ref: '#/components/schemas/Media'
+        places:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Place'
+        polls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Poll'
+        topics:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Topic'
+        tweets:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        users:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
     Problem:
       type: object
       description: An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).
@@ -2756,53 +2991,116 @@ components:
           https://api.twitter.com/2/problems/streaming-connection: '#/components/schemas/ConnectionExceptionProblem'
           https://api.twitter.com/2/problems/unsupported-authentication: '#/components/schemas/UnsupportedAuthenticationProblem'
           https://api.twitter.com/2/problems/usage-capped: '#/components/schemas/UsageCapExceededProblem'
-    UserWithheld:
+    ContextAnnotation:
       type: object
-      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+      description: Annotation inferred from the Tweet text.
       required:
-      - country_codes
+      - domain
+      - entity
       properties:
-        country_codes:
+        domain:
+          $ref: '#/components/schemas/ContextAnnotationDomainFields'
+        entity:
+          $ref: '#/components/schemas/ContextAnnotationEntityFields'
+    DisplayTextRange:
+      type: array
+      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: integer
+        minimum: 0
+    UsersFollowingCreateResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            following:
+              type: boolean
+            pending_follow:
+              type: boolean
+        errors:
           type: array
-          description: Provides a list of countries where this content is not available.
           minItems: 1
-          uniqueItems: true
           items:
-            $ref: '#/components/schemas/CountryCode'
-        scope:
-          type: string
-          description: Indicates that the content being withheld is a `user`.
-          enum:
-          - user
-    Poll:
+            $ref: '#/components/schemas/Problem'
+    UrlImage:
       type: object
-      description: Represent a Poll attached to a Tweet.
-      required:
-      - id
-      - options
+      description: Represent the information for the URL image.
       properties:
-        duration_minutes:
-          type: integer
-          minimum: 5
-          maximum: 10080
-          format: int32
-        end_datetime:
-          type: string
-          format: date-time
-        id:
-          $ref: '#/components/schemas/PollId'
-        options:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        url:
+          $ref: '#/components/schemas/Url'
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+    UsersDMBlockCreateResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            blocked:
+              type: boolean
+        errors:
           type: array
-          minItems: 2
-          maxItems: 4
+          minItems: 1
           items:
-            $ref: '#/components/schemas/PollOption'
-        voting_status:
-          type: string
-          enum:
-          - open
-          - closed
-    Get2UsersByResponse:
+            $ref: '#/components/schemas/Problem'
+    TopicId:
+      type: string
+      description: Unique identifier of this Topic.
+    Get2UsersIdBookmarksResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    NoteTweetText:
+      type: string
+      description: The note content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    PaginationToken32:
+      type: string
+      description: A base32 pagination token.
+      minLength: 16
+    EntityIndicesInclusiveExclusive:
+      type: object
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      required:
+      - start
+      - end
+      properties:
+        end:
+          type: integer
+          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          minimum: 0
+          example: 61
+        start:
+          type: integer
+          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
+          minimum: 0
+          example: 50
+    Get2UsersIdAffiliatesResponse:
       type: object
       properties:
         data:
@@ -2817,27 +3115,108 @@ components:
             $ref: '#/components/schemas/Problem'
         includes:
           $ref: '#/components/schemas/Expansions'
-    BookmarkMutationResponse:
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    MediaWidth:
+      type: integer
+      description: The width of the media in pixels.
+      minimum: 0
+    PlaceType:
+      type: string
+      enum:
+      - poi
+      - neighborhood
+      - city
+      - admin
+      - country
+      - unknown
+      example: city
+    PollId:
+      type: string
+      description: Unique identifier of this poll.
+      pattern: ^[0-9]{1,19}$
+      example: '1365059861688410112'
+    Geo:
+      type: object
+      required:
+      - type
+      - bbox
+      - properties
+      properties:
+        bbox:
+          type: array
+          minItems: 4
+          maxItems: 4
+          items:
+            type: number
+            minimum: -180
+            maximum: 180
+            format: double
+          example:
+          - -105.193475
+          - 39.60973
+          - -105.053164
+          - 39.761974
+        geometry:
+          $ref: '#/components/schemas/Point'
+        properties:
+          type: object
+        type:
+          type: string
+          enum:
+          - Feature
+    Get2UsersIdListMembershipsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/List'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    ListUnpinResponse:
       type: object
       properties:
         data:
           type: object
           properties:
-            bookmarked:
+            pinned:
               type: boolean
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    Get2UsersIdMutingResponse:
+    Get2UsersIdOwnedListsResponse:
       type: object
       properties:
         data:
           type: array
           minItems: 1
           items:
-            $ref: '#/components/schemas/User'
+            $ref: '#/components/schemas/List'
         errors:
           type: array
           minItems: 1
@@ -2866,19 +3245,149 @@ components:
             $ref: '#/components/schemas/Problem'
         includes:
           $ref: '#/components/schemas/Expansions'
-    UsersLikesCreateResponse:
+    Poll:
+      type: object
+      description: Represent a Poll attached to a Tweet.
+      required:
+      - id
+      - options
+      properties:
+        duration_minutes:
+          type: integer
+          minimum: 5
+          maximum: 10080
+          format: int32
+        end_datetime:
+          type: string
+          format: date-time
+        id:
+          $ref: '#/components/schemas/PollId'
+        options:
+          type: array
+          minItems: 2
+          maxItems: 4
+          items:
+            $ref: '#/components/schemas/PollOption'
+        voting_status:
+          type: string
+          enum:
+          - open
+          - closed
+    List:
+      type: object
+      description: A X List is a curated group of accounts.
+      required:
+      - id
+      - name
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type: string
+        follower_count:
+          type: integer
+        id:
+          $ref: '#/components/schemas/ListId'
+        member_count:
+          type: integer
+        name:
+          type: string
+          description: The name of this List.
+        owner_id:
+          $ref: '#/components/schemas/UserId'
+        private:
+          type: boolean
+    UsersDMUnBlockCreateResponse:
       type: object
       properties:
         data:
           type: object
           properties:
-            liked:
+            blocked:
               type: boolean
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
+    PaginationToken36:
+      type: string
+      description: A base36 pagination token.
+      minLength: 1
+    Get2UsersIdFollowingResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    UsersFollowingCreateRequest:
+      type: object
+      required:
+      - target_user_id
+      properties:
+        target_user_id:
+          $ref: '#/components/schemas/UserId'
+    Place:
+      type: object
+      required:
+      - id
+      - full_name
+      properties:
+        contained_within:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/PlaceId'
+        country:
+          type: string
+          description: The full name of the county in which this place exists.
+          example: United States
+        country_code:
+          $ref: '#/components/schemas/CountryCode'
+        full_name:
+          type: string
+          description: The full name of this place.
+          example: Lakewood, CO
+        geo:
+          $ref: '#/components/schemas/Geo'
+        id:
+          $ref: '#/components/schemas/PlaceId'
+        name:
+          type: string
+          description: The human readable name of this place.
+          example: Lakewood
+        place_type:
+          $ref: '#/components/schemas/PlaceType'
     Point:
       type: object
       description: A [GeoJson Point](https://tools.ietf.org/html/rfc7946#section-3.1.2) geometry object.
@@ -2893,86 +3402,15 @@ components:
           enum:
           - Point
           example: Point
-    UsersRetweetsCreateResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/TweetId'
-            retweeted:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    Get2TweetsIdRetweetedByResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Get2ListsIdMembersResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Topic:
-      type: object
-      description: The topic of a Space, as selected by its creator.
-      required:
-      - id
-      - name
-      properties:
-        description:
-          type: string
-          description: The description of the given topic.
-          example: All about technology
-        id:
-          $ref: '#/components/schemas/TopicId'
-        name:
-          type: string
-          description: The name of the given topic.
-          example: Technology
+    CountryCode:
+      type: string
+      description: A two-letter ISO 3166-1 alpha-2 country code.
+      pattern: ^[A-Z]{2}$
+      example: US
+    MediaKey:
+      type: string
+      description: The Media Key identifier for this attachment.
+      pattern: ^([0-9]+)_([0-9]+)$
     UrlFields:
       type: object
       description: Represent the portion of text recognized as a URL.
@@ -3009,16 +3447,62 @@ components:
           example: https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118
         url:
           $ref: '#/components/schemas/Url'
-    EntityIndicesInclusiveExclusive:
+    BookmarkFoldersResponse:
       type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                $ref: '#/components/schemas/BookmarkFolderId'
+              name:
+                type: string
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+    Get2UsersRepostsOfMeResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    EntityIndicesInclusiveInclusive:
+      type: object
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
       required:
       - start
       - end
       properties:
         end:
           type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
           minimum: 0
           example: 61
         start:
@@ -3026,44 +3510,56 @@ components:
           description: Index (zero-based) at which position this entity starts.  The index is inclusive.
           minimum: 0
           example: 50
-    ListPinnedResponse:
+    Position:
+      type: array
+      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
+      example:
+      - -105.18816086351444
+      - 40.247749999999996
+    Get2UsersByUsernameUsernameResponse:
       type: object
       properties:
         data:
-          type: object
-          properties:
-            pinned:
-              type: boolean
+          $ref: '#/components/schemas/User'
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    List:
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    HashtagEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/HashtagFields'
+    Get2UsersIdLikedTweetsResponse:
       type: object
-      description: A X List is a curated group of accounts.
-      required:
-      - id
-      - name
       properties:
-        created_at:
-          type: string
-          format: date-time
-        description:
-          type: string
-        follower_count:
-          type: integer
-        id:
-          $ref: '#/components/schemas/ListId'
-        member_count:
-          type: integer
-        name:
-          type: string
-          description: The name of this List.
-        owner_id:
-          $ref: '#/components/schemas/UserId'
-        private:
-          type: boolean
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
     Get2UsersPublicKeysResponse:
       type: object
       properties:
@@ -3074,6 +3570,194 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
+    Get2UsersIdBlockingResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    FullTextEntities:
+      type: object
+      properties:
+        annotations:
+          type: array
+          minItems: 1
+          items:
+            description: Annotation for entities based on the Tweet text.
+            allOf:
+            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
+            - type: object
+              description: Represents the data for the annotation.
+              properties:
+                normalized_text:
+                  type: string
+                  description: Text used to determine annotation.
+                  example: Barack Obama
+                probability:
+                  type: number
+                  description: Confidence factor for annotation type.
+                  minimum: 0
+                  maximum: 1
+                  format: double
+                type:
+                  type: string
+                  description: Annotation type.
+                  example: Person
+        cashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CashtagEntity'
+        hashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/HashtagEntity'
+        mentions:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/MentionEntity'
+        urls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UrlEntity'
+    PlaceId:
+      type: string
+      description: The identifier for this place.
+      example: f7eb2fa2fea288b1
+    Topic:
+      type: object
+      description: The topic of a Space, as selected by its creator.
+      required:
+      - id
+      - name
+      properties:
+        description:
+          type: string
+          description: The description of the given topic.
+          example: All about technology
+        id:
+          $ref: '#/components/schemas/TopicId'
+        name:
+          type: string
+          description: The name of the given topic.
+          example: Technology
+    NewestId:
+      type: string
+      description: The newest id in this response.
+    ListFollowedResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            following:
+              type: boolean
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    MentionEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/MentionFields'
+    ListPinnedRequest:
+      type: object
+      required:
+      - list_id
+      properties:
+        list_id:
+          $ref: '#/components/schemas/ListId'
+    UsersLikesCreateRequest:
+      type: object
+      required:
+      - tweet_id
+      properties:
+        tweet_id:
+          $ref: '#/components/schemas/TweetId'
+    MentionFields:
+      type: object
+      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
+      required:
+      - username
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        username:
+          $ref: '#/components/schemas/UserName'
+    UsersRetweetsCreateRequest:
+      type: object
+      required:
+      - tweet_id
+      properties:
+        tweet_id:
+          $ref: '#/components/schemas/TweetId'
+      additionalProperties: false
+    TweetText:
+      type: string
+      description: The content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    UserName:
+      type: string
+      description: The X handle (screen name) of this user.
+      pattern: ^[A-Za-z0-9_]{1,15}$
+    Get2UsersIdPinnedListsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/List'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    PollOption:
+      type: object
+      description: Describes a choice in a Poll object.
+      required:
+      - position
+      - label
+      - votes
+      properties:
+        label:
+          $ref: '#/components/schemas/PollOptionLabel'
+        position:
+          type: integer
+          description: Position of this choice in the poll.
+        votes:
+          type: integer
+          description: Number of users who voted for this choice.
     Tweet:
       type: object
       properties:
@@ -3355,325 +4039,53 @@ components:
         id: '1346889436626259968'
         text: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
         username: XDevelopers
-    PlaceId:
+    CommunityId:
       type: string
-      description: The identifier for this place.
-      example: f7eb2fa2fea288b1
-    ContextAnnotationEntityFields:
+      description: The unique identifier of this Community.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    BookmarkFolderId:
+      type: string
+      description: The unique identifier of this Bookmark folder.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    PublicKey:
       type: object
-      description: Represents the data for the context annotation entity.
-      required:
-      - id
+      description: A user's public key with associated key recovery configuration.
       properties:
-        description:
+        identity_public_key_signature:
           type: string
-          description: Description of the context annotation entity.
-        id:
+          description: DER-encoded signature proving the signing key is bound to the identity key (base64 encoded).
+        juicebox_config:
+          $ref: '#/components/schemas/ChatJuiceboxConfig'
+        public_key:
           type: string
-          description: The unique id for a context annotation entity.
-          pattern: ^[0-9]{1,19}$
-        name:
+          description: Identity public key (base64 encoded).
+        public_key_version:
           type: string
-          description: Name of the context annotation entity.
-    Get2ListsIdFollowersResponse:
+          description: Public key version.
+        signing_public_key:
+          type: string
+          description: Signing public key (base64 encoded).
+    UsersFollowingDeleteResponse:
       type: object
       properties:
         data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
+          type: object
+          properties:
+            following:
+              type: boolean
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Get2UsersIdPinnedListsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/List'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Media:
-      type: object
-      required:
-      - type
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        media_key:
-          $ref: '#/components/schemas/MediaKey'
-        type:
-          type: string
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-      discriminator:
-        propertyName: type
-        mapping:
-          animated_gif: '#/components/schemas/AnimatedGif'
-          photo: '#/components/schemas/Photo'
-          video: '#/components/schemas/Video'
-    UserName:
-      type: string
-      description: The X handle (screen name) of this user.
-      pattern: ^[A-Za-z0-9_]{1,15}$
-    MentionEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/MentionFields'
-    PaginationTokenLong:
-      type: string
-      description: A 'long' pagination token.
-      minLength: 1
-      maxLength: 19
-    Get2UsersRepostsOfMeResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Tweet'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
     NoteId:
       type: string
       description: The unique identifier of this Community Note.
       pattern: ^[0-9]{1,19}$
       example: '1146654567674912769'
-    Geo:
-      type: object
-      required:
-      - type
-      - bbox
-      - properties
-      properties:
-        bbox:
-          type: array
-          minItems: 4
-          maxItems: 4
-          items:
-            type: number
-            minimum: -180
-            maximum: 180
-            format: double
-          example:
-          - -105.193475
-          - 39.60973
-          - -105.053164
-          - 39.761974
-        geometry:
-          $ref: '#/components/schemas/Point'
-        properties:
-          type: object
-        type:
-          type: string
-          enum:
-          - Feature
-    UsersLikesCreateRequest:
-      type: object
-      required:
-      - tweet_id
-      properties:
-        tweet_id:
-          $ref: '#/components/schemas/TweetId'
-    PlaceType:
-      type: string
-      enum:
-      - poi
-      - neighborhood
-      - city
-      - admin
-      - country
-      - unknown
-      example: city
-    Get2UsersIdFollowersResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Get2TweetsIdLikingUsersResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    ResultCount:
-      type: integer
-      description: The number of results returned in this response.
-      format: int32
-    NextToken:
-      type: string
-      description: The next token.
-      minLength: 1
-    NewestId:
-      type: string
-      description: The newest id in this response.
-    FullTextEntities:
-      type: object
-      properties:
-        annotations:
-          type: array
-          minItems: 1
-          items:
-            description: Annotation for entities based on the Tweet text.
-            allOf:
-            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
-            - type: object
-              description: Represents the data for the annotation.
-              properties:
-                normalized_text:
-                  type: string
-                  description: Text used to determine annotation.
-                  example: Barack Obama
-                probability:
-                  type: number
-                  description: Confidence factor for annotation type.
-                  minimum: 0
-                  maximum: 1
-                  format: double
-                type:
-                  type: string
-                  description: Annotation type.
-                  example: Person
-        cashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/CashtagEntity'
-        hashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/HashtagEntity'
-        mentions:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/MentionEntity'
-        urls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/UrlEntity'
-    TweetText:
-      type: string
-      description: The content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    ListFollowedRequest:
-      type: object
-      required:
-      - list_id
-      properties:
-        list_id:
-          $ref: '#/components/schemas/ListId'
-    UsersRetweetsDeleteResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            retweeted:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    UsersDMBlockCreateResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            blocked:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    MediaHeight:
-      type: integer
-      description: The height of the media in pixels.
-      minimum: 0
-    Get2UsersIdOwnedListsResponse:
+    Get2UsersIdFollowedListsResponse:
       type: object
       properties:
         data:
@@ -3697,6 +4109,71 @@ components:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
+    BookmarkFolderPostsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                $ref: '#/components/schemas/TweetId'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+    Get2UsersSearchResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+    TweetWithheld:
+      type: object
+      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+      required:
+      - copyright
+      - country_codes
+      properties:
+        copyright:
+          type: boolean
+          description: Indicates if the content is being withheld for on the basis of copyright infringement.
+        country_codes:
+          type: array
+          description: Provides a list of countries where this content is not available.
+          minItems: 1
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/CountryCode'
+        scope:
+          type: string
+          description: Indicates whether the content being withheld is the `tweet` or a `user`.
+          enum:
+          - tweet
+          - user
     Get2UsersIdTweetsResponse:
       type: object
       properties:
@@ -3725,156 +4202,6 @@ components:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
-    UrlEntity:
-      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/UrlFields'
-    ListFollowedResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            following:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    TweetWithheld:
-      type: object
-      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
-      required:
-      - copyright
-      - country_codes
-      properties:
-        copyright:
-          type: boolean
-          description: Indicates if the content is being withheld for on the basis of copyright infringement.
-        country_codes:
-          type: array
-          description: Provides a list of countries where this content is not available.
-          minItems: 1
-          uniqueItems: true
-          items:
-            $ref: '#/components/schemas/CountryCode'
-        scope:
-          type: string
-          description: Indicates whether the content being withheld is the `tweet` or a `user`.
-          enum:
-          - tweet
-          - user
-    Get2UsersSearchResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-    Get2UsersIdMentionsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Tweet'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            newest_id:
-              $ref: '#/components/schemas/NewestId'
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            oldest_id:
-              $ref: '#/components/schemas/OldestId'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    ListId:
-      type: string
-      description: The unique identifier of this List.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    Url:
-      type: string
-      description: A validly formatted URL.
-      format: uri
-      example: https://developer.twitter.com/en/docs/twitter-api
-    PollId:
-      type: string
-      description: Unique identifier of this poll.
-      pattern: ^[0-9]{1,19}$
-      example: '1365059861688410112'
-    Get2UsersIdPublicKeysResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/PublicKey'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    Get2UsersIdFollowedListsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/List'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    MuteUserRequest:
-      type: object
-      required:
-      - target_user_id
-      properties:
-        target_user_id:
-          $ref: '#/components/schemas/UserId'
     ChatJuiceboxConfig:
       type: object
       description: Key recovery configuration for Juicebox-based key storage.
@@ -3916,88 +4243,27 @@ components:
                   token:
                     type: string
                     description: JWT auth token for the realm.
-    UserId:
-      type: string
-      description: Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
-      pattern: ^[0-9]{1,19}$
-      example: '2244994945'
-    CommunityId:
-      type: string
-      description: The unique identifier of this Community.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    EntityIndicesInclusiveInclusive:
-      type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
-      required:
-      - start
-      - end
-      properties:
-        end:
-          type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
-          minimum: 0
-          example: 61
-        start:
-          type: integer
-          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
-          minimum: 0
-          example: 50
-    UsersDMUnBlockCreateResponse:
+    BookmarkMutationResponse:
       type: object
       properties:
         data:
           type: object
           properties:
-            blocked:
+            bookmarked:
               type: boolean
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    BookmarkFolderPostsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/TweetId'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-    CashtagEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/CashtagFields'
-    MentionFields:
-      type: object
-      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
-      required:
-      - username
-      properties:
-        id:
-          $ref: '#/components/schemas/UserId'
-        username:
-          $ref: '#/components/schemas/UserName'
-    Get2UsersIdLikedTweetsResponse:
+    Get2TweetsIdLikingUsersResponse:
       type: object
       properties:
         data:
           type: array
           minItems: 1
           items:
-            $ref: '#/components/schemas/Tweet'
+            $ref: '#/components/schemas/User'
         errors:
           type: array
           minItems: 1
@@ -4014,25 +4280,37 @@ components:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
-    ContextAnnotationDomainFields:
-      type: object
-      description: Represents the data for the context annotation domain.
-      required:
-      - id
-      properties:
-        description:
-          type: string
-          description: Description of the context annotation domain.
-        id:
-          type: string
-          description: The unique id for a context annotation domain.
-          pattern: ^[0-9]{1,19}$
-        name:
-          type: string
-          description: Name of the context annotation domain.
-    OldestId:
+    UserId:
       type: string
-      description: The oldest id in this response.
+      description: Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
+      pattern: ^[0-9]{1,19}$
+      example: '2244994945'
+    Get2UsersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    UserSearchQueryVnext:
+      type: string
+      description: The the search string by which to query for users.
+      pattern: ^[A-Za-z0-9_' ]{1,50}$
+    MuteUserRequest:
+      type: object
+      required:
+      - target_user_id
+      properties:
+        target_user_id:
+          $ref: '#/components/schemas/UserId'
     UsersLikesDeleteResponse:
       type: object
       properties:
@@ -4046,239 +4324,17 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    UrlImage:
-      type: object
-      description: Represent the information for the URL image.
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        url:
-          $ref: '#/components/schemas/Url'
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-    BookmarkFolderId:
-      type: string
-      description: The unique identifier of this Bookmark folder.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    UsersFollowingDeleteResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            following:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    PaginationToken32:
-      type: string
-      description: A base32 pagination token.
-      minLength: 16
-    UserIdMatchesAuthenticatedUser:
-      type: string
-      description: Unique identifier of this User. The value must be the same as the authenticated user.
-      example: '2244994945'
-    PublicKey:
-      type: object
-      description: A user's public key with associated key recovery configuration.
-      properties:
-        identity_public_key_signature:
-          type: string
-          description: DER-encoded signature proving the signing key is bound to the identity key (base64 encoded).
-        juicebox_config:
-          $ref: '#/components/schemas/ChatJuiceboxConfig'
-        public_key:
-          type: string
-          description: Identity public key (base64 encoded).
-        public_key_version:
-          type: string
-          description: Public key version.
-        signing_public_key:
-          type: string
-          description: Signing public key (base64 encoded).
-    BookmarkAddRequest:
+    ListFollowedRequest:
       type: object
       required:
-      - tweet_id
+      - list_id
       properties:
-        tweet_id:
-          $ref: '#/components/schemas/TweetId'
-    PollOptionLabel:
+        list_id:
+          $ref: '#/components/schemas/ListId'
+    NextToken:
       type: string
-      description: The text of a poll choice.
+      description: The next token.
       minLength: 1
-      maxLength: 25
-    PreviousToken:
-      type: string
-      description: The previous token.
-      minLength: 1
-    Get2UsersIdBlockingResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Place:
-      type: object
-      required:
-      - id
-      - full_name
-      properties:
-        contained_within:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/PlaceId'
-        country:
-          type: string
-          description: The full name of the county in which this place exists.
-          example: United States
-        country_code:
-          $ref: '#/components/schemas/CountryCode'
-        full_name:
-          type: string
-          description: The full name of this place.
-          example: Lakewood, CO
-        geo:
-          $ref: '#/components/schemas/Geo'
-        id:
-          $ref: '#/components/schemas/PlaceId'
-        name:
-          type: string
-          description: The human readable name of this place.
-          example: Lakewood
-        place_type:
-          $ref: '#/components/schemas/PlaceType'
-    UsersFollowingCreateResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            following:
-              type: boolean
-            pending_follow:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    Expansions:
-      type: object
-      properties:
-        media:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Media'
-        places:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Place'
-        polls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Poll'
-        topics:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Topic'
-        tweets:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Tweet'
-        users:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-    PollOption:
-      type: object
-      description: Describes a choice in a Poll object.
-      required:
-      - position
-      - label
-      - votes
-      properties:
-        label:
-          $ref: '#/components/schemas/PollOptionLabel'
-        position:
-          type: integer
-          description: Position of this choice in the poll.
-        votes:
-          type: integer
-          description: Number of users who voted for this choice.
-    ReplySettingsWithVerifiedUsers:
-      type: string
-      description: Shows who can reply a Tweet. Fields returned are everyone, mentioned_users, subscribers, verified and following.
-      pattern: ^[A-Za-z]{1,12}$
-      enum:
-      - everyone
-      - mentionedUsers
-      - following
-      - other
-      - subscribers
-      - verified
-    CashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
-      required:
-      - tag
-      properties:
-        tag:
-          type: string
-          example: TWTR
-    Get2UsersIdAffiliatesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
     Get2UsersIdTimelinesReverseChronologicalResponse:
       type: object
       properties:
@@ -4307,92 +4363,7 @@ components:
               $ref: '#/components/schemas/PreviousToken'
             result_count:
               $ref: '#/components/schemas/ResultCount'
-    Get2UsersMeResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    MediaWidth:
-      type: integer
-      description: The width of the media in pixels.
-      minimum: 0
-    UserSearchQueryVnext:
-      type: string
-      description: The the search string by which to query for users.
-      pattern: ^[A-Za-z0-9_' ]{1,50}$
-    HashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
-      required:
-      - tag
-      properties:
-        tag:
-          type: string
-          description: The text of the Hashtag.
-          example: MondayMotivation
-    MediaKey:
-      type: string
-      description: The Media Key identifier for this attachment.
-      pattern: ^([0-9]+)_([0-9]+)$
-    TweetId:
-      type: string
-      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
-      pattern: ^[0-9]{1,19}$
-      example: '1346889436626259968'
-    Get2UsersByUsernameUsernameResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    BookmarkFoldersResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                $ref: '#/components/schemas/BookmarkFolderId'
-              name:
-                type: string
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-    UsersRetweetsCreateRequest:
-      type: object
-      required:
-      - tweet_id
-      properties:
-        tweet_id:
-          $ref: '#/components/schemas/TweetId'
-      additionalProperties: false
-    NoteTweetText:
-      type: string
-      description: The note content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    Get2UsersResponse:
+    Get2UsersIdMutingResponse:
       type: object
       properties:
         data:
@@ -4407,86 +4378,98 @@ components:
             $ref: '#/components/schemas/Problem'
         includes:
           $ref: '#/components/schemas/Expansions'
-    HttpStatusCode:
-      type: integer
-      description: HTTP Status Code.
-      minimum: 100
-      maximum: 599
-    DisplayTextRange:
-      type: array
-      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: integer
-        minimum: 0
-    ListUnpinResponse:
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    MuteUserMutationResponse:
       type: object
       properties:
         data:
           type: object
           properties:
-            pinned:
+            muting:
               type: boolean
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-    UsersFollowingCreateRequest:
+    ReplySettingsWithVerifiedUsers:
+      type: string
+      description: Shows who can reply a Tweet. Fields returned are everyone, mentioned_users, subscribers, verified and following.
+      pattern: ^[A-Za-z]{1,12}$
+      enum:
+      - everyone
+      - mentionedUsers
+      - following
+      - other
+      - subscribers
+      - verified
+    BookmarkAddRequest:
       type: object
       required:
-      - target_user_id
+      - tweet_id
       properties:
-        target_user_id:
-          $ref: '#/components/schemas/UserId'
-    Position:
-      type: array
-      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-      example:
-      - -105.18816086351444
-      - 40.247749999999996
-    TopicId:
-      type: string
-      description: Unique identifier of this Topic.
-    CountryCode:
-      type: string
-      description: A two-letter ISO 3166-1 alpha-2 country code.
-      pattern: ^[A-Z]{2}$
-      example: US
-    Error:
+        tweet_id:
+          $ref: '#/components/schemas/TweetId'
+    Get2UsersIdPublicKeysResponse:
       type: object
-      required:
-      - code
-      - message
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/PublicKey'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+    PollOptionLabel:
+      type: string
+      description: The text of a poll choice.
+      minLength: 1
+      maxLength: 25
+    Get2UsersMeResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    ListId:
+      type: string
+      description: The unique identifier of this List.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    ContextAnnotationEntityFields:
+      type: object
+      description: Represents the data for the context annotation entity.
+      required:
+      - id
+      properties:
+        description:
           type: string
+          description: Description of the context annotation entity.
+        id:
+          type: string
+          description: The unique id for a context annotation entity.
+          pattern: ^[0-9]{1,19}$
+        name:
+          type: string
+          description: Name of the context annotation entity.
   parameters:
-    ListExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [List](#List) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - owner_id
-        example:
-        - owner_id
-      explode: false
-      style: form
     PollFieldsParameter:
       name: poll.fields
       in: query
@@ -4511,6 +4494,32 @@ components:
         - id
         - options
         - voting_status
+      explode: false
+      style: form
+    PublicKeyFieldsParameter:
+      name: public_key.fields
+      in: query
+      description: A comma separated list of PublicKey fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a PublicKey object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - identity_public_key_signature
+          - juicebox_config
+          - public_key
+          - public_key_version
+          - signing_public_key
+        example:
+        - identity_public_key_signature
+        - juicebox_config
+        - public_key
+        - public_key_version
+        - signing_public_key
       explode: false
       style: form
     UserFieldsParameter:
@@ -4579,202 +4588,6 @@ components:
         - verified_followers_count
         - verified_type
         - withheld
-      explode: false
-      style: form
-    ListFieldsParameter:
-      name: list.fields
-      in: query
-      description: A comma separated list of List fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a List object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - created_at
-          - description
-          - follower_count
-          - id
-          - member_count
-          - name
-          - owner_id
-          - private
-        example:
-        - created_at
-        - description
-        - follower_count
-        - id
-        - member_count
-        - name
-        - owner_id
-        - private
-      explode: false
-      style: form
-    PlaceFieldsParameter:
-      name: place.fields
-      in: query
-      description: A comma separated list of Place fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Place object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - contained_within
-          - country
-          - country_code
-          - full_name
-          - geo
-          - id
-          - name
-          - place_type
-        example:
-        - contained_within
-        - country
-        - country_code
-        - full_name
-        - geo
-        - id
-        - name
-        - place_type
-      explode: false
-      style: form
-    MediaFieldsParameter:
-      name: media.fields
-      in: query
-      description: A comma separated list of Media fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Media object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - alt_text
-          - duration_ms
-          - height
-          - media_key
-          - non_public_metrics
-          - organic_metrics
-          - preview_image_url
-          - promoted_metrics
-          - public_metrics
-          - type
-          - url
-          - variants
-          - width
-        example:
-        - alt_text
-        - duration_ms
-        - height
-        - media_key
-        - non_public_metrics
-        - organic_metrics
-        - preview_image_url
-        - promoted_metrics
-        - public_metrics
-        - type
-        - url
-        - variants
-        - width
-      explode: false
-      style: form
-    TweetExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [Tweet](#Tweet) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - article.cover_media
-          - article.media_entities
-          - attachments.media_keys
-          - attachments.media_source_tweet
-          - attachments.poll_ids
-          - author_id
-          - edit_history_tweet_ids
-          - entities.mentions.username
-          - geo.place_id
-          - in_reply_to_user_id
-          - entities.note.mentions.username
-          - referenced_tweets.id
-          - referenced_tweets.id.attachments.media_keys
-          - referenced_tweets.id.author_id
-        example:
-        - article.cover_media
-        - article.media_entities
-        - attachments.media_keys
-        - attachments.media_source_tweet
-        - attachments.poll_ids
-        - author_id
-        - edit_history_tweet_ids
-        - entities.mentions.username
-        - geo.place_id
-        - in_reply_to_user_id
-        - entities.note.mentions.username
-        - referenced_tweets.id
-        - referenced_tweets.id.attachments.media_keys
-        - referenced_tweets.id.author_id
-      explode: false
-      style: form
-    UserExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [User](#User) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - affiliation.user_id
-          - most_recent_tweet_id
-          - pinned_tweet_id
-        example:
-        - affiliation.user_id
-        - most_recent_tweet_id
-        - pinned_tweet_id
-      explode: false
-      style: form
-    PublicKeyFieldsParameter:
-      name: public_key.fields
-      in: query
-      description: A comma separated list of PublicKey fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a PublicKey object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - identity_public_key_signature
-          - juicebox_config
-          - public_key
-          - public_key_version
-          - signing_public_key
-        example:
-        - identity_public_key_signature
-        - juicebox_config
-        - public_key
-        - public_key_version
-        - signing_public_key
       explode: false
       style: form
     TweetFieldsParameter:
@@ -4859,6 +4672,193 @@ components:
         - suggested_source_links_with_counts
         - text
         - withheld
+      explode: false
+      style: form
+    TweetExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [Tweet](#Tweet) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - article.cover_media
+          - article.media_entities
+          - attachments.media_keys
+          - attachments.media_source_tweet
+          - attachments.poll_ids
+          - author_id
+          - edit_history_tweet_ids
+          - entities.mentions.username
+          - geo.place_id
+          - in_reply_to_user_id
+          - entities.note.mentions.username
+          - referenced_tweets.id
+          - referenced_tweets.id.attachments.media_keys
+          - referenced_tweets.id.author_id
+        example:
+        - article.cover_media
+        - article.media_entities
+        - attachments.media_keys
+        - attachments.media_source_tweet
+        - attachments.poll_ids
+        - author_id
+        - edit_history_tweet_ids
+        - entities.mentions.username
+        - geo.place_id
+        - in_reply_to_user_id
+        - entities.note.mentions.username
+        - referenced_tweets.id
+        - referenced_tweets.id.attachments.media_keys
+        - referenced_tweets.id.author_id
+      explode: false
+      style: form
+    ListExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [List](#List) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - owner_id
+        example:
+        - owner_id
+      explode: false
+      style: form
+    MediaFieldsParameter:
+      name: media.fields
+      in: query
+      description: A comma separated list of Media fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Media object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - alt_text
+          - duration_ms
+          - height
+          - media_key
+          - non_public_metrics
+          - organic_metrics
+          - preview_image_url
+          - promoted_metrics
+          - public_metrics
+          - type
+          - url
+          - variants
+          - width
+        example:
+        - alt_text
+        - duration_ms
+        - height
+        - media_key
+        - non_public_metrics
+        - organic_metrics
+        - preview_image_url
+        - promoted_metrics
+        - public_metrics
+        - type
+        - url
+        - variants
+        - width
+      explode: false
+      style: form
+    UserExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [User](#User) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - affiliation.user_id
+          - most_recent_tweet_id
+          - pinned_tweet_id
+        example:
+        - affiliation.user_id
+        - most_recent_tweet_id
+        - pinned_tweet_id
+      explode: false
+      style: form
+    ListFieldsParameter:
+      name: list.fields
+      in: query
+      description: A comma separated list of List fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a List object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - created_at
+          - description
+          - follower_count
+          - id
+          - member_count
+          - name
+          - owner_id
+          - private
+        example:
+        - created_at
+        - description
+        - follower_count
+        - id
+        - member_count
+        - name
+        - owner_id
+        - private
+      explode: false
+      style: form
+    PlaceFieldsParameter:
+      name: place.fields
+      in: query
+      description: A comma separated list of Place fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Place object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - contained_within
+          - country
+          - country_code
+          - full_name
+          - geo
+          - id
+          - name
+          - place_type
+        example:
+        - contained_within
+        - country
+        - country_code
+        - full_name
+        - geo
+        - id
+        - name
+        - place_type
       explode: false
       style: form
   securitySchemes:

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: X API v2 available endpoints
   version: '2.166'
-  title: X API v2 Account Activity Direct Messages API
+  title: X API v2 Direct Messages API
   termsOfService: https://developer.x.com/en/developer-terms/agreement-and-policy.html
   contact:
     name: X Developers
@@ -510,28 +510,183 @@ paths:
                 $ref: '#/components/schemas/Problem'
 components:
   schemas:
-    HashtagEntity:
+    Get2DmEventsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DmEvent'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    CashtagEntity:
       allOf:
       - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/HashtagFields'
-    MediaId:
+      - $ref: '#/components/schemas/CashtagFields'
+    CreateTextMessageRequest:
+      type: object
+      required:
+      - text
+      properties:
+        attachments:
+          $ref: '#/components/schemas/DmAttachments'
+        text:
+          type: string
+          description: Text of the message.
+          minLength: 1
+    DmParticipants:
+      type: array
+      description: Participants for the DM Conversation.
+      minItems: 2
+      maxItems: 49
+      items:
+        $ref: '#/components/schemas/UserId'
+    ContextAnnotationDomainFields:
+      type: object
+      description: Represents the data for the context annotation domain.
+      required:
+      - id
+      properties:
+        description:
+          type: string
+          description: Description of the context annotation domain.
+        id:
+          type: string
+          description: The unique id for a context annotation domain.
+          pattern: ^[0-9]{1,19}$
+        name:
+          type: string
+          description: Name of the context annotation domain.
+    PreviousToken:
       type: string
-      description: The unique identifier of this Media.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    CreateDmEventResponse:
+      description: The previous token.
+      minLength: 1
+    Get2DmConversationsIdDmEventsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DmEvent'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    ResultCount:
+      type: integer
+      description: The number of results returned in this response.
+      format: int32
+    UserWithheld:
+      type: object
+      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+      required:
+      - country_codes
+      properties:
+        country_codes:
+          type: array
+          description: Provides a list of countries where this content is not available.
+          minItems: 1
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/CountryCode'
+        scope:
+          type: string
+          description: Indicates that the content being withheld is a `user`.
+          enum:
+          - user
+    CreateAttachmentsMessageRequest:
+      type: object
+      required:
+      - attachments
+      properties:
+        attachments:
+          $ref: '#/components/schemas/DmAttachments'
+        text:
+          type: string
+          description: Text of the message.
+          minLength: 1
+    HttpStatusCode:
+      type: integer
+      description: HTTP Status Code.
+      minimum: 100
+      maximum: 599
+    UrlEntity:
+      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/UrlFields'
+    CashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          example: TWTR
+    CreateDmConversationRequest:
+      type: object
+      required:
+      - conversation_type
+      - participant_ids
+      - message
+      properties:
+        conversation_type:
+          type: string
+          description: The conversation type that is being created.
+          enum:
+          - Group
+        message:
+          $ref: '#/components/schemas/CreateMessageRequest'
+        participant_ids:
+          $ref: '#/components/schemas/DmParticipants'
+      additionalProperties: false
+    HashtagFields:
+      type: object
+      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
+      required:
+      - tag
+      properties:
+        tag:
+          type: string
+          description: The text of the Hashtag.
+          example: MondayMotivation
+    DeleteDmResponse:
       type: object
       properties:
         data:
           type: object
-          required:
-          - dm_conversation_id
-          - dm_event_id
           properties:
-            dm_conversation_id:
-              $ref: '#/components/schemas/DmConversationId'
-            dm_event_id:
-              $ref: '#/components/schemas/DmEventId'
+            deleted:
+              type: boolean
         errors:
           type: array
           minItems: 1
@@ -683,35 +838,76 @@ components:
         name: X Dev
         protected: false
         username: TwitterDev
-    ContextAnnotation:
+    BinaryPayload:
+      type: string
+      description: Raw binary data bytes.
+      format: binary
+    Media:
       type: object
-      description: Annotation inferred from the Tweet text.
       required:
-      - domain
-      - entity
+      - type
       properties:
-        domain:
-          $ref: '#/components/schemas/ContextAnnotationDomainFields'
-        entity:
-          $ref: '#/components/schemas/ContextAnnotationEntityFields'
-    UserWithheld:
-      type: object
-      description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
-      required:
-      - country_codes
-      properties:
-        country_codes:
-          type: array
-          description: Provides a list of countries where this content is not available.
-          minItems: 1
-          uniqueItems: true
-          items:
-            $ref: '#/components/schemas/CountryCode'
-        scope:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        media_key:
+          $ref: '#/components/schemas/MediaKey'
+        type:
           type: string
-          description: Indicates that the content being withheld is a `user`.
-          enum:
-          - user
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+      discriminator:
+        propertyName: type
+        mapping:
+          animated_gif: '#/components/schemas/AnimatedGif'
+          photo: '#/components/schemas/Photo'
+          video: '#/components/schemas/Video'
+    TweetId:
+      type: string
+      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
+      pattern: ^[0-9]{1,19}$
+      example: '1346889436626259968'
+    Url:
+      type: string
+      description: A validly formatted URL.
+      format: uri
+      example: https://developer.twitter.com/en/docs/twitter-api
+    MediaHeight:
+      type: integer
+      description: The height of the media in pixels.
+      minimum: 0
+    Expansions:
+      type: object
+      properties:
+        media:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Media'
+        places:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Place'
+        polls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Poll'
+        topics:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Topic'
+        tweets:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Tweet'
+        users:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/User'
     Problem:
       type: object
       description: An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).
@@ -748,9 +944,131 @@ components:
           https://api.twitter.com/2/problems/streaming-connection: '#/components/schemas/ConnectionExceptionProblem'
           https://api.twitter.com/2/problems/unsupported-authentication: '#/components/schemas/UnsupportedAuthenticationProblem'
           https://api.twitter.com/2/problems/usage-capped: '#/components/schemas/UsageCapExceededProblem'
-    DmEventId:
+    ContextAnnotation:
+      type: object
+      description: Annotation inferred from the Tweet text.
+      required:
+      - domain
+      - entity
+      properties:
+        domain:
+          $ref: '#/components/schemas/ContextAnnotationDomainFields'
+        entity:
+          $ref: '#/components/schemas/ContextAnnotationEntityFields'
+    DisplayTextRange:
+      type: array
+      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: integer
+        minimum: 0
+    UrlImage:
+      type: object
+      description: Represent the information for the URL image.
+      properties:
+        height:
+          $ref: '#/components/schemas/MediaHeight'
+        url:
+          $ref: '#/components/schemas/Url'
+        width:
+          $ref: '#/components/schemas/MediaWidth'
+    TopicId:
       type: string
-      description: Unique identifier of a DM Event.
+      description: Unique identifier of this Topic.
+    NoteTweetText:
+      type: string
+      description: The note content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    PaginationToken32:
+      type: string
+      description: A base32 pagination token.
+      minLength: 16
+    EntityIndicesInclusiveExclusive:
+      type: object
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      required:
+      - start
+      - end
+      properties:
+        end:
+          type: integer
+          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          minimum: 0
+          example: 61
+        start:
+          type: integer
+          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
+          minimum: 0
+          example: 50
+    MediaWidth:
+      type: integer
+      description: The width of the media in pixels.
+      minimum: 0
+    PlaceType:
+      type: string
+      enum:
+      - poi
+      - neighborhood
+      - city
+      - admin
+      - country
+      - unknown
+      example: city
+    PollId:
+      type: string
+      description: Unique identifier of this poll.
+      pattern: ^[0-9]{1,19}$
+      example: '1365059861688410112'
+    Geo:
+      type: object
+      required:
+      - type
+      - bbox
+      - properties
+      properties:
+        bbox:
+          type: array
+          minItems: 4
+          maxItems: 4
+          items:
+            type: number
+            minimum: -180
+            maximum: 180
+            format: double
+          example:
+          - -105.193475
+          - 39.60973
+          - -105.053164
+          - 39.761974
+        geometry:
+          $ref: '#/components/schemas/Point'
+        properties:
+          type: object
+        type:
+          type: string
+          enum:
+          - Feature
+    Get2DmEventsEventIdResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DmEvent'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+    UrlEntityDm:
+      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/UrlFields'
+    MediaId:
+      type: string
+      description: The unique identifier of this Media.
       pattern: ^[0-9]{1,19}$
       example: '1146654567674912769'
     Poll:
@@ -781,6 +1099,81 @@ components:
           enum:
           - open
           - closed
+    Get2DmConversationsWithParticipantIdDmEventsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DmEvent'
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/Problem'
+        includes:
+          $ref: '#/components/schemas/Expansions'
+        meta:
+          type: object
+          properties:
+            next_token:
+              $ref: '#/components/schemas/NextToken'
+            previous_token:
+              $ref: '#/components/schemas/PreviousToken'
+            result_count:
+              $ref: '#/components/schemas/ResultCount'
+    CreateMessageRequest:
+      anyOf:
+      - $ref: '#/components/schemas/CreateTextMessageRequest'
+      - $ref: '#/components/schemas/CreateAttachmentsMessageRequest'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    DmEventId:
+      type: string
+      description: Unique identifier of a DM Event.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    Place:
+      type: object
+      required:
+      - id
+      - full_name
+      properties:
+        contained_within:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/PlaceId'
+        country:
+          type: string
+          description: The full name of the county in which this place exists.
+          example: United States
+        country_code:
+          $ref: '#/components/schemas/CountryCode'
+        full_name:
+          type: string
+          description: The full name of this place.
+          example: Lakewood, CO
+        geo:
+          $ref: '#/components/schemas/Geo'
+        id:
+          $ref: '#/components/schemas/PlaceId'
+        name:
+          type: string
+          description: The human readable name of this place.
+          example: Lakewood
+        place_type:
+          $ref: '#/components/schemas/PlaceType'
     Point:
       type: object
       description: A [GeoJson Point](https://tools.ietf.org/html/rfc7946#section-3.1.2) geometry object.
@@ -795,23 +1188,15 @@ components:
           enum:
           - Point
           example: Point
-    Topic:
-      type: object
-      description: The topic of a Space, as selected by its creator.
-      required:
-      - id
-      - name
-      properties:
-        description:
-          type: string
-          description: The description of the given topic.
-          example: All about technology
-        id:
-          $ref: '#/components/schemas/TopicId'
-        name:
-          type: string
-          description: The name of the given topic.
-          example: Technology
+    CountryCode:
+      type: string
+      description: A two-letter ISO 3166-1 alpha-2 country code.
+      pattern: ^[A-Z]{2}$
+      example: US
+    MediaKey:
+      type: string
+      description: The Media Key identifier for this attachment.
+      pattern: ^([0-9]+)_([0-9]+)$
     UrlFields:
       type: object
       description: Represent the portion of text recognized as a URL.
@@ -848,16 +1233,16 @@ components:
           example: https://twittercommunity.com/t/introducing-the-v2-follow-lookup-endpoints/147118
         url:
           $ref: '#/components/schemas/Url'
-    EntityIndicesInclusiveExclusive:
+    EntityIndicesInclusiveInclusive:
       type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is exclusive.
+      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
       required:
       - start
       - end
       properties:
         end:
           type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is exclusive.
+          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
           minimum: 0
           example: 61
         start:
@@ -865,6 +1250,204 @@ components:
           description: Index (zero-based) at which position this entity starts.  The index is inclusive.
           minimum: 0
           example: 50
+    Position:
+      type: array
+      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
+      example:
+      - -105.18816086351444
+      - 40.247749999999996
+    HashtagEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/HashtagFields'
+    DmResourceId:
+      type: string
+      description: The resource identifier of the media file, including file extension.
+      pattern: ^[a-zA-Z0-9_.-]{1,50}$
+      example: tJg5kUG5RKPi3jNi.jpg
+    FullTextEntities:
+      type: object
+      properties:
+        annotations:
+          type: array
+          minItems: 1
+          items:
+            description: Annotation for entities based on the Tweet text.
+            allOf:
+            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
+            - type: object
+              description: Represents the data for the annotation.
+              properties:
+                normalized_text:
+                  type: string
+                  description: Text used to determine annotation.
+                  example: Barack Obama
+                probability:
+                  type: number
+                  description: Confidence factor for annotation type.
+                  minimum: 0
+                  maximum: 1
+                  format: double
+                type:
+                  type: string
+                  description: Annotation type.
+                  example: Person
+        cashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CashtagEntity'
+        hashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/HashtagEntity'
+        mentions:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/MentionEntity'
+        urls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UrlEntity'
+    PlaceId:
+      type: string
+      description: The identifier for this place.
+      example: f7eb2fa2fea288b1
+    Topic:
+      type: object
+      description: The topic of a Space, as selected by its creator.
+      required:
+      - id
+      - name
+      properties:
+        description:
+          type: string
+          description: The description of the given topic.
+          example: All about technology
+        id:
+          $ref: '#/components/schemas/TopicId'
+        name:
+          type: string
+          description: The name of the given topic.
+          example: Technology
+    MentionEntity:
+      allOf:
+      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
+      - $ref: '#/components/schemas/MentionFields'
+    DmEvent:
+      type: object
+      required:
+      - id
+      - event_type
+      properties:
+        attachments:
+          type: object
+          description: Specifies the type of attachments (if any) present in this DM.
+          properties:
+            card_ids:
+              type: array
+              description: A list of card IDs (if cards are attached).
+              minItems: 1
+              items:
+                type: string
+            media_keys:
+              type: array
+              description: A list of Media Keys for each one of the media attachments (if media are attached).
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/MediaKey'
+        cashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CashtagEntity'
+        created_at:
+          type: string
+          format: date-time
+        dm_conversation_id:
+          $ref: '#/components/schemas/DmConversationId'
+        event_type:
+          type: string
+          example: MessageCreate
+        hashtags:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/HashtagEntity'
+        id:
+          $ref: '#/components/schemas/DmEventId'
+        mentions:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/MentionEntity'
+        participant_ids:
+          type: array
+          description: A list of participants for a ParticipantsJoin or ParticipantsLeave event_type.
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UserId'
+        referenced_tweets:
+          type: array
+          description: A list of Posts this DM refers to.
+          minItems: 1
+          items:
+            type: object
+            required:
+            - id
+            properties:
+              id:
+                $ref: '#/components/schemas/TweetId'
+        sender_id:
+          $ref: '#/components/schemas/UserId'
+        text:
+          type: string
+        urls:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UrlEntityDm'
+    MentionFields:
+      type: object
+      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
+      required:
+      - username
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        username:
+          $ref: '#/components/schemas/UserName'
+    TweetText:
+      type: string
+      description: The content of the Tweet.
+      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
+    UserName:
+      type: string
+      description: The X handle (screen name) of this user.
+      pattern: ^[A-Za-z0-9_]{1,15}$
+    PollOption:
+      type: object
+      description: Describes a choice in a Poll object.
+      required:
+      - position
+      - label
+      - votes
+      properties:
+        label:
+          $ref: '#/components/schemas/PollOptionLabel'
+        position:
+          type: integer
+          description: Position of this choice in the poll.
+        votes:
+          type: integer
+          description: Number of users who voted for this choice.
     Tweet:
       type: object
       properties:
@@ -1146,200 +1729,21 @@ components:
         id: '1346889436626259968'
         text: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
         username: XDevelopers
-    CreateMessageRequest:
-      anyOf:
-      - $ref: '#/components/schemas/CreateTextMessageRequest'
-      - $ref: '#/components/schemas/CreateAttachmentsMessageRequest'
-    PlaceId:
+    CommunityId:
       type: string
-      description: The identifier for this place.
-      example: f7eb2fa2fea288b1
-    ContextAnnotationEntityFields:
-      type: object
-      description: Represents the data for the context annotation entity.
-      required:
-      - id
-      properties:
-        description:
-          type: string
-          description: Description of the context annotation entity.
-        id:
-          type: string
-          description: The unique id for a context annotation entity.
-          pattern: ^[0-9]{1,19}$
-        name:
-          type: string
-          description: Name of the context annotation entity.
-    Media:
-      type: object
-      required:
-      - type
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        media_key:
-          $ref: '#/components/schemas/MediaKey'
-        type:
-          type: string
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-      discriminator:
-        propertyName: type
-        mapping:
-          animated_gif: '#/components/schemas/AnimatedGif'
-          photo: '#/components/schemas/Photo'
-          video: '#/components/schemas/Video'
-    UserName:
-      type: string
-      description: The X handle (screen name) of this user.
-      pattern: ^[A-Za-z0-9_]{1,15}$
-    MentionEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/MentionFields'
+      description: The unique identifier of this Community.
+      pattern: ^[0-9]{1,19}$
+      example: '1146654567674912769'
+    DmAttachments:
+      type: array
+      description: Attachments to a DM Event.
+      items:
+        $ref: '#/components/schemas/DmMediaAttachment'
     NoteId:
       type: string
       description: The unique identifier of this Community Note.
       pattern: ^[0-9]{1,19}$
       example: '1146654567674912769'
-    Geo:
-      type: object
-      required:
-      - type
-      - bbox
-      - properties
-      properties:
-        bbox:
-          type: array
-          minItems: 4
-          maxItems: 4
-          items:
-            type: number
-            minimum: -180
-            maximum: 180
-            format: double
-          example:
-          - -105.193475
-          - 39.60973
-          - -105.053164
-          - 39.761974
-        geometry:
-          $ref: '#/components/schemas/Point'
-        properties:
-          type: object
-        type:
-          type: string
-          enum:
-          - Feature
-    PlaceType:
-      type: string
-      enum:
-      - poi
-      - neighborhood
-      - city
-      - admin
-      - country
-      - unknown
-      example: city
-    ResultCount:
-      type: integer
-      description: The number of results returned in this response.
-      format: int32
-    Get2DmConversationsWithParticipantIdDmEventsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/DmEvent'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    NextToken:
-      type: string
-      description: The next token.
-      minLength: 1
-    FullTextEntities:
-      type: object
-      properties:
-        annotations:
-          type: array
-          minItems: 1
-          items:
-            description: Annotation for entities based on the Tweet text.
-            allOf:
-            - $ref: '#/components/schemas/EntityIndicesInclusiveInclusive'
-            - type: object
-              description: Represents the data for the annotation.
-              properties:
-                normalized_text:
-                  type: string
-                  description: Text used to determine annotation.
-                  example: Barack Obama
-                probability:
-                  type: number
-                  description: Confidence factor for annotation type.
-                  minimum: 0
-                  maximum: 1
-                  format: double
-                type:
-                  type: string
-                  description: Annotation type.
-                  example: Person
-        cashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/CashtagEntity'
-        hashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/HashtagEntity'
-        mentions:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/MentionEntity'
-        urls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/UrlEntity'
-    TweetText:
-      type: string
-      description: The content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    DmMediaAttachment:
-      type: object
-      required:
-      - media_id
-      properties:
-        media_id:
-          $ref: '#/components/schemas/MediaId'
-    MediaHeight:
-      type: integer
-      description: The height of the media in pixels.
-      minimum: 0
-    UrlEntity:
-      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/UrlFields'
     TweetWithheld:
       type: object
       description: Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
@@ -1363,342 +1767,40 @@ components:
           enum:
           - tweet
           - user
-    Url:
-      type: string
-      description: A validly formatted URL.
-      format: uri
-      example: https://developer.twitter.com/en/docs/twitter-api
-    PollId:
-      type: string
-      description: Unique identifier of this poll.
-      pattern: ^[0-9]{1,19}$
-      example: '1365059861688410112'
-    DmAttachments:
-      type: array
-      description: Attachments to a DM Event.
-      items:
-        $ref: '#/components/schemas/DmMediaAttachment'
-    CreateDmConversationRequest:
-      type: object
-      required:
-      - conversation_type
-      - participant_ids
-      - message
-      properties:
-        conversation_type:
-          type: string
-          description: The conversation type that is being created.
-          enum:
-          - Group
-        message:
-          $ref: '#/components/schemas/CreateMessageRequest'
-        participant_ids:
-          $ref: '#/components/schemas/DmParticipants'
-      additionalProperties: false
-    DmParticipants:
-      type: array
-      description: Participants for the DM Conversation.
-      minItems: 2
-      maxItems: 49
-      items:
-        $ref: '#/components/schemas/UserId'
     UserId:
       type: string
       description: Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
       pattern: ^[0-9]{1,19}$
       example: '2244994945'
-    Get2DmEventsEventIdResponse:
+    DmMediaAttachment:
+      type: object
+      required:
+      - media_id
+      properties:
+        media_id:
+          $ref: '#/components/schemas/MediaId'
+    CreateDmEventResponse:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/DmEvent'
+          type: object
+          required:
+          - dm_conversation_id
+          - dm_event_id
+          properties:
+            dm_conversation_id:
+              $ref: '#/components/schemas/DmConversationId'
+            dm_event_id:
+              $ref: '#/components/schemas/DmEventId'
         errors:
           type: array
           minItems: 1
           items:
             $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-    CommunityId:
+    NextToken:
       type: string
-      description: The unique identifier of this Community.
-      pattern: ^[0-9]{1,19}$
-      example: '1146654567674912769'
-    EntityIndicesInclusiveInclusive:
-      type: object
-      description: Represent a boundary range (start and end index) for a recognized entity (for example a hashtag or a mention). `start` must be smaller than `end`.  The start index is inclusive, the end index is inclusive.
-      required:
-      - start
-      - end
-      properties:
-        end:
-          type: integer
-          description: Index (zero-based) at which position this entity ends.  The index is inclusive.
-          minimum: 0
-          example: 61
-        start:
-          type: integer
-          description: Index (zero-based) at which position this entity starts.  The index is inclusive.
-          minimum: 0
-          example: 50
-    CashtagEntity:
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/CashtagFields'
-    DeleteDmResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            deleted:
-              type: boolean
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-    MentionFields:
-      type: object
-      description: Represent the portion of text recognized as a User mention, and its start and end position within the text.
-      required:
-      - username
-      properties:
-        id:
-          $ref: '#/components/schemas/UserId'
-        username:
-          $ref: '#/components/schemas/UserName'
-    ContextAnnotationDomainFields:
-      type: object
-      description: Represents the data for the context annotation domain.
-      required:
-      - id
-      properties:
-        description:
-          type: string
-          description: Description of the context annotation domain.
-        id:
-          type: string
-          description: The unique id for a context annotation domain.
-          pattern: ^[0-9]{1,19}$
-        name:
-          type: string
-          description: Name of the context annotation domain.
-    DmEvent:
-      type: object
-      required:
-      - id
-      - event_type
-      properties:
-        attachments:
-          type: object
-          description: Specifies the type of attachments (if any) present in this DM.
-          properties:
-            card_ids:
-              type: array
-              description: A list of card IDs (if cards are attached).
-              minItems: 1
-              items:
-                type: string
-            media_keys:
-              type: array
-              description: A list of Media Keys for each one of the media attachments (if media are attached).
-              minItems: 1
-              items:
-                $ref: '#/components/schemas/MediaKey'
-        cashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/CashtagEntity'
-        created_at:
-          type: string
-          format: date-time
-        dm_conversation_id:
-          $ref: '#/components/schemas/DmConversationId'
-        event_type:
-          type: string
-          example: MessageCreate
-        hashtags:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/HashtagEntity'
-        id:
-          $ref: '#/components/schemas/DmEventId'
-        mentions:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/MentionEntity'
-        participant_ids:
-          type: array
-          description: A list of participants for a ParticipantsJoin or ParticipantsLeave event_type.
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/UserId'
-        referenced_tweets:
-          type: array
-          description: A list of Posts this DM refers to.
-          minItems: 1
-          items:
-            type: object
-            required:
-            - id
-            properties:
-              id:
-                $ref: '#/components/schemas/TweetId'
-        sender_id:
-          $ref: '#/components/schemas/UserId'
-        text:
-          type: string
-        urls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/UrlEntityDm'
-    UrlImage:
-      type: object
-      description: Represent the information for the URL image.
-      properties:
-        height:
-          $ref: '#/components/schemas/MediaHeight'
-        url:
-          $ref: '#/components/schemas/Url'
-        width:
-          $ref: '#/components/schemas/MediaWidth'
-    PaginationToken32:
-      type: string
-      description: A base32 pagination token.
-      minLength: 16
-    CreateTextMessageRequest:
-      type: object
-      required:
-      - text
-      properties:
-        attachments:
-          $ref: '#/components/schemas/DmAttachments'
-        text:
-          type: string
-          description: Text of the message.
-          minLength: 1
-    PollOptionLabel:
-      type: string
-      description: The text of a poll choice.
+      description: The next token.
       minLength: 1
-      maxLength: 25
-    PreviousToken:
-      type: string
-      description: The previous token.
-      minLength: 1
-    BinaryPayload:
-      type: string
-      description: Raw binary data bytes.
-      format: binary
-    Place:
-      type: object
-      required:
-      - id
-      - full_name
-      properties:
-        contained_within:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/PlaceId'
-        country:
-          type: string
-          description: The full name of the county in which this place exists.
-          example: United States
-        country_code:
-          $ref: '#/components/schemas/CountryCode'
-        full_name:
-          type: string
-          description: The full name of this place.
-          example: Lakewood, CO
-        geo:
-          $ref: '#/components/schemas/Geo'
-        id:
-          $ref: '#/components/schemas/PlaceId'
-        name:
-          type: string
-          description: The human readable name of this place.
-          example: Lakewood
-        place_type:
-          $ref: '#/components/schemas/PlaceType'
-    Get2DmConversationsIdDmEventsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/DmEvent'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    Expansions:
-      type: object
-      properties:
-        media:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Media'
-        places:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Place'
-        polls:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Poll'
-        topics:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Topic'
-        tweets:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Tweet'
-        users:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/User'
-    PollOption:
-      type: object
-      description: Describes a choice in a Poll object.
-      required:
-      - position
-      - label
-      - votes
-      properties:
-        label:
-          $ref: '#/components/schemas/PollOptionLabel'
-        position:
-          type: integer
-          description: Position of this choice in the poll.
-        votes:
-          type: integer
-          description: Number of users who voted for this choice.
     ReplySettingsWithVerifiedUsers:
       type: string
       description: Shows who can reply a Tweet. Fields returned are everyone, mentioned_users, subscribers, verified and following.
@@ -1710,134 +1812,32 @@ components:
       - other
       - subscribers
       - verified
-    CashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Cashtag, and its start and end position within the text.
-      required:
-      - tag
-      properties:
-        tag:
-          type: string
-          example: TWTR
     DmConversationId:
       type: string
       description: Unique identifier of a DM conversation. This can either be a numeric string, or a pair of numeric strings separated by a '-' character in the case of one-on-one DM Conversations.
       pattern: ^([0-9]{1,19}-[0-9]{1,19}|[0-9]{15,19})$
       example: 123123123-456456456
-    MediaWidth:
-      type: integer
-      description: The width of the media in pixels.
-      minimum: 0
-    Get2DmEventsResponse:
+    PollOptionLabel:
+      type: string
+      description: The text of a poll choice.
+      minLength: 1
+      maxLength: 25
+    ContextAnnotationEntityFields:
       type: object
-      properties:
-        data:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/DmEvent'
-        errors:
-          type: array
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/Problem'
-        includes:
-          $ref: '#/components/schemas/Expansions'
-        meta:
-          type: object
-          properties:
-            next_token:
-              $ref: '#/components/schemas/NextToken'
-            previous_token:
-              $ref: '#/components/schemas/PreviousToken'
-            result_count:
-              $ref: '#/components/schemas/ResultCount'
-    HashtagFields:
-      type: object
-      description: Represent the portion of text recognized as a Hashtag, and its start and end position within the text.
+      description: Represents the data for the context annotation entity.
       required:
-      - tag
+      - id
       properties:
-        tag:
+        description:
           type: string
-          description: The text of the Hashtag.
-          example: MondayMotivation
-    MediaKey:
-      type: string
-      description: The Media Key identifier for this attachment.
-      pattern: ^([0-9]+)_([0-9]+)$
-    TweetId:
-      type: string
-      description: Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.
-      pattern: ^[0-9]{1,19}$
-      example: '1346889436626259968'
-    CreateAttachmentsMessageRequest:
-      type: object
-      required:
-      - attachments
-      properties:
-        attachments:
-          $ref: '#/components/schemas/DmAttachments'
-        text:
+          description: Description of the context annotation entity.
+        id:
           type: string
-          description: Text of the message.
-          minLength: 1
-    NoteTweetText:
-      type: string
-      description: The note content of the Tweet.
-      example: Learn how to use the user Tweet timeline and user mention timeline endpoints in the X API v2 to explore Tweet\u2026 https:\/\/t.co\/56a0vZUx7i
-    HttpStatusCode:
-      type: integer
-      description: HTTP Status Code.
-      minimum: 100
-      maximum: 599
-    DisplayTextRange:
-      type: array
-      description: Represent a boundary range (start and end zero-based indices) for the portion of text that is displayed for a post. `start` must be smaller than `end`. The start index is inclusive, the end index is exclusive.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: integer
-        minimum: 0
-    UrlEntityDm:
-      description: Represent the portion of text recognized as a URL, and its start and end position within the text.
-      allOf:
-      - $ref: '#/components/schemas/EntityIndicesInclusiveExclusive'
-      - $ref: '#/components/schemas/UrlFields'
-    DmResourceId:
-      type: string
-      description: The resource identifier of the media file, including file extension.
-      pattern: ^[a-zA-Z0-9_.-]{1,50}$
-      example: tJg5kUG5RKPi3jNi.jpg
-    Position:
-      type: array
-      description: A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
-      minItems: 2
-      maxItems: 2
-      items:
-        type: number
-      example:
-      - -105.18816086351444
-      - 40.247749999999996
-    TopicId:
-      type: string
-      description: Unique identifier of this Topic.
-    CountryCode:
-      type: string
-      description: A two-letter ISO 3166-1 alpha-2 country code.
-      pattern: ^[A-Z]{2}$
-      example: US
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
+          description: The unique id for a context annotation entity.
+          pattern: ^[0-9]{1,19}$
+        name:
           type: string
+          description: Name of the context annotation entity.
   parameters:
     UserFieldsParameter:
       name: user.fields
@@ -1905,107 +1905,6 @@ components:
         - verified_followers_count
         - verified_type
         - withheld
-      explode: false
-      style: form
-    MediaFieldsParameter:
-      name: media.fields
-      in: query
-      description: A comma separated list of Media fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a Media object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - alt_text
-          - duration_ms
-          - height
-          - media_key
-          - non_public_metrics
-          - organic_metrics
-          - preview_image_url
-          - promoted_metrics
-          - public_metrics
-          - type
-          - url
-          - variants
-          - width
-        example:
-        - alt_text
-        - duration_ms
-        - height
-        - media_key
-        - non_public_metrics
-        - organic_metrics
-        - preview_image_url
-        - promoted_metrics
-        - public_metrics
-        - type
-        - url
-        - variants
-        - width
-      explode: false
-      style: form
-    DmEventFieldsParameter:
-      name: dm_event.fields
-      in: query
-      description: A comma separated list of DmEvent fields to display.
-      required: false
-      schema:
-        type: array
-        description: The fields available for a DmEvent object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - attachments
-          - created_at
-          - dm_conversation_id
-          - entities
-          - event_type
-          - id
-          - participant_ids
-          - referenced_tweets
-          - sender_id
-          - text
-        example:
-        - attachments
-        - created_at
-        - dm_conversation_id
-        - entities
-        - event_type
-        - id
-        - participant_ids
-        - referenced_tweets
-        - sender_id
-        - text
-      explode: false
-      style: form
-    DmEventExpansionsParameter:
-      name: expansions
-      in: query
-      description: A comma separated list of fields to expand.
-      schema:
-        type: array
-        description: The list of fields you can expand for a [DmEvent](#DmEvent) object. If the field has an ID, it can be expanded into a full object.
-        minItems: 1
-        uniqueItems: true
-        items:
-          type: string
-          enum:
-          - attachments.media_keys
-          - participant_ids
-          - referenced_tweets.id
-          - sender_id
-        example:
-        - attachments.media_keys
-        - participant_ids
-        - referenced_tweets.id
-        - sender_id
       explode: false
       style: form
     TweetFieldsParameter:
@@ -2090,6 +1989,107 @@ components:
         - suggested_source_links_with_counts
         - text
         - withheld
+      explode: false
+      style: form
+    DmEventExpansionsParameter:
+      name: expansions
+      in: query
+      description: A comma separated list of fields to expand.
+      schema:
+        type: array
+        description: The list of fields you can expand for a [DmEvent](#DmEvent) object. If the field has an ID, it can be expanded into a full object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - attachments.media_keys
+          - participant_ids
+          - referenced_tweets.id
+          - sender_id
+        example:
+        - attachments.media_keys
+        - participant_ids
+        - referenced_tweets.id
+        - sender_id
+      explode: false
+      style: form
+    MediaFieldsParameter:
+      name: media.fields
+      in: query
+      description: A comma separated list of Media fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a Media object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - alt_text
+          - duration_ms
+          - height
+          - media_key
+          - non_public_metrics
+          - organic_metrics
+          - preview_image_url
+          - promoted_metrics
+          - public_metrics
+          - type
+          - url
+          - variants
+          - width
+        example:
+        - alt_text
+        - duration_ms
+        - height
+        - media_key
+        - non_public_metrics
+        - organic_metrics
+        - preview_image_url
+        - promoted_metrics
+        - public_metrics
+        - type
+        - url
+        - variants
+        - width
+      explode: false
+      style: form
+    DmEventFieldsParameter:
+      name: dm_event.fields
+      in: query
+      description: A comma separated list of DmEvent fields to display.
+      required: false
+      schema:
+        type: array
+        description: The fields available for a DmEvent object.
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+          enum:
+          - attachments
+          - created_at
+          - dm_conversation_id
+          - entities
+          - event_type
+          - id
+          - participant_ids
+          - referenced_tweets
+          - sender_id
+          - text
+        example:
+        - attachments
+        - created_at
+        - dm_conversation_id
+        - entities
+        - event_type
+        - id
+        - participant_ids
+        - referenced_tweets
+        - sender_id
+        - text
       explode: false
       style: form
   securitySchemes:
